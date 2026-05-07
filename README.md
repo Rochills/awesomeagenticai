@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/wenyuchiou-awesome-agentic-ai-zh-badge.png)](https://mseep.ai/app/wenyuchiou-awesome-agentic-ai-zh)
+
 <div align="right">
   <strong>繁體中文</strong> | <a href="./README.zh-CN.md">简体中文</a> | <a href="./README.en.md">English</a>
 </div>
