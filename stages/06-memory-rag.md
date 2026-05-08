@@ -39,7 +39,7 @@
 - **語意切割（Semantic Chunking）**：依 embedding 或語意變化切，也就是當前區塊與前一個區塊的語意相似度出現差異。適合長文件，但成本與複雜度較高。
 - **混合策略（Hybrid）**：依照應用場景，思考不同文件結構該怎麼混搭切法。例如，一篇論文可能要保留章節、表格、公式與引用脈絡。
 
-![Chunking 策略流程](../resources/diagrams/chunking-strategies.svg)
+![Chunking 策略流程](../resources/diagrams/chunking-strategies.jpg)
 
 第一次做 RAG 時，不要一開始就追求複雜切法。LangChain 文件建議多數情境先從 `RecursiveCharacterTextSplitter` 開始。
 

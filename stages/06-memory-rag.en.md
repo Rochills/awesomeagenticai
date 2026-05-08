@@ -38,7 +38,7 @@ Common strategies:
 - **Semantic Chunking**: split by embedding distance or semantic shifts. In practice, this means splitting when the current chunk and previous chunk become semantically different. Useful for long documents, but more costly and complex.
 - **Hybrid**: choose and combine strategies based on the application and document structure. For example, a paper may need to preserve sections, tables, formulas, and citation context.
 
-![Chunking strategy flow](../resources/diagrams/chunking-strategies.svg)
+![Chunking strategy flow](../resources/diagrams/chunking-strategies.jpg)
 
 For your first RAG app, do not start with a clever splitter. LangChain docs recommend starting with `RecursiveCharacterTextSplitter` for most use cases, then using retrieval results to decide whether to change strategy.
 
