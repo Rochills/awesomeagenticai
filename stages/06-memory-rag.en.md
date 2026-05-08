@@ -24,6 +24,39 @@ Agents that don't remember past interactions are not useful. RAG (Retrieval-Augm
 4. [**Anthropic — Contextual Retrieval**](https://www.anthropic.com/news/contextual-retrieval) — Anthropic's RAG technique with prompt caching
 5. [**LangChain — Text splitters**](https://docs.langchain.com/oss/python/integrations/splitters/index) — intro to chunking strategies
 
+## 🧭 Unit Guide
+
+This stage starts with short-term and long-term memory, then focuses on RAG.
+
+| Comparison | Short-term memory（短期記憶） | Long-term memory（長期記憶） |
+|---|---|---|
+| Chinese term | 短期記憶 | 長期記憶 |
+| Source | Current conversation content | Information saved across sessions or over time |
+| Duration | Short; usually limited to the current session | Long; can persist across sessions |
+| Technical basis | context window / prompt | memory store / user profile / vector store |
+| Best for | task details, recently mentioned content | stable preferences, long-term goals, background information |
+| Affected by context length? | Yes, because the model can only see a limited amount at once | Less directly, because content can live outside the prompt and only a small relevant part is brought back when needed |
+| Everyday example | a phone verification code you just received, or the previous sentence in the current conversation | knowledge you have deeply learned, a library, a knowledge base, books you have read |
+
+Here, a session means one continuous interaction, such as one chat, one task, or one agent run.
+
+RAG is like building a library for your agent. If the books are stored and organized well, later retrieval becomes faster and more precise.
+
+The basic RAG flow can be split into two pipelines:
+
+- **Data preprocessing**: ingest → chunk → embed → store (index). This builds the searchable knowledge base.
+- **Retrieval generation**: retrieve → generate. This finds relevant content at query time, then passes it to the LLM for answer generation.
+
+![RAG pipeline overview](../resources/diagrams/rag-pipeline-overview.jpg)
+
+RAG Fusion, query rewrite, and similar ideas in the diagram are advanced retrieval techniques. For your first pass, focus on the main flow first.
+
+This is only the minimal skeleton. Design and concept details are expanded in the sections below.
+
+As you read this stage, keep two questions in mind: What use cases are not a good fit for RAG? Which use cases fit RAG, but need more than basic RAG?
+
+This leads to more advanced RAG techniques such as GraphRAG. If you are curious, focus on why a scenario needs that RAG design. You do not need to implement every RAG technique or detail.
+
 ## 🧩 How to Think About Chunking
 
 Good chunking lets an LLM generate from the most precise and complete information that fits inside a limited context window. It is not just splitting text into equal pieces. It depends on the application and document type, and it defines the smallest semantic unit your retriever can see.

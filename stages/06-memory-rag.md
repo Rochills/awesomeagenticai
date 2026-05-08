@@ -23,6 +23,39 @@
 4. [**Anthropic — Contextual Retrieval**](https://www.anthropic.com/news/contextual-retrieval) — Anthropic 搭配 prompt caching 的 RAG 寫法
 5. [**LangChain — Text splitters**](https://docs.langchain.com/oss/python/integrations/splitters/index) — chunking 策略入門
 
+## 🧭 單元指引
+
+這一章先帶你簡單理解短期記憶與長期記憶，再聚焦到 RAG。
+
+| 比較面向 | Short-term memory（短期記憶） | Long-term memory（長期記憶） |
+|---|---|---|
+| 中文可稱 | 短期記憶 | 長期記憶 |
+| 來源 | 當前對話內容 | 跨 session 或長期保存的資訊 |
+| 持續時間 | 短，通常限於目前 session | 長，可跨 session |
+| 技術基礎 | 上下文視窗（context window）/ prompt | 記憶儲存層（memory store）/ 使用者檔案 / 向量資料庫 |
+| 適合記什麼 | 任務細節、剛剛說過的內容 | 穩定偏好、長期目標、背景資料 |
+| 是否受 context 長度限制 | 會，因為模型一次能看的內容有限 | 較不會，因為可以先存在外部，需要時再取一小段放回來 |
+| 生活例子 | 剛剛收到的手機驗證碼、正在進行對話的上一句話 | 你深化學會的知識、圖書館、知識庫、讀過的書 |
+
+這裡的工作階段（session）可以理解成一次連續互動，例如同一段聊天、同一次任務，或同一次 agent 執行。
+
+RAG 可以想成在幫 agent 蓋圖書館。你要先把書放好、分類好，後續要查資料時，才會又快又精準。
+
+最基礎的 RAG 可以拆成兩條流水線：
+
+- **資料預處理**：ingest → chunk → embed → store（index）。這一步是在建立可檢索的知識庫。
+- **檢索生成**：retrieve → generate。這一步是在使用者提問時，找出相關內容，再交給 LLM 生成回答。
+
+![RAG 流水線總覽](../resources/diagrams/rag-pipeline-overview.jpg)
+
+圖中的 RAG Fusion、query rewrite 等屬於進階檢索技巧。第一次學 RAG 時，先理解主線流程即可。
+
+上面只是最小骨架。設計與概念細節，會在下面各自區塊展開。
+
+讀這章時可以順便思考：RAG 不適合哪些應用場景？哪些場景適合 RAG，但基本 RAG 還不夠好？
+
+這會帶到更進階的 RAG 技術，例如 GraphRAG。有興趣的同學可以思考，為何這種情境要設計這樣的 RAG 解決方案，不用實作每種 RAG 技術或細節。
+
 ## 🧩 Chunking 怎麼想
 
 好的 chunking 可以讓 LLM 在有限 context 內，用更精確、完整的資訊生成回答。它不是把文字平均切開。
