@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="520" viewBox="0 0 1080 520" role="img" aria-labelledby="title desc">
+  <title id="title">Chunking strategies flow</title>
+  <desc id="desc">A chunking flow diagram showing five chunking strategies that produce stored chunks before embedding.</desc>
+  <defs>
+    <pattern id="grid" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#d9d9d9" />
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333" />
+    </marker>
+    <style>
+      text {
+        font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+        fill: #2b2b2b;
+        font-size: 18px;
+      }
+      .box {
+        fill: #fff;
+        stroke: #333;
+        stroke-width: 2;
+      }
+      .label {
+        font-weight: 600;
+      }
+      .line {
+        fill: none;
+        stroke: #333;
+        stroke-width: 2;
+        marker-end: url(#arrow);
+      }
+      .muted {
+        fill: #555;
+      }
+    </style>
+  </defs>
+
+  <rect width="1080" height="520" fill="#fff" />
+  <rect width="1080" height="520" fill="url(#grid)" />
+
+  <rect class="box" x="55" y="225" width="85" height="62" />
+  <text class="label" x="97.5" y="263" text-anchor="middle">chunking</text>
+
+  <rect class="box" x="345" y="55" width="92" height="76" />
+  <text class="label" x="391" y="100" text-anchor="middle">固定長度</text>
+
+  <rect class="box" x="345" y="158" width="92" height="76" />
+  <text class="label" x="391" y="201" text-anchor="middle">recursive</text>
+
+  <rect class="box" x="345" y="261" width="92" height="76" />
+  <text class="label" x="391" y="289" text-anchor="middle">hybrid</text>
+  <text class="label" x="391" y="314" text-anchor="middle">或其他方式</text>
+
+  <rect class="box" x="345" y="364" width="92" height="76" />
+  <text class="label" x="391" y="395" text-anchor="middle">sliding</text>
+  <text class="label" x="391" y="420" text-anchor="middle">window</text>
+
+  <rect class="box" x="345" y="467" width="92" height="76" transform="translate(0 -28)" />
+  <text class="label" x="391" y="485" text-anchor="middle">語意切分</text>
+  <text class="label" x="391" y="510" text-anchor="middle">Semantic</text>
+
+  <path class="line" d="M 140 256 C 220 256, 230 94, 345 94" />
+  <path class="line" d="M 140 256 C 225 256, 235 196, 345 196" />
+  <path class="line" d="M 140 256 L 345 299" />
+  <path class="line" d="M 140 256 C 225 256, 235 402, 345 402" />
+  <path class="line" d="M 140 256 C 225 256, 235 480, 345 480" />
+
+  <path class="line" d="M 437 94 C 545 94, 555 272, 640 272" />
+  <path class="line" d="M 437 196 C 545 196, 555 272, 640 272" />
+  <path class="line" d="M 437 299 C 545 299, 555 272, 640 272" />
+  <path class="line" d="M 437 402 C 545 402, 555 272, 640 272" />
+  <path class="line" d="M 437 480 C 545 480, 555 272, 640 272" />
+
+  <path class="box" d="M 655 215 L 815 215 C 835 215, 835 335, 815 335 L 655 335 C 635 335, 635 215, 655 215 Z" />
+  <path d="M 815 215 C 835 215, 835 335, 815 335" fill="none" stroke="#333" stroke-width="2" />
+  <text class="label" x="735" y="260" text-anchor="middle">存成哪種格式呢？</text>
+  <text class="muted" x="735" y="288" text-anchor="middle">純文字 or</text>
+  <text class="muted" x="735" y="316" text-anchor="middle">Markdown</text>
+
+  <path class="line" d="M 835 275 L 915 275" />
+
+  <path class="box" d="M 935 215 L 1050 215 C 1070 215, 1070 335, 1050 335 L 935 335 C 915 335, 915 215, 935 215 Z" />
+  <path d="M 1050 215 C 1070 215, 1070 335, 1050 335" fill="none" stroke="#333" stroke-width="2" />
+  <text class="label" x="992" y="282" text-anchor="middle">進到 Embedding</text>
+</svg>

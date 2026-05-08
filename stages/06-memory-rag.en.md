@@ -22,19 +22,68 @@ Agents that don't remember past interactions are not useful. RAG (Retrieval-Augm
 2. [**LangChain — RAG tutorial**](https://python.langchain.com/docs/tutorials/rag/) — hands-on
 3. [**Pinecone — Learning Center**](https://www.pinecone.io/learn/) — vector DB fundamentals
 4. [**Anthropic — Contextual Retrieval**](https://www.anthropic.com/news/contextual-retrieval) — Anthropic's RAG technique with prompt caching
+5. [**LangChain — Text splitters**](https://docs.langchain.com/oss/python/integrations/splitters/index) — intro to chunking strategies
+
+## 🧩 How to Think About Chunking
+
+Good chunking lets an LLM generate from the most precise and complete information that fits inside a limited context window. It is not just splitting text into equal pieces. It depends on the application and document type, and it defines the smallest semantic unit your retriever can see.
+
+A good chunk does two things at once: it is **complete enough** for the model to understand context, and **focused enough** for retrieval to avoid noise. Chunks that are too small lose context. Chunks that are too large make similarity search less precise.
+
+Common strategies:
+
+- **Fixed-Length**: split by character or token count. Simple and stable, but rigid enough to cut through paragraphs, sentences, or tables.
+- **Sliding Window**: keep overlapping spans between chunks. This reduces boundary loss, but increases index size.
+- **Recursive**: try to keep paragraphs first. If the length still does not fit, fall back to sentences, words, or smaller units. A good baseline for beginner RAG apps.
+- **Semantic Chunking**: split by embedding distance or semantic shifts. In practice, this means splitting when the current chunk and previous chunk become semantically different. Useful for long documents, but more costly and complex.
+- **Hybrid**: choose and combine strategies based on the application and document structure. For example, a paper may need to preserve sections, tables, formulas, and citation context.
+
+![Chunking strategy flow](../resources/diagrams/chunking-strategies.svg)
+
+For your first RAG app, do not start with a clever splitter. LangChain docs recommend starting with `RecursiveCharacterTextSplitter` for most use cases, then using retrieval results to decide whether to change strategy.
+
+```python
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+text = "This is a long document... (imagine many more words here) ..."
+
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=100,
+    chunk_overlap=20,
+    length_function=len,
+)
+
+chunks = splitter.split_text(text)
+print(f"Split into {len(chunks)} chunks")
+print(chunks[0])
+```
+
+Two quick signals tell you whether chunking is off:
+
+- The answer misses information, or starts in the middle of an idea: chunks may be too small, or overlap may be too low.
+- The answer contains the right information plus unrelated details: chunks may be too large, or top-k may be too high.
+
+Advanced chunking questions:
+
+- Chunking is not a one-time setting. Tune it against real queries and failure cases.
+- Chunk size, overlap, top-k, and reranking affect each other. Do not inspect only one parameter.
+- Think about mixed data types: if your RAG source includes image-heavy PDFs and meeting transcripts, how should the chunking strategy change?
 
 ## 🛠 Hands-on Exercises (do them, not just read)
 
-### 練習 1：Embeddings
+### Exercise 1: Embeddings
 Embed 100 sentences, find nearest neighbors of one query. Build intuition for what "vector distance" means.
 
-### 練習 2：Vector DB
+### Exercise 2: Vector DB
 Store embeddings in Chroma, query semantically. Compare against keyword search.
 
-### 練習 3：Full RAG pipeline
+### Exercise 3: Chunking comparison
+Take one document and split it three ways: fixed-size chunks, paragraph chunks, and heading-aware chunks. Use 5 real questions to compare top-k results, and note which strategy retrieves the right context more reliably.
+
+### Exercise 4: Full RAG pipeline
 Chunk a PDF → embed → retrieve top-k → generate answer. The basic skeleton most RAG apps use.
 
-### 練習 4：Long-term memory
+### Exercise 5: Long-term memory
 Give an agent conversational memory across multiple sessions. Use `mem0` or roll your own with a vector store.
 
 ## 🎯 Curated Projects
@@ -62,7 +111,7 @@ Give an agent conversational memory across multiple sessions. Use `mem0` or roll
 
 **What it teaches**: Open-source embedding database. Run locally, no infrastructure setup.
 
-**Best for**: 練習 2 and 練習 3 above. Easiest vector DB to start with.
+**Best for**: Exercise 2 and Exercise 4 above. Easiest vector DB to start with.
 
 **Run it**:
 ```python
@@ -229,6 +278,7 @@ results = collection.query(query_texts=["query"], n_results=1)
 Can you:
 - [ ] Build a 50-line RAG pipeline (load → chunk → embed → store → query → answer)
 - [ ] Explain why naive chunking fails on long documents
+- [ ] Design different chunking strategies for API docs, PDFs, and tables
 - [ ] Pick between Chroma, Qdrant, pgvector for a given scale
 - [ ] Distinguish "give the agent memory" from "use RAG"
 

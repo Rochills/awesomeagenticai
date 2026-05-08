@@ -21,6 +21,56 @@
 2. [**LangChain — RAG tutorial**](https://python.langchain.com/docs/tutorials/rag/) — 動手做
 3. [**Pinecone — Learning Center**](https://www.pinecone.io/learn/) — vector DB 基礎
 4. [**Anthropic — Contextual Retrieval**](https://www.anthropic.com/news/contextual-retrieval) — Anthropic 搭配 prompt caching 的 RAG 寫法
+5. [**LangChain — Text splitters**](https://docs.langchain.com/oss/python/integrations/splitters/index) — chunking 策略入門
+
+## 🧩 Chunking 怎麼想
+
+好的 chunking 可以讓 LLM 在有限 context 內，用更精確、完整的資訊生成回答。它不是把文字平均切開。
+
+切法取決於應用場景與文件內容。它會決定 retriever 看見的最小語意單位。
+
+一個好 chunk 要同時做到兩件事：**夠完整**，讓模型看得懂上下文；**夠聚焦**，讓檢索不帶太多雜訊。chunk 太小會失去前後文，chunk 太大會讓相似度搜尋變鈍。
+
+常見策略：
+
+- **固定長度（Fixed-Length）**：照字元數或 token 數切。優點是簡單穩定；缺點是一板一眼，容易切斷段落、句子或表格。
+- **滑動視窗（Sliding Window）**：每個 chunk 之間保留重疊區塊（overlap）。優點是比較不會在邊界掉資訊；缺點是索引量會變大。
+- **遞迴切割（Recursive）**：先嘗試保留段落，如果長度還是不適合，再退到句子、字詞等更小單位。通常是入門 RAG 的好基準。
+- **語意切割（Semantic Chunking）**：依 embedding 或語意變化切，也就是當前區塊與前一個區塊的語意相似度出現差異。適合長文件，但成本與複雜度較高。
+- **混合策略（Hybrid）**：依照應用場景，思考不同文件結構該怎麼混搭切法。例如，一篇論文可能要保留章節、表格、公式與引用脈絡。
+
+![Chunking 策略流程](../resources/diagrams/chunking-strategies.svg)
+
+第一次做 RAG 時，不要一開始就追求複雜切法。LangChain 文件建議多數情境先從 `RecursiveCharacterTextSplitter` 開始。
+
+先跑出基準版本，再用後續 retrieval 結果決定要不要換策略。
+
+```python
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+text = "這是一個很長的文件內容...（此處省略一千字）..."
+
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=100,
+    chunk_overlap=20,
+    length_function=len,
+)
+
+chunks = splitter.split_text(text)
+print(f"共切成 {len(chunks)} 個 chunk")
+print(chunks[0])
+```
+
+直覺判斷 chunking 好不好，可以先看兩件事：
+
+- 回答缺漏資訊，或有頭無尾：通常是 chunk 太小，或 overlap 不夠。
+- 回答包含正確資訊，但混入無關內容：通常是 chunk 太大，或 top-k 撈太多。
+
+Chunking 進階思考：
+
+- chunking 不是一次設定好就結束，要配合真實 query 與失敗案例反覆調整。
+- chunk size、overlap、top-k、reranker 會互相影響，不要只單看其中一個參數。
+- 想想看，如果今天要 RAG 的資料有含圖片的 PDF、會議字幕檔，要如何切割比較好？
 
 ## 🛠 動手練習（不是看過就好）
 
@@ -30,10 +80,13 @@
 ### 練習 2：Vector DB
 把 embedding 存進 Chroma，做語意 query。比對「跟 keyword search 差在哪」。
 
-### 練習 3：完整 RAG 流水線
+### 練習 3：Chunking 對照
+拿同一份文件做三種切法：固定長度、段落切法、heading-aware 切法。用 5 個真實問題比較 top-k 結果，記錄哪種切法比較容易撈到正確上下文。
+
+### 練習 4：完整 RAG 流水線
 把一份 PDF 切塊 → embed → 取 top-k → 生成回答。這是大多數 RAG 應用的基本骨架。
 
-### 練習 4：Long-term Memory
+### 練習 5：Long-term Memory
 讓 agent 在多輪對話之間記得事情。可以用 `mem0` 或自己用 vector store 接。
 
 ## 🎯 精選 Projects
@@ -61,7 +114,7 @@
 
 **教什麼**：開源 embedding 資料庫。本機跑，不用搞基礎設施。
 
-**適合誰**：上面的 練習 2、練習 3。最容易上手的 vector DB。
+**適合誰**：上面的練習 2、練習 4。最容易上手的 vector DB。
 
 **怎麼跑**：
 ```python
@@ -228,6 +281,7 @@ results = collection.query(query_texts=["query"], n_results=1)
 你能不能：
 - [ ] 寫一條 50 行的 RAG 流水線（load → chunk → embed → store → query → answer）
 - [ ] 解釋為什麼天真的切塊在長文件上會失敗
+- [ ] 針對 API 文件、PDF、表格設計不同的 chunking 策略
 - [ ] 在某個規模下，能在 Chroma、Qdrant、pgvector 之間做出選擇
 - [ ] 區分「給 agent memory」跟「用 RAG」這兩件事
 
