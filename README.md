@@ -25,6 +25,9 @@
 
 ## 🎯 專案介紹
 
+- [OpenClaw Monitor](https://github.com/flik2002/openclaw-monitor) - Real-time AI agent monitoring dashboard for OpenClaw — tracks Gateway status, sessions, token usage & trends
+
+
 這個專案是為**想學習 AI 或 AI agent 的人**設計的。
 
 本 repo 把網路上散落各處的高品質專案、教材、動手練習、必修閱讀蒐集起來，按**從零開始、循序漸進**的順序整理成 **7 個階段**——每階段都會清楚指出**該學什麼、必做哪些 動手練習、推薦哪幾個 project、進入下一階段前該檢查什麼**。
