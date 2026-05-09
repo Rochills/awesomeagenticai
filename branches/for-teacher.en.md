@@ -7,11 +7,58 @@
 
 ## Use Cases
 
-- Lesson plan generation
-- Quiz / rubric creation
-- Slide deck preparation
-- Student feedback synthesis
-- Curriculum mapping
+Teacher-facing AI use cases can first be read as three branches: **lesson prep and class material creation**, **classroom and learning support**, and **other use cases**. This grouping follows common AI in Education discussions around administration, instruction, and learning, while also reflecting recent work on generative AI for material creation, feedback, and interactive support (Chen et al., 2020; Mittal et al., 2024). Start with teacher oversight and boundaries, then choose the branch that best matches your teaching need.
+
+![Teacher and AI agent use-case overview](../resources/diagrams/teacher-ai-use-cases-overview.jpg)
+
+### What Teachers Should Watch For When Using AI
+
+AI can prepare and assist, but it should not replace teacher judgment. Recent AI in Education and generative AI for education research also emphasizes clear learning goals, safety boundaries, and human review when teachers design AI agents (Chen et al., 2020; Mittal et al., 2024).
+
+- **Keep teacher judgment in the loop**: when student data, grades, or teaching decisions are involved, teachers remain responsible for final review.
+- **Avoid giving answers too quickly**: if students interact with an AI agent, design the flow as Socratic dialogue so students explain their reasoning across multiple turns.
+- **Align with learning goals**: use prompts, skills, or fixed workflows to constrain the agent's role and task, so student interaction stays tied to the lesson.
+- **Rewrite student questions when needed**: for younger students, such as elementary or middle-school learners, rewrite unclear questions before sending them to the agent.
+
+### Lesson Prep and Class Material Creation
+
+These workflows help teachers prepare materials. The output should still be revised, selected, and checked by the teacher.
+
+- **Lesson plan generation**: turn curriculum standards, unit goals, and student levels into lesson outlines, time allocation, activity design, discussion prompts, and supplementary guides.
+- **Quiz / rubric creation**: generate multiple-choice, short-answer, essay questions, answer keys, and scoring criteria from texts, textbook sections, or academic articles.
+- **Slide deck preparation, curriculum mapping, and multimedia visualization**: turn textbook chapters or teacher notes into slide outlines, handout structures, weekly sequences, prerequisite knowledge, assessment checkpoints, images, 3D objects, video scripts, GIFs, or classroom presentation assets.
+- **Student feedback synthesis and analysis**: summarize student answers, assignments, or class responses to identify common misconceptions, remediation needs, and next-step practice.
+- **Multilingual material translation and adaptation**: rewrite or translate material for different languages, and generate text-to-speech assets when useful.
+- **Materials for interactive games, activities, and virtual simulation scenarios**: prepare educational games, rhymes, task cards, role cards, scenario text, or simulation backgrounds; for actual interaction or activity design, see the next section on classroom and learning support.
+
+### Classroom and Learning Support
+
+![Classroom and learning support use cases](../resources/diagrams/teacher-ai-classroom-use-cases.jpg)
+
+These workflows help students understand, practice, and interact. AI acts more like a teaching assistant or activity support tool. Note that a single lesson does not need to include every element; choose the moments where an AI agent design actually fits the learning activity.
+
+- **Immersive learning and realistic scenario practice**: use realistic simulation, role-play, or speaking practice so students can rehearse in near-authentic contexts while lowering cognitive load and hesitation.
+- **Curiosity and questioning support**: use Socratic follow-up questions and multi-turn interaction to help students ask clearer questions, explain their reasoning, and develop critical thinking and metacognition.
+- **Instant grading and deeper feedback**: help students learn from mistakes by pointing out errors, explaining why they happen, and suggesting revisions instead of only giving a score or answer.
+- **Intelligent tutoring and virtual teaching assistants**: answer questions, explain terminology, and provide hints so students receive appropriate support in and beyond class.
+- **Adaptive teaching and dynamic paths**: provide difficulty-matched content based on student level, infer the zone of proximal development from learning performance, and offer suitable scaffolding or remediation materials.
+
+### Other Use Cases
+
+These use cases may not happen directly inside a lesson, but they shape teacher work, student support, and education-system operations.
+
+- **Special education support**: use speech-to-text, text-to-speech, and related tools to help students with different needs participate in class.
+- **Parent-teacher communication and family learning**: summarize student progress and suggest home-based follow-up activities.
+- **Administration and academic integrity**: summarize learning traces, generate reports, or support plagiarism and cheating-risk checks.
+- **Career and skill-development guidance**: support career exploration, training-plan design, and weak-spot practice recommendations.
+- **Teacher professional development**: summarize teaching methods, education-technology trends, and research insights.
+- **Advanced research and business analysis**: support literature review, market-trend analysis, or business-plan drafting.
+- **Privacy-preserving synthetic data**: generate anonymized synthetic data for research or system testing without directly exposing personal data.
+
+### References
+
+- Chen, L., Chen, P., & Lin, Z. (2020). [Artificial Intelligence in Education: A Review](https://doi.org/10.1109/ACCESS.2020.2988510). *IEEE Access*, 8, 75264-75278.
+- Mittal, U., Sai, S., Chamola, V., & Sangwan, D. (2024). [A Comprehensive Review on Generative AI for Education](https://doi.org/10.1109/ACCESS.2024.3468368). *IEEE Access*, 12, 142733-142759.
 
 ## Curated Projects
 
@@ -89,6 +136,8 @@ These are templates — adapt to your subject:
 - **Lesson plan generator**: Prompt with curriculum + topic → outline → slides → assessment
 - **Rubric creation**: Sample student work + learning objective → rubric draft
 - **Personalized feedback**: Student submission + rubric → individualized written feedback (with human review)
+- **Scenario simulation activity**: learning goal + role setup → dialogue script → class practice → reflection questions
+- **Remediation material generator**: common errors + student level → short practice → hints → extension challenge
 
 ### 3 Copy-Paste Prompt Templates
 
