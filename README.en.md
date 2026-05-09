@@ -205,6 +205,7 @@ Other lists in the same space — useful to browse alongside this repo when hunt
 - [`wong2/awesome-mcp-servers`](https://github.com/wong2/awesome-mcp-servers) — categorized MCP server catalog
 - [`punkpeye/awesome-mcp-servers`](https://github.com/punkpeye/awesome-mcp-servers) — another MCP server catalog
 - [`hesreallyhim/awesome-claude-code`](https://github.com/hesreallyhim/awesome-claude-code) — Claude Code tools & plugins list
+- [`nowork-studio/awesome-ai-startups`](https://github.com/nowork-studio/awesome-ai-startups) — curated list of bootstrapped, pre-seed, and angel-funded AI products built by independent founders
 
 These are pure catalogs (browse and pick). This repo is different in that it has a **learning order from Stage 0 all the way to production**.
 

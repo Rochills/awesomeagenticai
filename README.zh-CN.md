@@ -248,6 +248,7 @@ PR 流程跟 style 规范请看 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [resource
 - [`hesreallyhim/awesome-claude-code`](https://github.com/hesreallyhim/awesome-claude-code) — Claude Code 相关工具与 plugin 清单（整理中）
 - [`travisvn/awesome-claude-skills`](https://github.com/travisvn/awesome-claude-skills) — Claude Skills 清单
 - [`anthropics/claude-plugins-official`](https://github.com/anthropics/claude-plugins-official) — Anthropic 官方 plugin 模板，要打包自己的 plugin 从这份开始
+- [`nowork-studio/awesome-ai-startups`](https://github.com/nowork-studio/awesome-ai-startups) — 独立开发者打造的 bootstrapped、pre-seed 与天使轮 AI 产品精选清单
 
 这些是纯清单形式（看到再挑），本 repo 的不同点是有“从 Stage 0 一路走到 production 的学习顺序”。
 
