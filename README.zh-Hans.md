@@ -4,7 +4,7 @@
 
 <div align="center">
 
-![AI Agent 学习路径](resources/diagrams/banner.zh-Hans.png)
+![AI Agent 学习路径](resources/diagrams/banner.zh-CN.png)
 
 # awesome-agentic-ai-zh
 
