@@ -1,4 +1,4 @@
-> **繁體中文** | [简体中文](./build-first-agent-in-7-steps.zh-Hans.md) | [English](./build-first-agent-in-7-steps.en.md)
+> **繁體中文** | [简体中文](./build-first-agent-in-7-steps.zh-Hans.md) | [English](./build-first-agent-in-7-steps.en.md) | [Русский](./build-first-agent-in-7-steps.ru.md)
 
 # 7 步打造你的第一個 AI Agent
 

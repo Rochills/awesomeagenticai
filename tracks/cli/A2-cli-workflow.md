@@ -1,6 +1,6 @@
 # A2 — CLI Workflow Patterns
 
-> **繁體中文** | [简体中文](./A2-cli-workflow.zh-Hans.md) | [English](./A2-cli-workflow.en.md)
+> **繁體中文** | [简体中文](./A2-cli-workflow.zh-Hans.md) | [English](./A2-cli-workflow.en.md) | [Русский](./A2-cli-workflow.ru.md)
 
 > [← A1 — CLI 入門](A1-cli-intro.md) · **Track A: CLI Power User** 第 2 站
 
