@@ -1,6 +1,6 @@
 # Cookbook — 把概念變成可執行 recipe
 
-> **繁體中文** | [简体中文](./cookbook.zh-Hans.md) | [English](./cookbook.en.md)
+> **繁體中文** | [简体中文](./cookbook.zh-Hans.md) | [English](./cookbook.en.md) | [Русский](./cookbook.ru.md)
 
 > Stage 5（Claude Code 生態）跟 [`mcp-skills-catalog.md`](mcp-skills-catalog.md) 講「概念」跟「有哪些工具」。這份 cookbook 補中間缺的：「**怎麼動手做出來**」。每個 recipe 是一份 step-by-step + sample code + 常見 pitfall，~30-50 分鐘做完一個。
 >

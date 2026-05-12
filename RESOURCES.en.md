@@ -1,6 +1,6 @@
 # Related Resources
 
-> [繁體中文](./RESOURCES.md) | [简体中文](./RESOURCES.zh-Hans.md) | **English**
+> [繁體中文](./RESOURCES.md) | [简体中文](./RESOURCES.zh-Hans.md) | **English** | [Русский](./RESOURCES.ru.md)
 
 > [← Back to main README](README.en.md)
 

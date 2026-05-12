@@ -1,7 +1,7 @@
 # `resources/` Index
 
 <div align="right">
-  <a href="./README.md">繁體中文</a> | <a href="./README.zh-Hans.md">简体中文</a> | <strong>English</strong>
+  <a href="./README.md">繁體中文</a> | <a href="./README.zh-Hans.md">简体中文</a> | <strong>English</strong> | <a href="./README.ru.md">Русский</a>
 </div>
 
 > This is the repo's **reference area**: supplementary material that sits outside the main path and is meant to be opened when needed. Each file has a distinct role.

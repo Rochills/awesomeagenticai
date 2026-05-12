@@ -1,4 +1,4 @@
-> **繁體中文** | [简体中文](./cli-agents-guide.zh-Hans.md) | [English](./cli-agents-guide.en.md)
+> **繁體中文** | [简体中文](./cli-agents-guide.zh-Hans.md) | [English](./cli-agents-guide.en.md) | [Русский](./cli-agents-guide.ru.md)
 
 # CLI Agents 比較指南
 

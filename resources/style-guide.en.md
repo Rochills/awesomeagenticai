@@ -1,4 +1,4 @@
-> [繁體中文](./style-guide.md) | [简体中文](./style-guide.zh-Hans.md) | **English**
+> [繁體中文](./style-guide.md) | [简体中文](./style-guide.zh-Hans.md) | **English** | [Русский](./style-guide.ru.md)
 
 # `awesome-agentic-ai-zh` Style Guide
 

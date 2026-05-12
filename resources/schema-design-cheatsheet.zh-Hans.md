@@ -1,6 +1,6 @@
 # Function Schema 设计 Cheatsheet
 
-> [繁體中文](./schema-design-cheatsheet.md) | **简体中文** | [English](./schema-design-cheatsheet.en.md)
+> [繁體中文](./schema-design-cheatsheet.md) | **简体中文** | [English](./schema-design-cheatsheet.en.md) | [Русский](./schema-design-cheatsheet.ru.md)
 
 > [Stage 3 — Tool Use & Agent 入门](../stages/03-tool-use-and-hello-agent.md) 的补充参考。写 tool / function schema 时的 5 条黄金规则 + 5 个 anti-pattern。
 

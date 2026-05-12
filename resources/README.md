@@ -1,7 +1,7 @@
 # `resources/` 索引
 
 <div align="right">
-  <strong>繁體中文</strong> | <a href="./README.zh-Hans.md">简体中文</a> | <a href="./README.en.md">English</a>
+  <strong>繁體中文</strong> | <a href="./README.zh-Hans.md">简体中文</a> | <a href="./README.en.md">English</a> | <a href="./README.ru.md">Русский</a>
 </div>
 
 > 本 repo 的「**reference 區**」——非主路線、需要時來查的補充材料。每份檔案有明確角色，不重複。

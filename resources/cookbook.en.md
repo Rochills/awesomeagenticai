@@ -1,6 +1,6 @@
 # Cookbook — Turn Concepts into Executable Recipes
 
-> [繁體中文](./cookbook.md) | [简体中文](./cookbook.zh-Hans.md) | **English**
+> [繁體中文](./cookbook.md) | [简体中文](./cookbook.zh-Hans.md) | **English** | [Русский](./cookbook.ru.md)
 
 > Stage 5 (Claude Code Ecosystem) talks about "Concepts" and "Available Tools" with [`mcp-skills-catalog.md`](mcp-skills-catalog.md). This cookbook fills in the gap in between: "**How to build it**". Each recipe is a step-by-step guide + sample code + common pitfalls, designed to be completed in about 30-50 minutes.
 >
