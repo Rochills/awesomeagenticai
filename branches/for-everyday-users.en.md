@@ -1,6 +1,6 @@
 # For Everyday Users — Specialized Branch
 
-> [繁體中文](./for-everyday-users.md) | [简体中文](./for-everyday-users.zh-Hans.md) | **English**
+> [繁體中文](./for-everyday-users.md) | [简体中文](./for-everyday-users.zh-Hans.md) | **English** | [Русский](./for-everyday-users.ru.md)
 
 > 🚀 **Never written code or installed Python before?** Start with [`resources/setup-guide.en.md` §A-C](../resources/setup-guide.en.md) (about 30 minutes from zero), then come back. If you already know Python and have an API key, skip it.
 

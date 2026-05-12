@@ -1,6 +1,6 @@
 # 给研究者 — 专业分支
 
-> [繁體中文](./for-researcher.md) | **简体中文** | [English](./for-researcher.en.md)
+> [繁體中文](./for-researcher.md) | **简体中文** | [English](./for-researcher.en.md) | [Русский](./for-researcher.ru.md)
 
 > 🚀 **第一次装 Python / 申请 API key？** 先看 [`resources/setup-guide.zh-Hans.md` §A-C](../resources/setup-guide.zh-Hans.md)。本分支默认你会跑 Python script、有 API key、会用 git。
 

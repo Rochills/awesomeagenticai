@@ -1,6 +1,6 @@
 # For Developers — Specialized Branch
 
-> [繁體中文](./for-developer.md) | [简体中文](./for-developer.zh-Hans.md) | **English**
+> [繁體中文](./for-developer.md) | [简体中文](./for-developer.zh-Hans.md) | **English** | [Русский](./for-developer.ru.md)
 
 > 🚀 **First time installing Claude Code or writing `CLAUDE.md` / `SKILL.md`?** The quick setup guide is [`resources/setup-guide.en.md` §D-E](../resources/setup-guide.en.md). Skip it if you already know this.
 

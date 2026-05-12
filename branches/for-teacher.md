@@ -1,6 +1,6 @@
 # 給教師 — 專業分支
 
-> **繁體中文** | [简体中文](./for-teacher.zh-Hans.md) | [English](./for-teacher.en.md)
+> **繁體中文** | [简体中文](./for-teacher.zh-Hans.md) | [English](./for-teacher.en.md) | [Русский](./for-teacher.ru.md)
 
 > 🚀 **第一次接觸 AI agent / 沒寫過 code？** 先看 [`resources/setup-guide.md` §A-C](../resources/setup-guide.md)（30 分鐘從零裝好需要的東西）。Tier 0 跟 Tier 1 不需要寫 code，可以先跳過；Tier 2 之後會用到。
 

@@ -1,6 +1,6 @@
 # 給知識工作者 — 專業分支
 
-> **繁體中文** | [简体中文](./for-knowledge-worker.zh-Hans.md) | [English](./for-knowledge-worker.en.md)
+> **繁體中文** | [简体中文](./for-knowledge-worker.zh-Hans.md) | [English](./for-knowledge-worker.en.md) | [Русский](./for-knowledge-worker.ru.md)
 
 > 🚀 **完全沒開發背景？** 先看 [`resources/setup-guide.md` §A-D](../resources/setup-guide.md)（30-45 分鐘從零）。本分支後面提到的「Claude Code」「MCP」「Skills」都會用到 §D 那個 setup。
 

@@ -1,6 +1,6 @@
 # 給日常使用者 — 專業分支
 
-> **繁體中文** | [简体中文](./for-everyday-users.zh-Hans.md) | [English](./for-everyday-users.en.md)
+> **繁體中文** | [简体中文](./for-everyday-users.zh-Hans.md) | [English](./for-everyday-users.en.md) | [Русский](./for-everyday-users.ru.md)
 
 > 🚀 **完全沒寫過 code / 沒裝過 Python？** 先看 [`resources/setup-guide.md` §A-C](../resources/setup-guide.md)（30 分鐘從零裝好）再回來。已經會 Python 跟有 API key 就跳過。
 

@@ -1,6 +1,6 @@
 # 給開發者 — 專業分支
 
-> **繁體中文** | [简体中文](./for-developer.zh-Hans.md) | [English](./for-developer.en.md)
+> **繁體中文** | [简体中文](./for-developer.zh-Hans.md) | [English](./for-developer.en.md) | [Русский](./for-developer.ru.md)
 
 > 🚀 **第一次裝 Claude Code / 寫 `CLAUDE.md` / `SKILL.md`？** 快速 setup 指南在 [`resources/setup-guide.md` §D-E](../resources/setup-guide.md)。已經熟可以跳過。
 

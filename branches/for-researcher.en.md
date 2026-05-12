@@ -1,6 +1,6 @@
 # For Researchers — Specialized Branch
 
-> [繁體中文](./for-researcher.md) | [简体中文](./for-researcher.zh-Hans.md) | **English**
+> [繁體中文](./for-researcher.md) | [简体中文](./for-researcher.zh-Hans.md) | **English** | [Русский](./for-researcher.ru.md)
 
 > 🚀 **First time installing Python or creating an API key?** Start with [`resources/setup-guide.en.md` §A-C](../resources/setup-guide.en.md). This branch assumes you can run Python scripts, have an API key, and can use git.
 
