@@ -2,12 +2,13 @@
 """
 sync-language-switchers.py — 統一三語檔案頂部的 language switcher
 
-3 語版 repo 結構：
+4 語版 repo 結構：
   <file>.md         = zh-TW canonical
   <file>.en.md      = English mirror
-  <file>.zh-Hans.md   = zh-Hans mirror
+  <file>.zh-Hans.md = zh-Hans mirror
+  <file>.ru.md      = Russian mirror
 
-每個檔案的頂部都需要 3-way switcher，把目前 active 的語言粗體、其他兩個連結。
+每個檔案的頂部都需要 4-way switcher，把目前 active 的語言粗體、其他連結。
 
 執行：
   python scripts/sync-language-switchers.py            # dry run，列出要改的
@@ -45,12 +46,16 @@ EXCLUDE_PATHS = {
 EXCLUDE_DIRS = {".github", "scripts", "book", ".ai", ".claude", "node_modules"}
 
 
-def find_paired_files() -> list[tuple[Path, Optional[Path], Optional[Path]]]:
-    """找所有 (zh-TW, en, zh-Hans) 三檔組合。"""
-    triples = []
+def find_paired_files() -> list[tuple[Path, Optional[Path], Optional[Path], Optional[Path]]]:
+    """找所有 (zh-TW, en, zh-Hans, ru) 四檔組合。"""
+    quads = []
     for md_path in sorted(REPO_ROOT.rglob("*.md")):
-        # 跳過 .en.md / .zh-Hans.md 自己（它們是 mirror，不是 canonical）
-        if md_path.name.endswith(".en.md") or md_path.name.endswith(".zh-Hans.md"):
+        # 跳過 mirror 檔自己
+        if (
+            md_path.name.endswith(".en.md")
+            or md_path.name.endswith(".zh-Hans.md")
+            or md_path.name.endswith(".ru.md")
+        ):
             continue
         # 跳過 EXCLUDE_DIRS
         if any(part in EXCLUDE_DIRS for part in md_path.relative_to(REPO_ROOT).parts):
@@ -62,48 +67,60 @@ def find_paired_files() -> list[tuple[Path, Optional[Path], Optional[Path]]]:
 
         en_path = md_path.with_suffix(".en.md")
         zh_hans_path = md_path.with_suffix(".zh-Hans.md")
+        ru_path = md_path.with_suffix(".ru.md")
         if not en_path.exists():
             en_path = None
         if not zh_hans_path.exists():
             zh_hans_path = None
+        if not ru_path.exists():
+            ru_path = None
 
         # 至少要有 zh-TW + 一個 mirror 才算需要 switcher
-        if en_path is None and zh_hans_path is None:
+        if en_path is None and zh_hans_path is None and ru_path is None:
             continue
 
-        triples.append((md_path, en_path, zh_hans_path))
-    return triples
+        quads.append((md_path, en_path, zh_hans_path, ru_path))
+    return quads
 
 
-def make_readme_switcher(active: str, has_en: bool, has_zh_hans: bool) -> str:
-    """README.md / README.en.md / README.zh-Hans.md 用的 div 區塊 switcher。"""
+def make_readme_switcher(active: str, has_en: bool, has_zh_hans: bool, has_ru: bool) -> str:
+    """README.md / README.en.md / README.zh-Hans.md / README.ru.md 用的 div 區塊 switcher。"""
     parts = []
-    label_map = {"zh-TW": "繁體中文", "en": "English", "zh-Hans": "简体中文"}
+    label_map = {"zh-TW": "繁體中文", "en": "English", "zh-Hans": "简体中文", "ru": "Русский"}
 
-    for lang in ("zh-TW", "zh-Hans", "en"):
+    for lang in ("zh-TW", "zh-Hans", "en", "ru"):
         if lang == "zh-Hans" and not has_zh_hans:
             continue
         if lang == "en" and not has_en:
+            continue
+        if lang == "ru" and not has_ru:
             continue
         label = label_map[lang]
         if lang == active:
             parts.append(f"<strong>{label}</strong>")
         else:
-            href_map = {"zh-TW": "./README.md", "en": "./README.en.md", "zh-Hans": "./README.zh-Hans.md"}
+            href_map = {
+                "zh-TW": "./README.md",
+                "en": "./README.en.md",
+                "zh-Hans": "./README.zh-Hans.md",
+                "ru": "./README.ru.md",
+            }
             parts.append(f'<a href="{href_map[lang]}">{label}</a>')
 
     return f'<div align="right">\n  {" | ".join(parts)}\n</div>'
 
 
-def make_inline_switcher(active: str, base_name: str, has_en: bool, has_zh_hans: bool) -> str:
+def make_inline_switcher(active: str, base_name: str, has_en: bool, has_zh_hans: bool, has_ru: bool) -> str:
     """一般檔 blockquote 一行 switcher。"""
     parts = []
-    label_map = {"zh-TW": "繁體中文", "en": "English", "zh-Hans": "简体中文"}
+    label_map = {"zh-TW": "繁體中文", "en": "English", "zh-Hans": "简体中文", "ru": "Русский"}
 
-    for lang in ("zh-TW", "zh-Hans", "en"):
+    for lang in ("zh-TW", "zh-Hans", "en", "ru"):
         if lang == "zh-Hans" and not has_zh_hans:
             continue
         if lang == "en" and not has_en:
+            continue
+        if lang == "ru" and not has_ru:
             continue
         label = label_map[lang]
         if lang == active:
@@ -113,6 +130,7 @@ def make_inline_switcher(active: str, base_name: str, has_en: bool, has_zh_hans:
                 "zh-TW": f"./{base_name}.md",
                 "en": f"./{base_name}.en.md",
                 "zh-Hans": f"./{base_name}.zh-Hans.md",
+                "ru": f"./{base_name}.ru.md",
             }
             parts.append(f"[{label}]({href_map[lang]})")
 
@@ -139,14 +157,14 @@ def detect_switcher_block(content: str) -> tuple[Optional[int], Optional[int], s
     # 嘗試找 inline `> [English](./xxx.en.md) | **繁體中文**` 之類
     for i, line in enumerate(lines[:10]):  # 只看前 10 行
         if line.startswith("> ") and ("](./") in line and (
-            "繁體中文" in line or "English" in line or "简体中文" in line
+            "繁體中文" in line or "English" in line or "简体中文" in line or "Русский" in line
         ):
             return i, i, "inline"
 
     return None, None, ""
 
 
-def update_file(path: Path, lang: str, has_en: bool, has_zh_hans: bool, apply: bool) -> bool:
+def update_file(path: Path, lang: str, has_en: bool, has_zh_hans: bool, has_ru: bool, apply: bool) -> bool:
     """更新單一檔案的 switcher。回傳 True 表示有改動需要寫入。"""
     content = path.read_text(encoding="utf-8")
     lines = content.split("\n")
@@ -157,17 +175,19 @@ def update_file(path: Path, lang: str, has_en: bool, has_zh_hans: bool, apply: b
     is_readme = path.name.startswith("README")
 
     if is_readme:
-        new_switcher = make_readme_switcher(lang, has_en, has_zh_hans)
+        new_switcher = make_readme_switcher(lang, has_en, has_zh_hans, has_ru)
     else:
-        # 從 path 名字算 base_name（去掉 .en / .zh-Hans suffix 後再去掉 .md）
+        # 從 path 名字算 base_name（去掉 .en / .zh-Hans / .ru suffix 後再去掉 .md）
         name = path.name
         if name.endswith(".en.md"):
             base_name = name[: -len(".en.md")]
         elif name.endswith(".zh-Hans.md"):
             base_name = name[: -len(".zh-Hans.md")]
+        elif name.endswith(".ru.md"):
+            base_name = name[: -len(".ru.md")]
         else:
             base_name = name[: -len(".md")]
-        new_switcher = make_inline_switcher(lang, base_name, has_en, has_zh_hans)
+        new_switcher = make_inline_switcher(lang, base_name, has_en, has_zh_hans, has_ru)
 
     if start is None:
         # 沒有現成 switcher，加在第一行 H1 之後
@@ -213,24 +233,27 @@ def main():
     )
     args = parser.parse_args()
 
-    triples = find_paired_files()
-    print(f"Found {len(triples)} canonical zh-TW files with at least one mirror.\n")
+    quads = find_paired_files()
+    print(f"Found {len(quads)} canonical zh-TW files with at least one mirror.\n")
 
     changed = 0
-    for zh_tw, en, zh_hans in triples:
+    for zh_tw, en, zh_hans, ru in quads:
         has_en = en is not None
         has_zh_hans = zh_hans is not None
+        has_ru = ru is not None
 
-        if update_file(zh_tw, "zh-TW", has_en, has_zh_hans, args.apply):
+        if update_file(zh_tw, "zh-TW", has_en, has_zh_hans, has_ru, args.apply):
             changed += 1
-        if has_en and update_file(en, "en", has_en, has_zh_hans, args.apply):
+        if has_en and update_file(en, "en", has_en, has_zh_hans, has_ru, args.apply):
             changed += 1
-        if has_zh_hans and update_file(zh_hans, "zh-Hans", has_en, has_zh_hans, args.apply):
+        if has_zh_hans and update_file(zh_hans, "zh-Hans", has_en, has_zh_hans, has_ru, args.apply):
+            changed += 1
+        if has_ru and update_file(ru, "ru", has_en, has_zh_hans, has_ru, args.apply):
             changed += 1
 
     print()
     print("=" * 60)
-    print(f"Total {len(triples)} files inspected, {changed} need updating.")
+    print(f"Total {len(quads)} files inspected, {changed} need updating.")
 
     if args.check:
         sys.exit(1 if changed > 0 else 0)
