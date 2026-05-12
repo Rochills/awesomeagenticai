@@ -1,6 +1,6 @@
 # Stage 0 — 基础准备
 
-> [繁體中文](./00-foundations.md) | **简体中文** | [English](./00-foundations.en.md)
+> [繁體中文](./00-foundations.md) | **简体中文** | [English](./00-foundations.en.md) | [Русский](./00-foundations.ru.md)
 
 ⏱ **时间估算**：1-2 周（约 5-15 小时，已具备可跳过）
 

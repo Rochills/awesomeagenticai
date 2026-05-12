@@ -1,6 +1,6 @@
 # Stage 2 — Prompt Engineering
 
-> [繁體中文](./02-prompt-engineering.md) | [简体中文](./02-prompt-engineering.zh-Hans.md) | **English**
+> [繁體中文](./02-prompt-engineering.md) | [简体中文](./02-prompt-engineering.zh-Hans.md) | **English** | [Русский](./02-prompt-engineering.ru.md)
 
 
 ⏱ **Time estimate**: 1-2 weeks (~5-12 hours)

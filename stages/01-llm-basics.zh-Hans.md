@@ -1,6 +1,6 @@
 # Stage 1 - LLM 基础
 
-> [繁體中文](./01-llm-basics.md) | **简体中文** | [English](./01-llm-basics.en.md)
+> [繁體中文](./01-llm-basics.md) | **简体中文** | [English](./01-llm-basics.en.md) | [Русский](./01-llm-basics.ru.md)
 
 > **预计学习时间**： 5-8 小时
 

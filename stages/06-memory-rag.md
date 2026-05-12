@@ -1,6 +1,6 @@
 # Stage 6 — Memory · RAG · 進階
 
-> **繁體中文** | [简体中文](./06-memory-rag.zh-Hans.md) | [English](./06-memory-rag.en.md)
+> **繁體中文** | [简体中文](./06-memory-rag.zh-Hans.md) | [English](./06-memory-rag.en.md) | [Русский](./06-memory-rag.ru.md)
 
 ⏱ **時間估算**：2 週（約 10 小時）
 

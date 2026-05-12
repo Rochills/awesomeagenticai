@@ -1,6 +1,6 @@
 # Stage 4 — Agent Frameworks
 
-> **繁體中文** | [简体中文](./04-agent-frameworks.zh-Hans.md) | [English](./04-agent-frameworks.en.md)
+> **繁體中文** | [简体中文](./04-agent-frameworks.zh-Hans.md) | [English](./04-agent-frameworks.en.md) | [Русский](./04-agent-frameworks.ru.md)
 
 ⏱ **時間估算**：2-3 週（約 10-15 小時）
 

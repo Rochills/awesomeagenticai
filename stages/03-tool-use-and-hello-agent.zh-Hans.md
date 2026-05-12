@@ -1,6 +1,6 @@
 # Stage 3 — Tool Use 与 Agent 入门 ⭐
 
-> [繁體中文](./03-tool-use-and-hello-agent.md) | **简体中文** | [English](./03-tool-use-and-hello-agent.en.md)
+> [繁體中文](./03-tool-use-and-hello-agent.md) | **简体中文** | [English](./03-tool-use-and-hello-agent.en.md) | [Русский](./03-tool-use-and-hello-agent.ru.md)
 
 ⏱ **时间估算**：2-3 周（约 10-20 小时）
 

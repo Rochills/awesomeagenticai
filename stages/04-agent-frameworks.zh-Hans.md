@@ -1,4 +1,4 @@
-> [繁體中文](./04-agent-frameworks.md) | **简体中文** | [English](./04-agent-frameworks.en.md)
+> [繁體中文](./04-agent-frameworks.md) | **简体中文** | [English](./04-agent-frameworks.en.md) | [Русский](./04-agent-frameworks.ru.md)
 
 # 第 4 阶段 — Agent 框架
 

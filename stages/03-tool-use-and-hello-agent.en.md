@@ -1,6 +1,6 @@
 # Stage 3 — Tool Use & Agent Intro ⭐
 
-> [繁體中文](./03-tool-use-and-hello-agent.md) | [简体中文](./03-tool-use-and-hello-agent.zh-Hans.md) | **English**
+> [繁體中文](./03-tool-use-and-hello-agent.md) | [简体中文](./03-tool-use-and-hello-agent.zh-Hans.md) | **English** | [Русский](./03-tool-use-and-hello-agent.ru.md)
 
 
 ⏱ **Time estimate**: 2-3 weeks (~10-20 hours)

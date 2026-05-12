@@ -1,6 +1,6 @@
 # Stage 0 — Foundations
 
-> [繁體中文](./00-foundations.md) | [简体中文](./00-foundations.zh-Hans.md) | **English**
+> [繁體中文](./00-foundations.md) | [简体中文](./00-foundations.zh-Hans.md) | **English** | [Русский](./00-foundations.ru.md)
 
 
 ⏱ **Time estimate**: 1-2 weeks (~5-15 hours, can skip if you have these)

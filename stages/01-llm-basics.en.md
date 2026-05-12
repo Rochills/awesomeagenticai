@@ -1,6 +1,6 @@
 # Stage 1 — LLM Fundamentals
 
-> [繁體中文](./01-llm-basics.md) | [简体中文](./01-llm-basics.zh-Hans.md) | **English**
+> [繁體中文](./01-llm-basics.md) | [简体中文](./01-llm-basics.zh-Hans.md) | **English** | [Русский](./01-llm-basics.ru.md)
 
 
 ⏱ **Time estimate**: 1 week (~5-8 hours)
