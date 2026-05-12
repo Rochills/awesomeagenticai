@@ -1,4 +1,4 @@
-> [繁體中文](./setup-guide.md) | [简体中文](./setup-guide.zh-Hans.md) | **English**
+> [繁體中文](./setup-guide.md) | [简体中文](./setup-guide.zh-Hans.md) | **English** | [Русский](./setup-guide.ru.md)
 
 # 🚀 From Zero — Setup Guide for People Without a Dev Background
 

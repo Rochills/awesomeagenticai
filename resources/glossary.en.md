@@ -1,6 +1,6 @@
 # Glossary
 
-> [繁體中文](./glossary.md) | [简体中文](./glossary.zh-Hans.md) | **English**
+> [繁體中文](./glossary.md) | [简体中文](./glossary.zh-Hans.md) | **English** | [Русский](./glossary.ru.md)
 
 > The roadmap leans heavily on terms like LLM, RAG, MCP, agent. Look up unfamiliar ones here in 30 seconds, then go back to reading the stage.
 >

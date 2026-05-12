@@ -1,6 +1,6 @@
 # 术语小词典（Glossary）
 
-> [繁體中文](./glossary.md) | **简体中文** | [English](./glossary.en.md)
+> [繁體中文](./glossary.md) | **简体中文** | [English](./glossary.en.md) | [Русский](./glossary.ru.md)
 
 > 本路线图会大量出现「LLM」、「RAG」、「MCP」、「agent」这类词。读到不懂的词先在这里查 30 秒，再回去读 stage 内容。
 >

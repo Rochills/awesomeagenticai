@@ -1,6 +1,6 @@
 # 用語小辭典（Glossary）
 
-> **繁體中文** | [简体中文](./glossary.zh-Hans.md) | [English](./glossary.en.md)
+> **繁體中文** | [简体中文](./glossary.zh-Hans.md) | [English](./glossary.en.md) | [Русский](./glossary.ru.md)
 
 > 本路線圖會大量出現「LLM」、「RAG」、「MCP」、「agent」這類詞。讀到不懂的詞先在這裡查 30 秒，再回去讀 stage 內容。
 >

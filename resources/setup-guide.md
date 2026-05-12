@@ -1,4 +1,4 @@
-> **繁體中文** | [简体中文](./setup-guide.zh-Hans.md) | [English](./setup-guide.en.md)
+> **繁體中文** | [简体中文](./setup-guide.zh-Hans.md) | [English](./setup-guide.en.md) | [Русский](./setup-guide.ru.md)
 
 # 🚀 從零開始 — 給沒有開發背景的設定指南
 

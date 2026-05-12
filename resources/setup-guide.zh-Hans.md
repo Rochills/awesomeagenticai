@@ -1,4 +1,4 @@
-> [繁體中文](./setup-guide.md) | **简体中文** | [English](./setup-guide.en.md)
+> [繁體中文](./setup-guide.md) | **简体中文** | [English](./setup-guide.en.md) | [Русский](./setup-guide.ru.md)
 
 # 🚀 从零开始 — 给没有开发背景的设置指南
 
