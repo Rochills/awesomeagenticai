@@ -1,6 +1,6 @@
 # 貢獻指南
 
-> **繁體中文** | [English](./CONTRIBUTING.en.md)
+> **繁體中文** | [English](./CONTRIBUTING.en.md) | [Русский](./CONTRIBUTING.ru.md)
 
 謝謝你考慮貢獻。**這是一份精選的學習路線圖，不是百科目錄。品質 > 數量。**
 

@@ -6,6 +6,11 @@ Format: `YYYY-MM-DD · category · 1-line summary (commit-sha)`.
 
 ---
 
+## 2026-05-13
+
+- **i18n** · **Russian (ru) translation added as 4th language**. `sync-language-switchers.py` extended to recognize `<file>.ru.md` mirrors with graceful degradation; existing zh-TW / en / zh-Hans switchers stay intact unless a Russian sibling exists, in which case `Русский` is appended (`deb7863`).
+- **i18n** · Russian content shipped in 6 waves: W1 README + setup-guide + glossary (`a5d0d3d`); W2 5 audience branches (`3732fd0`); W3 8 stages 00-07 (`dd29d82`); W4 RESOURCES + 7 reference docs incl. 62-entry mcp-skills-catalog (`526e647`); W5 CLI tracks A1-A3 + paper-summary-bot walkthrough (`ccff4f9`); W6 CONTRIBUTING + this entry. Total ~7300 lines of Russian docs across 28 new `.ru.md` files. Translation conventions: keep EN tech terms (agent, tool use, prompt engineering) with optional Russian gloss on first mention; preserve code blocks / URLs / anchor IDs verbatim; reuse `.en.png` diagrams.
+
 ## 2026-05-11
 
 - **accessibility** · `resources/setup-guide.md` (3 langs) — addresses the dev-fluency assumption gap that subagent audit flagged across 5 non-dev branches. 5 sections covering API key registration, Python install, hello-world, Claude Code first auth, SKILL.md primer (`3c88b2b`). Plus 15 branch-top callouts on all 5 audience branches. `resources/README.{en,zh-Hans}.md` created for trilingual parity.
