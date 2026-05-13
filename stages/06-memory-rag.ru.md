@@ -7,7 +7,7 @@
 
 > 💡 Этап насыщен терминами (**RAG / vector DB / embedding / chunking / hybrid search / reranking / …**) → если что-то незнакомо, сначала проверь [`resources/glossary.ru.md` §3](../resources/glossary.ru.md#3-memory--retrieval--rag).
 
-Агенты, не помнящие прошлые взаимодействия, бесполезны. RAG (Retrieval-Augmented Generation) — стандартный подход. Этот этап покрывает оба.
+Агенты без памяти и доступа к внешним знаниям быстро упираются в границы текущего контекста. RAG (Retrieval-Augmented Generation) и memory-паттерны — стандартные способы расширить этот контекст. Этот этап покрывает оба.
 
 ## 📌 Цели обучения
 
