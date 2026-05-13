@@ -27,7 +27,7 @@
 
 ### Высокоценные PR
 - **Добавление проекта** в этап с обоснованием, почему он учит этому этапу
-- **Перевод** страницы этапа на 繁中 (только Traditional Chinese — мы НЕ zh-Hans) или другие языки
+- **Перевод** страницы этапа на 繁中 (только Traditional Chinese — мы НЕ zh-Hans)
 - **Флагирование stale / неподдерживаемых проектов** (открой issue сначала)
 - **Улучшение curation-заметок** существующих проектов (более чёткие «what it teaches» объяснения)
 - **Реорганизация** внутри этапа, если текущий порядок не соответствует learning progression
@@ -78,12 +78,12 @@
 3. **Чёткую лицензию**: MIT, Apache 2, BSD или сравнимое. Избегай no-license репо.
 4. **Заслуживающий доверия мейнтейнер**: well-known org, компания или индивид с track record'ом
 
-## Multilingual-стиль
+## Bilingual-стиль
 
-- **Traditional Chinese (zh-TW) — каноничный**; English (`*.en.md`), zh-Hans (`*.zh-Hans.md`), Русский (`*.ru.md`) — companion'ы.
-- **zh-Hans PR не принимаются как канонические**. Если шлёшь zh-Hans в как canonical — попросим конвертнуть.
+- **Traditional Chinese (zh-TW) — каноничный**; English (`*.en.md`) — companion.
+- **zh-Hans PR не принимаются**. Если шлёшь zh-Hans, попросим конвертнуть.
 - **Естественный перевод**, не слово-в-слово. Технические термины могут оставаться на английском, где естественно («使用 LangGraph 建 multi-agent 系統» / «MCP-сервер для tool use»).
-- **Полные style-правила: см. [`resources/style-guide.md`](resources/style-guide.md)** (zh) или [`resources/style-guide.en.md`](resources/style-guide.en.md) (en) или [`resources/style-guide.ru.md`](resources/style-guide.ru.md) (ru) — banned words, схема записи, license-конвенции, writing-стиль, определения recommendation star — всё там. Читай перед PR.
+- **Полные style-правила: см. [`resources/style-guide.md`](resources/style-guide.md)** (zh), [`resources/style-guide.en.md`](resources/style-guide.en.md) (en) или [`resources/style-guide.ru.md`](resources/style-guide.ru.md) (ru) — banned words, схема записи, license-конвенции, writing-стиль, определения recommendation star — всё там. Читай перед PR.
 
 ## Процесс
 

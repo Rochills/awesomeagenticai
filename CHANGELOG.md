@@ -9,7 +9,7 @@ Format: `YYYY-MM-DD · category · 1-line summary (commit-sha)`.
 ## 2026-05-13
 
 - **i18n** · **Russian (ru) translation added as 4th language**. `sync-language-switchers.py` extended to recognize `<file>.ru.md` mirrors with graceful degradation; existing zh-TW / en / zh-Hans switchers stay intact unless a Russian sibling exists, in which case `Русский` is appended (`deb7863`).
-- **i18n** · Russian content shipped in 6 waves: W1 README + setup-guide + glossary (`a5d0d3d`); W2 5 audience branches (`3732fd0`); W3 8 stages 00-07 (`dd29d82`); W4 RESOURCES + 7 reference docs incl. 62-entry mcp-skills-catalog (`526e647`); W5 CLI tracks A1-A3 + paper-summary-bot walkthrough (`ccff4f9`); W6 CONTRIBUTING + this entry. Total ~7300 lines of Russian docs across 28 new `.ru.md` files. Translation conventions: keep EN tech terms (agent, tool use, prompt engineering) with optional Russian gloss on first mention; preserve code blocks / URLs / anchor IDs verbatim; reuse `.en.png` diagrams.
+- **i18n** · Russian content shipped in 6 waves: W1 README + setup-guide + glossary (`6d917a0`); W2 5 audience branches (`3f5ef9e`); W3 8 stages 00-07 (`6a7db9a`); W4 RESOURCES + 7 reference docs incl. 62-entry mcp-skills-catalog (`9aa5bda`); W5 CLI tracks A1-A3 + paper-summary-bot walkthrough (`f00ae3b`); W6 CONTRIBUTING + this entry. Total ~7300 lines of Russian docs across 28 new `.ru.md` files. Translation conventions: keep EN tech terms (agent, tool use, prompt engineering) with optional Russian gloss on first mention; preserve code blocks / URLs / anchor IDs verbatim; reuse `.en.png` diagrams.
 
 ## 2026-05-11
 
