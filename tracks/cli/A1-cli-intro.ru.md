@@ -82,13 +82,13 @@
 Closed-source desktop app — drag-and-drop UI для локальных LLM. Попробуй сначала, если на Windows / Mac и хочешь local LLM без command line.
 
 #### [Ollama](https://github.com/ollama/ollama)
-★ 170k+ — local LLM runner; хорошо парится с OpenCode / goose (и любым инструментом с OpenAI-совместимым base_url). См. [секцию Local LLM этапа 1](../../stages/01-llm-basics.ru.md).
+★ 170k+ — local LLM runner; хорошо работает в паре с OpenCode / goose (и любым инструментом с OpenAI-совместимым base_url). См. [секцию Local LLM этапа 1](../../stages/01-llm-basics.ru.md).
 
 ## ✅ Самопроверка перед A2
 
 Можешь:
 - [ ] Сформулировать core-разницу между 7 mainstream CLI (3–4 без подглядывания в таблицу)
-- [ ] Имеешь рабочий основной CLI (установлен, autho'д, запустил 5+ реальных задач)
+- [ ] Имеешь рабочий основной CLI (установлен, аутентифицирован, запустил 5+ реальных задач)
 - [ ] Написал свой `CLAUDE.md` / `AGENTS.md` / `GEMINI.md`
 - [ ] Запустил второй CLI хотя бы раз, знаешь различия в стиле
 

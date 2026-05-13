@@ -105,7 +105,7 @@ print(chunks[0])
 ## 🛠 Практические упражнения (делать, не просто читать)
 
 ### Упражнение 1: Embeddings
-Embed'ни 100 предложений, найди nearest neighbors одного query. Построй интуицию, что значит «vector distance».
+Построй embeddings для 100 предложений, найди nearest neighbors одного query. Разбери на практике, что значит «vector distance».
 
 ### Упражнение 2: Vector DB
 Сохрани embeddings в Chroma, запрашивай семантически. Сравни с keyword search.
@@ -117,7 +117,7 @@ Embed'ни 100 предложений, найди nearest neighbors одного
 Chunk PDF → embed → retrieve top-k → generate answer. Базовый скелет, который использует большинство RAG-приложений.
 
 ### Упражнение 5: Long-term memory
-Дай агенту conversational memory через множество сессий. Используй `mem0` или роли свою на vector store.
+Дай агенту conversational memory через несколько сессий. Используй `mem0` или напиши свою реализацию поверх vector store.
 
 ## 🎯 Подборка проектов
 

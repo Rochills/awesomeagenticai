@@ -70,4 +70,4 @@
 
 ---
 
-> ✅ **Этап 0 пройден?** Дальше — [**Этап 1 — LLM Fundamentals**](01-llm-basics.ru.md) — 5–8 часов проводят тебя через первый LLM API call, значение token / context window / temperature и как оценивать реальную стоимость задачи через per-token pricing. **Дальше →**
+> ✅ **Этап 0 пройден?** Дальше — [**Этап 1 — LLM Fundamentals**](01-llm-basics.ru.md) — за 5–8 часов он проведёт тебя через первый LLM API call, значение token / context window / temperature и покажет, как оценивать реальную стоимость задачи через per-token pricing. **Дальше →**
