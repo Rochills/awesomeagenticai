@@ -6,6 +6,7 @@
 
 > 📌 **This is a reference doc** (depth comparison, selection logic, pitfalls, recommended setups).
 > First time touching CLI agents, want step-by-step onboarding → see [`tracks/cli/A1-cli-intro.en.md`](../tracks/cli/A1-cli-intro.en.md) (Track A first stop).
+> First want to understand "why does one agent live in a terminal, another in Telegram, another on a Jetson board?" mental model → see [`resources/agent-paradigms.en.md`](agent-paradigms.en.md) (5 agent paradigms).
 > Already using one, want to decide / compare / upgrade → stay here.
 
 A cross-branch reference shared by Track A (A1-A3) + all 5 specialized branches: **how to choose between Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent?** Every branch references CLI agents but no single branch "owns" this comparison, so it lives in `resources/`.

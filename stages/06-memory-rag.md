@@ -23,6 +23,8 @@
 4. [**Anthropic — Contextual Retrieval**](https://www.anthropic.com/news/contextual-retrieval) — Anthropic 搭配 prompt caching 的 RAG 寫法
 5. [**LangChain — Text splitters**](https://docs.langchain.com/oss/python/integrations/splitters/index) — chunking 策略入門
 
+> 🙏 **Memory 章節特別推薦 [`datawhalechina/hello-agents`](https://github.com/datawhalechina/hello-agents)**：本 stage 探討 memory 的概念跟初級實作、要 **chapter-length 深入版**請看 hello-agents 對應章節——short-term / long-term memory 的差異、context engineering 怎麼動態組裝、session 持久化、forgetting strategy 都講得最完整。本 stage 是路線圖、那邊是深度教材。
+
 ## 🧭 單元指引
 
 這一章先帶你簡單理解短期記憶與長期記憶，再聚焦到 RAG。
@@ -105,7 +107,7 @@ Chunking 進階思考：
 - chunk size、overlap、top-k、reranker 會互相影響，不要只單看其中一個參數。
 - 想想看，如果今天要 RAG 的資料有含圖片的 PDF、會議字幕檔，要如何切割比較好？
 
-## 🛠 動手練習（不是看過就好）
+## 🛠 動手練習（基礎 illustrative 練習）
 
 ### 練習 1：Embeddings
 把 100 個句子做 embedding，找出某個 query 的最近鄰。理解 vector 之間的距離意義。
@@ -123,6 +125,24 @@ Chunking 進階思考：
 讓 agent 在多輪對話之間記得事情。可以用 `mem0` 或自己用 vector store 接。
 
 ## 🎯 精選 Projects
+
+按用途分 4 類。**先看分類表挑入口、再點下面 detail block 看適合誰 / 教什麼**：
+
+| 分類 | Project | 推薦 | 為什麼推薦 |
+|---|---|---|---|
+| **RAG framework**（完整流水線） | [LlamaIndex](https://github.com/run-llama/llama_index) | ⭐⭐⭐⭐⭐ | 以 RAG 為核心、document loader / chunking / retrieval / query engine 一條龍 |
+| **RAG framework**（agentic RAG） | [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | ⭐⭐⭐⭐⭐ | document parsing 強、企業級、含 Web UI |
+| **RAG framework**（graph-based）| [HKUDS/LightRAG](https://github.com/HKUDS/LightRAG) | ⭐⭐⭐⭐ | knowledge graph + RAG、適合需要 entity-relation 推理 |
+| **Vector DB**（local-first）| [Chroma](https://github.com/chroma-core/chroma) | ⭐⭐⭐⭐⭐ | 練習默認、in-memory / SQLite 後端、零 ops cost |
+| **Vector DB**（production scale）| [Qdrant](https://github.com/qdrant/qdrant) | ⭐⭐⭐⭐⭐ | Rust 寫、production-grade、scale 大 |
+| **Vector DB**（hybrid）| [Weaviate](https://github.com/weaviate/weaviate) | ⭐⭐⭐⭐ | 內建 BM25 + vector hybrid、modular schema |
+| **Vector DB**（已有 Postgres）| [pgvector](https://github.com/pgvector/pgvector) | ⭐⭐⭐⭐ | Postgres 擴充、SQL + vector 一起、運維最簡 |
+| **Memory framework**（auto fact extraction）| [mem0ai/mem0](https://github.com/mem0ai/mem0) | ⭐⭐⭐⭐⭐ | production-grade memory、auto-extract / forgetting / namespace |
+| **Memory framework**（OS-paging）| [Letta（前身 MemGPT）](https://github.com/letta-ai/letta) | ⭐⭐⭐⭐ | working / archival 兩級 memory、long session 場景強 |
+| **Memory（in-framework）**| [LangChain — Memory](https://python.langchain.com/docs/concepts/memory/) | ⭐⭐⭐ | 4 種 memory 抽象、適合已用 LangChain 的人 |
+| **進階 RAG 技巧** | [Anthropic — Contextual Retrieval cookbook](https://platform.claude.com/cookbook/capabilities-contextual-embeddings-guide) | ⭐⭐⭐⭐⭐ | Claude 搭配 prompt caching 的 contextual chunking |
+| **中文 RAG 樣板** | [chatchat-space/Langchain-Chatchat](https://github.com/chatchat-space/Langchain-Chatchat) | ⭐⭐⭐⭐ | 中文圈最完整、跟本機 LLM 整合好 |
+| **教材合集** | [patchy631/ai-engineering-hub](https://github.com/patchy631/ai-engineering-hub) | ⭐⭐⭐⭐ | RAG + agent 教學 collection、Jupyter notebook 形式 |
 
 ### [LlamaIndex](https://github.com/run-llama/llama_index)
 

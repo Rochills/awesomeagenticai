@@ -11,6 +11,8 @@
 > - **Track A (CLI Power User)**: A2 uses [5.1 (Claude Code basics)](#51--claude-code-basics); A3 uses [5.2 (MCP)](#52--mcp-model-context-protocol-foundation) + selectively [5.3 (Skills)](#53--skills-claude-code-behavior-layer) and [5.4 (Plugins)](#54--plugins--marketplaces) (A3's Exercise CLI-12 teaches packaging CLAUDE.md / commands into a plugin). Reading angle: "**how to use Claude Code well**"
 > - **Track B (Agent Builder)**: works through the full stage 5.1 → 5.4 as "**how Claude Code works internally**" deep dive
 
+> 🗺️ **Which agent paradigm does Claude Code fit?** → [`resources/agent-paradigms.en.md`](../resources/agent-paradigms.en.md) §Type 1 (IDE-coupled) + §Type 2 (Terminal pair-programmer); start there for the full 5-paradigm comparison.
+
 > ⚠️ **This stage is not the path for a local LLM.** Claude Code requires Anthropic API / OAuth and cannot directly switch to Ollama or a local endpoint. For offline work, privacy-sensitive files, or avoiding API quota, use [`resources/cookbook.md` Recipe 6](../resources/cookbook.en.md#6-local-llm--cli-agent-quick-walkthrough) with a BYO-LLM CLI agent such as OpenCode / goose / Aider / Hermes.
 
 ## Stack at a glance
@@ -207,6 +209,8 @@ pip install mcp
 - **Exercise: SKILL.md** — write a 200-word skill solving one of your daily tasks
 - **Exercise: SKILL with references** — add a `references/` markdown the skill can pull from
 - **Exercise: SKILL eval** — add `evals/evals.json` with 3-5 self-tests
+
+> 📦 **This repo bundles a meta-example**: [`examples/stage-5/tool-calling-tutor/`](../examples/stage-5/tool-calling-tutor/) is the matching skill exemplar for this stage — full frontmatter (with trigger phrases + Do NOT use for), three `references/` docs, and `evals/evals.json` with 5 test cases. **Fork it directly and customize**. Dual purpose: (a) learners install for self-use as an auto-loading debugger when stuck on tool calling; (b) the SKILL.md authoring reference for Stage 5 §5.3.
 
 ### Curated Projects
 

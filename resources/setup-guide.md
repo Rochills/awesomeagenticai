@@ -93,11 +93,40 @@
 
 ### 其他 LLM 選項
 
-- **OpenAI**：https://platform.openai.com/api-keys  
+#### 西方 cloud（美區友善、英文場景）
+
+- **OpenAI**：https://platform.openai.com/api-keys
   ChatGPT Plus 和 API key 是兩件事；訂閱 Plus 仍要另外申請 API key。
-- **Google AI Studio**：https://aistudio.google.com/  
+- **Google AI Studio**：https://aistudio.google.com/
   適合先試 Gemini API，免費額度會依地區和帳號狀態不同。
+- **NVIDIA NIM**：https://build.nvidia.com/
+  **托管多個開源 model（Llama / Mistral / DeepSeek-R1 / Qwen / Gemma 等）、OpenAI-compatible API、新帳號送 1000 credits**。適合「想試多個 open-source model 但沒 GPU」的情境。`base_url=https://integrate.api.nvidia.com/v1`。
+
+#### 中國 / 中文場景（地區友善、價格極便宜）
+
+> 中國大陸使用者連 Anthropic / OpenAI 有困難、或想試中文 native 模型，從這邊開始。**這些 API 都 OpenAI-compatible**、改 `base_url` 跟 model name 就能跑同一份練習。
+
+- **DeepSeek**：https://platform.deepseek.com/
+  web 版 https://chat.deepseek.com 完全免費（含 R1 推理模型）。API 價格極便宜（**$0.27 input / $1.10 output per 1M token**、比 haiku 便宜 4 倍）。Code / 推理都很強。
+  `base_url=https://api.deepseek.com/v1`、`model=deepseek-chat` 或 `deepseek-reasoner`。
+- **Moonshot Kimi**：https://platform.moonshot.cn/ (中國)、https://platform.moonshot.ai/ (海外)
+  web 版 https://kimi.com 免費、**1M token context** 是賣點（很大檔案 / 長對話）。API 約 $5-15/1M input、按 context size 階梯計費。
+  `base_url=https://api.moonshot.cn/v1` (中國) / `https://api.moonshot.ai/v1` (海外)、`model=kimi-k2-turbo-preview` 等。
+- **通義千問 Qwen（Alibaba）**：https://dashscope.console.aliyun.com/
+  web 版 https://chat.qwen.ai 免費。API 走 Alibaba Cloud DashScope、有 **OpenAI-compatible endpoint**（[文件](https://help.aliyun.com/zh/dashscope/developer-reference/compatibility-of-openai-with-dashscope/)）。**同樣的 Qwen 模型也能用 Ollama 在本機跑**（`ollama pull qwen2.5:3b`）——cloud 跟 local 兩條路徑都通。
+- **智譜 GLM（ZhipuAI）**：https://open.bigmodel.cn/ (中國) / https://z.ai/ (海外)
+  web 版 https://chatglm.cn 免費、有 GLM-4.5、GLM-4-Plus。API 有 free tier、學生申請可額外領 credit。
+
+#### 本機（不付 API 費、完全 offline）
+
 - **Ollama 本機模型**：不用 API key。走本機路線請看 [Cookbook Recipe 6](cookbook.md#6-本機-llm--cli-agent-快速-walkthrough)。
+  本 repo 的「Path A」默認就是 Ollama；所有 Stage 1-7 練習都能用 `gemma4:e4b`（Stage 1-2）或 `qwen2.5:3b`（Stage 3+）跑通、$0/run。
+
+> 💡 **怎麼挑第一個**：
+> - 想學 agent / production、**美區帳號OK** → **Anthropic Claude**（curriculum canonical）
+> - 想學 agent / production、**中國地區**或想試中文模型 → **DeepSeek**（最便宜 cloud option、OpenAI-compat、中文很強）
+> - 想試多個 model 但沒 GPU → **NVIDIA NIM**（送 1000 credit、托管 10+ open model）
+> - 隱私敏感 / 完全免費 / 中國大陸無 cloud → **Ollama**（本機、curriculum 全套都能跑、$0）
 
 ---
 

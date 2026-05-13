@@ -25,7 +25,7 @@
 5. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering)（★ 780+）— agent harness 的工具 / pattern / eval / memory / MCP / observability 全集合。**framework 把 LLM 包成 agent；harness 把 agent 包成 production system**——這個 stage 學的就是 harness。
 6. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)（★ 1.3k+）— 從 Claude Code 原始碼學 harness 設計（中文）
 
-## 🛠 動手練習（必跑、不是看就好）
+## 🛠 動手練習（基礎 illustrative 練習）
 
 ### 練習 1：Multi-Agent 辯論
 兩個 agent 辯論一個題目（例如「該用 Python 還是 Rust 寫 backend」），第三個 agent 當裁判。觀察辯論收斂或分歧的 pattern。
@@ -43,6 +43,22 @@
 把一個 agent 包進 Docker，deploy 到雲端（任何 provider 都行）。學會把 prototype 變成可以給別人跑的東西。
 
 ## 🎯 精選 Projects
+
+本 stage 已按用途分 7 個子分類。**先看這張總覽表挑入口、再下捲看 detail block**：
+
+| 分類 | 代表 projects | 該看什麼 |
+|---|---|---|
+| **Multi-Agent Orchestration** | AutoGen / CrewAI / LangGraph | Stage 4 已介紹、production 場景再回頭看 GroupChat / hierarchical / state machine 用法 |
+| **Evaluation Frameworks** | promptfoo ⭐ / lm-evaluation-harness / openai/evals | 寫 eval set、跑 regression、CI 整合 |
+| **Observability** | Langfuse ⭐ / LangSmith / Helicone / W&B Weave | trace + cost + latency、production 必裝 |
+| **Anthropic SDK 進階** | anthropic-sdk-python / **claude-agent-sdk-python** ⭐ / cookbook | prompt caching / batch API / files / **Claude Code 內部運作**（agent SDK = 看內部原始碼）|
+| **Deployment** | BentoML / LangServe / vLLM / LLaMA-Factory | 上 production server / GPU inference / fine-tune |
+| **本地 deploy 中文教材** | datawhalechina/self-llm | 中文圈 self-host LLM 最完整指南 |
+| **Multi-Agent 案例研究** | MetaGPT / ChatDev / SWE-agent | 看「真實 multi-agent 工程怎麼設計」、不是 framework 而是 case study |
+
+> 🌳 **Claude 原生 subagent 機制**（不用 framework 也能 multi-agent）見 [Stage 5.5](05-claude-code-ecosystem.md#55--subagentsclaude-code-原生-multi-agent-機制)。本 stage 重 framework / production；Stage 5.5 重 markdown-based subagent 編排。
+
+---
 
 ### Multi-Agent Orchestration
 
@@ -198,7 +214,7 @@ npx promptfoo eval
 
 **適合誰**：要打造 Claude-based agent 而不是只呼叫 API 的開發者。比起手刻 ReAct loop、自己管 tool execution，這個 SDK 把這些抽象都做好了。
 
-**備註**：跟 Claude Code 共用同一套 agent runtime；想理解 Claude Code 內部怎麼運作的，讀這個 SDK 的原始碼是最快的路徑。
+**備註**：跟 Claude Code 共用同一套 agent runtime；想理解 Claude Code 內部怎麼運作的，讀這個 SDK 的原始碼是最快的路徑。**Hands-on subagent 編排教學**（`.claude/agents/` + Task tool）見 [Stage 5.5](05-claude-code-ecosystem.md#55--subagentsclaude-code-原生-multi-agent-機制)——本 SDK 是 programmatic 入口、Stage 5.5 是 markdown-based 入口、兩條路徑共用同一個 runtime。
 
 ---
 

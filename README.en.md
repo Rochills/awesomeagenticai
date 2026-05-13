@@ -19,17 +19,25 @@
 
 > **English companion. The zh-TW [README.md](README.md) is canonical** — content is curated in zh-TW first; this page mirrors it for English readers.
 
-A learning roadmap for agentic AI — **from LLM fundamentals to building multi-agent systems**. Structured 7-stage path: from "what is an LLM, how do tokens work" all the way to multi-agent orchestration and local deployment. Each stage has must-run demos, required reading, and curated projects.
+**Learning roadmap + 145+ curated resources + simple illustrative cases** — three pillars helping you go from "I don't know where to start" to "I can design multi-agent systems". Structured 7-stage path from LLM fundamentals to multi-agent orchestration and local deployment.
 
 ---
 
 ## 🎯 Why this exists
 
-If you want to learn AI applications or grow from basics into multi-agent systems — **the most common problem isn't lack of resources, it's not knowing where to start**. Awesome lists in English and Chinese have hundreds of repos but no path; people learning Claude Code, LangGraph, or RAG end up scattered across communities, using different terms, recommending different starter projects.
+**What this repo is**: **a learning roadmap + 145+ curated resources + simple illustrative cases** — three pillars helping AI / AI-agent learners go from "I don't know where to start" to "I can design multi-agent systems."
 
-So we curated **134 high-quality projects** into a "from zero to advanced multi-agent" learning roadmap, organized as **7 stages**. Each stage tells you exactly **what to learn, which exercises to run, which projects to study, and what self-check to pass before advancing**.
+Concretely:
+
+| Pillar | What it does | Scale |
+|---|---|---|
+| **Learning roadmap** | Organizes scattered high-quality projects, tutorials, and required reading into **7 stages** + 2 tracks + 5 specialized branches, from zero to advanced | 7 stages, 2 tracks |
+| **Resource curation** | Each stage curates **145+** projects (star rating, audience, what they teach, how to run) plus an MCP/Skill catalog for the Chinese-language community | 145+ projects, 62 MCP/Skill |
+| **Simple illustrative cases** | Each stage ships 1-5 **foundational exercises** (70-150 line starter + dual-path Ollama/Anthropic SDK comparison + mock-based tests) | 27 exercise folders |
 
 After the main path, you go from "**LLM user**" to "**agent system builder**" — capable of designing multi-agent collaboration, writing your own MCP server, and shipping real agent systems.
+
+> 🙏 **Special thanks to [`datawhalechina/hello-agents`](https://github.com/datawhalechina/hello-agents)** — the most thorough chapter-length agent tutorial in the Chinese-language ecosystem (16 production capabilities; **memory / RAG section in particular** is the best treatment available). This repo is **roadmap + foundational exercises**, hello-agents is **chapter-length depth tutorial** — complementary roles, no duplication. Every stage / exercise folder has a 📚 callout pointing there.
 
 ---
 
@@ -68,7 +76,7 @@ cd awesome-agentic-ai-zh
 
 - 📖 **Fully free** — MIT-licensed, all content open
 - 🗺️ **Two learning tracks** — Track A (CLI Power User) for "use existing CLIs"; Track B (Agent Builder) for "build your own". Shared Stages 0-2 foundation.
-- 🛠️ **Must-do hands-on exercises** — 1-5 mini projects per stage (specs + success criteria, **you write the code**, not turnkey demos); reading-only doesn't count
+- 🛠️ **Foundational hands-on exercises** — 1-5 illustrative exercises per stage (specs + dual-path SDK comparison + success criteria). Positioned as **foundational + roadmap verification** — for chapter-length depth exercises see the hello-agents / Anthropic Cookbook callout in each stage
 - 🎯 **145+ curated projects** — each with star rating, audience, what it teaches, how to run (incl. local LLM runners: Ollama, llama.cpp, LocalAI, MLX)
 - 🌏 **Bilingual** — zh-TW canonical, English mirror
 - 🎓 **Beyond frameworks: Claude Code ecosystem** — MCP / Skills / Plugins / SDK full stack
@@ -155,9 +163,13 @@ The main path has 4 parts:
 - **Part 3 (Stage 5): Claude Code Ecosystem** — MCP / Skills / Plugins, the heart of the path
 - **Part 4 (Stages 6-7): Advanced Integration** — memory / RAG / multi-agent collaboration
 
+> 🔭 **Three layers of concept evolution**: **prompt engineering** (Stage 2 — how to write a single prompt) → **context engineering** (Stage 3 onward — how to dynamically assemble system prompt + memory + retrieved chunks + tool schema) → **harness engineering** (Stage 7 — agent loop / eval / observability / deploy as a complete production system). Three terms, three phases; you don't need to look elsewhere. See [`stages/02-prompt-engineering.en.md`](stages/02-prompt-engineering.en.md) §"Beyond prompts: context engineering" and [`stages/07-multi-agent-production.en.md`](stages/07-multi-agent-production.en.md) Required Reading §5+6.
+
 After the main path (14-19 weeks), pick a branch.
 
 The most important advice: **don't skip the hands-on exercises**. Each stage's exercises are "you can't learn this without doing it" — skim past them and you'll get stuck later.
+
+> 🎓 **How to actually use the exercises**: the `starter.py` in each exercise folder is a **complete solution**, not a TODO skeleton. If you clone, `cat starter.py`, and run `python test.py` to all-green, you'll think "I learned it" — but you haven't written a single line. **Correct learning loop**: `mv starter.py starter_reference.py`, look at signatures (not bodies), write your own, peek at the reference only after 20 min stuck. Full method + per-stage time budgets + escalation order in [`docs/HOW_TO_USE.md`](docs/HOW_TO_USE.md).
 
 Ready? [Start at Stage 0](stages/00-foundations.en.md).
 
@@ -167,14 +179,46 @@ Ready? [Start at Stage 0](stages/00-foundations.en.md).
 
 The full related-resources block (term definitions + daily-tool MCP/Skill highlights + awesome lists + Chinese-community resources) lives in **[RESOURCES.en.md](RESOURCES.en.md)** so this README stays focused.
 
-Common quick links:
+Common quick links, grouped by **scenario**:
 
-- 🚀 **Never written code, or first time with AI agents?** → [`resources/setup-guide.en.md`](resources/setup-guide.en.md) (30-45 minutes from zero)
-- 📖 **Don't know a term?** (LLM, agent, RAG, token, MCP, Skill, vector DB, …) → [`resources/glossary.en.md`](resources/glossary.en.md) — 30+ common terms, 30–80-word definition each + which stage covers it
-- 🔑 **What MCP / Skills / Plugins mean** → [RESOURCES.en.md §three core terms](RESOURCES.en.md#three-core-terms-mcp--skills--plugins)
-- 🔌 **Connect to Notion / Obsidian / Excel / GitHub / etc.** → [RESOURCES.en.md §daily-tool integrations](RESOURCES.en.md#daily-tool-integrations-mcp-servers--skills) or full 62-entry catalog [`resources/mcp-skills-catalog.en.md`](resources/mcp-skills-catalog.en.md)
-- 🔬 **Research workflow + multi-LLM delegation pair** → [RESOURCES.en.md §research workflow](RESOURCES.en.md#research-workflow-by-the-repo-maintainer)
-- 📚 **Topic-based awesome lists / Chinese community** → [RESOURCES.en.md §topic-based](RESOURCES.en.md#topic-based-awesome-lists)
+### 🚀 Onboarding / Environment
+
+| Your situation | Where | What's there |
+|---|---|---|
+| Never written code, first time with AI agents | [`resources/setup-guide.en.md`](resources/setup-guide.en.md) | 30-45 min from zero (API key, Python, first hello-world) |
+| Not sure which LLM provider to pick | [`resources/setup-guide.en.md` §A](resources/setup-guide.en.md#a--apply-for-your-first-api-key-about-10-minutes) | Anthropic / OpenAI / DeepSeek / Kimi / NVIDIA NIM comparison |
+| Topic-based awesome lists / Chinese community | [`RESOURCES.en.md` §topic-based](RESOURCES.en.md#topic-based-awesome-lists) | 5-10 min skim |
+
+### 📖 Concepts / Terminology
+
+| Your situation | Where | What's there |
+|---|---|---|
+| Don't know a term (LLM / agent / RAG / token / MCP / Skill / vector DB…) | [`resources/glossary.en.md`](resources/glossary.en.md) | 30+ terms, 30-80 words each + which stage covers it |
+| Why some agents live in terminal vs Telegram vs Jetson | [`resources/agent-paradigms.en.md`](resources/agent-paradigms.en.md) | 5 paradigms mental model + Hermes Agent / OpenClaw examples |
+| MCP / Skills / Plugins glossary mapping | [`RESOURCES.en.md` §three core terms](RESOURCES.en.md#three-core-terms-mcp--skills--plugins) | 1-page lookup |
+
+### 🛠 Hands-on
+
+| Your situation | Where | What's there |
+|---|---|---|
+| Want to build Skill / MCP server / Word / Zotero / local LLM integration | [`resources/cookbook.en.md`](resources/cookbook.en.md) | 6 step-by-step recipes, 30-50 min each |
+| Stuck on tool calling (LLM won't call / schema broken / ReAct won't stop) | [`examples/stage-5/tool-calling-tutor/`](examples/stage-5/tool-calling-tutor/) | Claude Code installable skill, 4-symptom diagnostic |
+| How to use the hands-on exercises correctly (active vs passive mode) | [`docs/HOW_TO_USE.md`](docs/HOW_TO_USE.md) | 5-10 min read, applies to every stage |
+
+### 🔌 Daily tool integrations / Finding MCP servers
+
+| Your situation | Where | Scope |
+|---|---|---|
+| Connect to Notion / Obsidian / Excel / GitHub / etc. | [`RESOURCES.en.md` §daily-tool integrations](RESOURCES.en.md#daily-tool-integrations-mcp-servers--skills) | 7-8 highlights |
+| Full MCP server / Skill catalog (stars, categories) | [`resources/mcp-skills-catalog.en.md`](resources/mcp-skills-catalog.en.md) | 62 entries, 6 categories |
+
+### 🔬 Research / Production
+
+| Your situation | Where | What's there |
+|---|---|---|
+| Research workflow + multi-LLM delegation skill pair | [`RESOURCES.en.md` §research workflow](RESOURCES.en.md#research-workflow-by-the-repo-maintainer) | Maintainer's own Claude Code research skill set |
+| CLI agent 7-way comparison + production combos | [`resources/cli-agents-guide.en.md`](resources/cli-agents-guide.en.md) | Track A's core reference, ~148 lines |
+| Schema design rules (must-read for tool calling) | [`resources/schema-design-cheatsheet.en.md`](resources/schema-design-cheatsheet.en.md) | 5 golden rules + 5 anti-patterns |
 
 ---
 

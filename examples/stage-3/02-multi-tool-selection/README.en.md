@@ -1,0 +1,91 @@
+> [繁體中文](./README.md) | [简体中文](./README.zh-Hans.md) | **English**
+
+# Exercise 2: Multi-Tool Selection
+
+Corresponds to [Stage 3 — Tool Use & Agent Intro](../../../stages/03-tool-use-and-hello-agent.en.md) Exercise 2.
+
+## Why this matters
+
+This exercise puts an LLM in front of three tools in a single turn: `web_search`, `calculator`, `calendar_lookup`. The point isn't tool quality — it's watching how schema `name` / `description` / `parameters` steer the model's choice. Writing schemas well is one of the highest-leverage things you do in Stage 3.
+
+## How to run — two paths
+
+### Path A (default, free, local)
+
+```bash
+pip install -r requirements.txt
+ollama pull qwen2.5:3b
+ollama serve
+python starter.py
+```
+
+Budget: **$0**. A single qwen2.5:3b tool call takes ~1-5s (CPU slower, GPU faster).
+
+### Path B (Anthropic, cloud-quality comparison)
+
+```bash
+pip install -r requirements.txt
+export ANTHROPIC_API_KEY=sk-ant-...
+python starter_anthropic.py
+```
+
+Budget: ~**$0.0005** per run (claude-haiku-4-5).
+
+Expected output (Path A, local):
+
+```
+❓ Question: What is (19 * 42) - 8? Use the best available tool. (using Ollama qwen2.5:3b)
+   tool: calculator
+   tool_input: {'expression': '(19 * 42) - 8'}
+   observation: 790
+✅ Exercise 2 passed — you ran multi-tool selection locally on qwen2.5:3b, $0/run
+```
+
+## Validate the logic without API credits (mock-based)
+
+```bash
+python test.py            # validates Path A (Ollama) starter.py logic
+python test_anthropic.py  # validates Path B (Anthropic) starter_anthropic.py logic
+```
+
+Both test suites use `unittest.mock`, no real API call, $0/run. Path A uses the OpenAI-compat response shape; Path B uses Anthropic content blocks.
+
+## SDK differences between the two paths
+
+Three key differences (everything else is identical):
+
+| Part | Anthropic (Path B) | OpenAI-compat / Ollama (Path A) |
+|---|---|---|
+| Schema wrap | `tools=[{name, description, input_schema}, ...]` | `tools=[{"type": "function", "function": {name, description, parameters}}, ...]` |
+| Reading tool call | `resp.content[i].type == "tool_use"` | `resp.choices[0].message.tool_calls[i]` |
+| input format | `call.input` is already a dict | `call.function.arguments` is a JSON string — needs `json.loads(...)` |
+
+The selection **logic** is backend-agnostic — write a good schema and qwen2.5:3b picks the right tool too. This exercise is a great place to compare "on which questions does Claude pick the right tool but qwen2.5 doesn't?" — a clean way to feel the boundary of small models.
+
+## Common pitfalls
+
+The most common failure in multi-tool design is descriptions that read like documentation, not decision rules:
+
+- `calendar_lookup` described as "calendar" is ambiguous with `web_search`; "look up events for a specific date" is clearer
+- `web_search` is for "external / recent / uncertain info", `calculator` for arithmetic — the clearer the boundary, the fewer wrong picks
+- Small models (qwen2.5:3b) are **more sensitive** to description quality than Claude — the same schema where Claude might guess correctly can lead qwen astray
+
+## Want smarter answers?
+
+Default is `claude-haiku-4-5` (cheapest). Try Sonnet:
+
+```bash
+MODEL=claude-sonnet-4-5 python starter_anthropic.py
+```
+
+Or on the Ollama path, swap to `qwen2.5:7b` (bigger, more stable, but slower):
+
+```bash
+MODEL=qwen2.5:7b python starter.py
+```
+
+## Extensions
+
+- **Add more tools** — append one entry each to `TOOLS_SPEC` + `TOOL_IMPL`
+- **Make it multi-turn ReAct** — wrap the single call in a `while` loop; see [`../03-react-from-scratch/`](../03-react-from-scratch/)
+- **Dig into schema design** — see [`../06-schema-design/`](../06-schema-design/) for a bad vs good schema A/B

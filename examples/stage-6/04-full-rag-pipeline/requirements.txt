@@ -1,0 +1,4 @@
+chromadb>=0.4,<2.0
+sentence-transformers>=2.7,<4.0
+openai>=1.50,<2.0
+anthropic>=0.40,<1.0

@@ -1,6 +1,6 @@
 # Stage 2 — Prompt Engineering
 
-> [繁體中文](./02-prompt-engineering.md) | **简体中文** | [English](./02-prompt-engineering.en.md) | [Русский](./02-prompt-engineering.ru.md)
+> [繁体中文](./02-prompt-engineering.md) | **简体中文** | [English](./02-prompt-engineering.en.md) | [Русский](./02-prompt-engineering.ru.md)
 
 ⏱ **时间估算**：1-2 周（约 5-12 小时）
 
@@ -32,20 +32,381 @@
 
 ## 🛠 动手练习
 
-### 练习：System Prompt
+> 🦙 **本 stage 默认用 Ollama gemma4:e4b**（成本考量、$0/run）。Prompt engineering 对小 model 更有教学价值——小 model 对 prompt 质量敏感、能让你看清楚 system prompt / few-shot / CoT / refinement 各自带来多少改善。每个练习都有 Path A（Ollama、默认）+ Path B（Anthropic、选择性）。
+>
+> 💰 **Stage 2 预算估算**（全 4 练习各跑 3-5 次）：**全本机 = $0**、**全 haiku ≈ $0.20**、**全 sonnet ≈ $0.60**。Few-shot 分类任务的 12 calls × 5 reps ≈ $0.30 haiku / $0.90 sonnet。完整预算见 [`examples/README.zh-Hans.md#推荐-llm-清单`](../examples/README.zh-Hans.md#推荐-llm-清单本机--clouduser-视角)。
+>
+> 完整 3 路 trade-off 见 [`examples/README.zh-Hans.md`](../examples/README.zh-Hans.md#三条路径--默认用-ollama成本考量)。
+
+### 练习 1：System Prompt
 同样的 user message，三个不同的 system prompt。观察人格 / 输出格式怎么变。
 
-### 练习：Few-Shot
-挑一个分类任务。先用 0-shot 跑，再用 3-shot 跑。量一下准确率差多少。
+<details open>
+<summary>📋 <b>起手码 — Path A（本机 Ollama gemma4:e4b、默认）</b>（复制到 <code>practice_1.py</code>）</summary>
 
-### 练习：CoT
+```python
+# 需要：pip install openai
+# 前置：ollama pull gemma4:e4b && ollama serve
+import sys, json
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+from openai import OpenAI
+
+client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+
+# 同一个 user message、3 个不同 system prompt
+SYSTEM_PROMPTS = {
+    "严肃律师": "你是严谨的合约律师。回答要精准、引用法条编号、避免任何主观形容词。",
+    "幼儿园老师": "你是温柔的幼儿园老师、要对 5 岁小孩说话。用比喻、口语、少于 80 字。",
+    "JSON 机器": "你只回 JSON。schema: {\"answer\": string, \"confidence\": float}",
+}
+
+USER_MSG = "请帮我解释什么是租赁合约。"
+
+outputs = {}
+for label, system in SYSTEM_PROMPTS.items():
+    # Note: Ollama 把 system 放 messages 第一笔（不像 Anthropic 用 system= 参数）
+    r = client.chat.completions.create(
+        model="gemma4:e4b",
+        max_tokens=200,
+        messages=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": USER_MSG},
+        ],
+    )
+    outputs[label] = r.choices[0].message.content
+    print(f"\n--- [{label}] ---")
+    print(outputs[label])
+
+# === 自我验证 ===
+json_output = outputs["JSON 机器"]
+assert "{" in json_output and "}" in json_output, "JSON 机器版输出应该含 JSON braces"
+try:
+    parsed = json.loads(json_output.strip().split("\n")[-1] if "\n" in json_output else json_output)
+    assert "answer" in parsed, "JSON schema 应包含 answer 栏位"
+except json.JSONDecodeError:
+    pass  # 容许 model 回 JSON 含解释文字、最后一笔才是 JSON
+print(f"\n✅ 练习 1 通过 — 同一个问题、3 種人格 / 格式 / 语气")
+print("💡 观察：律师长、老师短、JSON 机器一定是 {...}")
+```
+
+**预期输出**（样本、gemma4:e4b 对 system prompt 遵循度 OK 但不如 Claude 严谨）：
+```
+--- [严肃律师] ---
+依民法第 421 条...
+
+--- [幼儿园老师] ---
+租赁合约就像借玩具给朋友、讲好什么时候还、要付多少糖果...
+
+--- [JSON 机器] ---
+{"answer": "租赁合约是当事人约定一方以物租与他方使用...", "confidence": 0.85}
+```
+
+</details>
+
+<details>
+<summary>📋 <b>起手码 — Path B（Anthropic API、选择性）</b>（复制到 <code>practice_1_anthropic.py</code>）</summary>
+
+```python
+# 需要：pip install anthropic
+import sys, json
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+import anthropic
+client = anthropic.Anthropic()
+SYSTEM_PROMPTS = {
+    "严肃律师": "你是严谨的合约律师。回答要精准、引用法条编号、避免任何主观形容词。",
+    "幼儿园老师": "你是温柔的幼儿园老师、要对 5 岁小孩说话。用比喻、口语、少于 80 字。",
+    "JSON 机器": "你只回 JSON。schema: {\"answer\": string, \"confidence\": float}",
+}
+USER_MSG = "请帮我解释什么是租赁合约。"
+
+outputs = {}
+for label, system in SYSTEM_PROMPTS.items():
+    # Anthropic 用 system= 参数（不放 messages 內）
+    msg = client.messages.create(model="claude-haiku-4-5", max_tokens=200,
+                                 system=system, messages=[{"role": "user", "content": USER_MSG}])
+    outputs[label] = msg.content[0].text
+    print(f"\n--- [{label}] ---")
+    print(outputs[label])
+
+# 同样的 JSON assert（schema 跨 backend 通用）
+json_output = outputs["JSON 机器"]
+assert "{" in json_output and "}" in json_output
+print(f"\n✅ 练习 1 通过（Anthropic）")
+```
+
+**主要差异**：
+- Anthropic: `system=...` 参数
+- Ollama / OpenAI-compatible: `messages=[{"role": "system", ...}, ...]`
+
+**Anthropic 对 system prompt 遵循度通常比 4B 小 model 更严谨**——「严肃律师」会真的引用法条编号。
+
+</details>
+
+### 练习 2：Few-Shot
+挑一个分類任务。先用 0-shot 跑，再用 3-shot 跑。量一下准确率差多少。
+
+<details open>
+<summary>📋 <b>起手码 — Path A（本机 Ollama gemma4:e4b、默认）</b>（复制到 <code>practice_2.py</code>）</summary>
+
+```python
+# 需要：pip install openai
+# 前置：ollama pull gemma4:e4b && ollama serve
+import sys
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+from openai import OpenAI
+
+client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+
+# 中文情緒分類（正面 / 负面 / 中立）
+TEST_SET = [
+    ("这部电影超赞、看完想再看一次！", "正面"),
+    ("剧情无聊、演员演技尴尬。", "负面"),
+    ("这是一部 2019 年的电影。", "中立"),
+    ("我不确定喜不喜欢、可能再想想。", "中立"),
+    ("第一集很不错但第二集就崩了。", "负面"),
+    ("看完心情很好、推荐！", "正面"),
+]
+
+FEW_SHOT_EXAMPLES = """范例：
+input: 这家餐厅的牛排好吃到让我哭出来。
+output: 正面
+
+input: 服务生态度很差、我再也不会来了。
+output: 负面
+
+input: 这家店位于新北市三重区。
+output: 中立
+"""
+
+
+def classify(text: str, *, use_few_shot: bool) -> str:
+    prefix = FEW_SHOT_EXAMPLES + "\n" if use_few_shot else ""
+    prompt = f"{prefix}input: {text}\noutput:"
+    r = client.chat.completions.create(
+        model="gemma4:e4b",
+        max_tokens=10,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return r.choices[0].message.content.strip().splitlines()[0]
+
+
+def evaluate(use_few_shot: bool) -> tuple[int, int]:
+    correct = 0
+    for text, label in TEST_SET:
+        pred = classify(text, use_few_shot=use_few_shot)
+        ok = label in pred
+        print(f"  {'✓' if ok else '✗'} [{label}] {text[:30]}... → '{pred}'")
+        if ok:
+            correct += 1
+    return correct, len(TEST_SET)
+
+
+print("=== 0-shot ===")
+c0, n = evaluate(use_few_shot=False)
+print(f"正确 {c0}/{n} = {c0/n:.0%}")
+
+print("\n=== 3-shot ===")
+c3, _ = evaluate(use_few_shot=True)
+print(f"正确 {c3}/{n} = {c3/n:.0%}")
+
+# === 自我验证 ===
+assert c3 >= c0, f"预期 3-shot 不比 0-shot 差、实际 {c3} < {c0}（小 model 样本小、跑几次比较）"
+print(f"\n✅ 练习 2 通过 — 0-shot {c0}/{n}、3-shot {c3}/{n}（本机 $0）")
+print("💡 观察：'中立' 在 0-shot 容易被误判成正面或负面、3-shot 后改善明显")
+print("💡 小 model（gemma4:e4b）通常 0-shot 表现比 Claude 差更多、所以 few-shot 改善幅度更大")
+```
+
+</details>
+
+<details>
+<summary>📋 <b>起手码 — Path B（Anthropic API、选择性）</b>（复制到 <code>practice_2_anthropic.py</code>）</summary>
+
+```python
+# 需要：pip install anthropic
+# 把 starter Path A 的 client 跟 classify() 改成：
+import anthropic
+client = anthropic.Anthropic()
+
+def classify(text: str, *, use_few_shot: bool) -> str:
+    prefix = FEW_SHOT_EXAMPLES + "\n" if use_few_shot else ""
+    msg = client.messages.create(
+        model="claude-haiku-4-5",
+        max_tokens=10,
+        messages=[{"role": "user", "content": f"{prefix}input: {text}\noutput:"}],
+    )
+    return msg.content[0].text.strip().splitlines()[0]
+# 其余 TEST_SET / FEW_SHOT_EXAMPLES / evaluate() 跟 Path A 一样
+```
+
+**成本**：6 题 × 2 条件 = 12 次 ≈ $0.005。**Claude 通常 0-shot 已经有不错准确率**、所以 few-shot 改善幅度比小 model 小。
+
+</details>
+
+### 练习 3：CoT
 挑一个数学文字题，比较：
 - 纯 prompt
-- 纯 prompt + "Let's think step by step"
-- 纯 prompt + 一个展示 CoT 的示例
+- 纯 prompt + 「Let's think step by step」
+- 纯 prompt + 一个展示 CoT 的范例
 
-### 练习：Iterative Refinement
-拿一个模糊的 prompt，refine 5 次。把每一轮记下来。观察哪些改动会提升质量。
+<details open>
+<summary>📋 <b>起手码 — Path A（本机 Ollama gemma4:e4b、默认）</b>（复制到 <code>practice_3.py</code>）</summary>
+
+```python
+# 需要：pip install openai
+# 前置：ollama pull gemma4:e4b && ollama serve
+import sys, re
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+from openai import OpenAI
+
+client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+
+QUESTION = "小明有 3 颗苹果。他给了小華 1 颗、又从媽媽那边拿到 5 颗、然后吃了 2 颗。请问现在剩几颗？"
+ANSWER = 5  # 3 - 1 + 5 - 2 = 5
+
+COT_EXAMPLE = """范例：
+Q: 一只鸡有 2 只脚。3 只鸡跟 1 个人共有几只脚？
+A: 让我一步一步算。3 只鸡 × 2 只脚 = 6 只脚。1 个人有 2 只脚。總共 6 + 2 = 8 只脚。答案是 8。
+"""
+
+
+def ask(prompt: str) -> str:
+    r = client.chat.completions.create(
+        model="gemma4:e4b",
+        max_tokens=300,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return r.choices[0].message.content
+
+
+def extract_number(text: str) -> int | None:
+    nums = re.findall(r"-?\d+", text)
+    return int(nums[-1]) if nums else None
+
+
+# A. 纯 prompt
+out_a = ask(QUESTION); ans_a = extract_number(out_a)
+
+# B. + Let's think step by step
+out_b = ask(QUESTION + "\nLet's think step by step."); ans_b = extract_number(out_b)
+
+# C. + CoT example
+out_c = ask(COT_EXAMPLE + "\n\nQ: " + QUESTION + "\nA:"); ans_c = extract_number(out_c)
+
+for label, out, ans in [("A 纯 prompt", out_a, ans_a), ("B +step-by-step", out_b, ans_b), ("C +CoT example", out_c, ans_c)]:
+    print(f"\n--- [{label}] 答案={ans} {'✓' if ans == ANSWER else '✗'} ---")
+    print(out[:200])
+
+# === 自我验证 ===
+correct = sum(1 for a in (ans_a, ans_b, ans_c) if a == ANSWER)
+assert correct >= 1, f"3 種 prompt 至少要 1 種答对、实际 {correct}/3"
+# 小 model 对 CoT 依賴性更高、放宽条件：B 或 C 至少 1 对（vs Anthropic Path B 要求严格）
+assert ans_b == ANSWER or ans_c == ANSWER, "B (step-by-step) 或 C (CoT example) 至少一種要答对 — CoT 对小 model 是基本功"
+print(f"\n✅ 练习 3 通过 — {correct}/3 答对（本机 $0）")
+print(f"💡 观察小 model：A 纯 prompt 通常答错、B/C 加 CoT 后明显改善——比 Claude 更能凸显 CoT 重要性")
+```
+
+</details>
+
+<details>
+<summary>📋 <b>起手码 — Path B（Anthropic API、选择性）</b>（复制到 <code>practice_3_anthropic.py</code>）</summary>
+
+把 Path A 的 client + ask() 改成：
+
+```python
+import anthropic
+client = anthropic.Anthropic()
+
+def ask(prompt: str) -> str:
+    msg = client.messages.create(model="claude-haiku-4-5", max_tokens=300,
+                                 messages=[{"role": "user", "content": prompt}])
+    return msg.content[0].text
+```
+
+**Claude 通常 3/3 全对**（包括 A 纯 prompt）—— 对照 gemma4:e4b 可能只 1-2/3 对，能看到 CoT 对小 model 的价值。
+
+</details>
+
+### 练习 4：Iterative Refinement
+拿一个模糊的 prompt，refine 5 次。把每一轮记下来。观察哪些改动会提升品质。
+
+<details open>
+<summary>📋 <b>起手码 — Path A（本机 Ollama gemma4:e4b、默认）</b>（复制到 <code>practice_4.py</code>）— 这题没有「对错」、重点是观察过程</summary>
+
+```python
+# 需要：pip install openai
+# 前置：ollama pull gemma4:e4b && ollama serve
+import sys
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+from openai import OpenAI
+
+client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+
+# 5 个 iteration、每一轮 prompt 都比前一轮更具体
+PROMPTS = {
+    "v1 模糊": "写一段介紹 ReAct 的文字。",
+    "v2 加目标读者": "写一段介紹 ReAct 的文字、给写过 Python 的软体工程师看。",
+    "v3 加格式": "写一段介紹 ReAct 的文字、给写过 Python 的软体工程师看。100 字以內、用一个段落。",
+    "v4 加 example 要求": "写一段介紹 ReAct 的文字、给写过 Python 的软体工程师看。100 字以內、用一个段落、结尾举一个具体例子（譬如查天气）。",
+    "v5 加禁忌": "写一段介紹 ReAct 的文字、给写过 Python 的软体工程师看。100 字以內、用一个段落、结尾举一个具体例子（譬如查天气）。不要用「賦能」「驅动」「智能」这類空泛词彙。",
+}
+
+outputs = {}
+for label, prompt in PROMPTS.items():
+    r = client.chat.completions.create(
+        model="gemma4:e4b",
+        max_tokens=200,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    text = r.choices[0].message.content
+    outputs[label] = text
+    print(f"\n--- [{label}] ({len(text)} chars) ---")
+    print(text)
+
+# === 自我验证 ===
+v1_len, v5_len = len(outputs["v1 模糊"]), len(outputs["v5 加禁忌"])
+banned_words = ("賦能", "驅动", "智能")
+v5_has_banned = any(w in outputs["v5 加禁忌"] for w in banned_words)
+assert v5_len > 0, "v5 必須有输出"
+assert not v5_has_banned, f"v5 应该避免禁忌词、实际含: {[w for w in banned_words if w in outputs['v5 加禁忌']]}"
+print(f"\n✅ 练习 4 通过 — v5 长度 {v5_len}、无禁忌词（本机 $0）")
+print(f"💡 观察：v1 ({v1_len} chars) 通常比 v5 ({v5_len} chars) 「鬆」、加约束会逼 prompt 收斂")
+print("💡 用 gemma4:e4b 跑这题特别有感——小 model 对 prompt 质量极敏感、5 轮 refine 的差距会比 Claude 更明显")
+```
+
+</details>
+
+<details>
+<summary>📋 <b>起手码 — Path B（Anthropic API、选择性）</b>（复制到 <code>practice_4_anthropic.py</code>）</summary>
+
+把 Path A 的 client + 循环內 `client.chat.completions.create(...)` 改成：
+
+```python
+import anthropic
+client = anthropic.Anthropic()
+
+# 循环內：
+msg = client.messages.create(model="claude-haiku-4-5", max_tokens=200,
+                             messages=[{"role": "user", "content": prompt}])
+text = msg.content[0].text
+```
+
+其余 PROMPTS / outputs / assert 邏輯完全相同。**成本**：5 次 ≈ $0.002。
+
+**Claude vs gemma4 对 prompt 细致度的差别**：Claude haiku 通常 v1 已能写出 OK 段落、v5 加上约束后优化幅度较小；小 model v1 常空泛无用、v5 加禁忌后才開始能读。
+
+</details>
+
+**进阶做法**：把这 5 轮输出全存进 csv、Stage 7 练习 2 会教怎么把这变成 eval harness 量化「prompt 改善了多少」。
 
 ## 🎯 精选项目
 
@@ -179,7 +540,7 @@ Stage 1 已经提过。这里特别推 `misc/prompt_caching.ipynb` 跟 `multimod
 你能不能：
 - [ ] 写一个有 system message + user message + 3 个示例 message 的 prompt（few-shot）
 - [ ] 示范 CoT 在某个推理任务上提升准确率
-- [ ] 反复 refine 一个 prompt 5 次，每一版都留下記录
+- [ ] 反复 refine 一个 prompt 5 次，每一版都留下记录
 - [ ] 看出 prompt 不是对的工具的时候（这时要用 tool use）
 
 如果可以 → 进 [Stage 3 — Tool Use & Agent 入门](./03-tool-use-and-hello-agent.zh-Hans.md)。这是最重要的一个阶段——prompt 不要急着跳过去，但也不要卡在这里。

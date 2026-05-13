@@ -105,7 +105,7 @@ Chunking 进阶思考：
 - chunk size、overlap、top-k、reranker 会互相影响，不要只单看其中一个参数。
 - 想想看，如果今天要 RAG 的资料有含图片的 PDF、会议字幕档，要如何切割比较好？
 
-## 🛠 动手练习（不是看过就好）
+## 🛠 动手练习（基础 illustrative 练习）
 
 ### 练习 1：Embeddings
 把 100 个句子做 embedding，找出某个 query 的最近邻。理解 vector 之间的距离意义。

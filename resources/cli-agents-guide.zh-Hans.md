@@ -6,6 +6,7 @@
 
 > 📌 **这份是 reference doc**（深度比较、选择逻辑、坑、推荐搭配）。
 > 第一次接触 CLI agent、想要 step-by-step 上手 → 看 [`tracks/cli/A1-cli-intro.zh-Hans.md`](../tracks/cli/A1-cli-intro.zh-Hans.md)（Track A 第一站）。
+> 想先理解「为什么有的 agent 在 terminal、有的在 Telegram、有的在 Jetson」这层 mental model → 看 [`resources/agent-paradigms.zh-Hans.md`](agent-paradigms.zh-Hans.md)（5 种 agent 型态）。
 > 已经在用、想决定 / 比较 / 升级 → 留在这份。
 
 跨 5 个 branch + Track A 共用的参考——**Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent 之间怎么挑？** Track A（A1-A3）的 CLI workflow 设计、5 条 branch 内的 CLI 引用都连到这份；每个 branch 都会用到 CLI agent，但没有一个 branch 真的「拥有」这份比较，所以放在 `resources/`。

@@ -1,0 +1,5 @@
+langgraph>=0.2,<1.0
+typing-extensions>=4.10
+# starter_anthropic 概念展示用、不必裝；要實接 LLM 才裝下面
+# langchain-anthropic>=0.2,<1.0
+# langchain-openai>=0.2,<1.0

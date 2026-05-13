@@ -1,0 +1,3 @@
+sentence-transformers>=2.7,<4.0
+numpy>=1.24
+openai>=1.50,<2.0    # Path B 用 OpenAI embeddings；不裝也能跑 Path A

@@ -33,58 +33,306 @@ If not — go back to Stage 0 first.
 3. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face's intro
 4. [**Anthropic API Pricing**](https://www.anthropic.com/pricing#anthropic-api) — read the pricing table, calculate cost for 1k input + 1k output
 
-## 🛠 Hands-on Exercises (do them, not just read)
+## 🛠 Hands-on Exercises (foundational, illustrative)
 
-### Exercise: LLM API
-Five-line Python script that calls Claude API and prints the response.
+> 🦙 **This stage defaults to Ollama** (cost-driven; `gemma4:e4b` runs locally for $0/run). Every exercise has Path A (Ollama, default) + Path B (Anthropic, optional — use it when you want to see cloud-quality answers). Full three-path trade-off in [`examples/README.en.md`](../examples/README.en.md#three-paths--default-is-ollama-cost-driven).
+>
+> 💰 **Stage 1 budget estimate** (all 6 exercises, 3-5 runs each): **all local = $0**, **all haiku ≈ $0.30**, **all sonnet ≈ $0.90**. Full model list + Stage 1-7 total budget: [`examples/README.en.md#recommended-llm-list`](../examples/README.en.md#recommended-llm-list-local--cloud-user-perspective).
+>
+> 💡 **No Ollama yet?** Each exercise also ships a Path B Anthropic version — pick one. To enable Path A in one step: [`pip install openai && ollama pull gemma4:e4b`](https://ollama.com).
+
+### Exercise 1: LLM API (hello world)
+Five-line Python script that calls an LLM and prints the response. **Defaults to local Ollama (free, offline)**; switch to Path B Anthropic when you want cloud-quality answers. Details in [`examples/README.en.md`](../examples/README.en.md#three-paths--default-is-ollama-cost-driven).
+
+<details open>
+<summary>📋 <b>Starter code — Path A (local Ollama gemma4:e4b, default)</b> (copy to <code>practice_1.py</code> and run <code>python practice_1.py</code>)</summary>
 
 ```python
-from anthropic import Anthropic
-client = Anthropic()
-msg = client.messages.create(
-    model="claude-sonnet-4-5",
-    max_tokens=100,
-    messages=[{"role": "user", "content": "Hello, who are you?"}]
+# Requires: pip install openai      (OpenAI-compatible SDK talks to Ollama)
+# Pre-req: ollama pull gemma4:e4b && ollama serve
+import sys
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="http://localhost:11434/v1",
+    api_key="ollama",  # Ollama doesn't check this — anything works
 )
-print(msg.content[0].text)
+
+r = client.chat.completions.create(
+    model="gemma4:e4b",   # swap to qwen2.5:3b / llama3.2:3b if preferred
+    max_tokens=100,
+    messages=[{"role": "user", "content": "Introduce yourself in one sentence."}],
+)
+
+# === Self-check ===
+text = r.choices[0].message.content
+print("Response:", text)
+print("usage:", r.usage)
+
+assert r.choices[0].finish_reason in ("stop", "length"), f"unexpected finish_reason: {r.choices[0].finish_reason}"
+assert len(text) > 0, "response should not be empty"
+assert r.usage.completion_tokens > 0, "output token count should be > 0"
+print("✅ Exercise 1 passed — local Ollama gemma4:e4b answered for $0")
 ```
 
-### Exercise: Tokens
+**How slow?** Gemma 4B on CPU: ~5-30 s/answer; on GPU (RTX 3060+): <2 s. For speed use `gemma3:1b`; for quality use `qwen2.5:14b` / `llama3.3:8b` (needs 8 GB+ VRAM).
+
+</details>
+
+<details>
+<summary>📋 <b>Starter code — Path B (Anthropic API, optional, when you want cloud quality)</b> (copy to <code>practice_1_anthropic.py</code>)</summary>
+
+```python
+# Requires: pip install anthropic
+# Env: export ANTHROPIC_API_KEY=sk-ant-...
+import sys
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+import anthropic
+
+client = anthropic.Anthropic()
+msg = client.messages.create(
+    model="claude-haiku-4-5",  # haiku = cheapest; switch to sonnet by changing this line
+    max_tokens=100,
+    messages=[{"role": "user", "content": "Introduce yourself in one sentence."}],
+)
+
+# === Self-check ===
+text = msg.content[0].text
+print("Response:", text)
+print("usage:", msg.usage)
+
+assert msg.stop_reason in ("end_turn", "max_tokens"), f"unexpected stop_reason: {msg.stop_reason}"
+assert len(text) > 0, "response should not be empty"
+assert msg.usage.input_tokens > 0 and msg.usage.output_tokens > 0, "token counts should be > 0"
+print("✅ Exercise 1 passed — Anthropic API is reachable from your machine")
+```
+
+**Cost**: ~$0.001/run (haiku) or ~$0.004/run (sonnet); this hello-world is also 5-15× faster than Ollama.
+
+</details>
+
+### Exercise 2: Tokens
 Run the same prompt 100 times and watch token counts vary.
-- Notice: temperature ≠ 0 produces variation
+- Notice: `temperature ≠ 0` produces variation
 - Notice: token count for the SAME English vs Chinese sentence
 
-### Exercise: Pricing
-Calculate the actual dollar cost of running 1000 inferences for your hello-world prompt. Use Anthropic's pricing page + count tokens via the SDK's `usage` field.
+<details open>
+<summary>📋 <b>Starter code — Path A (local Ollama gemma4:e4b, default)</b> (copy to <code>practice_2.py</code>)</summary>
 
-### Exercise: Cross-Provider Comparison
+```python
+# Requires: pip install openai
+# Pre-req: ollama pull gemma4:e4b && ollama serve
+import sys, statistics
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+from openai import OpenAI
+
+client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+
+PROMPTS = {
+    "Chinese": "用一句話描述一隻貓在做什麼。",
+    "English": "Describe in one sentence what a cat is doing.",
+}
+
+N = 10  # local is slower; start small
+for label, prompt in PROMPTS.items():
+    output_tokens = []
+    for _ in range(N):
+        r = client.chat.completions.create(
+            model="gemma4:e4b",
+            max_tokens=80,
+            temperature=1.0,  # high temp to amplify variance
+            messages=[{"role": "user", "content": prompt}],
+        )
+        output_tokens.append(r.usage.completion_tokens)
+    print(f"\n[{label}] prompt: {prompt}")
+    print(f"  input tokens: {r.usage.prompt_tokens}")
+    print(f"  output tokens — min={min(output_tokens)} max={max(output_tokens)} mean={statistics.mean(output_tokens):.1f} stdev={statistics.stdev(output_tokens):.1f}")
+
+# === Self-check ===
+assert max(output_tokens) > min(output_tokens), "with temperature=1.0, output length should vary"
+print("\n✅ Exercise 2 passed — observed temperature → token variance, $0/run")
+print("💡 Chinese prompts typically use MORE input tokens (one Chinese character ≈ 2 tokens)")
+```
+
+</details>
+
+<details>
+<summary>📋 <b>Starter code — Path B (Anthropic API, optional)</b> (copy to <code>practice_2_anthropic.py</code>)</summary>
+
+```python
+# Requires: pip install anthropic
+import sys, statistics
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+import anthropic
+client = anthropic.Anthropic()
+PROMPTS = {"Chinese": "用一句話描述一隻貓在做什麼。", "English": "Describe in one sentence what a cat is doing."}
+
+for label, prompt in PROMPTS.items():
+    output_tokens = []
+    for _ in range(20):
+        msg = client.messages.create(model="claude-haiku-4-5", max_tokens=80, temperature=1.0,
+                                     messages=[{"role": "user", "content": prompt}])
+        output_tokens.append(msg.usage.output_tokens)
+    print(f"[{label}] input={msg.usage.input_tokens} output min/max/mean={min(output_tokens)}/{max(output_tokens)}/{sum(output_tokens)/len(output_tokens):.1f}")
+```
+
+**Key SDK diffs**: `messages.create` → `chat.completions.create`; `usage.output_tokens` → `usage.completion_tokens`; `usage.input_tokens` → `usage.prompt_tokens`. **Cost**: 40 runs ≈ $0.01.
+
+</details>
+
+### Exercise 3: Pricing / Latency
+**Cost-sensitive work required**: compute how long and how much it takes to run 1000 hello-world inferences. Local Ollama is $0 but has latency cost; cloud LLMs cost money but are faster. **Knowing this trade-off is how you pick the right model**.
+
+<details open>
+<summary>📋 <b>Starter code — Path A (local Ollama gemma4:e4b, measure latency)</b> (copy to <code>practice_3.py</code>)</summary>
+
+```python
+# Requires: pip install openai
+# Pre-req: ollama pull gemma4:e4b && ollama serve
+import sys, time
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+from openai import OpenAI
+
+client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+
+latencies = []
+for _ in range(5):
+    t0 = time.time()
+    r = client.chat.completions.create(
+        model="gemma4:e4b",
+        max_tokens=200,
+        messages=[{"role": "user", "content": "Hi! Please introduce yourself."}],
+    )
+    latencies.append(time.time() - t0)
+
+avg_latency = sum(latencies) / len(latencies)
+out_tok_avg = r.usage.completion_tokens
+tps = out_tok_avg / avg_latency if avg_latency > 0 else 0
+
+print(f"model: gemma4:e4b (local)")
+print(f"5 latencies (sec): min={min(latencies):.2f} max={max(latencies):.2f} mean={avg_latency:.2f}")
+print(f"avg output: {out_tok_avg} tokens, ~{tps:.1f} tokens/sec")
+print(f"\n1000-run cost: $0 (local); projected duration: {avg_latency * 1000 / 60:.1f} minutes")
+
+# === Self-check ===
+assert avg_latency > 0, "latency should be > 0"
+assert out_tok_avg > 0, "output token count should be > 0"
+print(f"\n✅ Exercise 3 passed — local model is $0 but takes ~{avg_latency * 1000 / 60:.0f} min for 1000 runs")
+print("💡 Compare Path B Anthropic: 1000 runs is ~10-20 min at $0.25 (haiku)")
+```
+
+</details>
+
+<details>
+<summary>📋 <b>Starter code — Path B (Anthropic API, compute $ cost)</b> (copy to <code>practice_3_anthropic.py</code>)</summary>
+
+```python
+# Requires: pip install anthropic
+import sys
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+import anthropic
+
+# Anthropic public pricing 2026 Q1 (per 1M tokens, USD) — verify at https://www.anthropic.com/pricing
+PRICING = {
+    "claude-haiku-4-5":   {"input": 1.00, "output":  5.00},
+    "claude-sonnet-4-5":  {"input": 3.00, "output": 15.00},
+    "claude-opus-4-5":    {"input": 15.0, "output": 75.00},
+}
+
+client = anthropic.Anthropic()
+MODEL = "claude-haiku-4-5"
+msg = client.messages.create(model=MODEL, max_tokens=200,
+                             messages=[{"role": "user", "content": "Hi! Please introduce yourself."}])
+in_tok, out_tok = msg.usage.input_tokens, msg.usage.output_tokens
+rates = PRICING[MODEL]
+cost_one = (in_tok * rates["input"] + out_tok * rates["output"]) / 1_000_000
+
+print(f"model: {MODEL}")
+print(f"single: input={in_tok} output={out_tok} → ${cost_one:.6f}")
+print(f"1000 calls cost across model tiers:")
+for name, r in PRICING.items():
+    c = (in_tok * r["input"] + out_tok * r["output"]) / 1_000_000 * 1000
+    print(f"  {name:<22} ${c:.4f}")
+
+assert cost_one > 0, "Cloud LLM always has a cost"
+print(f"\n✅ Exercise 3 passed (Anthropic) — 1000 runs: haiku ≈ $0.25, sonnet ≈ $0.76, opus ≈ $3.81")
+```
+
+**Trade-off**: local Ollama is $0 for 1000 runs but takes ~2 hr; Anthropic haiku is ~10 min for $0.25; sonnet ~10 min for $0.76. **Use cloud only for production; learning / experiments / debug stay local.**
+
+</details>
+
+### Exercise 4: Cross-Provider Comparison
 Send the same prompt to Claude, GPT, and Gemini simultaneously, compare their responses. Notice "why does the same input produce different answers" — answer style, length, and judgment all differ. Use the OpenAI, Anthropic, and Google SDKs side-by-side.
 
-### Exercise: Error Handling
+→ **Full runnable version** → [`examples/stage-1/04-cross-provider/`](../examples/stage-1/04-cross-provider/) (parallel calls to all three SDKs + comparison table; missing keys are skipped gracefully)
+
+### Exercise 5: Error Handling
 Trigger error conditions deliberately and write retry logic:
 - Wrong API key → see how it raises
 - Over-long prompt → what happens when the context window is full
 - Network drop → write a retry wrapper with exponential backoff
+
 This is foundational for Stage 3-7's production agent code.
 
-### Exercise: Local LLM
+→ **Full runnable version** → [`examples/stage-1/05-error-handling/`](../examples/stage-1/05-error-handling/) (mock-based tests so you can verify the retry logic without unplugging your ethernet cable)
+
+### Exercise 6: Local LLM
 **No API fees, runs on your machine**: use Ollama to pull a small model (recommend `llama3.2:3b` or `qwen2.5:3b`), call it via OpenAI-compatible API.
+
 ```bash
-# Install Ollama: https://ollama.com
+# 1. Install Ollama: https://ollama.com
 ollama pull qwen2.5:3b
 ollama serve  # default port 11434
 ```
-Then from Python:
+
+<details>
+<summary>📋 <b>Starter code</b> (copy to <code>practice_6.py</code>)</summary>
+
 ```python
+# Requires: pip install openai
+# Pre-req: Ollama is running, qwen2.5:3b is pulled
+import sys
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 from openai import OpenAI
-client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+
+client = OpenAI(
+    base_url="http://localhost:11434/v1",
+    api_key="ollama",  # Ollama doesn't check this — anything works
+)
+
 r = client.chat.completions.create(
     model="qwen2.5:3b",
-    messages=[{"role":"user","content":"Explain ReAct in 3 sentences"}]
+    messages=[{"role": "user", "content": "Explain ReAct in 3 sentences."}],
 )
-print(r.choices[0].message.content)
+
+text = r.choices[0].message.content
+print("Response:", text)
+
+# === Self-check ===
+assert len(text) > 10, "response is too short — Ollama may not be running"
+print(f"✅ Exercise 6 passed — local Ollama reachable through the OpenAI-compatible API")
+print(f"💡 This run cost you $0 (except for electricity)")
 ```
+
 **Why do this**: once you can run local LLMs, Stage 3-6 experiments aren't bottlenecked on API costs; privacy-sensitive work also stays offline.
+
+</details>
 
 ## 🎯 Curated Projects
 

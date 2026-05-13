@@ -5,6 +5,7 @@
 ⏱ **时间估算**：1-2 周（约 5-15 小时，已具备可跳过）
 
 > 💡 **看不懂某个词**？翻 [`resources/glossary.zh-Hans.md`](../resources/glossary.zh-Hans.md) 查 30 秒再回来。Stage 0 还不会碰太多 jargon，但接下来几 stage 会。
+> 🗺️ **想先看 agent 的全景地图**（为什么有的 agent 在 terminal、有的在 Telegram、有的在 Jetson 板子）？→ [`resources/agent-paradigms.zh-Hans.md`](../resources/agent-paradigms.zh-Hans.md)（5 种 agent 型态，10 min 读完）
 
 ## 何时可以跳过这个阶段
 

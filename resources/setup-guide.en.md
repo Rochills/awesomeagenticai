@@ -93,11 +93,40 @@ Want to script with Python, run batch jobs, integrate LLMs into your own app/aut
 
 ### Other LLM Options
 
-- **OpenAI**: https://platform.openai.com/api-keys  
+#### Western cloud (US-friendly, English-first)
+
+- **OpenAI**: https://platform.openai.com/api-keys
   ChatGPT Plus and API access are separate; Plus subscribers still need an API key.
-- **Google AI Studio**: https://aistudio.google.com/  
+- **Google AI Studio**: https://aistudio.google.com/
   Useful for trying the Gemini API. Free quota depends on region and account state.
+- **NVIDIA NIM**: https://build.nvidia.com/
+  **Hosts many open-source models (Llama / Mistral / DeepSeek-R1 / Qwen / Gemma etc.), OpenAI-compatible API, new accounts get 1000 free credits**. Great when you want to try several open models without local GPU. `base_url=https://integrate.api.nvidia.com/v1`.
+
+#### Chinese / Chinese-language cloud (region-friendly, very cheap)
+
+> If you're in mainland China and Anthropic / OpenAI are inaccessible, or you want to test Chinese-native models, start here. **All these APIs are OpenAI-compatible** — just change `base_url` and model name to run the same exercises.
+
+- **DeepSeek**: https://platform.deepseek.com/
+  Free web at https://chat.deepseek.com (includes the R1 reasoning model). API is extremely cheap (**$0.27 input / $1.10 output per 1M tokens — about 4× cheaper than haiku**). Strong code and reasoning.
+  `base_url=https://api.deepseek.com/v1`, `model=deepseek-chat` or `deepseek-reasoner`.
+- **Moonshot Kimi**: https://platform.moonshot.cn/ (China) / https://platform.moonshot.ai/ (international)
+  Free web at https://kimi.com. Selling point: **1M-token context window** (great for large files / long conversations). API ~$5-15 per 1M input, tiered by context size.
+  `base_url=https://api.moonshot.cn/v1` (CN) / `https://api.moonshot.ai/v1` (intl), e.g. `model=kimi-k2-turbo-preview`.
+- **Qwen (Alibaba)**: https://dashscope.console.aliyun.com/
+  Free web at https://chat.qwen.ai. API via Alibaba Cloud DashScope with an **OpenAI-compatible endpoint** ([docs](https://help.aliyun.com/zh/dashscope/developer-reference/compatibility-of-openai-with-dashscope/)). **The same Qwen models also run locally via Ollama** (`ollama pull qwen2.5:3b`) — cloud and local paths both work.
+- **GLM (ZhipuAI)**: https://open.bigmodel.cn/ (China) / https://z.ai/ (intl)
+  Free web at https://chatglm.cn. Has GLM-4.5 and GLM-4-Plus. Free tier available; students can apply for extra credit.
+
+#### Local (zero API cost, fully offline)
+
 - **Ollama local models**: no API key needed. For the local path, see [Cookbook Recipe 6](cookbook.en.md#6-local-llm--cli-agent-quick-walkthrough).
+  This repo's "Path A" defaults to Ollama; all Stage 1-7 exercises run with `gemma4:e4b` (Stage 1-2) or `qwen2.5:3b` (Stage 3+) at $0/run.
+
+> 💡 **How to pick your first**:
+> - Learning agents / production, **US-region account OK** → **Anthropic Claude** (the curriculum's canonical path)
+> - Learning agents / production, **China region** or want a Chinese-native model → **DeepSeek** (cheapest cloud option, OpenAI-compat, strong Chinese support)
+> - Want to try many models without a local GPU → **NVIDIA NIM** (1000 credits, 10+ hosted open models)
+> - Privacy-sensitive / fully free / mainland China without cloud access → **Ollama** (local, runs the entire curriculum at $0)
 
 ---
 

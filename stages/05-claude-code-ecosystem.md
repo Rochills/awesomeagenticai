@@ -10,6 +10,8 @@
 > - **Track A（CLI Power User）**：A2 用 [5.1（Claude Code 基礎）](#51--claude-code-基礎)；A3 用 [5.2（MCP）](#52--mcpmodel-context-protocol-基礎) + 選擇性用到 [5.3（Skills）](#53--skillsclaude-code-的行為層) 跟 [5.4（Plugins）](#54--plugins-與-marketplaces)（A3 的 動手練習 CLI-12 會教把 CLAUDE.md 跟 commands 打包成 plugin）。讀的角度是「**怎麼用 Claude Code 把工作做好**」
 > - **Track B（Agent Builder）**：把整個 stage 當「**Claude Code 內部怎麼運作**」的深度學習，從 5.1 完整走到 5.4
 
+> 🗺️ **Claude Code 屬於哪種 agent 型態**？→ [`resources/agent-paradigms.md`](../resources/agent-paradigms.md) §Type 1（IDE-coupled）+ §Type 2（Terminal pair-programmer）；想看完整 5 種 paradigm 對照也從這份開始。
+
 > ⚠️ **想用本機 LLM？這個 stage 不是那條路線。** Claude Code 需要 Anthropic API / OAuth，不能直接改接 Ollama 或本機 endpoint。離線、隱私資料或不想用 API 額度時，請看 [`resources/cookbook.md` Recipe 6](../resources/cookbook.md#6-本機-llm--cli-agent-快速-walkthrough)，用 OpenCode / goose / Aider / Hermes 這類支援 BYO LLM 的 CLI agent。
 
 ## Stack 一覽
@@ -209,6 +211,8 @@ pip install mcp
 - **練習：SKILL.md** — 寫一份 200 字的 skill，解決你日常工作中的某一件事。**step-by-step 怎麼做** → [`resources/cookbook.md` §1](../resources/cookbook.md#1-寫你的第一個-skill)
 - **練習：SKILL with references** — 加一份 `references/` markdown 讓 skill 可以引用
 - **練習：SKILL eval** — 加 `evals/evals.json`，放 3-5 個自我測試
+
+> 📦 **本 repo 自帶 meta-example**：[`examples/stage-5/tool-calling-tutor/`](../examples/stage-5/tool-calling-tutor/) 是這個 stage 的對應 skill 範本——完整 frontmatter（含 trigger phrases + Do NOT use for）、3 份 `references/`、`evals/evals.json` 5 個 test case，**直接 fork 改成你自己的 skill**。雙重用途：(a) 學習者自用、卡在 tool calling 時讓它 auto-load 幫你 debug；(b) Stage 5 §5.3 SKILL.md 寫法的對照樣板。
 
 ### 精選 Projects
 
@@ -423,6 +427,82 @@ pip install mcp
 
 ---
 
+## 5.5 — Subagents（Claude Code 原生 multi-agent 機制）⭐ 2025 新功能
+
+到這裡為止你學了 MCP（工具層）/ Skills（行為層）/ Plugins（散佈層）。**Subagents 是 orchestration 層**——讓主 Claude session spawn 出有獨立 context 的子 agent、跑特定任務、回報結果。
+
+跟 Stage 4 的 framework-based multi-agent（LangGraph / CrewAI / AutoGen）對照：
+
+| 維度 | Framework path (Stage 4) | Claude Subagent path（本節） |
+|---|---|---|
+| 啟動方式 | `pip install crewai` + Python code | 寫一個 `.claude/agents/<name>.md` 即可 |
+| Runtime | 你自己的 Python process | Claude Code 內建 Task tool |
+| Context isolation | framework 自己管 | **天生** 各 subagent 獨立 window |
+| Provider lock-in | 中等（多 framework 支援 multi-LLM） | **強**（綁 Claude Code） |
+| 適合 | 跨 LLM provider 的 production system | 已 commit Claude Code 的工程團隊 |
+| 學習曲線 | 高（框架抽象 + async） | 低（寫 markdown）|
+
+### 學習目標
+
+- 講得出 subagent 跟 skill / MCP server 的差別（**subagent ≠ skill**：skill 是行為 prompt，subagent 是**另一個 Claude instance with isolated context**）
+- 寫一個 `.claude/agents/<name>.md` 自訂 subagent（frontmatter + system prompt + tool whitelist）
+- 從主 session 用 Task tool invoke subagent，觀察 context 隔離（parent 看不到 subagent 的中間 step、只看到最終 result）
+- 知道何時用 subagent（parallel research / large-context isolated task / specialized review），何時不用（小 query 用 skill 即可）
+
+### 必修閱讀
+
+1. [**Anthropic — Claude Code Subagents 官方文件**](https://docs.claude.com/en/docs/claude-code/sub-agents) ⭐ — `.claude/agents/` 結構、Task tool 介面、最佳實踐
+2. [**Anthropic — Building Effective Agents §orchestrator-workers**](https://www.anthropic.com/engineering/building-effective-agents) — Anthropic 自己對 orchestrator pattern 的看法（理論 + 實例）
+3. [**Anthropic Cookbook — customer_service_agent**](https://github.com/anthropics/anthropic-cookbook/tree/main/multimodal) — canonical multi-agent orchestration 範例（chapter-length 深度教材）
+
+### 動手練習
+
+- **練習：第一個 subagent** — 寫 `.claude/agents/code-reviewer.md`（前置 frontmatter 含 `description` 寫清楚何時 trigger、`tools` 限定 Read+Grep）+ system prompt 跑 staged diff review。從主 Claude session 跑 `/agents` list 確認載入、然後用 prompt「review staged changes」觀察 Task tool 怎麼 spawn subagent
+- **練習：parallel subagent crew** — 寫 3 個 subagent（`researcher.md` / `writer.md` / `critic.md`）做「研究某主題 → 寫 blog 草稿 → 審稿」pipeline、主 session 用 Task tool 串起來。**對照** [`examples/stage-4/02-multi-agent-roles/`](../examples/stage-4/02-multi-agent-roles/)（CrewAI 框架版同一個任務）、看「framework 路線 vs Claude 原生路線」程式碼差別
+- **練習：subagent 跟 skill 的決策練習** — 拿你自己日常工作流的 5 個常用任務、每個判斷該用 skill（行為層）還是 subagent（獨立 context 層）。寫成 1 頁 decision table
+
+> 📚 **想要 chapter-length 深入版**：subagent 進階 pattern（agent-as-skill composition、parallel-spawn、handoff between subagents）→ 看 [`wshobson/agents`](https://github.com/wshobson/agents) repo 整個結構 + [`obra/superpowers`](https://github.com/obra/superpowers) 的 subagent 用法。
+
+### 精選 Projects
+
+#### [anthropics/anthropic-cookbook](https://github.com/anthropics/anthropic-cookbook) ⭐ 官方 canonical reference
+
+| 欄位 | 內容 |
+|---|---|
+| 語言 | Python（Jupyter notebook） |
+| License | MIT |
+| 推薦度 | ⭐⭐⭐⭐⭐ |
+
+**教什麼**：Anthropic 官方多個 chapter-length multi-agent 範例。**`customer_service_agent`** 是 orchestrator-workers pattern 的 canonical reference；**`computer_use_demo`** 示範 Claude 操作螢幕的多 agent setup。
+
+**適合誰**：所有 Stage 5.5 完成後想看「production-grade 怎麼長」的人。本 stage 練習是 illustrative、cookbook 是 production reference。
+
+---
+
+#### [wshobson/agents](https://github.com/wshobson/agents) ⭐ subagent pattern canonical
+
+**教什麼**：把 subagent 跟 skill 組合成 production workflow 的 pattern collection。看 `.claude/agents/` 目錄結構、命名 convention、跨 agent handoff 寫法。
+
+**適合誰**：寫過自己 1-2 個 subagent 之後、想看「真實 team 怎麼用」的範本。
+
+---
+
+#### [obra/superpowers](https://github.com/obra/superpowers) ⭐ subagent + skill 整合 production
+
+**教什麼**：（在 Stage 5.3 已介紹）整套 production-ready skill collection。看裡面**怎麼把 skill 跟 subagent 混搭**——什麼任務歸 skill（行為 prompt）、什麼歸 subagent（獨立 context）。
+
+---
+
+#### [Anthropic Claude Code 官方 plugins 範本](https://github.com/anthropics/claude-plugins-official)
+
+**教什麼**：（在 Stage 5.4 已介紹）官方 plugin marketplace。**注意每個 plugin 是怎麼把 subagent + skill + slash command 打包**——subagent definition 通常在 `agents/` 子目錄裡。
+
+---
+
+> 💡 **Subagent 雖然強、不要無腦用**：每個 subagent invoke 都是一個新的 Claude inference call、有 token cost + latency。**簡單 query 用 skill（行為 prompt）即可、不必 spawn subagent**。Subagent 的甜蜜點是：(1) 任務 context 大、會吃光主 session 的 window（譬如 read 整個 codebase），(2) 任務跟主 session 邏輯獨立、隔離 context 有助 main flow，(3) 多 subagent 平行（research / write / critic）能省 wall-clock 時間。
+
+---
+
 ## ✅ 進入 Stage 6 前的自我檢查
 
 你能不能：
@@ -431,7 +511,8 @@ pip install mcp
 - [ ] 用 Python 寫自己的 MCP server，提供 1 個能用的 tool
 - [ ] 寫一份能在特定觸發詞自動載入的 `SKILL.md`
 - [ ] 把 skill 打包成 plugin，再用 `marketplace.json` 發佈
-- [ ] 從角色分工說出 MCP / Skills / Plugins / SDK 各自的位置
+- [ ] **寫過 `.claude/agents/` 自訂 subagent 並從 Task tool invoke 過**
+- [ ] 從角色分工說出 MCP / Skills / Plugins / Subagents / SDK 各自的位置
 
 如果都可以 → 前往 [Stage 6 — Memory & RAG](06-memory-rag.md)。
 

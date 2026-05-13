@@ -26,11 +26,12 @@
 
 ## 📚 必修閱讀
 
-1. [**`resources/cli-agents-guide.md`**](../../resources/cli-agents-guide.md) ⭐ — 本軌的核心參考。7 個主流 CLI agent 並列比較、依 use case 推薦、實用搭配
-2. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — 官方安裝指南
-3. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex 安裝跟認證流程
+1. [**`resources/agent-paradigms.md`**](../../resources/agent-paradigms.md) ⭐ — 5 種 agent 型態的全景圖；先讀這份知道 CLI agent 在整個 agent 生態中的位置（Type 2 + Type 3）
+2. [**`resources/cli-agents-guide.md`**](../../resources/cli-agents-guide.md) ⭐ — 本軌的核心參考。7 個主流 CLI agent 並列比較、依 use case 推薦、實用搭配
+3. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — 官方安裝指南
+4. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex 安裝跟認證流程
 
-## 🛠 動手練習（必跑、不是看就好）
+## 🛠 動手練習（基礎 illustrative 練習）
 
 ### 動手練習 CLI-1：安裝 + 第一次跑
 照你選的 CLI 的 quickstart 安裝。第一個 prompt 不要寫「hello world」——直接給它一個你今天本來就要做的事，譬如：「整理我 Downloads 資料夾，把 PDF 全部 move 到 ~/Documents/PDFs」。觀察它怎麼分解任務、要哪些確認。

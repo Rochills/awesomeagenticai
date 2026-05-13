@@ -102,7 +102,7 @@ Advanced chunking questions:
 - Chunk size, overlap, top-k, and reranking affect each other. Do not inspect only one parameter.
 - Think about mixed data types: if your RAG source includes image-heavy PDFs and meeting transcripts, how should the chunking strategy change?
 
-## 🛠 Hands-on Exercises (do them, not just read)
+## 🛠 Hands-on Exercises (foundational, illustrative)
 
 ### Exercise 1: Embeddings
 Embed 100 sentences, find nearest neighbors of one query. Build intuition for what "vector distance" means.
