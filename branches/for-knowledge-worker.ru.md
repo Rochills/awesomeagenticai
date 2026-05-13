@@ -16,7 +16,7 @@
 
 ## Подборка проектов
 
-> 💡 **Хочешь подвязать свой AI agent к Notion / Gmail / Outlook / Slack / Excel / Lark?** 57 распространённых MCP server / Skill интеграций — в [`resources/mcp-skills-catalog.ru.md`](../resources/mcp-skills-catalog.ru.md) (сгруппированы по use case'ам). Раздел ниже сфокусирован на workflow / integration-platform инструментах.
+> 💡 **Хочешь подвязать свой AI agent к Notion / Gmail / Outlook / Slack / Excel / Lark?** 62 MCP server / Skill интеграции — в [`resources/mcp-skills-catalog.ru.md`](../resources/mcp-skills-catalog.ru.md) (сгруппированы по use case'ам). Раздел ниже сфокусирован на workflow / integration-platform инструментах.
 
 ### Workflow-инструменты
 

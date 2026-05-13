@@ -84,7 +84,7 @@
 ### Подборка проектов
 
 > 💡 **Ищешь MCP-серверы для повседневных инструментов (Notion / Obsidian / Excel / Postgres / Playwright / Figma…)?**
-> См. [`resources/mcp-skills-catalog.ru.md`](../resources/mcp-skills-catalog.ru.md) — 57 распространённых MCP server / Skill сгруппированы в 14 категорий со stars / license / audience. Раздел ниже остаётся сфокусирован на «**референсе для написания своего MCP server**» (официальные серверы + SDK).
+> См. [`resources/mcp-skills-catalog.ru.md`](../resources/mcp-skills-catalog.ru.md) — 62 MCP server / Skill сгруппированы в 14 категорий со stars / license / audience. Раздел ниже остаётся сфокусирован на «**референсе для написания своего MCP server**» (официальные серверы + SDK).
 
 #### [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) ⭐ Official
 

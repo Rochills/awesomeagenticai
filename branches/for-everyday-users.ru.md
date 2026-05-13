@@ -62,7 +62,7 @@ Desktop-версия ChatGPT. Задавай вопросы по скриншо�
 
 > Эти инструменты позиционируются для разработчиков, но **обычные пользователи тоже могут их использовать** — например, batch-переименование файлов, уборка папки Downloads, авто-написание weekly review, суммаризация PDF в Markdown.
 >
-> Нужно подробное сравнение? См. [`resources/cli-agents-guide.ru.md`](../resources/cli-agents-guide.ru.md) — шесть основных CLI agents бок-о-бок, рекомендации по use case'ам, частые ловушки, реальные setup'ы.
+> Нужно подробное сравнение? См. [`resources/cli-agents-guide.ru.md`](../resources/cli-agents-guide.ru.md) — семь основных CLI agents бок-о-бок, рекомендации по use case'ам, частые ловушки, реальные setup'ы.
 >
 > Нужен пошаговый onboarding? См. [`tracks/cli/A1-cli-intro.ru.md`](../tracks/cli/A1-cli-intro.ru.md) — первая остановка Track A, от установки до первой задачи.
 >

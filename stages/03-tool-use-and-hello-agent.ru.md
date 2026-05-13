@@ -32,7 +32,7 @@
 3. [**OpenAI — Function Calling**](https://platform.openai.com/docs/guides/function-calling) — формат function-calling, референс
 4. [**Build an agent from scratch**](https://shafiqulai.github.io/blogs/blog_3.html) — narrative walkthrough
 
-## 🛠 Практические упражнения (5 штук)
+## 🛠 Практические упражнения (6 штук)
 
 ### Упражнение 1: Function Calling (один tool, один вызов)
 Дай Claude один tool (фейковый weather API) и один вопрос («Идёт ли дождь в Тайбэе?»). Посмотри, как Claude вызывает tool, получает результат и отвечает.

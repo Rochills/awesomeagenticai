@@ -16,7 +16,7 @@
 
 ## Подборка проектов
 
-> Шесть основных CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent) сравниваются бок-о-бок в [`resources/cli-agents-guide.ru.md`](../resources/cli-agents-guide.ru.md). Новичок в CLI agents, нужен пошаговый onboarding → [`tracks/cli/A1-cli-intro.ru.md`](../tracks/cli/A1-cli-intro.ru.md) (первая остановка Track A). Ищешь MCP / Skill интеграции, чтобы подвязать CLI к ежедневным инструментам (GitHub, Linear, Atlassian, Postgres, Playwright, Figma…) → [`resources/mcp-skills-catalog.ru.md`](../resources/mcp-skills-catalog.ru.md) (62 записи по категориям). Ниже — только ключевые позиции, которые разработчик должен знать.
+> Семь основных CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent) сравниваются бок-о-бок в [`resources/cli-agents-guide.ru.md`](../resources/cli-agents-guide.ru.md). Новичок в CLI agents, нужен пошаговый onboarding → [`tracks/cli/A1-cli-intro.ru.md`](../tracks/cli/A1-cli-intro.ru.md) (первая остановка Track A). Ищешь MCP / Skill интеграции, чтобы подвязать CLI к ежедневным инструментам (GitHub, Linear, Atlassian, Postgres, Playwright, Figma…) → [`resources/mcp-skills-catalog.ru.md`](../resources/mcp-skills-catalog.ru.md) (62 записи по категориям). Ниже — только ключевые позиции, которые разработчик должен знать.
 
 ### Coding Agents
 
