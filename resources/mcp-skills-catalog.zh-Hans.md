@@ -31,7 +31,7 @@
 8. [设计（Figma / Excalidraw）](#8-设计figma--excalidraw)（3）
 9. [监控 / Observability](#9-监控--observability)（3）
 10. [媒体 / 串流（YouTube / Spotify）](#10-媒体--串流youtube--spotify)（3）
-11. [中文圈专属](#11-中文圈专属)（7）
+11. [中文圈专属](#11-中文圈专属)（9）
 12. [其他常用（Cloudflare / Stripe…）](#12-其他常用cloudflare--stripe)（2）
 13. [研究工作流 Skills（学术 / paper / 文献）](#13-研究工作流-skills学术--paper--文献)（4）
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills)（3）
@@ -719,6 +719,30 @@
 **教什么**：基于 LangChain 的开源知识库问答系统——本地化部署、支持多种向量数据库、RAG 端到端范例。
 **适合谁**：想做 RAG 又不想全部自己刻的中文团队；要本地部署（不能用云端 LLM）的场景。
 **备注**：★ 37k 是中文圈最热门的 RAG 实现之一；维护节奏放缓（last commit 2025-11）。新项目建议先 fork 后评估，当参考实现用。
+
+### [usewhale/whale](https://github.com/usewhale/whale) ⭐⭐⭐
+
+| 栏位 | 内容 |
+|---|---|
+| Stars | ★ 114 |
+| License | MIT |
+| 推荐度 | ⭐⭐⭐ |
+
+**教什么**：专为 DeepSeek 模型优化的终端 AI 编码助手——支持 MCP server 接入、Claude-style Skills、对话缓存优化，Go 实现。
+**适合谁**：以 DeepSeek 为主力 LLM 的中文开发者；想用终端工具但不需要 Claude Code 全家桶的人。
+**备注**：开源同类中少见的 DeepSeek 专属优化；MCP + Skills 双支持让它可以逐步扩充能力。
+
+### [simonlin1212/a-stock-data](https://github.com/simonlin1212/a-stock-data) ⭐⭐⭐⭐
+
+| 栏位 | 内容 |
+|---|---|
+| Stars | ★ 445 |
+| License | Apache-2.0 |
+| 推荐度 | ⭐⭐⭐⭐ |
+
+**教什么**：A 股全栈数据工具包——单一 SKILL.md 文件封装 8 个数据源（mootdx、东财、akshare、iwencai 等）21 个端点，AI 编码助手直接可用。
+**适合谁**：用 Claude Code / Codex / OpenClaw 做投研或量化分析的中文开发者；不想自己刻数据抓取逻辑的人。
+**备注**：一条 `curl` + `pip install` 即可启用；中国 A 股数据类 Skill 中星星数最高的社群实现。兼容 Claude Code、Codex、OpenClaw。
 
 > 想找微信 / 钉钉集成？目前主流是用 chat bot framework（如 zhayujie/CowAgent）而不是纯 MCP server。等正規 MCP 出现再加进来。
 

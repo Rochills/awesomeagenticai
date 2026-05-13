@@ -31,7 +31,7 @@
 8. [Design (Figma / Excalidraw)](#8-design-figma--excalidraw) (3)
 9. [Monitoring / Observability](#9-monitoring--observability) (3)
 10. [Media / Streaming (YouTube / Spotify)](#10-media--streaming-youtube--spotify) (3)
-11. [Chinese-language Ecosystem](#11-chinese-language-ecosystem) (7)
+11. [Chinese-language Ecosystem](#11-chinese-language-ecosystem) (9)
 12. [Other Common (Cloudflare / Stripe…)](#12-other-common-cloudflare--stripe) (2)
 13. [Research Workflow Skills](#13-research-workflow-skills-academic--paper--lit) (4)
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills) (3)
@@ -715,6 +715,30 @@
 **What it does**: LangChain-based open-source knowledge-base QA system — local deployment, supports multiple vector stores, end-to-end RAG example.
 **Audience**: Chinese teams who want RAG without building it from scratch; scenarios requiring local-only deployment (no cloud LLM).
 **Notes**: ★ 37k makes it the most popular RAG implementation in the Chinese ecosystem; maintenance has slowed (last commit 2025-11). For new projects, fork and evaluate as a reference, not a turnkey base.
+
+### [usewhale/whale](https://github.com/usewhale/whale) ⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Stars | ★ 114 |
+| License | MIT |
+| Rating | ⭐⭐⭐ |
+
+**What it does**: Terminal AI coding assistant optimized for DeepSeek models — supports MCP server integration, Claude-style Skills, conversation caching, written in Go.
+**Audience**: Chinese developers who use DeepSeek as their primary LLM; those who want a terminal tool without the full Claude Code stack.
+**Notes**: One of the few open-source tools with DeepSeek-specific optimization; MCP + Skills dual support allows incremental capability expansion.
+
+### [simonlin1212/a-stock-data](https://github.com/simonlin1212/a-stock-data) ⭐⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Stars | ★ 445 |
+| License | Apache-2.0 |
+| Rating | ⭐⭐⭐⭐ |
+
+**What it does**: China A-share market data toolkit — a single SKILL.md file wrapping 8 data sources (mootdx, EastMoney, akshare, iwencai, etc.) with 21 endpoints, directly usable by AI coding assistants.
+**Audience**: Chinese developers using Claude Code / Codex / OpenClaw for investment research or quantitative analysis; those who don't want to build data-fetching logic from scratch.
+**Notes**: Installable with a single `curl` + `pip install`; highest-starred community Skill for Chinese A-share data. Compatible with Claude Code, Codex, and OpenClaw.
 
 > Looking for WeChat / DingTalk integrations? Today the mainstream is chatbot frameworks (e.g., zhayujie/CowAgent), not pure MCP servers. Will add when proper MCPs emerge.
 
