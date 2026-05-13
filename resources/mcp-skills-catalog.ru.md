@@ -2,7 +2,7 @@
 
 > [繁體中文](./mcp-skills-catalog.md) | [简体中文](./mcp-skills-catalog.zh-Hans.md) | [English](./mcp-skills-catalog.en.md) | **Русский**
 
-> Подключи Claude Code (или любой другой CLI agent) к приложениям, которыми уже пользуешься, без прыжков между окнами. Эта страница — курируемый индекс 62 MCP-серверов / Claude Skills / интеграций, сгруппированных по use case'ам (включая research-workflow + multi-LLM-делегирование выделенные секции).
+> Подключи Claude Code (или любой другой CLI agent) к приложениям, которыми уже пользуешься, без прыжков между окнами. Эта страница — курируемый индекс 62 MCP-серверов / Claude Skills / интеграций, сгруппированных по сценариям (включая research-workflow + multi-LLM-делегирование выделенные секции).
 
 ---
 
@@ -15,7 +15,7 @@
 ### Направление включения (не строгие правила)
 
 - **Сначала официальное**: Anthropic / vendor-publish'нутые MCP / Skill обычно ранжируются выше
-- **Stars — намёк, не gate**: community-репо около 100+ обычно поддерживаются, но «niche but useful» репо принимаются через PR с фразой о причине
+- **Stars — сигнал, не фильтр**: community-репо около 100+ обычно поддерживаются, но «niche but useful» репо принимаются через PR с фразой о причине
 - **Метаданные, где возможно**: stars / license подтягиваются через `gh api`; refresh когда угодно
 - **Избегать (не запрещено)**: archived, long-stale, unclear-license репо — niche-инструменты могут быть исключениями
 
@@ -74,7 +74,7 @@
 
 **Что делает**: Claude Code Skill, использующий browser automation для query'ев в NotebookLM с citation-backed ответами.
 **Аудитория**: люди, управляющие статьями / research-заметками в NotebookLM, желающие запрашивать из Claude Code одним промптом.
-**Заметки**: требует Google account auth.
+**Заметки**: требует аутентификации через Google account.
 
 ### [teng-lin/notebooklm-py](https://github.com/teng-lin/notebooklm-py) ⭐⭐⭐⭐
 
@@ -214,7 +214,7 @@
 
 **Что делает**: Gmail, Calendar, Docs, Sheets, Slides, Drive, Chat, Forms, Tasks, Search — всё в одном MCP-сервере.
 **Аудитория**: heavy-пользователи Google Workspace — ответы на email, scheduling, написание docs, манипуляция sheets — всё из одного сервера.
-**Заметки**: OAuth setup чуть запутан, но делается один раз; самое полное покрытие Google-инструментов.
+**Заметки**: OAuth-настройка чуть запутана, но делается один раз; самое полное покрытие Google-инструментов.
 
 ### [xing5/mcp-google-sheets](https://github.com/xing5/mcp-google-sheets) ⭐⭐⭐⭐
 
@@ -226,7 +226,7 @@
 
 **Что делает**: сфокусированная Google Sheets / Drive интеграция — создание sheets, правка ячеек, query формул.
 **Аудитория**: люди, использующие только Google Sheets, не желающие full Workspace MCP.
-**Заметки**: уже scope, чем `google_workspace_mcp`, но проще setup.
+**Заметки**: уже по scope, чем `google_workspace_mcp`, но проще в настройке.
 
 ---
 
@@ -470,7 +470,7 @@
 
 **Что делает**: выставляет Chrome DevTools coding-агентам — performance, network, console traces — всё доступно LLM.
 **Аудитория**: разработчики, дебажащие фронтенд-баги, делающие web performance-анализ.
-**Заметки**: идеально парится с Playwright MCP — один драйвит, другой наблюдает.
+**Заметки**: хорошо работает в паре с Playwright MCP — один управляет браузером, другой наблюдает.
 
 ### [firecrawl/firecrawl-mcp-server](https://github.com/firecrawl/firecrawl-mcp-server) ⭐⭐⭐⭐⭐
 
@@ -641,7 +641,7 @@
 | Rating | ⭐⭐⭐ |
 
 **Что делает**: двунаправленные Feishu (Lark) docs / sheet / bitable ↔ Markdown, с OAuth 2.0, CLI, TUI, Claude Skills.
-**Аудитория**: китайскоязычные пользователи Feishu / Lark, желающие мостить Lark-контент с Claude Code.
+**Аудитория**: китайскоязычные пользователи Feishu / Lark, желающие связать Lark-контент с Claude Code.
 **Заметки**: сейчас один из немногих MCP / Skill-вариантов в китайской экосистеме; у WeChat / DingTalk пока нет standalone-MCP (живут внутри chatbot-фреймворков).
 
 ### [netease-youdao/LobsterAI](https://github.com/netease-youdao/LobsterAI) ⭐⭐⭐⭐
@@ -714,7 +714,7 @@
 
 **Что делает**: LangChain-based open-source knowledge-base QA система — local deployment, поддерживает множество vector store'ов, end-to-end RAG-пример.
 **Аудитория**: китайские команды, желающие RAG без сборки с нуля; сценарии, требующие local-only deployment (без cloud LLM).
-**Заметки**: ★ 37k делает её самой популярной RAG-имплементацией в китайской экосистеме; поддержка замедлилась (последний коммит 2025-11). Для новых проектов — fork и оценивай как референс, не turnkey-базу.
+**Заметки**: ★ 37k делает её самой популярной RAG-имплементацией в китайской экосистеме; поддержка замедлилась (последний коммит 2025-11). Для новых проектов — fork и оценивай как референс, а не как готовую основу.
 
 > Ищешь WeChat / DingTalk интеграции? Сегодня мейнстрим — chatbot-фреймворки (например, zhayujie/CowAgent), не чистые MCP-серверы. Добавим, когда появятся настоящие MCP.
 
@@ -812,12 +812,12 @@
 
 ```
                        ┌─ codex-delegate     →  code-heavy работа
-Claude (planner +      ├─ gemini-delegate    →  long-form / CJK / 1M контекст
+Claude (planner +      ├─ gemini-delegate    →  длинный текст / CJK / 1M контекст
         reviewer)      └─ agent-collab-skills →  splitter + reconciler + acceptance gate
                                                  (когда 2+ delegate'а параллельно)
 ```
 
-Claude плох в token-heavy mechanical работе (cost, blowout контекста); Codex плох в conversational координации; 1M-контекст Gemini хорош, но reasoning среднего уровня. **Разделение труда: Claude — дизайн / ревью, Codex — реализация, Gemini — long-form черновики / synthesis.**
+Claude плох в token-heavy mechanical работе (cost, blowout контекста); Codex плох в conversational координации; 1M-контекст Gemini хорош, но reasoning среднего уровня. **Разделение труда: Claude — дизайн / ревью, Codex — реализация, Gemini — длинные черновики / synthesis.**
 
 ### [WenyuChiou/codex-delegate](https://github.com/WenyuChiou/codex-delegate) ⭐⭐⭐⭐⭐
 
@@ -831,7 +831,7 @@ Claude плох в token-heavy mechanical работе (cost, blowout конте
 **Аудитория**: разработчики, желающие экономить токены / ускорять large-scale механические правки; ученики, желающие убедиться, что «multi-agent — не просто buzzword».
 **Используй для**: рефакторинга 30+ файлов, генерации тестовых scaffold'ов, портирования того же паттерна через N файлов, написания migration-скриптов.
 **Не используй для**: архитектурных решений, диагностики багов, security-ревью, задач, требующих conversation-памяти — Claude делает их лучше напрямую.
-**Заметки**: парится с `gemini-delegate-skill`. Практическая реализация концепции multi-agent этапа 7.
+**Заметки**: работает в паре с `gemini-delegate-skill`. Практическая реализация концепции multi-agent этапа 7.
 
 ### [WenyuChiou/gemini-delegate-skill](https://github.com/WenyuChiou/gemini-delegate-skill) ⭐⭐⭐⭐
 
@@ -841,11 +841,11 @@ Claude плох в token-heavy mechanical работе (cost, blowout конте
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ |
 
-**Что делает**: Claude Code skill, использующий Gemini CLI как long-form / large-context / CJK-executor — 1M-token context window, китайский long-form, second-opinion ревью. Claude даёт outline и критику; Gemini пишет long-form.
+**Что делает**: Claude Code skill, использующий Gemini CLI как исполнитель для длинного текста / большого контекста / CJK — 1M-token context window, китайский длинный текст, second-opinion ревью. Claude даёт outline и критику; Gemini пишет длинный черновик.
 **Аудитория**: исследователи, пишущие статьи, knowledge worker'ы, пишущие китайские отчёты / Threads-посты, люди, желающие perspective второго LLM для cross-check.
-**Используй для**: long-form черновиков (>3000 слов), cross-document synthesis (засовывание многих длинных доков в 1M-context), Chinese / CJK-контента, LLM-vs-LLM сравнительных view.
+**Используй для**: длинных черновиков (>3000 слов), cross-document synthesis (загрузка многих длинных документов в 1M-context), Chinese / CJK-контента, LLM-vs-LLM сравнительных view.
 **Не используй для**: коротких запросов, генерации кода (используй codex), production-critical решений (финальный human-review).
-**Заметки**: парится с `codex-delegate` для разделения «Codex пишет код, Gemini пишет прозу».
+**Заметки**: работает в паре с `codex-delegate` для разделения «Codex пишет код, Gemini пишет прозу».
 
 ### [WenyuChiou/agent-collab-skills](https://github.com/WenyuChiou/agent-collab-skills) ⭐⭐
 
@@ -857,7 +857,7 @@ Claude плох в token-heavy mechanical работе (cost, blowout конте
 
 **Что делает**: Claude Code marketplace для multi-agent collaboration — task splitter, output reconciler, adversarial debate, shared memory, acceptance gate. Композируется с codex-delegate / gemini-delegate.
 **Аудитория**: люди, гоняющие 2+ delegate-агентов за раунд, желающие увидеть один способ паковки multi-agent координации в marketplace.
-**Заметки**: **экспериментально** — не относись как к production-grade фреймворку. Это собственный setup мейнтейнера, выложенный публично как референс. Для production-grade multi-agent см. LangGraph / AutoGen / CrewAI в этапе 7.
+**Заметки**: **экспериментально** — не относись как к production-grade фреймворку. Это собственная настройка мейнтейнера, выложенная публично как референс. Для production-grade multi-agent см. LangGraph / AutoGen / CrewAI в этапе 7.
 
 ---
 

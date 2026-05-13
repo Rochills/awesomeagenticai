@@ -339,7 +339,7 @@ The user:
 
 **Что выучишь**: разница между project skills и plugin marketplace skills (этот project-level, активен как только ты в репо; plugins — отдельный distribution-слой); `description` — discovery-механизм (не магическое поле `trigger_phrases`); как `references/` расширяет skill более длинными примерами.
 
-**Дальше**: если хочешь упаковать этот skill как share'абельный plugin (чтобы другие могли установить в свой Claude Code), см. [Этап 5.4 Plugins & Marketplaces](../stages/05-claude-code-ecosystem.ru.md#54--plugins--marketplaces). Этот walkthrough не покрывает plugin-упаковку.
+**Дальше**: если хочешь упаковать этот skill как переиспользуемый plugin (чтобы другие могли установить в свой Claude Code), см. [Этап 5.4 Plugins & Marketplaces](../stages/05-claude-code-ecosystem.ru.md#54--plugins--marketplaces). Этот walkthrough не покрывает plugin-упаковку.
 
 ---
 
@@ -555,7 +555,7 @@ docker run -p 8000:8000 \
 # Или деплой на Cloud Run / Fly.io / Railway / свой K8s
 ```
 
-**Что выучишь**: eval как regression-тест, observability для дебага задеплоенных агентов, перевод агента из скрипта в сервис.
+**Что выучишь**: eval как regression-тест, observability для дебага развёрнутых агентов, перевод агента из скрипта в сервис.
 
 ---
 

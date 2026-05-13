@@ -109,7 +109,7 @@ npx promptfoo eval
 | Stars | ★ 18k+ |
 | Recommendation | ⭐⭐⭐⭐ |
 
-**Чему учит**: eval-фреймворк OpenAI. Кастомные eval'ы под конкретные use case'ы.
+**Чему учит**: eval-фреймворк OpenAI. Кастомные eval'ы под конкретные сценарии.
 
 **Лучше всего для**: когда нужны OpenAI-специфичные eval'ы или контрибьют обратно.
 
@@ -258,7 +258,7 @@ npx promptfoo eval
 
 **Чему учит**: comprehensive китайский гайд по fine-tuning и деплою open-source LLM в Linux-окружениях. Покрывает Qwen / Llama / GLM / multimodal модели, full-parameter + LoRA + deployment.
 
-**Лучше всего для**: китайскоязычных команд, self-host'ящих open-source LLM. Comprehensive китайский туториал, покрывающий обучение, fine-tuning и деплой.
+**Лучше всего для**: китайскоязычных команд, разворачивающих open-source LLM у себя. Comprehensive китайский туториал, покрывающий обучение, fine-tuning и деплой.
 
 ---
 
@@ -289,7 +289,7 @@ npx promptfoo eval
 
 **Чему учит**: high-throughput LLM serving. Гоняй open-source модели в production.
 
-**Лучше всего для**: self-host'а open-source LLM (Llama, Qwen и т. д.) вместо оплаты API.
+**Лучше всего для**: локального развёртывания open-source LLM (Llama, Qwen и т. д.) вместо оплаты API.
 
 ---
 

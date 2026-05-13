@@ -10,9 +10,9 @@
 
 ## 📌 Цели обучения
 
-- Знать разницу между 7 mainstream CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent)
+- Знать разницу между 7 основными CLI agents (Claude Code / Codex / OpenCode / Gemini CLI / goose / Aider / Hermes Agent)
 - Выбрать первый CLI-инструмент исходя из сценария
-- Завершить install + auth + первую реальную задачу (не hello world)
+- Завершить установку, аутентификацию и первую реальную задачу (не hello world)
 - Знать, когда переключаться / добавить второй CLI
 
 ## 🚪 Условия входа
@@ -24,9 +24,9 @@
 
 ## 📚 Обязательное чтение
 
-1. [**`resources/cli-agents-guide.ru.md`**](../../resources/cli-agents-guide.ru.md) ⭐ — основной референс этого track'а. 7 mainstream CLI agents бок-о-бок, use-case picks, реальные setup'ы
+1. [**`resources/cli-agents-guide.ru.md`**](../../resources/cli-agents-guide.ru.md) ⭐ — основной референс этого track'а. 7 основных CLI agents бок-о-бок, рекомендации по сценариям, реальные настройки
 2. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — официальная установка
-3. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex install + auth
+3. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — установка Codex и auth
 
 ## 🛠 Практические упражнения (делать, не просто читать)
 
@@ -42,25 +42,25 @@
 Положи 3 вещи: «твоя persona / предпочитаемый стиль кода / чего нельзя делать». Запусти задачу и понаблюдай за behavioural-различиями.
 
 ### Упражнение CLI-3: запусти второй CLI параллельно
-Установи второй CLI (рекомендую Codex или OpenCode как backup). Запусти тот же промпт и сравни стиль вывода, скорость, стоимость. **Не выбирать победителя — а понять, что «разные CLI решают одну проблему под разным углом».**
+Установи второй CLI (рекомендую Codex или OpenCode как запасной вариант). Запусти тот же промпт и сравни стиль вывода, скорость, стоимость. **Не выбирать победителя — а понять, что «разные CLI решают одну проблему под разным углом».**
 
 ### Упражнение CLI-4: auth corner cases
-Намеренно сломай API-ключ (один неверный символ) и посмотри, как CLI выдаст ошибку. Потом «правильный ключ, но неверное имя модели». Production usage наткнётся на auth-проблемы — наступи на них сейчас.
+Намеренно сломай API-ключ (один неверный символ) и посмотри, как CLI выдаст ошибку. Потом «правильный ключ, но неверное имя модели». В продакшене auth-проблемы неизбежны — наступи на них сейчас.
 
 ## 🎯 Подборка проектов
 
 ### 7 mainstream CLI Agents
 
-Детальное сравнение (stars, license, сильные стороны, рекомендуемые use case'ы) в [`resources/cli-agents-guide.ru.md`](../../resources/cli-agents-guide.ru.md). Быстрые entry points здесь:
+Детальное сравнение (stars, license, сильные стороны, рекомендуемые сценарии) в [`resources/cli-agents-guide.ru.md`](../../resources/cli-agents-guide.ru.md). Быстрые точки входа здесь:
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
 ★ 120k+ — рекомендуемый первый CLI agent. Встроенная SKILL / plugin экосистема, CLAUDE.md prompt-система, самые полные community-ресурсы.
 
 #### [openai/codex](https://github.com/openai/codex) ⭐⭐⭐⭐⭐
-★ 80k+ — top pick, если уже подписан на ChatGPT Plus / Pro; тот же аккаунт работает в терминале.
+★ 80k+ — лучший выбор, если уже подписан на ChatGPT Plus / Pro; тот же аккаунт работает в терминале.
 
 #### [sst/opencode](https://github.com/sst/opencode) ⭐⭐⭐⭐⭐
-★ 155k+ — open-source, не привязан к LLM-провайдеру, самая быстрая community-итерация. Выбирай для self-hosting или no vendor lock-in.
+★ 155k+ — open-source, не привязан к LLM-провайдеру, самая быстрая community-итерация. Выбирай для self-hosting или чтобы избежать привязки к одному поставщику.
 
 #### [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) ⭐⭐⭐⭐
 ★ 103k+ — когда нужен 1M-token длинный контекст для больших кодовых баз / больших PDF.
@@ -87,7 +87,7 @@ Closed-source desktop app — drag-and-drop UI для локальных LLM. П
 ## ✅ Самопроверка перед A2
 
 Можешь:
-- [ ] Сформулировать core-разницу между 7 mainstream CLI (3–4 без подглядывания в таблицу)
+- [ ] Сформулировать core-разницу между 7 основными CLI (3–4 без подглядывания в таблицу)
 - [ ] Имеешь рабочий основной CLI (установлен, аутентифицирован, запустил 5+ реальных задач)
 - [ ] Написал свой `CLAUDE.md` / `AGENTS.md` / `GEMINI.md`
 - [ ] Запустил второй CLI хотя бы раз, знаешь различия в стиле
@@ -98,7 +98,7 @@ Closed-source desktop app — drag-and-drop UI для локальных LLM. П
 
 ## 💡 Напоминание учащимся Track A
 
-CLI agent — не «то же самое с другим UI», как Claude.ai / ChatGPT web — он может читать/писать файлы на твоей машине, запускать shell-команды, модифицировать git. Эта capability-разница заслуживает осторожности **перед использованием**:
+CLI agent — не «то же самое с другим UI», как Claude.ai / ChatGPT web — он может читать/писать файлы на твоей машине, запускать shell-команды, модифицировать git. Эта разница в возможностях требует осторожности **перед использованием**:
 - Неделя 1: ревьюй план перед исполнением (или используй `--dry-run`)
 - Не давай CLI коммитить прямо в production кодовые базы пока
 - Положи sensitive data (ключи, контракты, медкарты) в `.cursorignore` / `.claudeignore`, чтобы исключить

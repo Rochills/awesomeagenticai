@@ -354,7 +354,7 @@ and write each into separate markdown sections in ./notes/research-summary.md.
 
 | Сценарий | Выбирай | Почему |
 |---|---|---|
-| Эпизодически запрашивать NotebookLM из Claude Code | `PleasePrompto/notebooklm-skill` | Один промпт в Claude Code; простой setup. |
+| Эпизодически запрашивать NotebookLM из Claude Code | `PleasePrompto/notebooklm-skill` | Один промпт в Claude Code; простая настройка. |
 | Batch-операции (например, создать 100 notebooks, импортировать документы массово) | `teng-lin/notebooklm-py` | Python API для программного исполнения. |
 | Избежать поломки из-за изменений Google policy | (Ждать официального Google API) | Оба решения неофициальные, могут ломаться. |
 
@@ -455,7 +455,7 @@ Desktop-приложение Zotero не включает API по дефолт�
 git clone https://github.com/WenyuChiou/zotero-skills ~/.claude/skills/zotero-skills
 ```
 
-Следуй README репо для setup'а, включая конфигурацию API-ключа для write-операций через Web API.
+Следуй README репо для настройки, включая конфигурацию API-ключа для write-операций через Web API.
 
 #### Шаг 3: Практические промпты
 
@@ -501,7 +501,7 @@ and export any missing BibTeX entries as a .bib file for me.
 
 ## 6. Local LLM + CLI Agent quick walkthrough
 
-> Примерно за 30 минут подключи setup локальной модели этапа 1 к CLI agent этапа 5: полезно для offline-работы, privacy-чувствительных файлов и экспериментов, где не хочется тратить API-квоту.
+> Примерно за 30 минут подключи настройку локальной модели этапа 1 к CLI agent этапа 5: полезно для offline-работы, конфиденциальных файлов и экспериментов, где не хочется тратить API-квоту.
 
 ### Зачем
 
@@ -584,13 +584,13 @@ hermes
 | Скорость | Обычно стабильнее | Hardware-dependent, часто в 2–5 раз медленнее |
 | Privacy | Контент уходит в Anthropic | Контент остаётся локально |
 | Reasoning ceiling | Сильнее с Claude 4.5+ | Зависит от локальной модели |
-| Лучший use case | Сложные кодовые базы, длинный контекст, надёжный reasoning | Приватные файлы, offline-демо, low-cost повторяющиеся эксперименты |
+| Лучший сценарий | Сложные кодовые базы, длинный контекст, надёжный reasoning | Приватные файлы, offline-демо, low-cost повторяющиеся эксперименты |
 
 ### Важное ограничение: Claude Code не может напрямую использовать локальный LLM
 
 Claude Code на сейчас требует Anthropic OAuth / API-credential'ы и не имеет официальной настройки замены модели на Ollama или локальный endpoint. Можно увидеть эксперименты с proxy / API-shim онлайн, но это не официально поддерживаемый путь; стабильность и совместимость — на твоей стороне валидации.
 
-Для локальной LLM-работы относись к «Claude Code» и «BYO-LLM CLI agents» как к раздельным инструментам: используй Claude Code, когда нужно качество Claude; используй OpenCode / goose / Aider / Hermes для локальных, offline, privacy-чувствительных или low-cost экспериментов.
+Для локальной LLM-работы относись к «Claude Code» и «BYO-LLM CLI agents» как к раздельным инструментам: используй Claude Code, когда нужно качество Claude; используй OpenCode / goose / Aider / Hermes для локальных, offline, конфиденциальных или low-cost экспериментов.
 
 ### Распространённые ловушки
 
@@ -605,7 +605,7 @@ Claude Code на сейчас требует Anthropic OAuth / API-credential'ы
 
 - Этап 1 [Local LLM упражнение](../stages/01-llm-basics.ru.md#упражнение-local-llm): trade-off'ы Ollama / llama.cpp / vLLM
 - [`cli-agents-guide.ru.md`](cli-agents-guide.ru.md): как выбирать между 7 CLI agents
-- README Hermes Agent: setup multi-platform gateway для Telegram / Discord / Slack и провайдеров
+- README Hermes Agent: настройка multi-platform gateway для Telegram / Discord / Slack и провайдеров
 
 ---
 

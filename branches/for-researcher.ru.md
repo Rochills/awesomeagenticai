@@ -16,7 +16,7 @@
 
 ## Подборка проектов
 
-> 💡 **Хочешь подвязать Claude Code к NotebookLM, Obsidian, Notion, Excel, PDF, Excalidraw и другим research-инструментам?** 62 интеграции в [`resources/mcp-skills-catalog.ru.md`](../resources/mcp-skills-catalog.ru.md) (по use case'ам). Раздел ниже держит research-специфичные инструменты и marketplace'ы.
+> 💡 **Хочешь подвязать Claude Code к NotebookLM, Obsidian, Notion, Excel, PDF, Excalidraw и другим research-инструментам?** 62 интеграции в [`resources/mcp-skills-catalog.ru.md`](../resources/mcp-skills-catalog.ru.md) (по сценариям). Раздел ниже держит research-специфичные инструменты и marketplace'ы.
 
 ### Research workflow marketplace'ы
 
@@ -81,7 +81,7 @@ Claude Code инфраструктура для PhD-исследователей
 
 **Чему учит**: полный arXiv workflow для китайских исследователей — paper summary + перевод + полировка + генерация ответов рецензентам. Поддерживается китайской командой; дефолты дружелюбны к китайскоязычным workflow'ам.
 
-**Лучше всего для**: китайских аспирантов, ищущих entry-level paper-инструмент с китайским фокусом.
+**Лучше всего для**: китайских аспирантов, ищущих стартовый paper-инструмент с китайским фокусом.
 
 **Заметки**: лицензия — custom non-commercial — прочитай оригинальные условия перед использованием; обычная практика — research / personal use, но условия проверь сам.
 

@@ -12,11 +12,11 @@
 - Meeting notes → action items
 - Агрегация отчётов из нескольких источников
 - Research / market intelligence
-- Decision-support workflow'ы
+- Рабочие процессы поддержки решений
 
 ## Подборка проектов
 
-> 💡 **Хочешь подвязать свой AI agent к Notion / Gmail / Outlook / Slack / Excel / Lark?** 62 MCP server / Skill интеграции — в [`resources/mcp-skills-catalog.ru.md`](../resources/mcp-skills-catalog.ru.md) (сгруппированы по use case'ам). Раздел ниже сфокусирован на workflow / integration-platform инструментах.
+> 💡 **Хочешь подвязать свой AI agent к Notion / Gmail / Outlook / Slack / Excel / Lark?** 62 MCP server / Skill интеграции — в [`resources/mcp-skills-catalog.ru.md`](../resources/mcp-skills-catalog.ru.md) (сгруппированы по сценариям). Раздел ниже сфокусирован на инструментах для workflow и integration platforms.
 
 ### Workflow-инструменты
 
@@ -49,7 +49,7 @@ Skills для brainstorming, planning и принятия решений.
 | Stars | ★ 34k+ |
 | License | AGPL-3.0 |
 
-**Чему учит**: self-hosted «второй мозг» — чат с web + локальными доками, расписание автоматизаций, кастомные агенты.
+**Чему учит**: self-hosted «второй мозг» — чат с web + локальными документами, расписание автоматизаций, кастомные агенты.
 
 **Лучше всего для**: тех, кто хочет self-hosted personal knowledge base + AI-ассистент.
 
@@ -66,7 +66,7 @@ Skills для brainstorming, planning и принятия решений.
 
 **Чему учит**: deployable multi-agent chat-платформа — plugin marketplace, knowledge bases, team collaboration. Один из представительных вариантов self-hosted AI workspace.
 
-**Лучше всего для**: self-host'а коллаборативного chat workspace.
+**Лучше всего для**: локального развёртывания коллаборативного chat workspace.
 
 **Заметки**: для коммерческого использования нужно проверить дополнительные условия LobeHub Community License.
 
@@ -114,7 +114,7 @@ Slack / Gmail / Discord и т. д. Оригинальные Anthropic-hosted ref
 
 ## Tier-рекомендации
 
-Большинству knowledge worker'ов стоит стартовать с **Tier 0** (Claude.ai web), апгрейдиться до **Tier 1** (Claude Desktop с MCP), когда нужны повторяющиеся workflow'ы над local/cloud файлами.
+Большинству knowledge worker'ов стоит стартовать с **Tier 0** (Claude.ai web), апгрейдиться до **Tier 1** (Claude Desktop с MCP), когда нужны повторяющиеся рабочие процессы над local/cloud файлами.
 
 **Tier 3+ (CLI / SDK) — overkill для большинства задач knowledge worker'а.** Не дай себя уговорить.
 

@@ -4,7 +4,7 @@
 
 > [← Назад к README основного пути](../README.ru.md)
 
-> 📌 **Это reference-документ** (глубокое сравнение, логика выбора, ловушки, рекомендуемые setup'ы).
+> 📌 **Это reference-документ** (глубокое сравнение, логика выбора, ловушки, рекомендуемые настройки).
 > Первый раз с CLI agents, нужен пошаговый onboarding → см. [`tracks/cli/A1-cli-intro.ru.md`](../tracks/cli/A1-cli-intro.ru.md) (первая остановка Track A).
 > Уже используешь один, хочешь решить / сравнить / апгрейднуть → оставайся здесь.
 
@@ -28,31 +28,31 @@ Cross-branch референс, общий для Track A (A1–A3) + всех 5 
 
 ---
 
-## 🎯 Что выбрать? Решай по use case
+## 🎯 Что выбрать? Решай по сценарию
 
 ### Писать статьи / литература / research
-**Top pick**: Claude Code (длинный контекст, сильное reasoning, хорошая устойчивость к hallucination). Gemini CLI — альтернатива; его миллион-токенов контекст подходит для whole-PDF / whole-dataset workflow'ов.
+**Лучший выбор**: Claude Code (длинный контекст, сильное reasoning, хорошая устойчивость к hallucination). Gemini CLI — альтернатива; его миллион-токенов контекст подходит для whole-PDF / whole-dataset workflow'ов.
 
 ### Писать код / рефакторить кодовую базу
-**Top pick**: Aider (git-native — авто-коммит каждого изменения, легко откатить) или Claude Code. OpenCode подходит, когда нужно переключаться между LLM.
+**Лучший выбор**: Aider (git-native — авто-коммит каждого изменения, легко откатить) или Claude Code. OpenCode подходит, когда нужно переключаться между LLM.
 
-### Privacy / offline / без облака
-**Top pick**: goose или OpenCode + локальный Ollama. Оба поддерживают BYO LLM и подключаются к `http://localhost:11434/v1` (Ollama по дефолту).
+### Конфиденциальность / offline / без облака
+**Лучший выбор**: goose или OpenCode + локальный Ollama. Оба поддерживают BYO LLM и подключаются к `http://localhost:11434/v1` (Ollama по дефолту).
 
 ### Уже подписан на ChatGPT Plus / Pro
-**Top pick**: Codex — тот же аккаунт, без отдельного биллинга.
+**Лучший выбор**: Codex — тот же аккаунт, без отдельного биллинга.
 
 ### Хочешь 1M-токенов длинный контекст + Google-экосистему
-**Top pick**: Gemini CLI. Щедрый free tier и длинный контекст — дифференциаторы. Заметь: интеграция Google-сервисов (Gmail / Drive / Docs) идёт через MCP-расширения, не built-in коннекторы — тот же setup-паттерн, что у других CLI.
+**Лучший выбор**: Gemini CLI. Щедрый бесплатный тариф и длинный контекст — дифференциаторы. Заметь: интеграция Google-сервисов (Gmail / Drive / Docs) идёт через MCP-расширения, не built-in коннекторы — тот же паттерн настройки, что у других CLI.
 
-### Хочешь избежать vendor lock-in
-**Top pick**: OpenCode > goose > Aider. Ни один не привязывает к конкретному провайдеру; модели взаимозаменяемы.
+### Хочешь избежать привязки к одному поставщику
+**Лучший выбор**: OpenCode > goose > Aider. Ни один не привязывает к конкретному провайдеру; модели взаимозаменяемы.
 
 ### Первый раз ставишь CLI agent — нужен простейший старт
-**Top pick**: Claude Code. Широкая экосистема, механизм CLAUDE.md для version-controlled промптов, много community-ресурсов, когда натыкаешься на проблемы.
+**Лучший выбор**: Claude Code. Широкая экосистема, механизм CLAUDE.md для version-controlled промптов, много community-ресурсов, когда натыкаешься на проблемы.
 
 ### Хочешь, чтобы он работал на cloud VM, общался через Telegram / Slack / Discord, с китайскими LLM как primary
-**Top pick**: Hermes Agent. Три дифференциатора:
+**Лучший выбор**: Hermes Agent. Три дифференциатора:
 - **Отвязан от твоего ноутбука** — agent работает на $5 VPS / Modal serverless / Vercel Sandbox; ты пишешь ему из Telegram / Discord / Slack / WhatsApp / Signal
 - **Model-neutral** — поддерживает GLM / Kimi / Xiaomi MiMo / MiniMax, совпадает с записями каталога §11 Chinese-ecosystem
 - **Встроенный self-improving skill loop + cron scheduler** — agent автономно генерирует skills из взаимодействия, рафинирует их между сессиями, гоняет scheduled jobs без присмотра
@@ -100,13 +100,13 @@ Cross-CLI промпты обычно на 5–10% многословнее, ч�
 
 ---
 
-## 🔧 Реальные setup'ы
+## 🔧 Реальные настройки
 
 Три распространённых комбинации; выбери подходящий:
 
 ### Setup A: Claude Code primary + OpenCode backup
 - Claude Code обрабатывает 90% ежедневной работы (код, доки, debug)
-- OpenCode + Ollama для privacy-чувствительных данных (медицинские, финансовые)
+- OpenCode + Ollama для конфиденциальных данных (медицинские, финансовые)
 - Один промпт, работает в обоих
 
 ### Setup B: Codex (GPT) + Aider (Claude) mix
@@ -123,7 +123,7 @@ Cross-CLI промпты обычно на 5–10% многословнее, ч�
 - **Hermes Agent** работает на low-cost VPS или твоей машине как multi-platform agent-gateway
 - **LLM endpoint** может быть Ollama (`http://localhost:11434/v1`) или сменён на провайдеров вроде z.ai GLM / Kimi
 - **Chat entrypoint** может быть Telegram / Slack / Discord; Hermes маршрутизирует platform-сообщения в agent workflow
-- **Когда нужен ноль зависимости от Anthropic / OpenAI**, этот setup подходит для offline, privacy-чувствительных и low-cost повторяющихся экспериментов
+- **Когда нужен ноль зависимости от Anthropic / OpenAI**, эта настройка подходит для offline, конфиденциальных и low-cost повторяющихся экспериментов
 - Пошаговый walkthrough: [`resources/cookbook.ru.md` Recipe 6](cookbook.ru.md#6-local-llm--cli-agent-quick-walkthrough)
 
 ---
