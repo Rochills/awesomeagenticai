@@ -11,7 +11,7 @@
 > - **Track A (CLI Power User)**: A2 использует [5.1 (Claude Code basics)](#51--claude-code-basics); A3 использует [5.2 (MCP)](#52--mcp-model-context-protocol-foundation) + выборочно [5.3 (Skills)](#53--skills-claude-code-behavior-layer) и [5.4 (Plugins)](#54--plugins--marketplaces) (Упражнение CLI-12 в A3 учит упаковывать CLAUDE.md / команды в plugin). Угол чтения: «**как хорошо использовать Claude Code**»
 > - **Track B (Agent Builder)**: проходит полный этап 5.1 → 5.4 как «**как Claude Code работает изнутри**» — deep dive
 
-> ⚠️ **Этот этап — не путь для локального LLM.** Claude Code требует Anthropic API / OAuth и не может напрямую переключиться на Ollama или локальный endpoint. Для offline-работы, privacy-чувствительных файлов или избегания API-квот используй [`resources/cookbook.ru.md` Recipe 6](../resources/cookbook.ru.md#6-local-llm--cli-agent-quick-walkthrough) с BYO-LLM CLI agent'ом — OpenCode / goose / Aider / Hermes.
+> ⚠️ **Этот этап — не путь для локального LLM.** Claude Code требует Anthropic API / OAuth и не может напрямую переключиться на Ollama или локальный endpoint. Для offline-работы, конфиденциальных файлов или избегания API-квот используй [`resources/cookbook.ru.md` Recipe 6](../resources/cookbook.ru.md#6-local-llm--cli-agent-quick-walkthrough) с BYO-LLM CLI agent'ом — OpenCode / goose / Aider / Hermes.
 
 ## Стек одним взглядом
 
