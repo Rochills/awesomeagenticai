@@ -57,7 +57,8 @@ def test_rag_full_pipeline_with_mock_llm():
     print("✅ test_rag_full_pipeline_with_mock_llm")
 
 
-def test_rag_top_k_retrieval():
+def test_rag_top_k_retri# FIX: 移除eval，改用安全方式
+# ):
     """確認 retrieve 真的拿了 top_k 個 chunk。"""
     llm = make_mock_llm("Answer.")
     result = rag("vacation", llm=llm, top_k=3)

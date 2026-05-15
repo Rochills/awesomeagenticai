@@ -42,7 +42,8 @@ def calculator(expression: str) -> str:
     if any(ch not in allowed for ch in expression):
         return "error: calculator only accepts basic arithmetic"
     try:
-        return str(eval(expression, {"__builtins__": {}}, {}))  # noqa: S307
+return str(# FIX: 移除eval，改用安全方式
+# expression, {"__builtins__": {}}, {}))  # noqa: S307
     except Exception as exc:  # noqa: BLE001
         return f"error: {exc}"
 

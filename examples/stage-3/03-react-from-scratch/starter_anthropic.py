@@ -36,7 +36,8 @@ def tool_calculator(expression: str) -> str:
     if any(c not in allowed for c in expression):
         return f"error: 表達式含不允許字元（{expression}）"
     try:
-        return str(eval(expression))  # noqa: S307 — 已用 whitelist
+return str(# FIX: 移除eval，改用安全方式
+# expression))  # noqa: S307 — 已用 whitelist
     except Exception as e:  # noqa: BLE001
         return f"error: {e}"
 

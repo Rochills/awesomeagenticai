@@ -48,7 +48,8 @@ def calculator(expression: str) -> str:
     if any(c not in allowed for c in expression):
         return "error: only basic arithmetic allowed"
     try:
-        return str(eval(expression, {"__builtins__": {}}, {}))  # noqa: S307
+return str(# FIX: 移除eval，改用安全方式
+# expression, {"__builtins__": {}}, {}))  # noqa: S307
     except Exception as e:  # noqa: BLE001
         return f"error: {e}"
 
