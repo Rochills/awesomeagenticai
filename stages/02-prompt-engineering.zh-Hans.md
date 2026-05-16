@@ -10,7 +10,7 @@
 
 ## 📌 学习目标
 
-走完这个阶段后你会：
+完成这个阶段后你会：
 - 写出结构化 prompt（角色 + 任务 + 格式 + 示例）
 - 应用 few-shot prompting，并知道什么时候有用
 - 在推理任务上使用 chain-of-thought（CoT）
@@ -36,7 +36,7 @@
 
 > 🦙 **本 stage 默认用 Ollama gemma4:e4b**（成本考量、$0/run）。Prompt engineering 对小 model 更有教学价值——小 model 对 prompt 质量敏感、能让你看清楚 system prompt / few-shot / CoT / refinement 各自带来多少改善。每个练习都有 Path A（Ollama、默认）+ Path B（Anthropic、选择性）。
 >
-> 💰 **Stage 2 预算估算**（全 4 练习各跑 3-5 次）：**全本机 = $0**、**全 haiku ≈ $0.20**、**全 sonnet ≈ $0.60**。Few-shot 分类任务的 12 calls × 5 reps ≈ $0.30 haiku / $0.90 sonnet。完整预算见 [`examples/README.zh-Hans.md#推荐-llm-清单`](../examples/README.zh-Hans.md#推荐-llm-清单本机--clouduser-视角)。
+> 💰 **Stage 2 预算估算**（全 4 练习各跑 3-5 次）：**全本机 = $0**、**全 haiku ≈ $0.20**、**全 sonnet ≈ $0.60**。Few-shot 分类任务的 12 calls × 5 reps ≈ $0.30 haiku / $0.90 sonnet。完整预算见 [`examples/README.zh-Hans.md#推荐-llm-清单`](../examples/README.zh-Hans.md#推荐-llm-清单)。
 >
 > 完整 3 路 trade-off 见 [`examples/README.zh-Hans.md`](../examples/README.zh-Hans.md#三条路径--默认用-ollama成本考量)。
 
@@ -356,10 +356,10 @@ client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
 # 5 个 iteration、每一轮 prompt 都比前一轮更具体
 PROMPTS = {
     "v1 模糊": "写一段介紹 ReAct 的文字。",
-    "v2 加目标读者": "写一段介紹 ReAct 的文字、给写过 Python 的软体工程师看。",
-    "v3 加格式": "写一段介紹 ReAct 的文字、给写过 Python 的软体工程师看。100 字以內、用一个段落。",
-    "v4 加 example 要求": "写一段介紹 ReAct 的文字、给写过 Python 的软体工程师看。100 字以內、用一个段落、结尾举一个具体例子（譬如查天气）。",
-    "v5 加禁忌": "写一段介紹 ReAct 的文字、给写过 Python 的软体工程师看。100 字以內、用一个段落、结尾举一个具体例子（譬如查天气）。不要用「賦能」「驅动」「智能」这類空泛词彙。",
+    "v2 加目标读者": "写一段介紹 ReAct 的文字、给写过 Python 的软件工程师看。",
+    "v3 加格式": "写一段介紹 ReAct 的文字、给写过 Python 的软件工程师看。100 字以內、用一个段落。",
+    "v4 加 example 要求": "写一段介紹 ReAct 的文字、给写过 Python 的软件工程师看。100 字以內、用一个段落、结尾举一个具体例子（譬如查天气）。",
+    "v5 加禁忌": "写一段介紹 ReAct 的文字、给写过 Python 的软件工程师看。100 字以內、用一个段落、结尾举一个具体例子（譬如查天气）。不要用「賦能」「驅动」「智能」这類空泛词彙。",
 }
 
 outputs = {}
@@ -404,7 +404,7 @@ text = msg.content[0].text
 
 其余 PROMPTS / outputs / assert 邏輯完全相同。**成本**：5 次 ≈ $0.002。
 
-**Claude vs gemma4 对 prompt 细致度的差别**：Claude haiku 通常 v1 已能写出 OK 段落、v5 加上约束后优化幅度较小；小 model v1 常空泛无用、v5 加禁忌后才開始能读。
+**Claude vs gemma4 对 prompt 细致度的区别**：Claude haiku 通常 v1 已能写出 OK 段落、v5 加上约束后优化幅度较小；小 model v1 常空泛无用、v5 加禁忌后才開始能读。
 
 </details>
 
@@ -436,7 +436,7 @@ text = msg.content[0].text
 
 **教什么**：上百个角色型 prompt。"Act as a [角色]..."的模式。
 
-**适合谁**：卡关时找灵感。不要照抄——把模式拿出来改写。
+**适合谁**：卡住时找灵感。不要照抄——把模式拿出来改写。
 
 ---
 

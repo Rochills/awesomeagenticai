@@ -4,11 +4,11 @@
 
 ⏱ **时间估算**：2 周（约 10 小时）
 
-> 💡 这个 stage 用语密度高（**RAG / 向量数据库 / embedding / chunking / hybrid search / reranking...**）→ 不熟先翻 [`resources/glossary.md` 3](../resources/glossary.md#3-memory--retrieval--rag)。
+> 💡 这个 stage 用语密度高（**RAG / 向量数据库 / embedding / chunking / hybrid search / reranking...**）→ 不熟先翻 [`resources/glossary.zh-Hans.md` 3](../resources/glossary.zh-Hans.md#3-memory--retrieval--rag)。
 >
 > 📋 **本章组成**：定位 → 入口 → **RAG 主轴**（基础 + 进阶 + DSPy + Eval）→ **Bridge** → **Memory 主轴**（3 pattern + trio + 进阶）→ Chunking → Reflexion / Reasoning → 练习 → Projects
 >
-> 🔑 **关键术语**：见 [`resources/glossary.md` 3](../resources/glossary.md#3-memory--retrieval--rag)（memory / RAG / embedding / chunking / reranking）
+> 🔑 **关键术语**：见 [`resources/glossary.zh-Hans.md` 3](../resources/glossary.zh-Hans.md#3-memory--retrieval--rag)（memory / RAG / embedding / chunking / reranking）
 
 本 stage 的核心不是“多背一点术语”，而是理解 agent 如何管理 context。
 
@@ -310,7 +310,7 @@ harness eng（Stage 7） → 工程模型外面的“runtime”
 
 **何时不使用**:
 - 你只有一个 prompt，不需要优化。
-- 你是 LLM 新手，还没摸过 prompting。
+- 你是 LLM 新手，还不会 prompting。
 
 **代表性仓库**: [**stanfordnlp/dspy**](https://github.com/stanfordnlp/dspy) ★ **34.4k** MIT，Stanford NLP group 官方，积极维护中。
 
@@ -536,7 +536,7 @@ Memory 研究在 2024-2026 年集中在 **3 大主线**：
 
 ![Chunking Strategy Flowchart](../resources/diagrams/chunking-strategies.jpg)
 
-> 📚 **经典教程**: [Greg Kamradt — 5 Levels of Text Splitting](https://github.com/FullStackRetrieval-com/RetrievalTutorials) ★ Chunking 入门必读，涵盖从 character-based 到 agentic chunking 的五个层级，包含 Jupyter notebook。
+> 📚 **经典教程**: [Greg Kamradt — 5 Levels of Text Splitting](https://github.com/FullStackRetrieval-com/RetrievalTutorials) ★ Chunking 入门必读，覆盖从 character-based 到 agentic chunking 的五个层级，包含 Jupyter notebook。
 
 首次实现 RAG 时，不必一开始就追求复杂的分割方法。LangChain 的文档建议大多数场景下从 `RecursiveCharacterTextSplitter` 开始。
 

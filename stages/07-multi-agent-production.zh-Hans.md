@@ -4,10 +4,10 @@
 
 ⏱ **时间估算**：2-4 周（约 15-30 小时）
 
-> 💡 用语密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.md` 4 + 6](../resources/glossary.md#4-multi-agent)。
+> 💡 用语密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.zh-Hans.md` 4 + 6](../resources/glossary.zh-Hans.md#4-multi-agent)。
 
 > 📋 **本章组成**：〔Multi-Agent · Production 化 是什么（先定位）+ 三层工程分工 + 何时用 multi-agent〕→ 学习目标 → 进入条件 → 必修阅读 → Harness Engineering（**8 个核心元件含 Cost/Latency**）→ 动手练习（含练习 6 Cost Optimization）→ **Agent Benchmark Landscape：怎么看，不要只看排行榜** → 常用工具推荐 → 精选 Projects → 自我检查
-> 🔑 **关键名词**：见 [`resources/glossary.md` 4 + 6](../resources/glossary.md#4-multi-agent)（multi-agent / orchestration / handoff / eval / observability / harness（模型外围的执行与控制层））
+> 🔑 **关键名词**：见 [`resources/glossary.zh-Hans.md` 4 + 6](../resources/glossary.zh-Hans.md#4-multi-agent)（multi-agent / orchestration / handoff / eval / observability / harness（模型外围的执行与控制层））
 
 最后一个阶段。你正从“我会做 agent”走向“我能让 agent **真的给人稳定用**——多个 agent 协作、有 eval、有 observability、能部署到可用环境”。**“Production 化” ≠ enterprise scale**——只要 agent 能稳定产出 + 能让别人使用，就算进入这 stage 范围。
 
@@ -26,7 +26,7 @@
 
 ### 三层工程分工：Prompt → Context → Harness
 
-工程分工可以分成三层，对应 stack 的不同位置（不是 call 一次 vs 多次的差别）：
+工程分工可以分成三层，对应 stack 的不同位置（不是 call 一次 vs 多次的区别）：
 
 | 层级 | 概念 | 核心问题 | 关注单位 | 对应 stage |
 |---|---|---|---|---|
@@ -139,7 +139,7 @@
 | **Eval harness** | regression test、quality gate、A/B test | **练习 2 Eval** |
 | **Cost / Latency optimization** ⭐ 2024-2026 必修 | prompt caching、model routing、thinking budget、batching、semantic cache | **练习 6 Cost optimization**（新加）|
 
-**Framework vs Harness 关键差别**：
+**Framework vs Harness 关键区别**：
 - **Framework**（[Stage 4](04-agent-frameworks.md)）规范 **API** — 你调用的接口长什么样
 - **Harness**（本节）规范 **runtime** — 怎么跑、怎么 recovery、怎么观测
 
@@ -188,7 +188,7 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 把 LangSmith、Helicone、或 weave 接上一个 agent，看完整 trace。理解“没 observability 的 agent debug = 黑盒”。
 
 ### 练习 4：SDK 进阶
-在同一次呼叫里用 streaming + prompt caching + tool use。看成本怎么降下来。
+在同一次调用里用 streaming + prompt caching + tool use。看成本怎么降下来。
 
 ### 练习 5：Deploy
 把一个 agent 包进 Docker，deploy 到云端（任何 provider 都行）。学会把 prototype 变成可以给别人跑的东西。
@@ -301,13 +301,13 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 ## ✅ Stage 7 之后的自我检查
 
 你能不能：
-- [ ] 设计一个 multi-agent 系统，协作协定讲得清楚
+- [ ] 设计一个 multi-agent 系统，协作协议讲得清楚
 - [ ] 在 CI 跑自动 eval pipeline
 - [ ] 把 observability（tracing）接到 production agent
 - [ ] 在真实 workload 上量测 prompt caching 前后的成本差异
 - [ ] 把 agent deploy 到云端（任何 provider）
 
-如果都可以 → 进 [**Stage 8 — Agent Interfaces**](08-agent-interfaces.md)（**两 track 共用 hub**）学 agent 怎么跟非 API 世界互动（Computer Use / Browser Use / Sandbox）。或挑一个[特化分支](../README.md#️-7-阶段学习地图)、或回头来贡献这份 repo。
+如果都可以 → 进 [**Stage 8 — Agent Interfaces**](08-agent-interfaces.zh-Hans.md)（**两 track 共用 hub**）学 agent 怎么跟非 API 世界互动（Computer Use / Browser Use / Sandbox）。或挑一个[特化分支](../README.zh-Hans.md#️-学习地图两条学习路径)、或回头来贡献这份 repo。
 
 ## 💡 接下来
 
@@ -315,4 +315,4 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 1. **挑一个 production 系统** 从 prototype 推到 production
 2. **回馈上游**（LangGraph、AutoGen、MCP servers、Anthropic cookbook）
 3. **读论文**——agent 研究进展很快
-4. **做出看得到的东西**——开源一个真的工具，不要再写教学了
+4. **做出看得到的东西**——开源一个真的工具，不要再写教程了

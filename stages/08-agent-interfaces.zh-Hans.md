@@ -390,12 +390,12 @@ agent = Agent(
 
 **攻击原理**（[Brave Research 2026](https://brave.com/blog/comet-prompt-injection)）：
 - Comet 智能体查看网页 → 网页中隐藏恶意 prompt（如在 HTML 注释中）。
-- LLM 解析网页时将恶意 prompt 当作指令执行。
+- LLM 解析网页时将恶意 prompt 当作命令执行。
 - 结果：智能体被劫持，操作用户 Gmail / 银行 / 账户。
 
 **为何这是新的攻击面**：
 - 传统 SQL 注入攻击路径：**用户输入 → 服务器**（在服务器端过滤即可阻止）。
-- 通过 web 内容的 Prompt injection：**web 内容 → LLM 上下文**（在 LLM 上下文中难以区分指令与内容）。
+- 通过 web 内容的 Prompt injection：**web 内容 → LLM 上下文**（在 LLM 上下文中难以区分命令与内容）。
 - **防御方式完全不同**——无法套用 SQL 注入那套方法。
 
 ### 案例 2 — 联邦禁令（2026-03 Comet 禁止访问 Amazon）
@@ -509,7 +509,7 @@ agent = Agent(
 - [ ] 解释 microVM / 容器 / Firecracker / gVisor 4 个术语，并知道为何智能体沙箱多半选择 microVM
 - [ ] 使用 Claude Computer Use 或 OpenAI Codex desktop 跑完一个跨应用任务（练习 1）
 - [ ] 使用 browser-use 在 5 行 Python 内编写一个 web 智能体（练习 2）
-- [ ] 使用 E2B 运行智能体生成的代码，并体会与主机直接运行的差别（练习 3）
+- [ ] 使用 E2B 运行智能体生成的代码，并体会与主机直接运行的区别（练习 3）
 - [ ] 解释为何通过 web 内容的 prompt injection 是新的攻击面，以及 4 个防护模式各防御什么
 - [ ] 解释 OSWorld 76.26% SOTA 数据背后的 reward-hacking 规范（为何不能盲目相信）
 
@@ -517,7 +517,7 @@ agent = Agent(
 
 ## 💡 下一个前沿 — Voice agents · VLA 机器人
 
-本阶段涵盖了 **desktop / browser / sandbox** 三层 interface——这是 2024-2026 的主场。但智能体与世界互动还有另外两条轴线，课程将在之后处理：
+本阶段覆盖了 **desktop / browser / sandbox** 三层 interface——这是 2024-2026 的主场。但智能体与世界互动还有另外两条轴线，课程将在之后处理：
 
 ### Voice agents（语音界面）
 

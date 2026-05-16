@@ -4,7 +4,7 @@
 
 > **预计学习时间**： 5-8 小时
 
-> 👋 **从 [Stage 0](00-foundations.zh-Hans.md) 来的**：好，环境已经够用——这 5-8 小时：第一次成功调用 Claude / GPT / Gemini API、搞懂 token / context window / temperature 怎么影响输出、用 per-token 计算实际成本。**直接从这里开始的**：先确认你能跑 Python script、有任一家供应商的 API key——做不到请先回 [Stage 0](00-foundations.zh-Hans.md)。
+> 👋 **从 [Stage 0](00-foundations.zh-Hans.md) 来的**：好，环境已经够用——这 5-8 小时：第一次成功调用 Claude / GPT / Gemini API、搞懂 token / context window / temperature 怎么影响输出、用 per-token 计算实际成本。**直接从这里开始的**：先确认你能跑 Python 脚本、有任一家供应商的 API key——做不到请先回 [Stage 0](00-foundations.zh-Hans.md)。
 
 > 掌握 **核心概念**：LLM / token / context window / temperature / RAG / agent，请先阅读 [`resources/glossary.zh-Hans.md`](../resources/glossary.zh-Hans.md)（约 30 分钟）。
 
@@ -45,14 +45,14 @@
 
 ## “动手”小练习（在本地运行这些代码）
 
-> 🦙 **本 stage 默认用 Ollama**（成本考量、本机 `gemma4:e4b` 跑得动、$0/run）。每个练习都有 Path A（Ollama、默认）+ Path B（Anthropic、选择性、想看 cloud 高品质时用）。完整 3 路 trade-off 见 [`examples/README.zh-Hans.md`](../examples/README.zh-Hans.md#三条路径--默认用-ollama成本考量)。
+> 🦙 **本 stage 默认用 Ollama**（成本考量、本机 `gemma4:e4b` 跑得动、$0/run）。每个练习都有 Path A（Ollama、默认）+ Path B（Anthropic、选择性、想看 cloud 高质量时用）。完整 3 路 trade-off 见 [`examples/README.zh-Hans.md`](../examples/README.zh-Hans.md#三条路径--默认用-ollama成本考量)。
 >
-> 💰 **Stage 1 预算估算**（全 6 练习各跑 3-5 次）：**全本机 = $0**、**全 haiku ≈ $0.30**、**全 sonnet ≈ $0.90**。完整 model 清单 + Stage 1-7 全程预算估算见 [`examples/README.zh-Hans.md#推荐-llm-清单`](../examples/README.zh-Hans.md#推荐-llm-清单本机--clouduser-视角)。
+> 💰 **Stage 1 预算估算**（全 6 练习各跑 3-5 次）：**全本机 = $0**、**全 haiku ≈ $0.30**、**全 sonnet ≈ $0.90**。完整 model 清单 + Stage 1-7 全程预算估算见 [`examples/README.zh-Hans.md#推荐-llm-清单`](../examples/README.zh-Hans.md#推荐-llm-清单)。
 >
 > 💡 **不装 Ollama 也能读** — 每个练习的 Path B 区块就是 Anthropic 版、选一个跑就行。先 [`pip install openai && ollama pull gemma4:e4b`](https://ollama.com) 就装好 Path A 环境。
 
 ### 练习 1：LLM API（hello world）
-五行 Python 调用 LLM 并印出回应。**默认用 Ollama 本机跑（免费、offline）**；想看 cloud 答案品质改 Path B Anthropic。详见 [`examples/README.zh-Hans.md`](../examples/README.zh-Hans.md#三条路径--默认用-ollama成本考量)。
+五行 Python 调用 LLM 并打印响应。**默认用 Ollama 本机跑（免费、offline）**；想看 cloud 答案品质改 Path B Anthropic。详见 [`examples/README.zh-Hans.md`](../examples/README.zh-Hans.md#三条路径--默认用-ollama成本考量)。
 
 <details open>
 <summary>📋 <b>起手码 — Path A（本机 Ollama gemma4:e4b、默认）</b>（复制到 <code>practice_1.py</code>、<code>python practice_1.py</code> 就跑）</summary>
@@ -79,13 +79,13 @@ r = client.chat.completions.create(
 
 # === 自我验证 ===
 text = r.choices[0].message.content
-print("回应：", text)
+print("响应：", text)
 print("usage:", r.usage)
 
 assert r.choices[0].finish_reason in ("stop", "length"), f"非预期 finish_reason: {r.choices[0].finish_reason}"
-assert len(text) > 0, "回应不应为空"
+assert len(text) > 0, "响应不应为空"
 assert r.usage.completion_tokens > 0, "output token 应 > 0"
-print("✅ 练习 1 通过 — Ollama gemma4:e4b 已能本机回应、$0/次")
+print("✅ 练习 1 通过 — Ollama gemma4:e4b 已能本机响应、$0/次")
 ```
 
 **慢吗？** Gemma 4B 在 CPU 上约 5-30s/答案、有 GPU（RTX 3060+）<2s。要更快用 `gemma3:1b`、要更聪明改 `qwen2.5:14b` / `llama3.3:8b`（需 8GB+ VRAM）。
@@ -93,7 +93,7 @@ print("✅ 练习 1 通过 — Ollama gemma4:e4b 已能本机回应、$0/次")
 </details>
 
 <details>
-<summary>📋 <b>起手码 — Path B（Anthropic API、选择性、想看 cloud 高品质时）</b>（复制到 <code>practice_1_anthropic.py</code>）</summary>
+<summary>📋 <b>起手码 — Path B（Anthropic API、选择性、想看 cloud 高质量时）</b>（复制到 <code>practice_1_anthropic.py</code>）</summary>
 
 ```python
 # 需要：pip install anthropic
@@ -113,11 +113,11 @@ msg = client.messages.create(
 
 # === 自我验证 ===
 text = msg.content[0].text
-print("回应：", text)
+print("响应：", text)
 print("usage:", msg.usage)
 
 assert msg.stop_reason in ("end_turn", "max_tokens"), f"非预期 stop_reason: {msg.stop_reason}"
-assert len(text) > 0, "回应不应为空"
+assert len(text) > 0, "响应不应为空"
 assert msg.usage.input_tokens > 0 and msg.usage.output_tokens > 0, "token 数应 > 0"
 print("✅ 练习 1 通过 — 你已成功打通 Anthropic API")
 ```
@@ -296,9 +296,9 @@ single: input=14 output=48 → $0.000254
 </details>
 
 ### 练习 4：Cross-Provider 比较
-同一个 prompt 同时送给 Claude、GPT、Gemini，比较三家的回应差异。观察「同一句话为什么产生不同答案」——回答风格、长度、判断取舍都不一样。建议用 OpenAI、Anthropic、Google 三家 SDK 各一段程式呼叫。
+同一个 prompt 同时送给 Claude、GPT、Gemini，比较三家的响应差异。观察「同一句话为什么产生不同答案」——回答风格、长度、判断取舍都不一样。建议用 OpenAI、Anthropic、Google 三家 SDK 各一段程序调用。
 
-→ **基础 starter 范本** → [`examples/stage-1/04-cross-provider/`](../examples/stage-1/04-cross-provider/)（含三家 SDK 并行呼叫 + table 对照、缺哪家 key 就 skip 哪家；illustrative，**不是 chapter-length 完整教程**）
+→ **基础 starter 范本** → [`examples/stage-1/04-cross-provider/`](../examples/stage-1/04-cross-provider/)（含三家 SDK 并行调用 + table 对照、缺哪家 key 就 skip 哪家；illustrative，**不是 chapter-length 完整教程**）
 
 ### 练习 5：Error Handling
 故意触发错误情境并写 retry：
@@ -311,12 +311,12 @@ single: input=14 output=48 → $0.000254
 → **基础 starter 范本** → [`examples/stage-1/05-error-handling/`](../examples/stage-1/05-error-handling/)（含 mock-based test、不用真的断网就能验证 retry 逻辑；illustrative，**不是 chapter-length 完整教程**）
 
 ### 练习 6：Local LLM
-**不付 API 费用、跑在自己电脑上**：用 Ollama 下载一个小模型（建议 `llama3.2:3b` 或 `qwen2.5:3b`），用 OpenAI 兼容 API 呼叫它。
+**不付 API 费用、跑在自己电脑上**：用 Ollama 下载一个小模型（建议 `llama3.2:3b` 或 `qwen2.5:3b`），用 OpenAI 兼容 API 调用它。
 
 ```bash
 # 1. 装 Ollama: https://ollama.com
 ollama pull qwen2.5:3b
-ollama serve  # 预设 port 11434
+ollama serve  # 默认 port 11434
 ```
 
 <details>
@@ -342,11 +342,11 @@ r = client.chat.completions.create(
 )
 
 text = r.choices[0].message.content
-print("回应：", text)
+print("响应：", text)
 
 # === 自我验证 ===
-assert len(text) > 10, "回应太短、Ollama 可能没跑起来"
-print(f"✅ 练习 6 通过 — 你的本机 Ollama 已能透过 OpenAI 兼容 API 呼叫")
+assert len(text) > 10, "响应太短、Ollama 可能没跑起来"
+print(f"✅ 练习 6 通过 — 你的本机 Ollama 已能透过 OpenAI 兼容 API 调用")
 print(f"💡 跑这次完全没花钱（除了你的电力）")
 ```
 
@@ -659,4 +659,4 @@ ollama serve             # 暴露 API server
 
 ---
 
-> ✅ **Stage 1 完成？** 接下来 [**Stage 2 — Prompt Engineering**](02-prompt-engineering.zh-Hans.md) 会用 5-12 小时带你写出可重用的结构化 prompt、用 few-shot 跟 chain-of-thought 解推理题、并学会用 eval 量化 prompt 改善幅度。**继续往下走 →**
+> ✅ **Stage 1 完成？** 接下来 [**Stage 2 — Prompt Engineering**](02-prompt-engineering.zh-Hans.md) 会用 5-12 小时带你写出可重用的结构化 prompt、用 few-shot 跟 chain-of-thought 解推理题、并学会用 eval 量化 prompt 改善幅度。**继续向前 →**
