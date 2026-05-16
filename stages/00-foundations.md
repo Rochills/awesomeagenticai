@@ -52,7 +52,7 @@
 | | [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials) | 想學 workflow（branch / merge / rebase）| 以 workflow 為主、視覺化好 |
 | | [Oh Shit, Git!?!](https://ohshitgit.com/) | 出包時急救 | 「我搞砸了 X、怎麼救」cheat sheet |
 | | [git-flight-rules](https://github.com/k88hudson/git-flight-rules) | 想要更深的急救手冊 | 高人氣 cheat sheet、覆蓋場景更廣 |
-| **CLI / Shell** | [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line) | 想系統性學命令列 | ★ 180k+、多語言版、新手到進階都涵蓋 |
+| **CLI / Shell** | [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line) | 想系統性學命令列 | ★ 160k+、多語言版、新手到進階都涵蓋 |
 | | [Learn Shell](https://www.learnshell.org/) | 喜歡互動式練習 | 互動式 Bash 教學、瀏覽器內跑 |
 | | [explainshell.com](https://explainshell.com/) | debug shell 指令 | 把任何 shell 指令拆解講解（debug 救星）|
 | **REST API** | [MDN — HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) | 想搞懂 HTTP 協定 | 最 canonical 的 web reference |
