@@ -36,7 +36,7 @@ Connect Claude Code (or any other CLI agent) to the apps you already use, withou
 ### Office Documents (Word / Excel / PowerPoint / PDF)
 
 - [**anthropics/skills**](https://github.com/anthropics/skills) ★ 129k+ — Anthropic **official** Skills with built-in docx / xlsx / pptx / pdf processing
-- [**tfriedel/claude-office-skills**](https://github.com/tfriedel/claude-office-skills) ★ 580+ — Office skills with automation workflows on top of the official ones
+- [**tfriedel/claude-office-skills**](https://github.com/tfriedel/claude-office-skills) ★ 646 — Office skills with automation workflows on top of the official ones
 
 ### Google Workspace (Gmail / Docs / Drive / Calendar)
 

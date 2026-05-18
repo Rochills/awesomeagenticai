@@ -36,7 +36,7 @@
 ### 办公文件（Word / Excel / PowerPoint / PDF）
 
 - [**anthropics/skills**](https://github.com/anthropics/skills) ★ 129k+ — Anthropic **官方** Skills 集合，docx / xlsx / pptx / pdf ***处理******直接***内建
-- [**tfriedel/claude-office-skills**](https://github.com/tfriedel/claude-office-skills) ★ 580+ — ***补强***版 Office skills（PPTX/DOCX/XLSX/PDF），含***自动***化 workflow
+- [**tfriedel/claude-office-skills**](https://github.com/tfriedel/claude-office-skills) ★ 646 — ***补强***版 Office skills（PPTX/DOCX/XLSX/PDF），含***自动***化 workflow
 
 ### Google Workspace（Gmail / Docs / Drive / Calendar）
 
