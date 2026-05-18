@@ -77,7 +77,7 @@
 
 ## Type 4: Cloud-deployed — 例:Hermes Agent
 
-**代表**:[Hermes Agent](https://github.com/NousResearch/hermes-agent)（Nous Research、★142k+、MIT）
+**代表**:[Hermes Agent](https://github.com/NousResearch/hermes-agent)（Nous Research、★ 156k+、MIT）
 
 **Hero example**:
 你坐在地铁、手机开 Telegram、对 Hermes bot 说“整理今天 arXiv ML 新 paper、给我 3 个 highlights、传回 Telegram”。Hermes agent 在你 $5 DigitalOcean VPS 上跑、收讯息、决定该用 GPT-5（找 paper）+ Claude Opus（写 summary）+ Gemini Flash（压缩成 3 条）、执行完传结果回 Telegram。整个过程你没碰 laptop。

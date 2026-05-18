@@ -85,7 +85,7 @@ description: Review staged changes for security + style
 | 分類 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
 |---|---|---|---|---|
 | **CLAUDE.md 範例庫** | [Anthropic 官方 CLAUDE.md 指南](https://docs.claude.com/en/docs/claude-code/memory) | ⭐⭐⭐⭐⭐ | 第一份 CLAUDE.md 從這抄結構 | Claude Code repo 自己的 CLAUDE.md、官方寫法 |
-| | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看 production-grade `.claude/` 完整目錄結構 | 不只是 skill collection、也是 CLAUDE.md 範本（★ 178k+） |
+| | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看 production-grade `.claude/` 完整目錄結構 | 不只是 skill collection、也是 CLAUDE.md 範本（★ 196k+） |
 | | [mattpocock/skills](https://github.com/mattpocock/skills) | ⭐⭐⭐⭐ | 想看工程師日常用的 skill 庫 | `.claude/` 結構是好參考。**更多 skill 範例見 [Stage 5.3](../../stages/05-claude-code-ecosystem.md#53--skillsclaude-code-的行為層-claude-code-生態最關鍵的一層)** |
 | **Slash Commands / Custom Prompts** | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | ⭐⭐⭐⭐⭐ | 找官方 plugin 範本 | 官方 plugin marketplace、每個 plugin 內的 commands / skills 是 slash command 範例（★ 18k+） |
 | | [hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) | ⭐⭐⭐ | 想逛社群 slash command 範例 | 社群整理的 Claude Code 資源清單 |
