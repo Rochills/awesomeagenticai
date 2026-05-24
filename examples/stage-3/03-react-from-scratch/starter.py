@@ -147,13 +147,13 @@ def react_loop(question: str, max_iter: int = 6, client: Any = None) -> dict:
                 "content": obs,
             })
 
-        trace.append({
-            "step": step,
-            "thought": thought_text,
-            "tool": tool_calls[0].function.name,
-            "tool_input": json.loads(tool_calls[0].function.arguments),
-            "obs": last_obs,
-        })
+            trace.append({
+                "step": step,
+                "thought": thought_text,
+                "tool": tc.function.name,
+                "tool_input": json.loads(tc.function.arguments),  
+                "obs": last_obs,
+            })
 
     return {"final": None, "trace": trace, "steps": max_iter, "truncated": True}
 
@@ -161,7 +161,7 @@ def react_loop(question: str, max_iter: int = 6, client: Any = None) -> dict:
 # === 3. 自我驗證 ===
 
 if __name__ == "__main__":
-    question = "台北人口除以紐約人口、答案保留 4 位小數。"
+    question = "'台北人口' 除以 '紐約人口'、答案保留 4 位小數。"
     print(f"❓ 問題：{question}（using Ollama {MODEL}）")
     print("-" * 60)
 
