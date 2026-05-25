@@ -395,7 +395,7 @@ An agent operates real desktop apps via **screenshot → vision → coordinates 
 
 ### Browser Use (web-level agent)
 
-An agent operates web pages, primarily via **DOM-aware navigation** (direct CSS selector queries) with vision fallback. Closed-source: Atlas / Comet / Dia / Gemini in Chrome. OSS leader: [browser-use](https://github.com/browser-use/browser-use) (★ 86k+).
+An agent operates web pages, primarily via **DOM-aware navigation** (direct CSS selector queries) with vision fallback. Closed-source: Atlas / Comet / Dia / Gemini in Chrome. OSS leader: [browser-use](https://github.com/browser-use/browser-use) (★ 95k+).
 
 📍 Full coverage + 5-vendor comparison + OSS frameworks: [Stage 8 Browser Use](../stages/08-agent-interfaces.en.md)
 
