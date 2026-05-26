@@ -796,17 +796,16 @@
 **備註**：⚠️ 涉及金流，務必用 sandbox 測試夠了再接 production。
 
 
-### [thebrierfox/intuitek-ace](https://github.com/thebrierfox/intuitek-ace) ⭐⭐⭐
+### YIELD INTELLIGENCE MCP（Hosted Remote Server）
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 官方 MCP Registry: `io.github.thebrierfox/intuitek-ace` |
-| License | MIT |
-| 推薦度 | ⭐⭐⭐（Finance MCP 中唯一聚焦美國國債殖利率 + 被動收入的 server） |
+| 形式 | hosted MCP server |
+| 推薦度 | ⭐⭐⭐（Finance 分析工具；了解 hosted vs self-hosted MCP 實作差異的實例） |
 
 **教什麼**：YIELD INTELLIGENCE hosted remote MCP server——即時美國國債殖利率 + 股息 ETF / REIT / 特別股分析 + 被動收入投資組合優化。2 個工具：`analyze_yield_opportunities`（掃描被動收入機會）+ `optimize_income_portfolio`（目標月收入建立投資組合）。已列入 Anthropic 官方 MCP Registry（`io.github.thebrierfox/intuitek-ace`，since 2026-05-10）。
-**適合誰**：用 Claude Code / Claude Desktop 做個人理財分析、想讓 AI 找出被動收入機會的人。Stage 5 / Track A MCP 接法示範首選——hosted remote server，直接 plug URL，0 安裝。
-**備註**：Live endpoint `https://api.intuitek.ai/yield/mcp`（no auth、no API key）。x402 micropayment $1 USDC/call on Base（agent-to-agent 場景）；一般使用者免費。非交易型，純分析工具。
+**適合誰**：用 Claude Code / Claude Desktop 做個人理財分析、想讓 AI 找出被動收入機會的人。hosted remote MCP server 範例——直接 plug URL、0 安裝、適合 Stage 5 學完 MCP 概念後拿來實驗 hosted vs self-hosted 差異。
+**備註**：Live endpoint `https://api.intuitek.ai/yield/mcp`（no auth、no API key）。x402 micropayment $1 USDC/call on Base（agent-to-agent 場景）；一般使用者免費。非交易型，純分析工具。GitHub：[thebrierfox/intuitek-ace](https://github.com/thebrierfox/intuitek-ace)（MIT License）。
 
 ---
 
