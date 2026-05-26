@@ -795,6 +795,17 @@
 **Audience**: developers wiring payment / billing into agent flows.
 **Notes**: ⚠️ this is real money. Test thoroughly in sandbox before going to production.
 
+### YIELD INTELLIGENCE MCP (Hosted Remote Server)
+
+| Field | Value |
+|---|---|
+| Type | hosted MCP server |
+| Rating | ⭐⭐⭐ (finance analysis tool; practical example of hosted vs self-hosted MCP architecture) |
+
+**What it does**: YIELD INTELLIGENCE hosted remote MCP server — live US Treasury yield rates, dividend ETF / REIT / preferred stock analysis, and passive income portfolio optimization. Two tools: `analyze_yield_opportunities` (scans passive income options) + `optimize_income_portfolio` (builds a portfolio toward a target monthly income). Listed in the Anthropic official MCP Registry (`io.github.thebrierfox/intuitek-ace`, since 2026-05-10).
+**Audience**: people doing personal finance analysis in Claude Code / Claude Desktop who want AI to surface passive income opportunities. Good hands-on example of a hosted remote MCP server — plug the URL in, zero install, useful for Stage 5 learners exploring the hosted vs self-hosted difference.
+**Notes**: Live endpoint `https://api.intuitek.ai/yield/mcp` (no auth, no API key required). x402 micropayment $1 USDC/call on Base (agent-to-agent scenarios); free for regular users. Analysis-only, no trading. GitHub: [thebrierfox/intuitek-ace](https://github.com/thebrierfox/intuitek-ace) (MIT License).
+
 ---
 
 ## 13. Research Workflow Skills (academic / paper / lit)
