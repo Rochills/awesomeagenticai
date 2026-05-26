@@ -32,7 +32,7 @@
 9. [监控 / Observability](#9-监控--observability)（3）
 10. [媒体 / 串流（YouTube / Spotify）](#10-媒体--串流youtube--spotify)（3）
 11. [中文圈专属](#11-中文圈专属)（9）
-12. [其他常用（Cloudflare / Stripe…）](#12-其他常用cloudflare--stripe)（2）
+12. [其他常用（Cloudflare / Stripe…）](#12-其他常用cloudflare--stripe)（3）
 13. [研究工作流 Skills（学术 / paper / 文献）](#13-研究工作流-skills学术--paper--文献)（4）
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills)（3）
 15. [金融 / 交易 Agents](#15-金融--交易-agents)（2）
