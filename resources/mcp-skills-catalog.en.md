@@ -32,7 +32,7 @@
 9. [Monitoring / Observability](#9-monitoring--observability) (3)
 10. [Media / Streaming (YouTube / Spotify)](#10-media--streaming-youtube--spotify) (3)
 11. [Chinese-language Ecosystem](#11-chinese-language-ecosystem) (9)
-12. [Other Common (Cloudflare / Stripe…)](#12-other-common-cloudflare--stripe) (2)
+12. [Other Common (Cloudflare / Stripe…)](#12-other-common-cloudflare--stripe) (3)
 13. [Research Workflow Skills](#13-research-workflow-skills-academic--paper--lit) (4)
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills) (3)
 15. [Finance / Trading Agents](#15-finance--trading-agents) (2)
