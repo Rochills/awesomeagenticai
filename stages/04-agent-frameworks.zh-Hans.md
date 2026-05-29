@@ -182,7 +182,7 @@ Stage 3 教你写 single tool / multi-tool selection（手写 `if/elif/else` 路
 
 ## 🎯 精选 Projects
 
-按用途分 5 类、15 个项目一张表搞定。**挑入口看“适合谁”、想深入点链接看 repo / quickstart**。
+按用途分 5 类、16 个项目一张表搞定。**挑入口看“适合谁”、想深入点链接看 repo / quickstart**。
 
 | 分类 | Project | ⭐ | 适合谁 | 为什么推荐 / 备注 |
 | ------------------------------------------ | ---------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -194,6 +194,7 @@ Stage 3 教你写 single tool / multi-tool selection（手写 `if/elif/else` 路
 | | [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | ⭐⭐⭐⭐⭐ | 已 commit OpenAI 生态 | OpenAI 官方、agent hand-off + 结构化输出、API 干净、MIT。**2026-04 重大升级**：内建 sandbox（7 个 provider）+ harness 抽象层、production coding agent 首次 architecturally sound（[详见 Stage 8](08-agent-interfaces.zh-Hans.md#openai-agents-sdk-2026-年-4-月更新--为何是里程碑)） |
 | | [OpenAI Swarm](https://github.com/openai/swarm) | ⭐⭐⭐⭐ 教育用<br>⭐⭐⭐ production | 想理解 multi-agent **核心 mental model** 但不想学整套 framework | ~200 LOC、只有 Agent + handoff 两个观念、MIT。⚠️ OpenAI 自己标 experimental / educational、不是 production tool。**读 source 当 chapter-length 教材** |
 | | [Strands Agents (AWS)](https://github.com/strands-agents/sdk-python) | ⭐⭐⭐⭐ | 已 commit AWS 云、Bedrock-native | model-driven 设计（LLM 自己 plan、无 explicit graph）、Apache 2.0。2025 后段推出、AWS Lambda / Step Functions / Bedrock Agents 整合 |
+| | [LightAgent](https://github.com/wanxingai/LightAgent) | ⭐⭐⭐ | 想用轻量 Python agent framework 快速做工具调用、记忆、MCP/SSE 与多 agent 协作 | API 轻、支持 OpenAI-compatible streaming、Tree-of-Thought planning、Skills 与 LightSwarm；适合原型、教学和需要保留可读核心的 agent 应用 |
 | **特殊路线**<br>（CodeAct / typed / memory-first） | [Hugging Face Smolagents](https://github.com/huggingface/smolagents) | ⭐⭐⭐⭐ | 本地 LLM 生态、HF 整合场景 | CodeAct pattern 代表（agent 写 Python 代码当作 action、非 JSON tool call），★ 27k+、Apache 2.0、≤1000 LOC |
 | | [Pydantic AI](https://github.com/pydantic/pydantic-ai) | ⭐⭐⭐ | production 预设要 runtime 类型安全 + structured output | type-safe agent、Pydantic 团队出品、MIT。较新 |
 | | [Letta (formerly MemGPT)](https://github.com/letta-ai/letta) | ⭐⭐⭐⭐ | **长 session / 跨 day / persona-stable** agent（long-term assistant、therapist、tutor） | memory-first multi-agent、OS-paging 概念（working memory + archival store），★ 22k+、Apache 2.0。Stage 6 练习 5 也会提 |
