@@ -270,6 +270,7 @@ PR 流程跟 style 規範請看 [CONTRIBUTING.md](CONTRIBUTING.md) 跟 [resource
 - [`wong2/awesome-mcp-servers`](https://github.com/wong2/awesome-mcp-servers) — MCP server 清單，按分類整理
 - [`punkpeye/awesome-mcp-servers`](https://github.com/punkpeye/awesome-mcp-servers) — 另一份 MCP server 清單
 - [`hesreallyhim/awesome-claude-code`](https://github.com/hesreallyhim/awesome-claude-code) — Claude Code 相關工具與 plugin 清單
+- [`neerazz/genops-framework`](https://github.com/neerazz/genops-framework) — Governance-first architecture for embedding generative AI agents into CI/CD pipelines (risk scoring, autonomy gates, canary rollouts, rollback, immutable audit trails). 針對 AI agent 在 production 中的治理架構，包含風險評分、自主關卡、金絲雀部署、回滾與不可變稽核軌跡。JISEM 2026 (DOI [10.52783/jisem.v11i1s.14322](https://doi.org/10.52783/jisem.v11i1s.14322))。MIT。
 
 這些是純清單形式（看到再挑），本 repo 的不同點是有「**從 Stage 0 一路走到 production 的學習順序**」。
 
