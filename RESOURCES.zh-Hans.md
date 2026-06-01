@@ -35,7 +35,7 @@
 
 ### 办公文件（Word / Excel / PowerPoint / PDF）
 
-- [**anthropics/skills**](https://github.com/anthropics/skills) ★ 129k+ — Anthropic **官方** Skills 集合，docx / xlsx / pptx / pdf ***处理******直接***内建
+- [**anthropics/skills**](https://github.com/anthropics/skills) ★ 144k+ — Anthropic **官方** Skills 集合，docx / xlsx / pptx / pdf ***处理******直接***内建
 - [**tfriedel/claude-office-skills**](https://github.com/tfriedel/claude-office-skills) ★ 646 — ***补强***版 Office skills（PPTX/DOCX/XLSX/PDF），含***自动***化 workflow
 
 ### Google Workspace（Gmail / Docs / Drive / Calendar）
@@ -52,8 +52,8 @@
 ### 研究工作流（本 repo ***维护***者出品）
 
 - [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 77 — 14 个研究流程 skill，5-plugin marketplace
-- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 16 — Zotero + Obsidian + NotebookLM ***集成*** workspace
-- [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 22 — Zotero CLI skill
+- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 21 — Zotero + Obsidian + NotebookLM ***集成*** workspace
+- [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 25 — Zotero CLI skill
 - [**WenyuChiou/codex-delegate**](https://github.com/WenyuChiou/codex-delegate) ★ 57 + [**gemini-delegate-skill**](https://github.com/WenyuChiou/gemini-delegate-skill) ★ 34 — Multi-LLM delegation ***对***
 
 ### 中文***圈***常用
