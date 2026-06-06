@@ -945,7 +945,7 @@ Claude 不擅長 token-heavy 機械式工作（成本高、context 容易爆）�
 **適合誰**：看過 Stage 7 multi-agent 想要一個完整應用案例的學習者；對 agent + 金融交叉領域有興趣的人。
 **備註**：NO-LICENSE → 同上；**模擬性質、非投資建議**。
 
-### [twzrd-sol/wzrd-final](https://github.com/twzrd-sol/wzrd-final) — intel.twzrd.xyz ⭐⭐⭐
+### [intel.twzrd.xyz](https://intel.twzrd.xyz) — TWZRD Agent Intel ⭐⭐⭐
 
 | 欄位 | 內容 |
 |---|---|
