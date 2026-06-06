@@ -35,7 +35,7 @@
 12. [其他常用（Cloudflare / Stripe…）](#12-其他常用cloudflare--stripe)（3）
 13. [研究工作流 Skills（學術 / paper / 文獻）](#13-研究工作流-skills學術--paper--文獻)（4）
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills)（3）
-15. [金融 / 交易 Agents](#15-金融--交易-agents)（2）
+15. [金融 / 交易 Agents](#15-金融--交易-agents)（3）
 
 ---
 
@@ -944,6 +944,19 @@ Claude 不擅長 token-heavy 機械式工作（成本高、context 容易爆）�
 **教什麼**：多角色 AI hedge fund 模擬，bull / bear / 基本面 / 技術面 / 風控 agent 協作產生 trade recommendation。
 **適合誰**：看過 Stage 7 multi-agent 想要一個完整應用案例的學習者；對 agent + 金融交叉領域有興趣的人。
 **備註**：NO-LICENSE → 同上；**模擬性質、非投資建議**。
+
+### [twzrd-sol/wzrd-final](https://github.com/twzrd-sol/wzrd-final) — intel.twzrd.xyz ⭐⭐⭐
+
+| 欄位 | 內容 |
+|---|---|
+| Stars | ★ MCP Registry: xyz.twzrd.intel/twzrd-agent-intel v0.1.2 |
+| MCP 端點 | `https://intel.twzrd.xyz/mcp`（Streamable-HTTP） |
+| License | MIT |
+| 推薦度 | ⭐⭐⭐（x402 支付協定 + Solana 信任評分） |
+
+**教什麼**：TWZRD Agent Intel 是針對 Solana 上 x402 agent 的信任評分 MCP server。提供免費 preflight 信任查詢 + 付費簽名 V5 信任憑證（USDC 微支付 < 1 秒結算）。
+**適合誰**：在 Solana / x402 生態開發自主 agent 的人；想在 agent 互動前做信任核查的工程師。
+**備註**：已在 `registry.modelcontextprotocol.io` 登錄；Tools: `resolve_agent`, `score_agent`, `get_trust_receipt`, `verify_trust_receipt`。
 
 ---
 
