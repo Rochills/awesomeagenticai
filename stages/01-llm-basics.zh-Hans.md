@@ -444,7 +444,7 @@ print(f"💡 跑这次完全没花钱（除了你的电力）")
 | | [OpenAI Cookbook](https://github.com/openai/openai-cookbook) | ⭐⭐⭐⭐⭐ | 用 OpenAI API + structured output / function calling | 跟 Anthropic Cookbook 对照、★ 73k+、MIT。比 Anthropic 大很多、用搜索 |
 | | [Anthropic Claude API Quickstart](https://docs.anthropic.com/en/docs/get-started) | ⭐⭐⭐⭐ | 5 分钟上手 | 官方文件、加 bookmark 用 |
 | **中文教材**<br>（章节式） | [datawhalechina/happy-llm](https://github.com/datawhalechina/happy-llm) | ⭐⭐⭐⭐⭐ | 中文读者想彻底搞懂 LLM 原理 | 对应 Karpathy“Zero to Hero”中文版，★ 29k+。等同 HF LLM Course 中文版 |
-| | [datawhalechina/llm-universe](https://github.com/datawhalechina/llm-universe) | ⭐⭐⭐⭐⭐ | 中文新手想用 LLM 做东西 | API 基础 / 知识库 / RAG / 进阶技巧，★ 12k+ |
+| | [datawhalechina/llm-universe](https://github.com/datawhalechina/llm-universe) | ⭐⭐⭐⭐⭐ | 中文新手想用 LLM 做东西 | API 基础 / 知识库 / RAG / 进阶技巧，★ 13k+ |
 | | [datawhalechina/llm-cookbook](https://github.com/datawhalechina/llm-cookbook) | ⭐⭐⭐⭐ | 想要完整中文 LLM 学习路线 | Andrew Ng 课程中文翻译改编（⚠️ 2025-06 后更新放缓、CC BY-NC-SA）|
 | | [jingyaogong/minimind](https://github.com/jingyaogong/minimind) | ⭐⭐⭐⭐ | 看完 Karpathy 视频想实际跑训练 | 2hr 从零训 64M LLM、Pretrain + SFT + LoRA + DPO + RLHF 全包，★ 48k+、Apache-2.0 |
 | **英文 course**<br>（系统式） | [HuggingFace — LLM Course](https://huggingface.co/learn/llm-course) | ⭐⭐⭐⭐⭐ | 想搞懂 transformer 内部 + HF 生态 | 含 transformer 原理 + 应用、Apache 2.0 |

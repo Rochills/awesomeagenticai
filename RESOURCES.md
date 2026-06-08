@@ -30,31 +30,31 @@
 
 ### 筆記 / 知識庫
 
-- [**MarkusPfundstein/mcp-obsidian**](https://github.com/MarkusPfundstein/mcp-obsidian) ★ 3.5k+ — 透過 Obsidian REST API plugin 讓 LLM 讀寫你的 Obsidian vault
-- [**makenotion/notion-mcp-server**](https://github.com/makenotion/notion-mcp-server) ★ 4k+ — Notion **官方** MCP server，可查詢／建立 page、database
+- [**MarkusPfundstein/mcp-obsidian**](https://github.com/MarkusPfundstein/mcp-obsidian) ★ 3.9k+ — 透過 Obsidian REST API plugin 讓 LLM 讀寫你的 Obsidian vault
+- [**makenotion/notion-mcp-server**](https://github.com/makenotion/notion-mcp-server) ★ 4.4k+ — Notion **官方** MCP server，可查詢／建立 page、database
 - [**PleasePrompto/notebooklm-skill**](https://github.com/PleasePrompto/notebooklm-skill) ★ 6.6k+ — NotebookLM Skill（瀏覽器自動化），用 Claude Code 直接查你 NotebookLM 裡的文件，回答帶 citation
 - [**teng-lin/notebooklm-py**](https://github.com/teng-lin/notebooklm-py) ★ 15k+ — 非官方 NotebookLM Python API + CLI，支援 Claude Code / Codex 等 agent 整合
 
 ### 辦公文件（Word / Excel / PowerPoint / PDF）
 
 - [**anthropics/skills**](https://github.com/anthropics/skills) ★ 144k+ — Anthropic **官方** Skills 集合，docx / xlsx / pptx / pdf 處理直接內建
-- [**tfriedel/claude-office-skills**](https://github.com/tfriedel/claude-office-skills) ★ 646 — 補強版 Office skills（PPTX/DOCX/XLSX/PDF），含自動化 workflow
+- [**tfriedel/claude-office-skills**](https://github.com/tfriedel/claude-office-skills) ★ 725 — 補強版 Office skills（PPTX/DOCX/XLSX/PDF），含自動化 workflow
 
 ### Google Workspace（Gmail / Docs / Drive / Calendar）
 
-- [**taylorwilsdon/google_workspace_mcp**](https://github.com/taylorwilsdon/google_workspace_mcp) ★ 2.3k+ — 一個 server 包整套 Google Workspace（Gmail、Calendar、Docs、Sheets、Slides、Drive）
+- [**taylorwilsdon/google_workspace_mcp**](https://github.com/taylorwilsdon/google_workspace_mcp) ★ 2.6k+ — 一個 server 包整套 Google Workspace（Gmail、Calendar、Docs、Sheets、Slides、Drive）
 
 ### 開發協作
 
 - [**github/github-mcp-server**](https://github.com/github/github-mcp-server) ★ 29k+ — GitHub **官方** MCP，issue / PR / repo 操作
 - [**atlassian/atlassian-mcp-server**](https://github.com/atlassian/atlassian-mcp-server) ★ 723 — Atlassian **官方** Remote MCP（Jira、Confluence）
 - [**jerhadf/linear-mcp-server**](https://github.com/jerhadf/linear-mcp-server) ★ 340+ — Linear MCP server
-- [**korotovsky/slack-mcp-server**](https://github.com/korotovsky/slack-mcp-server) ★ 1.5k+ — Slack MCP，無 admin 權限也能用
+- [**korotovsky/slack-mcp-server**](https://github.com/korotovsky/slack-mcp-server) ★ 1.7k+ — Slack MCP，無 admin 權限也能用
 
 ### 研究工作流（本 repo 維護者出品）
 
-- [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 77 — 14 個研究流程 skill，5-plugin marketplace
-- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 21 — Zotero + Obsidian + NotebookLM 整合 workspace
+- [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 93 — 14 個研究流程 skill，5-plugin marketplace
+- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 24 — Zotero + Obsidian + NotebookLM 整合 workspace
 - [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 25 — Zotero CLI skill
 - [**WenyuChiou/codex-delegate**](https://github.com/WenyuChiou/codex-delegate) ★ 57 + [**gemini-delegate-skill**](https://github.com/WenyuChiou/gemini-delegate-skill) ★ 34 — Multi-LLM delegation 對
 

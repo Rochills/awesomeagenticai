@@ -445,7 +445,7 @@ print(f"💡 This run cost you $0 (except for electricity)")
 | | [OpenAI Cookbook](https://github.com/openai/openai-cookbook) | ⭐⭐⭐⭐⭐ | OpenAI API + structured output / function calling | Pair with Anthropic Cookbook, ★ 73k+, MIT. Much bigger than Anthropic's — use search |
 | | [Anthropic Claude API Quickstart](https://docs.anthropic.com/en/docs/get-started) | ⭐⭐⭐⭐ | 5-minute start | Official docs, bookmark it |
 | **Chinese textbook**<br>(chapter-style) | [datawhalechina/happy-llm](https://github.com/datawhalechina/happy-llm) | ⭐⭐⭐⭐⭐ | Chinese readers wanting LLM internals | Karpathy "Zero to Hero" Chinese counterpart, ★ 29k+. Equivalent to HF LLM Course in Chinese |
-| | [datawhalechina/llm-universe](https://github.com/datawhalechina/llm-universe) | ⭐⭐⭐⭐⭐ | Chinese newcomers building with LLM | API basics / knowledge base / RAG / advanced tricks, ★ 12k+ |
+| | [datawhalechina/llm-universe](https://github.com/datawhalechina/llm-universe) | ⭐⭐⭐⭐⭐ | Chinese newcomers building with LLM | API basics / knowledge base / RAG / advanced tricks, ★ 13k+ |
 | | [datawhalechina/llm-cookbook](https://github.com/datawhalechina/llm-cookbook) | ⭐⭐⭐⭐ | Full Chinese LLM learning path | Adapted Chinese translation of Andrew Ng's courses (⚠️ updates slowed after 2025-06, CC BY-NC-SA) |
 | | [jingyaogong/minimind](https://github.com/jingyaogong/minimind) | ⭐⭐⭐⭐ | Post-Karpathy, want a real training run | 2hr to train a 64M LLM from scratch — Pretrain + SFT + LoRA + DPO + RLHF, ★ 48k+, Apache-2.0 |
 | **English course**<br>(systematic) | [HuggingFace — LLM Course](https://huggingface.co/learn/llm-course) | ⭐⭐⭐⭐⭐ | Transformer internals + HF ecosystem | Transformer theory + applications, Apache 2.0 |

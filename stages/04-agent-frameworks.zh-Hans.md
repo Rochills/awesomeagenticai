@@ -186,7 +186,7 @@ Stage 3 教你写 single tool / multi-tool selection（手写 `if/elif/else` 路
 
 | 分类 | Project | ⭐ | 适合谁 | 为什么推荐 / 备注 |
 | ------------------------------------------ | ---------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Production 级**<br>（复杂 multi-agent / 需要 audit） | [LangGraph](https://github.com/langchain-ai/langgraph) ⭐ **本 stage 推荐 #1** | ⭐⭐⭐⭐⭐ | Production multi-agent + 稽核轨迹 / rollback / replay | 图式 orchestration + checkpointing + time-travel debug、企业广泛采用，★ 31k+、MIT、Python+TS。搭 LangSmith 做 observability |
+| **Production 级**<br>（复杂 multi-agent / 需要 audit） | [LangGraph](https://github.com/langchain-ai/langgraph) ⭐ **本 stage 推荐 #1** | ⭐⭐⭐⭐⭐ | Production multi-agent + 稽核轨迹 / rollback / replay | 图式 orchestration + checkpointing + time-travel debug、企业广泛采用，★ 34k+、MIT、Python+TS。搭 LangSmith 做 observability |
 | | [microsoft/semantic-kernel](https://github.com/microsoft/semantic-kernel) | ⭐⭐⭐⭐ | 在 .NET / Java 环境做 agent、Microsoft 技术栈 | C# / Python / Java 三语官方 SDK、kernel + plugin + planner pattern，★ 27k+、MIT。抽象厚、不适合初学者 |
 | | [agno-agi/agno](https://github.com/agno-agi/agno) | ⭐⭐⭐⭐ | 要“build + serve + monitor”一条龙但不想全套 LangGraph + LangSmith | multi-modal agent runtime + control plane，★ 39k+、Apache-2.0。Stage 4 学 API、Stage 7 用 runtime |
 | **快速雏形 / 多 agent**<br>（role-based / handoff） | [CrewAI](https://github.com/crewAIInc/crewAI) ⭐ **本 stage 推荐 #2** | ⭐⭐⭐⭐ | 快速雏形“researcher → writer → critic”pipeline | ~20 行写完 crew、学习曲线最低，★ 50k+、MIT。⚠️ 长 workflow 没 checkpointing；雏形用 CrewAI、production 用 LangGraph |
@@ -198,9 +198,9 @@ Stage 3 教你写 single tool / multi-tool selection（手写 `if/elif/else` 路
 | | [Pydantic AI](https://github.com/pydantic/pydantic-ai) | ⭐⭐⭐ | production 预设要 runtime 类型安全 + structured output | type-safe agent、Pydantic 团队出品、MIT。较新 |
 | | [Letta (formerly MemGPT)](https://github.com/letta-ai/letta) | ⭐⭐⭐⭐ | **长 session / 跨 day / persona-stable** agent（long-term assistant、therapist、tutor） | memory-first multi-agent、OS-paging 概念（working memory + archival store），★ 22k+、Apache 2.0。Stage 6 练习 5 也会提 |
 | **特化** | [LlamaIndex Agents](https://github.com/run-llama/llama_index) | ⭐⭐⭐ | 文件密集型 agent（研究助理、知识工作者类） | 跟 RAG 紧整合，★ 49k+、MIT。retrieval 强、orchestration 弱——纯 orchestration 别选 |
-| | [agentscope-ai/agentscope](https://github.com/agentscope-ai/agentscope) | ⭐⭐⭐ | 想要可视化 debug 多 agent 流程的研究者 | 多 agent 平台、可视化 debug 工具强，★ 24k+、Apache 2.0。西方社群采用低、技术扎实 |
+| | [agentscope-ai/agentscope](https://github.com/agentscope-ai/agentscope) | ⭐⭐⭐ | 想要可视化 debug 多 agent 流程的研究者 | 多 agent 平台、可视化 debug 工具强，★ 26k+、Apache 2.0。西方社群采用低、技术扎实 |
 | | [LangChain](https://github.com/langchain-ai/langchain) | ⭐⭐⭐ | 需要黏合很多零件（retrieval + chain）的快速雏形 | 万用工具袋 framework，★ 135k+、MIT。**agent orchestration 改用 LangGraph**、LangChain 适合 retrieval + chaining 黏合 |
-| **基础设施**<br>（不是 framework、跨 stage 用） | [BerriAI/litellm](https://github.com/BerriAI/litellm) | ⭐⭐⭐⭐ | 要切换 Claude / GPT / Gemini / 开源模型但不想改 code | provider-agnostic SDK + AI gateway、用 OpenAI 形状 call 100+ LLM、附 cost tracking / fallback / guardrail，★ 45k+、MIT（`enterprise/` 子目录另授权） |
+| **基础设施**<br>（不是 framework、跨 stage 用） | [BerriAI/litellm](https://github.com/BerriAI/litellm) | ⭐⭐⭐⭐ | 要切换 Claude / GPT / Gemini / 开源模型但不想改 code | provider-agnostic SDK + AI gateway、用 OpenAI 形状 call 100+ LLM、附 cost tracking / fallback / guardrail，★ 49k+、MIT（`enterprise/` 子目录另授权） |
 
 > 💡 **建议阅读路径**：挑 **1 个 production 等级**（LangGraph）+ **1 个快速雏形**（CrewAI）深入学 → 跑练习 1-3 → 其他 framework README 浏览过去、知道存在即可。**特殊路线那 3 个**（CodeAct / typed / memory-first）在特定场景才有对手、平常不必碰。
 

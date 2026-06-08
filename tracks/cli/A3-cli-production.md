@@ -193,10 +193,10 @@ Track A 的人**已經在用** [Stage 7.5 的進階概念](../../stages/07.5-adv
 | | [wong2/awesome-mcp-servers](https://github.com/wong2/awesome-mcp-servers) | ⭐⭐⭐⭐ | 想找特定領域的社群 MCP | 社群 MCP catalog、150+ 個依分類整理 |
 | **CI 整合 patterns** | [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | ⭐⭐⭐⭐⭐ | 第一個 CI workflow 從官方範本起步 | 官方 GitHub Action 範本、PR review / issue triage / 自動 fix |
 | | [continuedev/continue](https://github.com/continuedev/continue) | ⭐⭐⭐⭐ | 想把 AI checks 接到 PR pipeline 強制執行 | ★ 33k+。完整介紹見 [`branches/for-developer.md`](../../branches/for-developer.md) |
-| **Observability + Cost** | [langfuse/langfuse](https://github.com/langfuse/langfuse) | ⭐⭐⭐⭐⭐ | 想把 trace / cost / session 都接起來 | open source LLM observability，★ 26k+。詳見 [Stage 7 常用推薦](../../stages/07-multi-agent-production.md#-常用-multi-agent--production-工具推薦按用途分類) |
+| **Observability + Cost** | [langfuse/langfuse](https://github.com/langfuse/langfuse) | ⭐⭐⭐⭐⭐ | 想把 trace / cost / session 都接起來 | open source LLM observability，★ 28k+。詳見 [Stage 7 常用推薦](../../stages/07-multi-agent-production.md#-常用-multi-agent--production-工具推薦按用途分類) |
 | | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | 想要最快的 logging（改 base_url 就好）| proxy-based 監控、改 base_url 就有 logging + caching，★ 5.7k+ |
 | | [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) | ⭐⭐⭐⭐⭐ | CLI workflow 升 production 前跑回歸測試 | eval framework，★ 20k+。詳見 [Stage 7 Agent Benchmark Landscape + Reward-Hacking 警告](../../stages/07-multi-agent-production.md#-agent-benchmark-landscape怎麼看不要只看排行榜---reward-hacking-警告) |
-| **Production CLI workflow 範本** | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看完整實際在用的 workflow 長什麼樣 | 整套 production-ready skill collection、★ 196k+。看別人怎麼把 CLI workflow 做完整 |
+| **Production CLI workflow 範本** | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看完整實際在用的 workflow 長什麼樣 | 整套 production-ready skill collection、★ 220k+。看別人怎麼把 CLI workflow 做完整 |
 | | [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace) | ⭐⭐⭐ | 要把 team 的 CLI workflow 打包共用 | 最簡 marketplace template、★ 1k+ |
 
 > 💡 **建議入手路徑**：先從 `modelcontextprotocol/servers` 挑一個 reference MCP 接到 CLI → 用 `claude-code-action` 跑第一個 CI workflow → 加 langfuse 看 trace + cost → production 規模化時把 workflow 打包成 marketplace plugin。

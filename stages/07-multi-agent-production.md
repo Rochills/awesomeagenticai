@@ -83,7 +83,7 @@
 3. [**Anthropic — Message Batches API**](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing) — 非同步 batch job
 4. [**anthropics/courses — Prompt Evaluations**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic 官方 5 course umbrella、**module 4「Prompt Evaluations」對應本 stage eval / observability 部分**。Jupyter notebook、教怎麼系統化評估 prompt 跟 agent 行為
 5. **任一 eval framework 的文件** — promptfoo 或 LangSmith 或 weave
-6. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering)（★ 1.5k+）— agent harness 的工具 / pattern / eval / memory / MCP / observability 全集合
+6. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering)（★ 1.7k+）— agent harness 的工具 / pattern / eval / memory / MCP / observability 全集合
 7. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding)（★ 1.3k+）— 從 Claude Code 原始碼學 harness 設計（中文）
 
 ## 🏗 Harness Engineering — production agent runtime 的工程設計 ⭐ 本 stage 核心概念
@@ -239,7 +239,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | **想要 group debate / brainstorm pattern** | [AutoGen](https://github.com/microsoft/autogen) | GroupChat 自由辯論、Microsoft 出品 |
 | **production 要 audit trail / checkpoint / human-in-loop** | [LangGraph](https://github.com/langchain-ai/langgraph) | state machine、控制最完整 |
 | **eval 標準化**（CI / regression 必裝）| [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config、跨模型比較、★ 20k+ |
-| **eval + observability 同平台** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS、tracing + eval + prompt mgmt、★ 26k+ |
+| **eval + observability 同平台** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS、tracing + eval + prompt mgmt、★ 28k+ |
 | **不改程式、快速 instrumentation** | [Helicone](https://github.com/Helicone/helicone) | proxy 中介、不綁 framework |
 | **全 stack 在 LangChain** | [LangSmith](https://www.langchain.com/langsmith)（商業）| LangChain 官方 observability |
 | **打造 Claude agent**（programmatic）| [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | Anthropic 官方 agent SDK、跟 Claude Code 同 runtime |
@@ -266,7 +266,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | 把 eval 流程標準化、CI 整合 | YAML config、跨模型比較。★ 20k+、MIT |
 | | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | 學術 benchmark 主張（MMLU / HellaSwag / GSM8K）| 學術等級。★ 12k+、MIT |
 | | [openai/evals](https://github.com/openai/evals) | ⭐⭐⭐⭐ | OpenAI 專屬 eval / 想回饋上游 | ★ 18k+ |
-| **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | 自架 production observability | OSS LangSmith 替代、traces + sessions + evals + prompt mgmt。★ 26k+、MIT |
+| **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | 自架 production observability | OSS LangSmith 替代、traces + sessions + evals + prompt mgmt。★ 28k+、MIT |
 | | [LangSmith](https://www.langchain.com/langsmith)（商業）| ⭐⭐⭐⭐ | 全 stack 在 LangChain / LangGraph 上 | LangChain 官方、只有 hosted 版 |
 | | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | 不想改程式、快速上 instrumentation | proxy 中介、順便拿到 logging + caching。★ 5.7k+、Apache 2.0 |
 | | [weave (W&B)](https://github.com/wandb/weave) | ⭐⭐⭐⭐ | 團隊已在用 W&B 做 ML 實驗追蹤 | W&B tracing + eval、跟 wandb 整合 |
