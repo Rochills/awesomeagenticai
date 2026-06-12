@@ -442,6 +442,7 @@ RAG 解決「從**外部知識庫** retrieve 相關片段」——但 agent 還�
 |---|---|---|---|---|
 | [**agentmemory**](https://github.com/rohitg00/agentmemory) | 7.7k★ | Apache-2.0 | **Coding agent 跨 session 記憶** | MCP-universal（Claude Code / Cursor / Gemini CLI / Codex / Hermes / OpenClaw 都接得上）、95.2% R@5、92% token saving、51 MCP tools + 12 auto hooks、benchmarks-driven |
 | [**mem0**](https://github.com/mem0ai/mem0) | 55.6k★ | Apache-2.0 | **Chatbot / 個人助理 user-level memory** | Auto fact extraction + forgetting + namespace、production-tested、最大社群 |
+| **Local-first AI memory / knowledge base**<br>（個人 context / agent memory） | [Remio](https://remio.ai/) | ⭐⭐⭐⭐ | 想讓 CLI agent / desktop agent 使用個人知識庫的人 | 本地優先 AI memory / knowledge base desktop app；會解析 notes / files / webpages / recordings / emails / messages / images 等資料源並建立本地索引與向量，讓 agent retrieve 精準 context，而不是反覆 grep、掃描目錄或把整份文件塞進 prompt。 |
 | [**Letta**](https://github.com/letta-ai/letta)（前身 MemGPT）| 22.7k★ | Apache-2.0 | **長 session agent**（月為單位）| OS-style paging memory（working + archival 雙層）、persona stability、MemGPT paper origin |
 | [**Zep**](https://github.com/getzep/zep) | 4.6k★ | Apache-2.0 | **Temporal KG-based memory** | 把對話歷史建成 temporal KG、entity 之間有時間軸、適合需要 audit trail / time-aware reasoning 的 agent |
 | [**LangMem**](https://github.com/langchain-ai/langmem) | 1.4k★ | MIT | **LangChain-native memory** | LangChain 官方 memory lib、與 LangGraph 直接整合、適合已 commit LangChain stack |
