@@ -244,7 +244,7 @@ Don't know where to start choosing tools? Below are the common pairings in the i
 | **Writing your first multi-agent** (fastest to get started) | [crewAI](https://github.com/crewAIInc/crewAI) | Role-based, get it running in a few lines of code, straightforward production patterns |
 | **Want a group debate / brainstorm pattern** | [AutoGen](https://github.com/microsoft/autogen) | GroupChat for free-form debate, from Microsoft |
 | **Need an audit trail / checkpoint / human-in-the-loop for production** | [LangGraph](https://github.com/langchain-ai/langgraph) | State machine approach, most complete control |
-| **Standardizing eval** (a must for CI / regression) | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config, cross-model comparison, ★ 20k+ |
+| **Standardizing eval** (a must for CI / regression) | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config, cross-model comparison, ★ 22k+ |
 | **Eval + observability on the same platform** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS, tracing + eval + prompt mgmt, ★ 28k+ |
 | **Quick instrumentation without code changes** | [Helicone](https://github.com/Helicone/helicone) | Proxy-based, not tied to a framework |
 | **Entire stack is on LangChain** | [LangSmith](https://www.langchain.com/langsmith) (Commercial) | Official observability from LangChain |
@@ -269,7 +269,7 @@ Categorized by use case, a single table to get you started with 22 projects. **U
 | **Multi-Agent Orchestration** | [microsoft/autogen](https://github.com/microsoft/autogen) | ⭐⭐⭐⭐⭐ | Those who want a GroupChat free-debate pattern | Introduced in Stage 4, revisit for multi-agent debate / brainstorming patterns in production scenarios |
 | | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | ⭐⭐⭐⭐⭐ | Those who want a role-based assembly line | Role-based multi-agent (research → writer → reviewer), the simplest production pattern |
 | | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | ⭐⭐⭐⭐⭐ | Those needing an audit trail / checkpoint / human-in-the-loop | State machine approach, strongest for production control |
-| **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | To standardize the eval process, CI integration | YAML config, cross-model comparison. ★ 20k+, MIT |
+| **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | To standardize the eval process, CI integration | YAML config, cross-model comparison. ★ 22k+, MIT |
 | | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | For academic benchmarks (MMLU / HellaSwag / GSM8K) | Academic grade. ★ 12k+, MIT |
 | | [openai/evals](https://github.com/openai/evals) | ⭐⭐⭐⭐ | For OpenAI-specific evals / want to contribute upstream | ★ 18k+ |
 | **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | For self-hosting production observability | OSS LangSmith alternative, traces + sessions + evals + prompt mgmt. ★ 28k+, MIT |

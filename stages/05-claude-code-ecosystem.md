@@ -522,7 +522,7 @@ Plugin
 
 | Marketplace | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
 |---|---|---|---|
-| [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | ⭐⭐⭐⭐⭐ | 寫自己的 marketplace 前的官方範本 | 35 internal plugins + 15 external、`.claude-plugin/marketplace.json` 標準 schema、`plugins/` 含 plugin 本體 + `external_plugins/` 引用外部 repo。**marketplace.json 該長什麼樣直接看這個**（★ 27k+） |
+| [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | ⭐⭐⭐⭐⭐ | 寫自己的 marketplace 前的官方範本 | 35 internal plugins + 15 external、`.claude-plugin/marketplace.json` 標準 schema、`plugins/` 含 plugin 本體 + `external_plugins/` 引用外部 repo。**marketplace.json 該長什麼樣直接看這個**（★ 30k+） |
 | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | ⭐⭐⭐⭐⭐ | 想看「多 vertical bundle」型 marketplace | **18 個領域 plugin bundle**（finance / engineering / sales / legal / marketing / HR / customer-support / data / design / operations / product / productivity / bio-research / enterprise-search / pdf-viewer / small-business / cowork-plugin-management / partner-built）。Anthropic 自家 knowledge worker 場景範本 |
 | [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace) | ⭐⭐⭐⭐ | 想做「我策展、別人寫」型 marketplace | **最簡 marketplace template**——repo 只有 `marketplace.json` + README、plugin 本體放外部 repo。curator-only pattern 最小範本（★ 1k+、MIT）|
 | [trailofbits/skills-curated](https://github.com/trailofbits/skills-curated) | ⭐⭐⭐ | 在意供應鏈安全的 reviewer / 團隊 | Trail of Bits 維護的 **security-vetted** marketplace、每個 skill 都經審查、README 寫清楚標準。**示範 marketplace 不只是清單、也是信任機制**（★ 431、CC-BY-SA-4.0）|
