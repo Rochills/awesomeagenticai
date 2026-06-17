@@ -79,6 +79,7 @@
 ### Claude Code / Skills / Plugins 相关
 
 - [**hesreallyhim/awesome-claude-code**](https://github.com/hesreallyhim/awesome-claude-code) — Claude Code 相关资源清单（整理中）
+- [**agentlas-ai/Hephaestus**](https://github.com/agentlas-ai/Hephaestus) — Open Agent OS for Claude Code / Codex / Cursor，包含 local-first agent/skill packaging、routing、memory、安全 gates 与 Hephaestus Network MCP
 - [**travisvn/awesome-claude-skills**](https://github.com/travisvn/awesome-claude-skills) — Claude Skills 清单
 - [**anthropics/claude-plugins-official**](https://github.com/anthropics/claude-plugins-official) — Anthropic 官方 plugin 范本，要打包自己的 plugin 从这份开始
 

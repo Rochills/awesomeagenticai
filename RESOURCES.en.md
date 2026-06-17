@@ -79,6 +79,7 @@ This repo **doesn't replace** flat awesome lists. When you already know which to
 ### Claude Code / Skills / Plugins-related
 
 - [**hesreallyhim/awesome-claude-code**](https://github.com/hesreallyhim/awesome-claude-code) — Claude Code resources (currently restructuring)
+- [**agentlas-ai/Hephaestus**](https://github.com/agentlas-ai/Hephaestus) — Open Agent OS for Claude Code, Codex, and Cursor with local-first agent/skill packaging, routing, memory, security gates, and Hephaestus Network MCP
 - [**travisvn/awesome-claude-skills**](https://github.com/travisvn/awesome-claude-skills) — Claude Skills catalog
 - [**anthropics/claude-plugins-official**](https://github.com/anthropics/claude-plugins-official) — Anthropic's official plugin marketplace template; start here when packaging your own plugin
 
