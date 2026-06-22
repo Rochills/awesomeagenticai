@@ -79,12 +79,26 @@ python test.py
 
 ## 想加更多家？
 
-OpenRouter / Mistral / Cohere / Groq 都是 OpenAI-compatible API、改 `base_url` 就接：
+OpenRouter / Mistral / Cohere / Groq / Atlas Cloud 都是 OpenAI-compatible API、改 `base_url` 就接：
 
 ```python
 client = OpenAI(
     base_url="https://api.groq.com/openai/v1",
     api_key=os.environ["GROQ_API_KEY"],
+)
+```
+
+例如 [Atlas Cloud](https://www.atlascloud.ai)（OpenAI-compatible、聚合多家開源模型）也只是換 `base_url`：
+
+```python
+client = OpenAI(
+    base_url="https://api.atlascloud.ai/v1",
+    api_key=os.environ["ATLASCLOUD_API_KEY"],
+)
+r = client.chat.completions.create(
+    model="deepseek-ai/deepseek-v4-pro",
+    max_tokens=200,
+    messages=[{"role": "user", "content": prompt}],
 )
 ```
 
