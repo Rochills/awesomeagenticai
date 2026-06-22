@@ -63,7 +63,7 @@
 
 ### 推荐工具
 
-- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 24k+ — **典型开发者用途：打包整个 codebase 给 reviewer / refactor agent**。输出单个 AI-friendly 文件（XML / Markdown / JSON），方便 Claude Code / Codex 做 code review / refactoring。技术细节（MCP server mode、tree-sitter 压缩、secretlint 过滤）见官方 README。**Track A 的必备 daily-driver 工具。**
+- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 26k+ — **典型开发者用途：打包整个 codebase 给 reviewer / refactor agent**。输出单个 AI-friendly 文件（XML / Markdown / JSON），方便 Claude Code / Codex 做 code review / refactoring。技术细节（MCP server mode、tree-sitter 压缩、secretlint 过滤）见官方 README。**Track A 的必备 daily-driver 工具。**
 
 ## 必练流程（按使用频率）
 

@@ -31,7 +31,7 @@ Connect Claude Code (or any other CLI agent) to the apps you already use, withou
 - [**MarkusPfundstein/mcp-obsidian**](https://github.com/MarkusPfundstein/mcp-obsidian) ★ 3.9k+ — Obsidian REST API plugin lets the LLM read/write your vault
 - [**makenotion/notion-mcp-server**](https://github.com/makenotion/notion-mcp-server) ★ 4.4k+ — Notion **official** MCP, query/create pages, manipulate databases
 - [**PleasePrompto/notebooklm-skill**](https://github.com/PleasePrompto/notebooklm-skill) ★ 6.6k+ — NotebookLM Skill, citation-backed answers from your uploaded docs
-- [**teng-lin/notebooklm-py**](https://github.com/teng-lin/notebooklm-py) ★ 15k+ — unofficial NotebookLM Python API + CLI, plays well with Claude Code / Codex
+- [**teng-lin/notebooklm-py**](https://github.com/teng-lin/notebooklm-py) ★ 16k+ — unofficial NotebookLM Python API + CLI, plays well with Claude Code / Codex
 
 ### Office Documents (Word / Excel / PowerPoint / PDF)
 
@@ -51,9 +51,9 @@ Connect Claude Code (or any other CLI agent) to the apps you already use, withou
 
 ### Research Workflow (by the repo maintainer)
 
-- [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 93 — 14 research-workflow skills as a 5-plugin marketplace
-- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 24 — Zotero + Obsidian + NotebookLM integration workspace
-- [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 25 — Zotero CLI skill
+- [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 104 — 14 research-workflow skills as a 5-plugin marketplace
+- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 27 — Zotero + Obsidian + NotebookLM integration workspace
+- [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 28 — Zotero CLI skill
 - [**WenyuChiou/codex-delegate**](https://github.com/WenyuChiou/codex-delegate) ★ 57 + [**gemini-delegate-skill**](https://github.com/WenyuChiou/gemini-delegate-skill) ★ 34 — multi-LLM delegation pair
 
 ### Chinese-language Ecosystem

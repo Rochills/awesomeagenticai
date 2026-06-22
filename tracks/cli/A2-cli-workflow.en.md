@@ -111,7 +111,7 @@ Look at Setup A / B / C and try one that fits.
 
 ### Recommended Tools
 
-- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 24k+ — Packs your entire codebase into a single AI-friendly file (XML / Markdown / JSON) for Claude Code / Codex code review / refactoring. Includes MCP server mode + tree-sitter compression (compression varies by language and file structure) + secretlint for secret filtering. **A must-have, daily-driver-grade tool for Track A.**
+- [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 26k+ — Packs your entire codebase into a single AI-friendly file (XML / Markdown / JSON) for Claude Code / Codex code review / refactoring. Includes MCP server mode + tree-sitter compression (compression varies by language and file structure) + secretlint for secret filtering. **A must-have, daily-driver-grade tool for Track A.**
 
 ## ✅ Self-Check Before A3
 

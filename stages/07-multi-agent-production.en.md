@@ -85,7 +85,7 @@ If not, go back and complete the previous stages. This stage is about "combining
 3. [**Anthropic — Message Batches API**](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing) — Asynchronous batch jobs
 4. [**anthropics/courses — Prompt Evaluations**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic's official 5-course umbrella; **module 4 "Prompt Evaluations" maps to this stage's eval / observability section**. Jupyter notebooks covering systematic evaluation of prompt and agent behavior.
 5. **Documentation for any eval framework** — promptfoo, LangSmith, or weave
-6. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering) (★ 1.7k+) — A collection of tools / patterns / eval / memory / MCP / observability for agent harnesses
+6. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering) (★ 2k+) — A collection of tools / patterns / eval / memory / MCP / observability for agent harnesses
 7. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) (★ 1.3k+) — Learning harness design from Claude Code's source code (in Chinese)
 
 ## 🏗 Harness Engineering — Engineering Design for a Production Agent Runtime ⭐ Core Concept of This Stage
@@ -282,7 +282,7 @@ Categorized by use case, a single table to get you started with 27 projects. **U
 | **Advanced Anthropic SDK** | [anthropic-sdk-python](https://github.com/anthropics/anthropic-sdk-python) | ⭐⭐⭐⭐⭐ | For building applications directly on the Claude API | Official Python SDK: streaming / async / tool use / prompt caching / batches / files |
 | | [anthropic-sdk-typescript](https://github.com/anthropics/anthropic-sdk-typescript) | ⭐⭐⭐⭐ | For TypeScript / Node / web apps | The TS version of the Python SDK |
 | | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | ⭐⭐⭐⭐⭐ | For building Claude-based agents, not just API calls | Built-in tool use loop / file access / sandbox / subagent orchestration; same runtime as Claude Code, read the source to see how it works internally. ★ 6.9k+, MIT |
-| | [claude-agent-sdk-typescript](https://github.com/anthropics/claude-agent-sdk-typescript) | ⭐⭐⭐⭐ | For Claude agents in a Node / web app environment | The TS version of the Claude Agent SDK. ★ 1.4k+ |
+| | [claude-agent-sdk-typescript](https://github.com/anthropics/claude-agent-sdk-typescript) | ⭐⭐⭐⭐ | For Claude agents in a Node / web app environment | The TS version of the Claude Agent SDK. ★ 1.6k+ |
 | | [Anthropic Cookbook (Advanced)](https://github.com/anthropics/anthropic-cookbook) | ⭐⭐⭐⭐ | For seeing official advanced SDK patterns | Especially the `prompt_caching.ipynb` / `tool_use/` / `multimodal/` notebooks |
 | **Structured Output** | [BoundaryML/baml](https://github.com/BoundaryML/baml) | ⭐⭐⭐⭐ | For getting reliable, validated JSON out of any model | A small dedicated language for getting reliable, checked JSON out of LLMs; works with Claude / OpenAI / local models across 7 programming languages. ★ 8k+, Apache 2.0 |
 | **Deployment** | [BentoML](https://github.com/bentoml/BentoML) | ⭐⭐⭐⭐ | For packaging an agent into a production API service | Docker + serving framework. ★ 8k+, Apache 2.0 |
