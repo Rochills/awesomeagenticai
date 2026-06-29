@@ -45,14 +45,14 @@
 ### 开发协作
 
 - [**github/github-mcp-server**](https://github.com/github/github-mcp-server) ★ 29k+ — GitHub **官方** MCP，issue / PR / repo 操作
-- [**atlassian/atlassian-mcp-server**](https://github.com/atlassian/atlassian-mcp-server) ★ 723 — Atlassian **官方** Remote MCP（Jira、Confluence）
+- [**atlassian/atlassian-mcp-server**](https://github.com/atlassian/atlassian-mcp-server) ★ 810 — Atlassian **官方** Remote MCP（Jira、Confluence）
 - [**jerhadf/linear-mcp-server**](https://github.com/jerhadf/linear-mcp-server) ★ 340+ — Linear MCP server
 - [**korotovsky/slack-mcp-server**](https://github.com/korotovsky/slack-mcp-server) ★ 1.7k+ — Slack MCP，无 admin 权限也能用
 
 ### 研究工作流（本 repo 维护者出品）
 
 - [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 104 — 14 个研究流程 skill，5-plugin marketplace
-- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 27 — Zotero + Obsidian + NotebookLM 集成 workspace
+- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 30 — Zotero + Obsidian + NotebookLM 集成 workspace
 - [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 28 — Zotero CLI skill
 - [**WenyuChiou/codex-delegate**](https://github.com/WenyuChiou/codex-delegate) ★ 57 + [**gemini-delegate-skill**](https://github.com/WenyuChiou/gemini-delegate-skill) ★ 34 — Multi-LLM delegation 对
 

@@ -45,14 +45,14 @@ Connect Claude Code (or any other CLI agent) to the apps you already use, withou
 ### Dev Collaboration
 
 - [**github/github-mcp-server**](https://github.com/github/github-mcp-server) ★ 29k+ — GitHub **official** MCP for issues / PRs / repos
-- [**atlassian/atlassian-mcp-server**](https://github.com/atlassian/atlassian-mcp-server) ★ 723 — Atlassian **official** Remote MCP (Jira, Confluence)
+- [**atlassian/atlassian-mcp-server**](https://github.com/atlassian/atlassian-mcp-server) ★ 810 — Atlassian **official** Remote MCP (Jira, Confluence)
 - [**jerhadf/linear-mcp-server**](https://github.com/jerhadf/linear-mcp-server) ★ 340+ — Linear MCP
 - [**korotovsky/slack-mcp-server**](https://github.com/korotovsky/slack-mcp-server) ★ 1.7k+ — Slack MCP, works without admin permissions
 
 ### Research Workflow (by the repo maintainer)
 
 - [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 104 — 14 research-workflow skills as a 5-plugin marketplace
-- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 27 — Zotero + Obsidian + NotebookLM integration workspace
+- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 30 — Zotero + Obsidian + NotebookLM integration workspace
 - [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 28 — Zotero CLI skill
 - [**WenyuChiou/codex-delegate**](https://github.com/WenyuChiou/codex-delegate) ★ 57 + [**gemini-delegate-skill**](https://github.com/WenyuChiou/gemini-delegate-skill) ★ 34 — multi-LLM delegation pair
 

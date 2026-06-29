@@ -10,7 +10,7 @@
 
 | Target | Section to PR into | Notes |
 |---|---|---|
-| [kyrolabs/awesome-agents](https://github.com/kyrolabs/awesome-agents) | learning / guides | Agent-specific. Verified live 2026-05-21 (★2.3k, pushed 3d prior) — good fit |
+| [kyrolabs/awesome-agents](https://github.com/kyrolabs/awesome-agents) | learning / guides | Agent-specific. Verified live 2026-05-21 (★ 2.6k+, pushed 3d prior) — good fit |
 | [Shubhamsaboo/awesome-llm-apps](https://github.com/Shubhamsaboo/awesome-llm-apps) | tutorials / learning | ★111k reach, but it is an *apps* list — confirm it has a learning/tutorials section before PR, else it gets rejected as out-of-scope |
 | [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | Tutorials | ALREADY in progress (PR #6135, see channel-partners.md #6) — don't double-submit |
 | [travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills) | 📖 Tutorials & Guides | ALREADY tracked (channel-partners.md #9) — don't double-submit |

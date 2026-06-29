@@ -448,7 +448,7 @@ Skill = **一個 markdown 檔**（`.claude/skills/<name>/SKILL.md`），告訴 C
 | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | power user setup、學進階寫法 | 20+ 實戰 skill（TDD、debugging、合作模式）+ `/brainstorm` / `/write-plan` / `/execute-plan` 命令 + skills-search tool |
 | [wshobson/agents](https://github.com/wshobson/agents) | ⭐⭐⭐⭐ | 中階：學 skill + subagent 組合 | 把 skills + subagents 組合做 multi-agent 編排。**從單一 SKILL.md 進化到 agent-as-skill 組合 pattern** 的範例（★ 35k+、MIT） |
 | [travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills) | ⭐⭐⭐⭐ | 自己寫前先找有沒有現成的 | 社群 Claude Skills 精選目錄 |
-| [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | ⭐⭐⭐ | 跨工具視角 | 1000+ agent skill、相容 Claude Code / Codex / Gemini CLI / Cursor（★ 24k+、MIT）|
+| [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | ⭐⭐⭐ | 跨工具視角 | 1000+ agent skill、相容 Claude Code / Codex / Gemini CLI / Cursor（★ 26k+、MIT）|
 | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | ⭐⭐⭐ | 找特定領域 skill 範例 | 232+ Claude Code skill、跨 engineering / marketing / product / compliance |
 
 ---
@@ -525,7 +525,7 @@ Plugin
 |---|---|---|---|
 | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | ⭐⭐⭐⭐⭐ | 寫自己的 marketplace 前的官方範本 | 35 internal plugins + 15 external、`.claude-plugin/marketplace.json` 標準 schema、`plugins/` 含 plugin 本體 + `external_plugins/` 引用外部 repo。**marketplace.json 該長什麼樣直接看這個**（★ 30k+） |
 | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | ⭐⭐⭐⭐⭐ | 想看「多 vertical bundle」型 marketplace | **18 個領域 plugin bundle**（finance / engineering / sales / legal / marketing / HR / customer-support / data / design / operations / product / productivity / bio-research / enterprise-search / pdf-viewer / small-business / cowork-plugin-management / partner-built）。Anthropic 自家 knowledge worker 場景範本 |
-| [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace) | ⭐⭐⭐⭐ | 想做「我策展、別人寫」型 marketplace | **最簡 marketplace template**——repo 只有 `marketplace.json` + README、plugin 本體放外部 repo。curator-only pattern 最小範本（★ 1k+、MIT）|
+| [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace) | ⭐⭐⭐⭐ | 想做「我策展、別人寫」型 marketplace | **最簡 marketplace template**——repo 只有 `marketplace.json` + README、plugin 本體放外部 repo。curator-only pattern 最小範本（★ 1.1k+、MIT）|
 | [trailofbits/skills-curated](https://github.com/trailofbits/skills-curated) | ⭐⭐⭐ | 在意供應鏈安全的 reviewer / 團隊 | Trail of Bits 維護的 **security-vetted** marketplace、每個 skill 都經審查、README 寫清楚標準。**示範 marketplace 不只是清單、也是信任機制**（★ 431、CC-BY-SA-4.0）|
 | [rohitg00/awesome-claude-code-toolkit](https://github.com/rohitg00/awesome-claude-code-toolkit) | ⭐⭐⭐ | 想逛社群有什麼 | 社群最大 Claude Code agents / skills / hooks / templates 目錄。涵蓋 use case 廣 |
 | [anthropics/life-sciences](https://github.com/anthropics/life-sciences) | ⭐⭐⭐ | 要做特定領域 marketplace（醫療、金融、法律、教育等） | Anthropic 自家**領域特化 marketplace** 範例（生物 / 健康科學）、展示 `marketplace.json` 為單一 vertical 量身設計。**payload 偏生科 MCP server、marketplace.json 結構才是學習重點**（★ 474）|

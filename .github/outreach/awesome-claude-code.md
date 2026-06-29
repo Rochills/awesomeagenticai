@@ -3,7 +3,7 @@
 > **Status**: not contacted · **Channel**: GitHub **issue** (NOT PR — see note below)
 > **Primary lang**: en
 > **Last updated**: 2026-05-09
-> **Repo**: https://github.com/hesreallyhim/awesome-claude-code (★43k+)
+> **Repo**: https://github.com/hesreallyhim/awesome-claude-code (★ 47k+)
 
 > ⚠️ **REPO IS MID-REORG (verified 2026-05-09)** — their current README says
 > "The previous Table of Contents was no longer fit for purpose, so a new

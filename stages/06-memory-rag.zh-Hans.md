@@ -729,7 +729,7 @@ OpenAI 的 **o1**（2024-09）开启了这一趋势，随后是开源的 DeepSee
 | **Vector DB**<br>（Hybrid） | [Weaviate](https://github.com/weaviate/weaviate) | ⭐⭐⭐⭐ | Production 部署 + schema 约束 | 内置模块（text2vec / generative / classification），schema 驱动，原生支持 BM25 + vector hybrid 搜索。★ 16k+ |
 | **Vector DB**<br>（已有 Postgres 环境） | [pgvector](https://github.com/pgvector/pgvector) | ⭐⭐⭐⭐ | 原本就在使用 Postgres 的团队 | Postgres 扩展，SQL + vector 在同一个数据库中，运维最简。★ 21k+ |
 | **Vector DB**<br>（跑在 app 内） | [lancedb/lancedb](https://github.com/lancedb/lancedb) | ⭐⭐⭐⭐ | 想要 vector DB 直接内建、不想另跑 server | 直接跑在你 app 里的 vector DB（不用另开 server）、能处理文字 + 图片、关键字 + 向量一起搜。★ 10k+，Apache-2.0 |
-| **Memory Framework**<br>（自动事实提取） | [mem0ai/mem0](https://github.com/mem0ai/mem0) | ⭐⭐⭐⭐⭐ | 个人助手 / Chatbot 需要 user-level 记忆 | 自我精炼的 memory 层，支持跨 session 存储事实。★ 54k+ |
+| **Memory Framework**<br>（自动事实提取） | [mem0ai/mem0](https://github.com/mem0ai/mem0) | ⭐⭐⭐⭐⭐ | 个人助手 / Chatbot 需要 user-level 记忆 | 自我精炼的 memory 层，支持跨 session 存储事实。★ 59k+ |
 | **Memory Framework**<br>（OS-Paging） | [Letta（原 MemGPT）](https://github.com/letta-ai/letta) | ⭐⭐⭐⭐ | Agent 需要运行很长时间（以月为单位） | 阶层式 memory（working / archival），借鉴 OS Paging 概念。★ 22k+ |
 | **Memory（框架内）** | [LangChain — Memory](https://python.langchain.com/docs/concepts/memory/) | ⭐⭐⭐ | 已在使用 LangChain | 4 种 memory 抽象（buffer / summary / vectorstore-backed / entity）。 |
 | **进阶 RAG 技巧** | [Anthropic — Contextual Retrieval Cookbook](https://platform.claude.com/cookbook/capabilities-contextual-embeddings-guide) | ⭐⭐⭐⭐⭐ | 跑完基础 RAG 后，想升级 | Claude 结合 prompt caching 的 contextual chunking，包含完整的端到端示例。 |
