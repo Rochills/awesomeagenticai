@@ -27,7 +27,7 @@
 4. [Microsoft 365](#4-microsoft-365)（3）
 5. [開發協作（GitHub / Atlassian / Slack…）](#5-開發協作github--atlassian--slack)（9）
 6. [資料庫](#6-資料庫)（8）
-7. [瀏覽器自動化 / 網頁抓取](#7-瀏覽器自動化--網頁抓取)（4）
+7. [瀏覽器自動化 / 網頁抓取](#7-瀏覽器自動化--網頁抓取)（5）
 8. [設計（Figma / Excalidraw）](#8-設計figma--excalidraw)（3）
 9. [監控 / Observability](#9-監控--observability)（3）
 10. [媒體 / 串流（YouTube / Spotify）](#10-媒體--串流youtube--spotify)（3）
@@ -533,6 +533,17 @@
 **教什麼**：Firecrawl 官方 MCP——大規模網頁抓取 + search + 結構化萃取。
 **適合誰**：要抓大量網頁當訓練資料 / 做 RAG / 做研究的人。
 **備註**：需要 Firecrawl API key（有 free tier）。
+
+### [Xquik MCP](https://docs.xquik.com/mcp/overview)（Hosted Remote Server） ⭐⭐⭐
+
+| 欄位 | 內容 |
+|---|---|
+| 形式 | hosted MCP server |
+| 推薦度 | ⭐⭐⭐（X 資料自動化） |
+
+**教什麼**：把 X 搜尋、tweet、profile 等資料任務接進支援 MCP 的 agent，不必自己維護瀏覽器抓取流程。
+**適合誰**：需要在 Claude Code 或其他 MCP host 裡查 X 公開資料、做社群研究或監控的人。
+**備註**：需要 Xquik API key 或 OAuth；先看 [MCP docs](https://docs.xquik.com/mcp/overview)，endpoint 是 `https://xquik.com/mcp`。
 
 ### [browserbase/mcp-server-browserbase](https://github.com/browserbase/mcp-server-browserbase) ⭐⭐⭐⭐
 

@@ -27,7 +27,7 @@
 4. [Microsoft 365](#4-microsoft-365) (3)
 5. [Dev Collaboration (GitHub / Atlassian / Slack…)](#5-dev-collaboration-github--atlassian--slack) (9)
 6. [Databases](#6-databases) (8)
-7. [Browser Automation / Web Scraping](#7-browser-automation--web-scraping) (4)
+7. [Browser Automation / Web Scraping](#7-browser-automation--web-scraping) (5)
 8. [Design (Figma / Excalidraw)](#8-design-figma--excalidraw) (3)
 9. [Monitoring / Observability](#9-monitoring--observability) (3)
 10. [Media / Streaming (YouTube / Spotify)](#10-media--streaming-youtube--spotify) (3)
@@ -533,6 +533,17 @@
 **What it does**: Firecrawl's official MCP — large-scale web scraping + search + structured extraction.
 **Audience**: people scraping large amounts of web data for training / RAG / research.
 **Notes**: requires Firecrawl API key (has a free tier).
+
+### [Xquik MCP](https://docs.xquik.com/mcp/overview) (Hosted Remote Server) ⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Form | hosted MCP server |
+| Rating | ⭐⭐⭐ (X data automation) |
+
+**What it does**: connects X search, tweet, and profile data tasks to MCP-capable agents without maintaining a browser scraping flow.
+**Audience**: people who want Claude Code or another MCP host to query public X data for social research, monitoring, or workflow automation.
+**Notes**: requires a Xquik API key or OAuth; start with the [MCP docs](https://docs.xquik.com/mcp/overview). Endpoint: `https://xquik.com/mcp`.
 
 ### [browserbase/mcp-server-browserbase](https://github.com/browserbase/mcp-server-browserbase) ⭐⭐⭐⭐
 
