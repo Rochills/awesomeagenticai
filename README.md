@@ -44,6 +44,7 @@
 
 ## 📋 目錄
 
+- **[Context Kit](https://github.com/JDDavenport/context-kit)** — Personal Context Artifacts: 4 Markdown templates + 5 Claude Code skills. Model-agnostic. MIT licensed. One-command install.
 - [🎯 專案介紹](#-專案介紹)
 - [📚 快速開始](#-快速開始)
   - [線上閱讀](#線上閱讀)
