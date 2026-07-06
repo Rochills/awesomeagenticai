@@ -472,7 +472,7 @@ LLM-powered system 的工程實踐分成 **3 層 stack**（不是 1 次 call vs 
 延伸閱讀（不必修、未來想深挖時看）：
 
 - [`Meirtz/Awesome-Context-Engineering`](https://github.com/Meirtz/Awesome-Context-Engineering)（★ 3k+）——從 prompt engineering 一路推到 production agent 的 survey
-- [`Windy3f3f3f3f/how-claude-code-works`](https://github.com/Windy3f3f3f3f/how-claude-code-works)（★ 2.6k+）——Claude Code 內部解析，含 context engineering 章節
+- [`Windy3f3f3f3f/how-claude-code-works`](https://github.com/Windy3f3f3f3f/how-claude-code-works)（★ 3k+）——Claude Code 內部解析，含 context engineering 章節
 
 ## ✅ 進 Stage 3 前的自我檢查
 
