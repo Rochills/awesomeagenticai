@@ -334,3 +334,5 @@ MIT。Maintained by [@WenyuChiou](https://github.com/WenyuChiou)。
 <div align="center">
   <p>⭐ 如果這個 repo 對你有幫助，歡迎給個 Star — 這對作者繼續更新是很大的鼓勵</p>
 </div>
+
+- [ContinueWith](https://continuewith.ai) - Let visitors continue any website page inside ChatGPT, Claude, Gemini, Grok, Perplexity, Mistral, and other AI assistants in one click.
