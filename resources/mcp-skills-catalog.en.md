@@ -394,6 +394,18 @@
 **Audience**: people running coding agents on large or unfamiliar repos who want fast orientation and lower token use.
 **Notes**: re-index after big edits, since the graph can go stale; treat its answers as a fast first pass and verify load-bearing claims (who-calls-X / is-this-dead) against the actual code.
 
+### [supernovae-st/nika](https://github.com/supernovae-st/nika) ⭐⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Form | CLI engine + MCP client/server |
+| License | AGPL-3.0 |
+| Rating | ⭐⭐⭐⭐ (verifiable agent workflows; a both-sides MCP example) |
+
+**What it does**: open-source Rust workflow engine — repeatable AI tasks live as declarative .nika.yaml DAGs (four verbs: infer/exec/invoke/agent), statically checked before execution (schema / default-deny permits / cost floor) and leaving a hash-chained tamper-evident trace after (`nika trace verify`). It is both an MCP client (invoke tasks call any MCP server's tools) and a read-only MCP server (`nika mcp` — agents validate workflows without executing).
+**Audience**: anyone who wants Claude Code / Codex automations to be auditable, replayable and CI-ready; also a working example of MCP client vs server.
+**Notes**: local-first — the mock and Ollama / llama.cpp / vLLM paths need zero API keys; the core discipline is that nothing ships unless `nika check` exits 0. Author self-submission (first-party).
+
 ---
 
 ## 6. Databases
