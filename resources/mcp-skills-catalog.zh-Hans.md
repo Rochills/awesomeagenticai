@@ -396,6 +396,18 @@
 **适合谁**：在大型或不熟的 repo 上跑 coding agent、想快速定位又想省 token 的人。
 **备注**：大改后要重新索引（graph 会 stale）；把它的回答当“快速第一手”、load-bearing 的结论（谁调用 X / 这段是不是死码）再用实际代码验证。
 
+### [supernovae-st/nika](https://github.com/supernovae-st/nika) ⭐⭐⭐⭐
+
+| 栏位 | 内容 |
+|---|---|
+| 形式 | CLI 引擎 + MCP client/server |
+| License | AGPL-3.0 |
+| 推荐度 | ⭐⭐⭐⭐（可验证的 agent 工作流；MCP 双向实例） |
+
+**教什么**：Rust 开源工作流引擎——把重复的 AI 任务固化成 .nika.yaml 声明式 DAG（infer/exec/invoke/agent 四个动词），执行前静态检查（schema / 权限 default-deny / 成本下限），执行后生成 hash-chain 防篡改 trace（`nika trace verify`）。同时是 MCP client（invoke 任务可调用任何 MCP server 的工具）与只读 MCP server（`nika mcp`——agent 可验证工作流而不执行）。
+**适合谁**：想让 Claude Code / Codex 产出的自动化“可审计、可重跑、可进 CI”的人；学 MCP client vs server 差异的实例。
+**备注**：本地优先——mock 与 Ollama / llama.cpp / vLLM 路径零 API key；`nika check` exit 0 才交付是它的核心纪律。作者自荐（first-party）。
+
 ---
 
 ## 6. 数据库
