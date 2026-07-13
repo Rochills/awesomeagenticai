@@ -723,7 +723,7 @@ OpenAI **o1**（2024-09）開啟、DeepSeek **R1**（2025-01）開源化、**Dee
 |---|---|---|---|---|
 | **RAG framework**<br>（完整流水線） | [LlamaIndex](https://github.com/run-llama/llama_index) | ⭐⭐⭐⭐⭐ | 以文件為主的應用 | 以 RAG 為核心、document loader / chunking / retrieval / query engine 一條龍。★ 49k+ |
 | | [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | ⭐⭐⭐⭐⭐ | 要把 RAG 真的 ship 給非開發者用 | production 等級 RAG engine、深度文件理解（layout / 表格 / OCR）+ hybrid retrieval + agent loop + Web UI。★ 79k+、Apache-2.0 |
-| | [HKUDS/LightRAG](https://github.com/HKUDS/LightRAG) | ⭐⭐⭐⭐ | 想看研究級 graph + long-context memory 方法 | graph + vector hybrid retrieval + summarization-based memory、EMNLP 2025 paper-backed。★ 34k+、MIT。研究風格 codebase |
+| | [HKUDS/LightRAG](https://github.com/HKUDS/LightRAG) | ⭐⭐⭐⭐ | 想看研究級 graph + long-context memory 方法 | graph + vector hybrid retrieval + summarization-based memory、EMNLP 2025 paper-backed。★ 37k+、MIT。研究風格 codebase |
 | **Vector DB**<br>（local-first） | [Chroma](https://github.com/chroma-core/chroma) | ⭐⭐⭐⭐⭐ | 練習 2 / 4、最容易上手的 vector DB | 開源 embedding 資料庫、本機跑、in-memory / SQLite 後端、零 ops。★ 27k+、Apache-2.0。**安裝**：`pip install chromadb` |
 | **Vector DB**<br>（production scale） | [Qdrant](https://github.com/qdrant/qdrant) | ⭐⭐⭐⭐⭐ | Chroma 跟不上時、需要 production scale | Rust 寫的 vector DB、有雲端版跟自架版。★ 31k+ |
 | **Vector DB**<br>（hybrid） | [Weaviate](https://github.com/weaviate/weaviate) | ⭐⭐⭐⭐ | production 部署 + schema 約束 | 內建模組（text2vec / generative / classification）、schema 驅動、內建 BM25 + vector hybrid。★ 16k+ |

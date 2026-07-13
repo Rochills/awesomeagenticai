@@ -262,7 +262,7 @@ Don't know where to start choosing tools? Below are the common pairings in the i
 | **Want a group debate / brainstorm pattern** | [AutoGen](https://github.com/microsoft/autogen) | GroupChat for free-form debate, from Microsoft |
 | **Need an audit trail / checkpoint / human-in-the-loop for production** | [LangGraph](https://github.com/langchain-ai/langgraph) | State machine approach, most complete control |
 | **Standardizing eval** (a must for CI / regression) | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config, cross-model comparison, ★ 22k+ |
-| **Eval + observability on the same platform** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS, tracing + eval + prompt mgmt, ★ 28k+ |
+| **Eval + observability on the same platform** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS, tracing + eval + prompt mgmt, ★ 31k+ |
 | **Quick instrumentation without code changes** | [Helicone](https://github.com/Helicone/helicone) | Proxy-based, not tied to a framework |
 | **Entire stack is on LangChain** | [LangSmith](https://www.langchain.com/langsmith) (Commercial) | Official observability from LangChain |
 | **Building a Claude agent** (programmatically) | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | Official agent SDK from Anthropic, same runtime as Claude Code |
@@ -287,9 +287,9 @@ Categorized by use case, a single table to get you started with 27 projects. **U
 | | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | ⭐⭐⭐⭐⭐ | Those who want a role-based assembly line | Role-based multi-agent (research → writer → reviewer), the simplest production pattern |
 | | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | ⭐⭐⭐⭐⭐ | Those needing an audit trail / checkpoint / human-in-the-loop | State machine approach, strongest for production control |
 | **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | To standardize the eval process, CI integration | YAML config, cross-model comparison. ★ 22k+, MIT |
-| | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | For academic benchmarks (MMLU / HellaSwag / GSM8K) | Academic grade. ★ 12k+, MIT |
+| | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | For academic benchmarks (MMLU / HellaSwag / GSM8K) | Academic grade. ★ 13k+, MIT |
 | | [openai/evals](https://github.com/openai/evals) | ⭐⭐⭐⭐ | For OpenAI-specific evals / want to contribute upstream | ★ 18k+ |
-| **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | For self-hosting production observability | OSS LangSmith alternative, traces + sessions + evals + prompt mgmt. ★ 28k+, MIT |
+| **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | For self-hosting production observability | OSS LangSmith alternative, traces + sessions + evals + prompt mgmt. ★ 31k+, MIT |
 | | [LangSmith](https://www.langchain.com/langsmith) (Commercial) | ⭐⭐⭐⭐ | For those with their entire stack on LangChain / LangGraph | Official from LangChain, hosted version only |
 | | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | For quick instrumentation without code changes | Proxy-based, get logging + caching for free. ★ 5.7k+, Apache 2.0 |
 | | [weave (W&B)](https://github.com/wandb/weave) | ⭐⭐⭐⭐ | For teams already using W&B for ML experiment tracking | W&B tracing + eval, integrates with wandb |
@@ -298,7 +298,7 @@ Categorized by use case, a single table to get you started with 27 projects. **U
 | **Safety / Guardrails** | [NVIDIA-NeMo/Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) | ⭐⭐⭐⭐ | For safety rules around an agent's inputs and outputs | Safety rules you wrap around an LLM app — keep it on-topic, block jailbreaks, filter bad output. ★ 6.6k+, Apache 2.0 |
 | **Advanced Anthropic SDK** | [anthropic-sdk-python](https://github.com/anthropics/anthropic-sdk-python) | ⭐⭐⭐⭐⭐ | For building applications directly on the Claude API | Official Python SDK: streaming / async / tool use / prompt caching / batches / files |
 | | [anthropic-sdk-typescript](https://github.com/anthropics/anthropic-sdk-typescript) | ⭐⭐⭐⭐ | For TypeScript / Node / web apps | The TS version of the Python SDK |
-| | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | ⭐⭐⭐⭐⭐ | For building Claude-based agents, not just API calls | Built-in tool use loop / file access / sandbox / subagent orchestration; same runtime as Claude Code, read the source to see how it works internally. ★ 6.9k+, MIT |
+| | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | ⭐⭐⭐⭐⭐ | For building Claude-based agents, not just API calls | Built-in tool use loop / file access / sandbox / subagent orchestration; same runtime as Claude Code, read the source to see how it works internally. ★ 7.6k+, MIT |
 | | [claude-agent-sdk-typescript](https://github.com/anthropics/claude-agent-sdk-typescript) | ⭐⭐⭐⭐ | For Claude agents in a Node / web app environment | The TS version of the Claude Agent SDK. ★ 1.6k+ |
 | | [Anthropic Cookbook (Advanced)](https://github.com/anthropics/anthropic-cookbook) | ⭐⭐⭐⭐ | For seeing official advanced SDK patterns | Especially the `prompt_caching.ipynb` / `tool_use/` / `multimodal/` notebooks |
 | **Structured Output** | [BoundaryML/baml](https://github.com/BoundaryML/baml) | ⭐⭐⭐⭐ | For getting reliable, validated JSON out of any model | A small dedicated language for getting reliable, checked JSON out of LLMs; works with Claude / OpenAI / local models across 7 programming languages. ★ 8k+, Apache 2.0 |
