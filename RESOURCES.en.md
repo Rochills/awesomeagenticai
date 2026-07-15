@@ -87,6 +87,7 @@ This repo **doesn't replace** flat awesome lists. When you already know which to
 - [**datawhalechina/hello-agents**](https://github.com/datawhalechina/hello-agents) — Datawhale systematic agent tutorial (zh-Hans)
 - [**WangRongsheng/awesome-LLM-resources**](https://github.com/WangRongsheng/awesome-LLM-resources) — comprehensive zh-Hans LLM resources (8k+ stars)
 - [**AiHubCN/Awesome-Chinese-LLM**](https://github.com/AiHubCN/Awesome-Chinese-LLM) — open-source Chinese LLM catalog
+- [**hardness1020/awesome-agent-architecture**](https://github.com/hardness1020/awesome-agent-architecture) — section-by-section teardown of modern agent harnesses (loop engineering, tools, permissions, context, memory, evaluation) studied through systems such as Claude Code and Hermes Agent, with a runnable Python demo per section (trilingual: EN / zh-TW / zh-Hans)
 
 ### Online courses / MOOCs (certificate comparison)
 
