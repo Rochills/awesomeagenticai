@@ -27,7 +27,7 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
 
 LANG_VARIANT="${LANG_VARIANT:-zh}"   # zh | en
-DIST_DIR="dist"
+DIST_DIR="distaa"
 mkdir -p "$DIST_DIR"
 
 # Font defaults — overridable via env vars
