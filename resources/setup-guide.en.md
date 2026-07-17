@@ -100,7 +100,7 @@ Want to script with Python, run batch jobs, integrate LLMs into your own app/aut
 - **Google AI Studio**: https://aistudio.google.com/
   Useful for trying the Gemini API. Free quota depends on region and account state.
 - **NVIDIA NIM**: https://build.nvidia.com/
-  **Hosts many open-source models (Llama / Mistral / DeepSeek-R1 / Qwen / Gemma etc.), OpenAI-compatible API, new accounts get 1000 free credits**. Great when you want to try several open models without local GPU. `base_url=https://integrate.api.nvidia.com/v1`.
+  **Hosts many open-source models (Llama / Mistral / DeepSeek-R1 + R2 lineage / Qwen / Gemma etc.), OpenAI-compatible API, new accounts get 1000 free credits**. Great when you want to try several open models without local GPU. `base_url=https://integrate.api.nvidia.com/v1`.
 
 #### Chinese / Chinese-language cloud (region-friendly, very cheap)
 

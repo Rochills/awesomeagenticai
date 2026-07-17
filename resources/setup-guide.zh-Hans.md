@@ -100,7 +100,7 @@
 - **Google AI Studio**：https://aistudio.google.com/
   适合先试 Gemini API，免费额度会依地区和账号状态不同。
 - **NVIDIA NIM**：https://build.nvidia.com/
-  **托管多个开源 model（Llama / Mistral / DeepSeek-R1 / Qwen / Gemma 等）、OpenAI-compatible API、新账号送 1000 credits**。适合“想试多个 open-source model 但没 GPU”的情境。`base_url=https://integrate.api.nvidia.com/v1`。
+  **托管多个开源 model（Llama / Mistral / DeepSeek-R1 + R2 lineage / Qwen / Gemma 等）、OpenAI-compatible API、新账号送 1000 credits**。适合“想试多个 open-source model 但没 GPU”的情境。`base_url=https://integrate.api.nvidia.com/v1`。
 
 #### 中国 / 中文场景（地区友善、价格极便宜）
 

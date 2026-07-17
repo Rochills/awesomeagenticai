@@ -35,7 +35,7 @@ except ImportError:
 
 
 EXCLUDE_DIRS = {'.ai', 'book', 'node_modules', '.git', 'archives', '.coord'}
-EXCLUDE_MIRROR_SUFFIXES = ['.en.md', '.zh-Hans.md']  # focus on zh-TW canonical
+MIRROR_SUFFIXES = ('.en.md', '.zh-Hans.md')  # trilingual mirror locales (zh-TW is canonical)
 
 
 def load_config(repo_root: Path) -> dict:
@@ -44,12 +44,26 @@ def load_config(repo_root: Path) -> dict:
         return yaml.safe_load(f)
 
 
+def canonical_rel(rel: str) -> str:
+    """Map a mirror-locale rel path to its zh-TW canonical form for config matching.
+
+    'stages/06-memory-rag.en.md' -> 'stages/06-memory-rag.md'. Mirror locales are
+    now scanned (not skipped), so per-file overrides and exclude_files written for
+    the canonical file must also apply to its .en.md / .zh-Hans.md siblings.
+    """
+    for suffix in MIRROR_SUFFIXES:
+        if rel.endswith(suffix):
+            return rel[: -len(suffix)] + '.md'
+    return rel
+
+
 def matches_exclude(path: Path, repo_root: Path, exclude_patterns: list[str]) -> bool:
-    """Check if file path matches any exclude glob pattern."""
+    """Check if a file path (or its canonical mirror form) matches any exclude glob."""
     rel = path.relative_to(repo_root).as_posix()
-    for pat in exclude_patterns:
-        if fnmatch(rel, pat) or fnmatch(rel + '/', pat):
-            return True
+    for candidate in {rel, canonical_rel(rel)}:
+        for pat in exclude_patterns:
+            if fnmatch(candidate, pat) or fnmatch(candidate + '/', pat):
+                return True
     return False
 
 
@@ -79,10 +93,12 @@ def scan_file(
 
     window = cfg.get('qualifier_context_lines', 2)
 
-    # Check per-file context override
+    # Check per-file context override (mirror locales inherit the canonical file's override)
     rel = path.relative_to(repo_root).as_posix()
+    canon = canonical_rel(rel)
     for override in cfg.get('exclude_files_pattern_specific', []):
-        if fnmatch(rel, override.get('file', '')):
+        pat = override.get('file', '')
+        if fnmatch(rel, pat) or fnmatch(canon, pat):
             # Accept both new (qualifier_window) and legacy (skip_patterns_with_context)
             # field names for backward compat
             window = override.get(
@@ -130,9 +146,8 @@ def scan_file(
 def should_skip(path: Path, repo_root: Path, cfg: dict) -> bool:
     if any(part in EXCLUDE_DIRS for part in path.parts):
         return True
-    for suffix in EXCLUDE_MIRROR_SUFFIXES:
-        if path.name.endswith(suffix):
-            return True
+    # Mirror locales (.en.md / .zh-Hans.md) are NO LONGER skipped: stale facts drift
+    # into them when canonical is fixed but the mirror is left behind (2026-07 gap).
     exclude_files = cfg.get('exclude_files', [])
     return matches_exclude(path, repo_root, exclude_files)
 

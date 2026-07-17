@@ -198,3 +198,25 @@ jobs:
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  freshness-tests:
+    name: Freshness gate unit tests
+    runs-on: ubuntu-latest
+    # Runs on every PR that triggers this workflow (any **.md / scripts/** /
+    # resources/** change — no schedule-only guard) so the freshness-gate
+    # coverage can't silently regress the way it did in 2026-07.
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Run freshness gate regression tests
+        # Pins the 2026-07 coverage fixes: mirror-locale scanning +
+        # DeepSeek space-form regex (scripts/test_freshness.py).
+        run: python scripts/test_freshness.py

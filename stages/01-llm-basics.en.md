@@ -62,7 +62,7 @@ These are the main choices for Chinese-language work, in two groups: **API-only*
 |---|---|---|---|---|---|
 | **DeepSeek** | V4-Flash (`deepseek-v4-flash`) / V4-Pro (`deepseek-v4-pro`) | 1M | reasoning / coding / **lowest cost** | high-token workloads / code generation / math | [api-docs.deepseek.com](https://api-docs.deepseek.com/zh-cn/) |
 | **Kimi** (Moonshot) | K3 (2.8T params, native multimodal) | **1M** | long context / Chinese long-form writing | whole-book reading / literature triage | [platform.moonshot.cn](https://platform.moonshot.cn/) |
-| **Hunyuan** (Tencent) | T1 (deep-thinking) + TurboS | 128k | **DeepSeek R1-comparable reasoning**, Chinese | Chinese reasoning / Tencent ecosystem | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
+| **Hunyuan** (Tencent) | T1 (deep-thinking) + TurboS | 128k | **Reasoning on par with the DeepSeek R1 baseline**, Chinese | Chinese reasoning / Tencent ecosystem | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
 | **MiniMax** | abab6.5 + M2.7 | 200k | multimodal / Chinese long prose | Chinese writing / video and audio multimodal | [platform.minimax.io](https://platform.minimax.io/) |
 
 > **Note**: This group is mostly cloud-API and proprietary. DeepSeek also has some open weights (on HF), but the cloud API is still the main way to use it (the legacy names `deepseek-chat`/`deepseek-reasoner` retire 2026-07-24 and now alias to v4-flash).

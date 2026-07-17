@@ -34,41 +34,45 @@ current_frontier_models:
     - "QvQ-72B"
 
 # Stale patterns — 偵測過時 model name without proper historical qualifier
+# NOTE: qualifier_terms include both English ('baseline') and the localized CJK
+# forms ('基線' / '基线') because mirror locales (.en.md / .zh-Hans.md) are now
+# scanned — a qualifier written as "baseline" in zh-TW/en often becomes "基线" in
+# the zh-Hans mirror, and the gate must recognize all three (2026-07 gap).
 stale_patterns:
   - pattern: 'Claude 3\.5 Sonnet'
-    qualifier_terms: ['前身', '歷史', 'lineage', '舊版', '原始', 'baseline', 'predecessor', 'history']
+    qualifier_terms: ['前身', '歷史', 'lineage', '舊版', '原始', 'baseline', '基線', '基线', 'predecessor', 'history']
     note: 'Pre-2026 Claude version (Claude 3.5 Sonnet was current circa 2024-Q4)'
 
   - pattern: 'Claude 3 Opus'
-    qualifier_terms: ['前身', '歷史', 'lineage', '舊版', '原始', 'baseline']
+    qualifier_terms: ['前身', '歷史', 'lineage', '舊版', '原始', 'baseline', '基線', '基线']
     note: 'Pre-2025 Claude version'
 
   - pattern: 'gpt-4o|GPT-4o'
-    qualifier_terms: ['前身', '歷史', 'lineage', '舊版', '原始', 'baseline', '對照', 'predecessor']
+    qualifier_terms: ['前身', '歷史', 'lineage', '舊版', '原始', 'baseline', '基線', '基线', '對照', 'predecessor']
     note: 'Pre-GPT-5 OpenAI flagship (GPT-4o was current 2024-mid through 2025-summer)'
 
   - pattern: 'GPT-4(?!\.|o|\-|\d)'
-    qualifier_terms: ['前身', '歷史', 'lineage', '舊版', '原始', 'baseline']
+    qualifier_terms: ['前身', '歷史', 'lineage', '舊版', '原始', 'baseline', '基線', '基线']
     note: 'Plain GPT-4 reference, likely stale'
 
   - pattern: 'Gemini 1\.5|Gemini 2\.0|Gemini 2\.5(?! Thinking)'
-    qualifier_terms: ['前身', '歷史', 'lineage', '舊版', 'baseline']
+    qualifier_terms: ['前身', '歷史', 'lineage', '舊版', 'baseline', '基線', '基线']
     note: 'Pre-Gemini 3 Google flagship'
 
-  - pattern: 'DeepSeek-R1(?!-Distill)'
-    qualifier_terms: ['前身', '歷史', 'lineage', '原始', 'baseline', 'paper', 'method']
+  - pattern: 'DeepSeek[- ]R1(?!-Distill)'  # [- ] catches both 'DeepSeek-R1' and space-form 'DeepSeek R1'
+    qualifier_terms: ['前身', '歷史', 'lineage', '原始', 'baseline', '基線', '基线', 'paper', 'method']
     note: '2025-01 DeepSeek reasoning model (superseded by R2 in 2026-03)'
 
   - pattern: 'DeepSeek-V3(?!\.)'
-    qualifier_terms: ['前身', '歷史', 'lineage', '舊版']
+    qualifier_terms: ['前身', '歷史', 'lineage', '舊版', 'baseline', '基線', '基线']
     note: 'Pre-V4 DeepSeek base model'
 
   - pattern: 'o1-preview|o1-mini'
-    qualifier_terms: ['前身', '歷史', 'lineage', '原始', 'baseline']
+    qualifier_terms: ['前身', '歷史', 'lineage', '原始', 'baseline', '基線', '基线']
     note: 'Early OpenAI reasoning preview (Sep 2024)'
 
   - pattern: 'Opus 4\.7'
-    qualifier_terms: ['前身', '歷史', 'lineage', '舊版', '原始', 'baseline', 'predecessor', 'history']
+    qualifier_terms: ['前身', '歷史', 'lineage', '舊版', '原始', 'baseline', '基線', '基线', 'predecessor', 'history']
     note: 'Opus 4.8 (May 2026) supersedes 4.7'
 
 # Stale date-bound framing — 時間性過時用詞
