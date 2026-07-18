@@ -8,3 +8,4 @@ Test links (a healthy repo + an archived one, to exercise both paths):
 
 - Active, permissive license: [pallets/flask](https://github.com/pallets/flask)
 - Archived, should be flagged: [langchain-ai/langserve](https://github.com/langchain-ai/langserve)
+- Old / unmaintained, should be stale-flagged: [openai/gpt-2](https://github.com/openai/gpt-2)
