@@ -79,13 +79,13 @@ ChatGPT 桌面版。可以对屏幕截图问问题、语音对话、跟其他 Ap
 > 想把 CLI agent 接到你的 Notion / Obsidian / Excel / Google 文件等日常工具？见 [`resources/mcp-skills-catalog.zh-Hans.md`](../resources/mcp-skills-catalog.zh-Hans.md)（按分类整理 65+ 个 MCP server / Skill）。
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
-★ 120k+ — Anthropic 官方的 CLI agent。能读写文件、执行指令、做多步骤任务。**日常用户最容易上手的 CLI 工具**。
+★ 138k+ — Anthropic 官方的 CLI agent。能读写文件、执行指令、做多步骤任务。**日常用户最容易上手的 CLI 工具**。
 
 #### [openai/codex](https://github.com/openai/codex) ⭐⭐⭐⭐⭐
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 80k+ |
+| Stars | ★ 99k+ |
 | License | Apache-2.0 |
 
 **教什么**：OpenAI 出品的终端机 agent——可以在命令行帮你整理文件、批量处理文字、执行多步骤任务；写程序只是其中一种用途。跟 Claude Code 同类，但用的是 OpenAI 的模型。
@@ -96,7 +96,7 @@ ChatGPT 桌面版。可以对屏幕截图问问题、语音对话、跟其他 Ap
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 155k+ |
+| Stars | ★ 187k+ |
 | License | MIT |
 
 **教什么**：开源版的 coding agent，**不绑定特定 LLM provider**——可以用 Claude、GPT、Gemini、本地 Ollama 任何一个。社群维护、迭代速度快。

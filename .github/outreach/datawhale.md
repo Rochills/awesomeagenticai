@@ -7,7 +7,7 @@
 > **Last updated**: 2026-05-09
 > **Decision-maker**: Datawhale 開源教學團隊 (open-source curriculum team)
 
-**Why this target**: Datawhale 是中國大陸最有影響力的 AI 教學社群之一；他們的 [`hello-agents`](https://github.com/datawhalechina/hello-agents) (★ 60k+) 在中文 agentic AI 圈子幾乎人人在用。我們的 Stage 5 cookbook 已經 cite 他們的 Extra05 / Extra08——cross-link 對雙方都加分。
+**Why this target**: Datawhale 是中國大陸最有影響力的 AI 教學社群之一；他們的 [`hello-agents`](https://github.com/datawhalechina/hello-agents) (★ 67k+) 在中文 agentic AI 圈子幾乎人人在用。我們的 Stage 5 cookbook 已經 cite 他們的 Extra05 / Extra08——cross-link 對雙方都加分。
 
 **Pitch angle (我們對他們)**: 我們的 7 階段三語學習地圖把 Hello-Agents 放在 Stage 5 / 6 的位置——讀完我們前 4 階段的 LLM 基礎、prompt、context engineering 之後再進 Hello-Agents 會吸收得更好。我們等於是他們的「pre-flight」入口。
 
@@ -33,7 +33,7 @@ Hi Datawhale 團隊！
 
 我在維護 [awesome-agentic-ai-zh](https://github.com/WenyuChiou/awesome-agentic-ai-zh)
 ——一份中文 agentic AI 的 7 階段三語學習地圖（zh-TW canonical / zh-Hans / en，145+
-curated projects，MIT），第一週累積 ★525、3,185 unique visitors、1,099 clones。
+curated projects，MIT），第一週累積 ★ 4.6k+、3,185 unique visitors、1,099 clones。
 
 我們的 Stage 5 cookbook 已經把 Hello-Agents 的 Extra05（記憶 + RAG 概覽）跟 Extra08
 （多代理）放進 reading list（[cookbook.md](https://github.com/WenyuChiou/awesome-agentic-ai-zh/blob/main/resources/cookbook.md)），

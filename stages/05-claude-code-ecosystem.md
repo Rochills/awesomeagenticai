@@ -446,7 +446,7 @@ Skill = **一個 markdown 檔**（`.claude/skills/<name>/SKILL.md`），告訴 C
 |---|---|---|---|
 | [anthropics/skills](https://github.com/anthropics/skills) ⭐ 官方 spec | ⭐⭐⭐⭐⭐ | 寫自己 SKILL.md 前先讀 | Anthropic 官方 Skills repo：`spec/`（frontmatter 標準）+ `template/` 起手範本 + `skills/` 含 pdf / docx / xlsx / pptx / skill-creator / skill-vetter 等 reference 實作。★ 158k+。**SKILL.md 結構範本參考**。Agent Skills 更廣義標準另見 [agentskills.io](https://agentskills.io) |
 | [anthropics/claude-code](https://github.com/anthropics/claude-code) | ⭐⭐⭐⭐ | 追蹤新功能、看 release notes | Claude Code 主 repo、含 issues / releases / inline skill 範例。本 stage 學 Skill 重點看上一個 repo、這個排第二 |
-| [mattpocock/skills](https://github.com/mattpocock/skills) | ⭐⭐⭐⭐ | 想看「真實工程師日常 SKILL.md」 | Matt Pocock（TypeScript 社群知名教學者）公開自己工作真實在用的 `.claude/` 目錄。每個 SKILL.md **10-50 行極短**、不過度工程化。**對照 over-engineered 200 行 skill 特別有參考價值**（★ 157k+、MIT）|
+| [mattpocock/skills](https://github.com/mattpocock/skills) | ⭐⭐⭐⭐ | 想看「真實工程師日常 SKILL.md」 | Matt Pocock（TypeScript 社群知名教學者）公開自己工作真實在用的 `.claude/` 目錄。每個 SKILL.md **10-50 行極短**、不過度工程化。**對照 over-engineered 200 行 skill 特別有參考價值**（★ 177k+、MIT）|
 | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | power user setup、學進階寫法 | 20+ 實戰 skill（TDD、debugging、合作模式）+ `/brainstorm` / `/write-plan` / `/execute-plan` 命令 + skills-search tool |
 | [wshobson/agents](https://github.com/wshobson/agents) | ⭐⭐⭐⭐ | 中階：學 skill + subagent 組合 | 把 skills + subagents 組合做 multi-agent 編排。**從單一 SKILL.md 進化到 agent-as-skill 組合 pattern** 的範例（★ 35k+、MIT） |
 | [travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills) | ⭐⭐⭐⭐ | 自己寫前先找有沒有現成的 | 社群 Claude Skills 精選目錄 |
@@ -831,7 +831,7 @@ You are a senior code reviewer. When invoked:
 
 1. [**Anthropic — Building Effective Agents**](https://www.anthropic.com/engineering/building-effective-agents) ⭐ — orchestrator / worker / handoff / reflection 等 pattern 的 canonical reference
 2. [**anthropics/claude-agent-sdk-python**](https://github.com/anthropics/claude-agent-sdk-python) — Claude Code 官方 Python SDK 的 source；**重點 file：`src/claude_agent_sdk/_internal/client.py`**（main loop 在這）+ `query.py`（單回合 API）
-3. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering) ⭐（★ 2.8k+） — community curation：harness pattern / eval / memory / observability 整合
+3. [**ai-boost/awesome-harness-engineering**](https://github.com/ai-boost/awesome-harness-engineering) ⭐（★ 3.1k+） — community curation：harness pattern / eval / memory / observability 整合
 4. [**ZhangHanDong/harness-engineering-from-cc-to-ai-coding**](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) — 中文圈最完整的 Claude Code 內部解讀
 
 ### 🛠 動手練習 — 解剖 agent loop（閱讀題，非寫 code）
@@ -862,7 +862,7 @@ You are a senior code reviewer. When invoked:
 |---|---|---|---|
 | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | ⭐⭐⭐⭐⭐ | 所有 Track B 學習者、想搞清楚「Claude Code 內部怎麼跑」 | **canonical Python harness、本節練習就是讀這個 repo**。後面 Stage 7 deploy 也會 import |
 | [ZhangHanDong/harness-engineering-from-cc-to-ai-coding](https://github.com/ZhangHanDong/harness-engineering-from-cc-to-ai-coding) | ⭐⭐⭐⭐ | 中文 reader 想看「為什麼 Claude Code 這樣設計」 | 中文圈最完整 CC 內部解讀（harness 概念 → CC 實作 → 跟其他 AI coding tool 對比）。**配合 SDK source 互補看**——一個告訴你「怎麼做」、一個告訴你「為什麼這麼做」 |
-| [ai-boost/awesome-harness-engineering](https://github.com/ai-boost/awesome-harness-engineering) | ⭐⭐⭐⭐ | 5.7 讀完想擴大視野 | community curation：30+ harness / eval / memory / observability / MCP project（★ 2.8k+）。**廣度資源庫、非教學**——挑感興趣的 sub-topic 鑽進去 |
+| [ai-boost/awesome-harness-engineering](https://github.com/ai-boost/awesome-harness-engineering) | ⭐⭐⭐⭐ | 5.7 讀完想擴大視野 | community curation：30+ harness / eval / memory / observability / MCP project（★ 3.1k+）。**廣度資源庫、非教學**——挑感興趣的 sub-topic 鑽進去 |
 | [wshobson/agents](https://github.com/wshobson/agents) | ⭐⭐⭐⭐ | 寫完 5.5 自己的 subagent 後想看實際在用的範本 | 50+ subagent definition 的 ergonomic 設計（description / tool list / system prompt 分層）。**讀 source 比讀文件學得多**。在 5.5 已介紹、本節 cross-ref |
 
 > 💡 **本節跟 Stage 7 的差別**：本節學「Claude Code 這個 harness 怎麼跑」（具體 reference）；Stage 7 學「production harness 一般要有什麼」（抽象 pattern）。**先具體後抽象**、看完本節再進 Stage 7 會輕鬆很多。

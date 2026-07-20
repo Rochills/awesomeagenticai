@@ -42,7 +42,7 @@
 
 ### Google Workspace（Gmail / Docs / Drive / Calendar）
 
-- [**taylorwilsdon/google_workspace_mcp**](https://github.com/taylorwilsdon/google_workspace_mcp) ★ 2.6k+ — 一個 server 包整套 Google Workspace（Gmail、Calendar、Docs、Sheets、Slides、Drive）
+- [**taylorwilsdon/google_workspace_mcp**](https://github.com/taylorwilsdon/google_workspace_mcp) ★ 2.9k+ — 一個 server 包整套 Google Workspace（Gmail、Calendar、Docs、Sheets、Slides、Drive）
 
 ### 開發協作
 
@@ -54,8 +54,8 @@
 ### 研究工作流（本 repo 維護者出品）
 
 - [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 149 — 14 個研究流程 skill，5-plugin marketplace
-- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 33 — Zotero + Obsidian + NotebookLM 整合 workspace
-- [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 32 — Zotero CLI skill
+- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 38 — Zotero + Obsidian + NotebookLM 整合 workspace
+- [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 45 — Zotero CLI skill
 - [**WenyuChiou/codex-delegate**](https://github.com/WenyuChiou/codex-delegate) ★ 57 + [**gemini-delegate-skill**](https://github.com/WenyuChiou/gemini-delegate-skill) ★ 34（⚠️ 已封存）— Multi-LLM delegation 對（Gemini lane 建議改用 Gemini CLI 直接做）
 
 ### 中文圈常用

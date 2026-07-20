@@ -65,28 +65,28 @@ Deliberately break your API key (one wrong character) and see how the CLI errors
 Detailed comparison (stars, license, strengths, recommended use cases) in [`resources/cli-agents-guide.en.md`](../../resources/cli-agents-guide.en.md). Quick entry points here:
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
-★ 120k+ — Recommended first CLI agent. Built-in SKILL / plugin ecosystem, CLAUDE.md prompt system, rich community resources.
+★ 138k+ — Recommended first CLI agent. Built-in SKILL / plugin ecosystem, CLAUDE.md prompt system, rich community resources.
 
 #### [openai/codex](https://github.com/openai/codex) ⭐⭐⭐⭐⭐
-★ 80k+ — Top pick if you already subscribe to ChatGPT Plus / Pro; same account works in the terminal.
+★ 99k+ — Top pick if you already subscribe to ChatGPT Plus / Pro; same account works in the terminal.
 
 #### [sst/opencode](https://github.com/sst/opencode) ⭐⭐⭐⭐⭐
-★ 155k+ — Open-source, not tied to any LLM provider, fastest community iteration. Pick this for self-hosting or no vendor lock-in.
+★ 187k+ — Open-source, not tied to any LLM provider, fastest community iteration. Pick this for self-hosting or no vendor lock-in.
 
 #### [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) ⭐⭐⭐⭐
 ★ 103k+ — When you want 1M-token long context for big codebases / large PDFs.
 
 #### [block/goose](https://github.com/block/goose) ⭐⭐⭐⭐
-★ 43k+ — 15+ provider support (incl. Ollama); use existing Claude / ChatGPT / Gemini subscriptions. Now at `aaif-goose/goose` (AAIF / Linux Foundation).
+★ 51k+ — 15+ provider support (incl. Ollama); use existing Claude / ChatGPT / Gemini subscriptions. Now at `aaif-goose/goose` (AAIF / Linux Foundation).
 
 #### [Aider-AI/aider](https://github.com/Aider-AI/aider) ⭐⭐⭐⭐⭐
 ★ 44k+ — git-native, auto commit / branch. Pick this when you want clean git workflow with code edits.
 
 #### [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) ⭐⭐⭐⭐⭐
-★ 142k+ — Nous Research's auto-evolving agent. Three differentiators: (1) the agent runs on a cloud VM and you message it from Telegram / Discord / Slack / WhatsApp / Signal; (2) model-neutral — supports GLM / Kimi / Xiaomi MiMo / MiniMax and other Chinese-ecosystem LLMs; (3) built-in cron scheduler + autonomous skill-evolution loop (★ data as of 2026-05; check the official GitHub for current numbers). ⚠️ Auto-evolving skills are experimental, lack third-party independent audits, and should be safety- and maintenance-verified before production use; start in low-risk contexts.
+★ 217k+ — Nous Research's auto-evolving agent. Three differentiators: (1) the agent runs on a cloud VM and you message it from Telegram / Discord / Slack / WhatsApp / Signal; (2) model-neutral — supports GLM / Kimi / Xiaomi MiMo / MiniMax and other Chinese-ecosystem LLMs; (3) built-in cron scheduler + autonomous skill-evolution loop (★ data as of 2026-05; check the official GitHub for current numbers). ⚠️ Auto-evolving skills are experimental, lack third-party independent audits, and should be safety- and maintenance-verified before production use; start in low-risk contexts.
 
 #### [xai-org/grok-build](https://github.com/xai-org/grok-build) ⭐⭐⭐
-★ 10k+ — SpaceXAI's (xAI) official TUI coding agent (Rust; headless mode + ACP editor embedding). ⚠️ Open-sourced 2026-07-14, very new — watch first; not recommended as your first CLI agent.
+★ 20k+ — SpaceXAI's (xAI) official TUI coding agent (Rust; headless mode + ACP editor embedding). ⚠️ Open-sourced 2026-07-14, very new — watch first; not recommended as your first CLI agent.
 
 ---
 

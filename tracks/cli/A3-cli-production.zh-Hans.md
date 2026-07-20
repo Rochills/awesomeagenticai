@@ -200,14 +200,14 @@ Track A 的人**已经在用** [Stage 7.5 的进阶概念](../../stages/07.5-adv
 ### Observability + Cost
 
 #### [langfuse/langfuse](https://github.com/langfuse/langfuse) ⭐⭐⭐⭐⭐
-★ 26k+ — open source LLM observability。把 trace、cost、session 都接起来。
+★ 31k+ — open source LLM observability。把 trace、cost、session 都接起来。
 > 详见 [Stage 7 Observability](../../stages/07-multi-agent-production.zh-Hans.md#练习-3observability)。
 
 #### [Helicone](https://github.com/Helicone/helicone) ⭐⭐⭐⭐
-★ 5k+ — proxy-based 监控。改 base_url 就有 logging + caching。
+★ 6k+ — proxy-based 监控。改 base_url 就有 logging + caching。
 
 #### [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) ⭐⭐⭐⭐⭐
-★ 20k+ — eval framework。CLI workflow 升级到 production 前用这个跑回归测试。
+★ 23k+ — eval framework。CLI workflow 升级到 production 前用这个跑回归测试。
 > 详见 [Stage 7 Eval](../../stages/07-multi-agent-production.zh-Hans.md#练习-2eval)。
 
 ---
@@ -215,10 +215,10 @@ Track A 的人**已经在用** [Stage 7.5 的进阶概念](../../stages/07.5-adv
 ### Production CLI workflow 范本
 
 #### [obra/superpowers](https://github.com/obra/superpowers) ⭐⭐⭐⭐
-★ 178k+ — 整套 production-ready skill collection。看别人怎么把 CLI workflow 做完整。
+★ 257k+ — 整套 production-ready skill collection。看别人怎么把 CLI workflow 做完整。
 
 #### [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace)
-★ 900+ — 最简 marketplace template。要把你 team 的 CLI workflow 打包共用时参考。
+★ 1.2k+ — 最简 marketplace template。要把你 team 的 CLI workflow 打包共用时参考。
 
 ## ✅ Track A 完整通关自我检查
 

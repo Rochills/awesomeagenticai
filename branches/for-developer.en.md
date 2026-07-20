@@ -39,7 +39,7 @@ Editor-integrated AI pair-programming tool. Widely adopted in AI editor tools an
 ★ 44k+ · Apache-2.0 — git-aware CLI pair-programmer. Edits files in your repo directly and writes commits for you. **The open-source reference for "git-native AI editing."** Model-agnostic.
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
-★ 120k+ — Anthropic's official agentic coding assistant. Skills + plugins ecosystem.
+★ 138k+ — Anthropic's official agentic coding assistant. Skills + plugins ecosystem.
 
 #### [cline/cline](https://github.com/cline/cline) ⭐⭐⭐⭐⭐
 ★ 61k+ · Apache-2.0 — VS Code extension, autonomous in-IDE agent: tool use, browser, step-by-step approval. **The first pick for VS Code users wanting IDE-native agentic dev.**
@@ -48,10 +48,10 @@ Editor-integrated AI pair-programming tool. Widely adopted in AI editor tools an
 ★ 33k+ · Apache-2.0 — source-controlled AI checks, enforceable in CI. Represents the **team / governance** angle on coding agents.
 
 #### [OpenHands (formerly OpenDevin)](https://github.com/All-Hands-AI/OpenHands) ⭐⭐⭐⭐
-★ 72k+ · MIT — open-source autonomous software development agent. More aggressive design than Aider / Claude Code — agent runs in its own sandbox and commits autonomously. Best for "throw a whole issue at it" scenarios.
+★ 81k+ · MIT — open-source autonomous software development agent. More aggressive design than Aider / Claude Code — agent runs in its own sandbox and commits autonomously. Best for "throw a whole issue at it" scenarios.
 
 #### [block/goose](https://github.com/block/goose) ⭐⭐⭐⭐
-★ 43k+ · Apache-2.0 — Open-source, extensible AI agent that goes beyond code suggestions — install / execute / edit / test, with any LLM. Supports multiple LLM providers and MCP, ships as desktop app, CLI, and API. (Repo now resolves to `aaif-goose/goose`.)
+★ 51k+ · Apache-2.0 — Open-source, extensible AI agent that goes beyond code suggestions — install / execute / edit / test, with any LLM. Supports multiple LLM providers and MCP, ships as desktop app, CLI, and API. (Repo now resolves to `aaif-goose/goose`.)
 
 #### [RooCodeInc/Roo-Code](https://github.com/RooCodeInc/Roo-Code) ⭐⭐⭐ (⚠️ archived)
 ★ 23k+ · Apache-2.0 — VS Code coding agent with a "**team of specialized modes**" model. Different from Cline's single-agent flow. **⚠️ Repo archived 2026-05 (read-only, no longer maintained)** — still usable, but don't expect new features.

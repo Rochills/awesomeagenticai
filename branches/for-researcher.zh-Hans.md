@@ -40,7 +40,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 8k+ |
+| Stars | ★ 8.9k+ |
 | License | Apache-2.0 |
 
 **教什么**：对 PDF 文件以 **citation-grounded Q&A** 为设计目标——每个答案附句子层级的引用、减少幻觉风险。实际准确率依文件类型而异，评测结果以官方 benchmark / paper 为准。
@@ -160,7 +160,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 6k+ |
+| Stars | ★ 6.9k+ |
 | License | The AI Scientist Source Code License（source-available，非商用 + 有 manuscript-disclosure 条款） |
 
 **教什么**：端到端的 multi-agent 科学研究 loop：构想 → 写代码 → 跑实验 → 写 paper → 互审。Sakana AI 的“AI 写整篇 ML paper”研究实践。

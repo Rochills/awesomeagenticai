@@ -67,28 +67,28 @@
 详细比较（star、license、强弱项、推荐场景）见 [`resources/cli-agents-guide.zh-Hans.md`](../../resources/cli-agents-guide.zh-Hans.md)。这里只给快速 entry point：
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
-★ 120k+ — 第一个 CLI agent 推荐。内建 SKILL / plugin 生态、CLAUDE.md prompt 系统、中文社群资源丰富。
+★ 138k+ — 第一个 CLI agent 推荐。内建 SKILL / plugin 生态、CLAUDE.md prompt 系统、中文社群资源丰富。
 
 #### [openai/codex](https://github.com/openai/codex) ⭐⭐⭐⭐⭐
-★ 80k+ — 已订 ChatGPT Plus / Pro 的人很合适；用同一个 账号就能在终端机跑。
+★ 99k+ — 已订 ChatGPT Plus / Pro 的人很合适；用同一个 账号就能在终端机跑。
 
 #### [sst/opencode](https://github.com/sst/opencode) ⭐⭐⭐⭐⭐
-★ 155k+ — 开源、不绑 LLM provider、社群迭代最快。要 self-host / 不想 vendor lock-in 选这个。
+★ 187k+ — 开源、不绑 LLM provider、社群迭代最快。要 self-host / 不想 vendor lock-in 选这个。
 
 #### [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) ⭐⭐⭐⭐
 ★ 103k+ — 想要 1M token 长 context 处理大 codebase / 大 PDF 时用。
 
 #### [block/goose](https://github.com/block/goose) ⭐⭐⭐⭐
-★ 43k+ — 15+ provider 支援（含 Ollama）、可用既有 Claude / ChatGPT / Gemini 订阅。已迁至 `aaif-goose/goose`（AAIF / Linux Foundation）。
+★ 51k+ — 15+ provider 支援（含 Ollama）、可用既有 Claude / ChatGPT / Gemini 订阅。已迁至 `aaif-goose/goose`（AAIF / Linux Foundation）。
 
 #### [Aider-AI/aider](https://github.com/Aider-AI/aider) ⭐⭐⭐⭐⭐
 ★ 44k+ — git-native，自动 commit / branch。要写 code 想要 git 流程干净的人用这个。
 
 #### [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) ⭐⭐⭐⭐⭐
-★ 142k+ — Nous Research 出的自动演化型 agent。差异化在三件事：(1) agent 跑 cloud VM，从 Telegram / Discord / Slack 任一界面跟它聊；(2) 多 LLM 中性，支持 GLM / Kimi / 小米 MiMo / MiniMax 等中文圈生态；(3) 内建 cron 排程 + skill 自动演化回圈（★ 数据截至 2026-05；以官方 GitHub 为准）。⚠️ 自动演化 skill 是实验性功能，缺第三方独立审计，production 用前请自行验证安全性与维护状态，先在低风险场景试。
+★ 217k+ — Nous Research 出的自动演化型 agent。差异化在三件事：(1) agent 跑 cloud VM，从 Telegram / Discord / Slack 任一界面跟它聊；(2) 多 LLM 中性，支持 GLM / Kimi / 小米 MiMo / MiniMax 等中文圈生态；(3) 内建 cron 排程 + skill 自动演化回圈（★ 数据截至 2026-05；以官方 GitHub 为准）。⚠️ 自动演化 skill 是实验性功能，缺第三方独立审计，production 用前请自行验证安全性与维护状态，先在低风险场景试。
 
 #### [xai-org/grok-build](https://github.com/xai-org/grok-build) ⭐⭐⭐
-★ 10k+ — SpaceXAI（xAI）官方 TUI coding agent（Rust、支持 headless 模式 / ACP 编辑器嵌入）。⚠️ 2026-07-14 才开源、非常新——先观察、不建议当第一个 CLI agent。
+★ 20k+ — SpaceXAI（xAI）官方 TUI coding agent（Rust、支持 headless 模式 / ACP 编辑器嵌入）。⚠️ 2026-07-14 才开源、非常新——先观察、不建议当第一个 CLI agent。
 
 ---
 

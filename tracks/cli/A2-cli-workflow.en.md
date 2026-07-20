@@ -77,7 +77,7 @@ Compile these into your own cheat sheet.
 official — Claude Code memory / CLAUDE.md authoring docs, including best practices.
 
 #### [obra/superpowers](https://github.com/obra/superpowers) ⭐⭐⭐⭐
-★ 178k+ — Not just a skill collection but also a production CLAUDE.md template. Read the full `.claude/` structure.
+★ 257k+ — Not just a skill collection but also a production CLAUDE.md template. Read the full `.claude/` structure.
 
 #### [mattpocock/skills](https://github.com/mattpocock/skills) ⭐⭐⭐⭐
 A practitioner's daily skill library. The `.claude/` structure is a great reference. **More skill examples in [Stage 5.3 — Skills](../../stages/05-claude-code-ecosystem.en.md#53--skills-claude-codes-behavior-layer--the-most-critical-layer-of-the-claude-code-ecosystem).**
@@ -87,7 +87,7 @@ A practitioner's daily skill library. The `.claude/` structure is a great refere
 ### Slash Commands / Custom Prompts
 
 #### [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) ⭐ Official
-★ 18k+ — Official plugin marketplace. Each plugin's commands / skills serve as slash command examples.
+★ 32k+ — Official plugin marketplace. Each plugin's commands / skills serve as slash command examples.
 
 #### [hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code)
 Community-curated Claude Code resources. Browse the slash command examples.
@@ -112,7 +112,7 @@ Look at Setup A / B / C and try one that fits.
 ### Recommended Tools
 
 - [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 26k+ — Packs your entire codebase into a single AI-friendly file (XML / Markdown / JSON) for Claude Code / Codex code review / refactoring. Includes MCP server mode + tree-sitter compression (compression varies by language and file structure) + secretlint for secret filtering. **A must-have, daily-driver-grade tool for Track A.**
-- [**langchain-ai/openwiki**](https://github.com/langchain-ai/openwiki) ⭐⭐⭐⭐ ★ 11k+ — CLI that generates and auto-maintains a wiki of your codebase, then wires a reference into `CLAUDE.md` / `AGENTS.md` so your coding agent reads it on demand and it stays updated as code changes. `npm i -g openwiki` → `openwiki --init`. Built on DeepAgents, traces to LangSmith. MIT.
+- [**langchain-ai/openwiki**](https://github.com/langchain-ai/openwiki) ⭐⭐⭐⭐ ★ 12k+ — CLI that generates and auto-maintains a wiki of your codebase, then wires a reference into `CLAUDE.md` / `AGENTS.md` so your coding agent reads it on demand and it stays updated as code changes. `npm i -g openwiki` → `openwiki --init`. Built on DeepAgents, traces to LangSmith. MIT.
 
 > 💡 **Concept: *agent-facing documentation*.** repomix and OpenWiki attack the same gap (your agent doesn't know the repo) from two angles: a one-shot packed snapshot vs a living, auto-maintained wiki. The shared move is to give the agent *structured codebase context it reads on demand*, kept separate from your `CLAUDE.md` instructions rather than crammed into the prompt.
 

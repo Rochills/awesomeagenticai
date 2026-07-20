@@ -77,7 +77,7 @@ description: Review staged changes for security + style
 official — Claude Code memory / CLAUDE.md 编写的官方说明，含 best practices。
 
 #### [obra/superpowers](https://github.com/obra/superpowers) ⭐⭐⭐⭐
-★ 178k+ — 不只是 skill collection，也是 production CLAUDE.md 范本。看 `.claude/` whole directory structure。
+★ 257k+ — 不只是 skill collection，也是 production CLAUDE.md 范本。看 `.claude/` whole directory structure。
 
 #### [mattpocock/skills](https://github.com/mattpocock/skills) ⭐⭐⭐⭐
 工程师日常用的 skill 库。`.claude/` structure 是好参考。**更多 skill 范例见 [Stage 5.3 — Skills](../../stages/05-claude-code-ecosystem.zh-Hans.md#53--skillsclaude-code-的行为层-claude-code-生态最关键的一层)。**
@@ -87,7 +87,7 @@ official — Claude Code memory / CLAUDE.md 编写的官方说明，含 best pra
 ### Slash Commands / Custom Prompts
 
 #### [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) ⭐ 官方
-★ 18k+ — 官方 plugin marketplace。每个 plugin 内的 commands / skills 是 slash command 范例。
+★ 32k+ — 官方 plugin marketplace。每个 plugin 内的 commands / skills 是 slash command 范例。
 
 #### [hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code)
 社群整理的 Claude Code 资源清单。逛里面的 slash command 范例。
@@ -112,7 +112,7 @@ official — Claude Code memory / CLAUDE.md 编写的官方说明，含 best pra
 ### 推荐工具
 
 - [**yamadashy/repomix**](https://github.com/yamadashy/repomix) ⭐⭐⭐⭐⭐ ★ 26k+ — 把整个 codebase packed 成单个 AI-friendly 文件（XML / Markdown / JSON），方便 Claude Code / Codex 做 code review / refactoring。带 MCP server mode + tree-sitter 压缩（压缩率依语言与文件结构而异）+ secretlint 过滤敏感信息。**Track A 的必备 daily-driver 工具。**
-- [**langchain-ai/openwiki**](https://github.com/langchain-ai/openwiki) ⭐⭐⭐⭐ ★ 11k+ — CLI，自动帮你的 codebase 生成并持续维护一份 wiki，并在 `CLAUDE.md` / `AGENTS.md` 里加一条指向 wiki 的引用，让 coding agent 需要时自己去读、随代码变动自动更新。`npm i -g openwiki` → `openwiki --init`。底层是 DeepAgents、可接 LangSmith 追踪。MIT。
+- [**langchain-ai/openwiki**](https://github.com/langchain-ai/openwiki) ⭐⭐⭐⭐ ★ 12k+ — CLI，自动帮你的 codebase 生成并持续维护一份 wiki，并在 `CLAUDE.md` / `AGENTS.md` 里加一条指向 wiki 的引用，让 coding agent 需要时自己去读、随代码变动自动更新。`npm i -g openwiki` → `openwiki --init`。底层是 DeepAgents、可接 LangSmith 追踪。MIT。
 
 > 💡 **概念：*agent-facing documentation*（给 agent 读的文档）。** repomix 跟 OpenWiki 在解同一个痛点（agent 不了解你的 repo），只是切角不同：一个是一次性打包快照，一个是会持续长大、自动维护的 wiki。共同的做法是给 agent *一份它需要时自己去读的结构化 codebase context*，跟 `CLAUDE.md` 的指令分开放，而不是全部塞进 prompt。
 

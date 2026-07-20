@@ -75,7 +75,7 @@ These use cases may not happen directly inside a lesson, but they shape teacher 
 General writing / brainstorming skills. Adaptable for lesson prep.
 
 #### Advanced automation: [Claude Code](https://github.com/anthropics/claude-code) (with custom CLAUDE.md) ⭐⭐⭐⭐⭐
-★ 120k+ — **The basic teacher stack is Claude.ai (web) + NotebookLM + Google Classroom / LMS integrations**; start there. **Upgrade to Claude Code only when you already have repeatable batch workflows** (such as generating 50 parent letters every week or analyzing student feedback every semester), and expect to learn some CLI.
+★ 138k+ — **The basic teacher stack is Claude.ai (web) + NotebookLM + Google Classroom / LMS integrations**; start there. **Upgrade to Claude Code only when you already have repeatable batch workflows** (such as generating 50 parent letters every week or analyzing student feedback every semester), and expect to learn some CLI.
 
 ### Teaching Course Materials (for teachers preparing classes)
 

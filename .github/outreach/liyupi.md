@@ -46,7 +46,7 @@
 
 我维护的 [awesome-agentic-ai-zh](https://github.com/WenyuChiou/awesome-agentic-ai-zh)
 是一份中文 agentic AI 的 7 阶段三语学习地图（zh-TW canonical / zh-Hans / en，145+
-projects，MIT 协议），第一周 ★525、3,185 unique visitors、1,099 clones，主要流量来自 Threads /
+projects，MIT 协议），第一周 ★ 4.6k+、3,185 unique visitors、1,099 clones，主要流量来自 Threads /
 X / 部分微信社群。
 
 定位上跟 ai-guide 互补——ai-guide 是「大全」，我们是「学习顺序」。我们的读者经常

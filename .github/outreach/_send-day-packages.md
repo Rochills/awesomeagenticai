@@ -108,7 +108,7 @@ Why it fits:
 - Stage 4 (Agent Frameworks) walks new developers through LangChain / LangGraph / AutoGen / CrewAI / Smolagents with prerequisites, time estimates, and hands-on exercises.
 - The §11 catalog has 7 Chinese-ecosystem entries including `chatchat-space/Langchain-Chatchat` and the LangChain Chinese Getting Started Guide already in your list.
 
-Stats (refresh on send-day): ★1.9k, MIT licensed, rendered docs at https://wenyuchiou.github.io/awesome-agentic-ai-zh/. CI runs banned-word, link-rot, and anchor-integrity lints on every PR.
+Stats (refresh on send-day): ★ 4.6k+, MIT licensed, rendered docs at https://wenyuchiou.github.io/awesome-agentic-ai-zh/. CI runs banned-word, link-rot, and anchor-integrity lints on every PR.
 
 If a different section works better, happy to redirect. Thanks for maintaining awesome-langchain.
 

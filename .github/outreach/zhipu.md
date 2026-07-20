@@ -36,7 +36,7 @@
 
 我维护 [awesome-agentic-ai-zh](https://github.com/WenyuChiou/awesome-agentic-ai-zh)
 ——一份中文 agentic AI 的 8 阶段三语学习地图（zh-TW canonical / zh-Hans / en，240+
-projects，MIT，★525 第一周）。
+projects，MIT，★ 4.6k+ 第一周）。
 
 **§11 中文圈专用** 已经收了：
 - QwenLM/Qwen-Agent（阿里巴巴）

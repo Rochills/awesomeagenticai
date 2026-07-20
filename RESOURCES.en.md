@@ -40,7 +40,7 @@ Connect Claude Code (or any other CLI agent) to the apps you already use, withou
 
 ### Google Workspace (Gmail / Docs / Drive / Calendar)
 
-- [**taylorwilsdon/google_workspace_mcp**](https://github.com/taylorwilsdon/google_workspace_mcp) ★ 2.6k+ — full Workspace stack (Gmail, Calendar, Docs, Sheets, Slides, Drive) in one server
+- [**taylorwilsdon/google_workspace_mcp**](https://github.com/taylorwilsdon/google_workspace_mcp) ★ 2.9k+ — full Workspace stack (Gmail, Calendar, Docs, Sheets, Slides, Drive) in one server
 
 ### Dev Collaboration
 
@@ -52,8 +52,8 @@ Connect Claude Code (or any other CLI agent) to the apps you already use, withou
 ### Research Workflow (by the repo maintainer)
 
 - [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 149 — 14 research-workflow skills as a 5-plugin marketplace
-- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 33 — Zotero + Obsidian + NotebookLM integration workspace
-- [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 32 — Zotero CLI skill
+- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 38 — Zotero + Obsidian + NotebookLM integration workspace
+- [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 45 — Zotero CLI skill
 - [**WenyuChiou/codex-delegate**](https://github.com/WenyuChiou/codex-delegate) ★ 57 + [**gemini-delegate-skill**](https://github.com/WenyuChiou/gemini-delegate-skill) ★ 34 (⚠️ archived) — multi-LLM delegation pair (for the Gemini lane, use Gemini CLI directly)
 
 ### Chinese-language Ecosystem

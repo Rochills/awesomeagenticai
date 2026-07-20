@@ -75,7 +75,7 @@ AI 可以幫忙準備和輔助，但不應該直接取代教師判斷。近期 A
 通用的寫作 / 腦力激盪 skill。可改用在備課上。
 
 #### 進階自動化：[Claude Code](https://github.com/anthropics/claude-code)（搭配自訂 CLAUDE.md）⭐⭐⭐⭐⭐
-★ 120k+ — **教師的基礎工具是 Claude.ai（網頁版）+ NotebookLM + Google Classroom / LMS 整合**、先從這裡開始。**只有當你已有會重複跑的批次流程**（如每週生成 50 份家長信、每學期跑學生反饋分析）才升級到 Claude Code、需要學一點 CLI。
+★ 138k+ — **教師的基礎工具是 Claude.ai（網頁版）+ NotebookLM + Google Classroom / LMS 整合**、先從這裡開始。**只有當你已有會重複跑的批次流程**（如每週生成 50 份家長信、每學期跑學生反饋分析）才升級到 Claude Code、需要學一點 CLI。
 
 ### 教學課程素材（給教師備課用）
 

@@ -57,7 +57,7 @@ Our repo is the **structured learning complement**:
   estimates
 - After Stage 5.2, readers are sent to your catalog to find specific servers
   for their stack
-- Trilingual (zh-TW / zh-Hans / en), MIT, ★525 week 1
+- Trilingual (zh-TW / zh-Hans / en), MIT, ★ 4.6k+ week 1
 
 Targeting your `## Tutorials` section (line ~XX in README) since this is a
 "how to learn MCP" resource, not a server. If a different section fits
