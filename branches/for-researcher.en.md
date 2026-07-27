@@ -145,7 +145,7 @@ Some research tasks only need Claude (dialogue, design, review). Others waste Cl
 
 | Field | Value |
 |---|---|
-| Stars | ★ 11k+ |
+| Stars | ★ 12k+ |
 | License | MIT |
 
 **What it teaches**: Open-source Deep Research — supports both single-agent and supervisor + multi-researcher architectures (the multi-agent path currently lives in `src/legacy/`), parallel search, citation-grounded report synthesis. A solid reference for "LLM agent that auto-produces a cited brief."

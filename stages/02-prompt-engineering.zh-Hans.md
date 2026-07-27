@@ -431,7 +431,7 @@ text = msg.content[0].text
 |---|---|---|---|---|
 | **学术 / 教学风 guide**<br>（先看这个） | [dair-ai/Prompt-Engineering-Guide](https://github.com/dair-ai/Prompt-Engineering-Guide) | ⭐⭐⭐⭐⭐ | 当参考书、需要某技巧再来查 | 从基础到进阶（CoT / ToT / ReAct / RAG）端到端，★ 74k+、MIT |
 | | [PromptingGuide.ai](https://www.promptingguide.ai/) | ⭐⭐⭐⭐ | 手机阅读、想要可跑范例 | 跟 dair-ai GitHub 同样内容、做成网站 + 可跑范例 |
-| | [NirDiamant/Prompt_Engineering](https://github.com/NirDiamant/Prompt_Engineering) | ⭐⭐⭐⭐ | 偏好“边跑边学” | 22 种技巧、独立 notebook，比 dair-ai 更动手，★ 7k+|
+| | [NirDiamant/Prompt_Engineering](https://github.com/NirDiamant/Prompt_Engineering) | ⭐⭐⭐⭐ | 偏好“边跑边学” | 22 种技巧、独立 notebook，比 dair-ai 更动手，★ 7.7k+|
 | **官方 cookbook** | [Anthropic Cookbook — Prompt patterns](https://github.com/anthropics/claude-cookbooks) | ⭐⭐⭐⭐⭐ | Claude 进阶 prompting（含 prompt caching / multimodal）| Stage 1 已介绍、本 stage 重点看 `misc/prompt_caching.ipynb` 跟 `multimodal/` |
 | | [GoogleCloudPlatform/generative-ai](https://github.com/GoogleCloudPlatform/generative-ai) | ⭐⭐⭐ | 用 Google 技术栈（PaLM / Gemini）| Google Cloud 的 prompting cookbook、跨厂商观点 |
 | **灵感 collection**<br>（找模式、不要照抄）| [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) | ⭐⭐⭐ | 卡关时找灵感 | 上百个“Act as a [角色]...”prompt，★ 162k+、CC0。**把模式拿出来改写、不要照抄** |

@@ -145,7 +145,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 11k+ |
+| Stars | ★ 12k+ |
 | License | MIT |
 
 **教什麼**：開源版的 Deep Research——支援單 agent 跟 supervisor + multi-researcher 兩種架構（multi-agent 那條目前在 `src/legacy/`）、平行搜尋、再合成成有引用的 report。是學「LLM agent 怎麼自動產出有引用 brief」的好參考。

@@ -302,7 +302,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 5.1k+ |
+| Stars | ★ 5.6k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (most popular community Atlassian) |
 
@@ -889,7 +889,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 8 |
+| Stars | ★ 10 |
 | License | MIT |
 | Rating | ⭐⭐⭐ (narrow but deep) |
 

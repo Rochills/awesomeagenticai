@@ -79,7 +79,7 @@
 **选读 / 进阶补充**：
 - [**Simon Willison — "I think 'agent' may finally have a widely enough agreed upon definition"**](https://simonwillison.net/2025/Sep/18/agents/) — working definition：“agent runs tools in a loop to achieve a goal”、含对照 OpenAI 等不同定义的争议（**给已有基础的人**）
 - [**DeepLearning.AI Short Courses**](https://www.deeplearning.ai/short-courses/)：“AI Agents in LangGraph”/“Multi AI Agent Systems with crewAI”/“Functions, Tools and Agents with LangChain”（**API 多数是 2023-2024 旧版**、看概念为主、写 code 对照官方最新 docs）
-- [**microsoft/ai-agents-for-beginners**](https://github.com/microsoft/ai-agents-for-beginners) — 微软官方 12 课 build-agent 入门（MIT、★ 64k+）。结构化、英文、含 code；适合想要一条**平行入门课对照**的人，不是本 stage 动手练习的替代
+- [**microsoft/ai-agents-for-beginners**](https://github.com/microsoft/ai-agents-for-beginners) — 微软官方 12 课 build-agent 入门（MIT、★ 70k+）。结构化、英文、含 code；适合想要一条**平行入门课对照**的人，不是本 stage 动手练习的替代
 - [**liyupi/ai-guide**](https://github.com/liyupi/ai-guide) — 中文圈最大 AI 资源**聚合**型 repo（不是原创教材、适合广度延伸）
 
 > 📌 **资源清单上限规则**：本 section 是 router 不是 tutorial。主清单合计上限 **10 条**（中 4 + 英 6），要加新资源前**必须先移除一条**。选读区不计入主清单上限。

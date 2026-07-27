@@ -45,7 +45,7 @@ Connect Claude Code (or any other CLI agent) to the apps you already use, withou
 ### Dev Collaboration
 
 - [**github/github-mcp-server**](https://github.com/github/github-mcp-server) ★ 29k+ — GitHub **official** MCP for issues / PRs / repos
-- [**atlassian/atlassian-mcp-server**](https://github.com/atlassian/atlassian-mcp-server) ★ 810 — Atlassian **official** Remote MCP (Jira, Confluence)
+- [**atlassian/atlassian-mcp-server**](https://github.com/atlassian/atlassian-mcp-server) ★ 908 — Atlassian **official** Remote MCP (Jira, Confluence)
 - [**jerhadf/linear-mcp-server**](https://github.com/jerhadf/linear-mcp-server) ★ 340+ — Linear MCP
 - [**korotovsky/slack-mcp-server**](https://github.com/korotovsky/slack-mcp-server) ★ 1.7k+ — Slack MCP, works without admin permissions
 

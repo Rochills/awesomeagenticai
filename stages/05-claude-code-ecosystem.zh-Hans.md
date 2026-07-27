@@ -450,7 +450,7 @@ Skill = **一个 markdown 文件**（`.claude/skills/<name>/SKILL.md`），告�
 | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | power user setup、学进阶写法 | 20+ 实战 skill（TDD、debugging、合作模式）+ `/brainstorm` / `/write-plan` / `/execute-plan` 命令 + skills-search tool |
 | [wshobson/agents](https://github.com/wshobson/agents) | ⭐⭐⭐⭐ | 中阶：学 skill + subagent 组合 | 把 skills + subagents 组合做 multi-agent 编排。**从单一 SKILL.md 进化到 agent-as-skill 组合 pattern** 的范例（★ 35k+、MIT） |
 | [travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills) | ⭐⭐⭐⭐ | 自己写前先找有没有现成的 | 社区 Claude Skills 精选目录 |
-| [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | ⭐⭐⭐ | 跨工具视角 | 1000+ agent skill、相容 Claude Code / Codex / Gemini CLI / Cursor（★ 26k+、MIT）|
+| [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | ⭐⭐⭐ | 跨工具视角 | 1000+ agent skill、相容 Claude Code / Codex / Gemini CLI / Cursor（★ 29k+、MIT）|
 | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | ⭐⭐⭐ | 找特定领域 skill 范例 | 232+ Claude Code skill、跨 engineering / marketing / product / compliance |
 
 ---

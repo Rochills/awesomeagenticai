@@ -450,7 +450,7 @@ These layers are often confused. **A one-line comparison**:
 | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | Power user setup, learning advanced patterns | 20+ battle-tested skills (TDD, debugging, collaboration patterns) + `/brainstorm` / `/write-plan` / `/execute-plan` commands + a skills-search tool. |
 | [wshobson/agents](https://github.com/wshobson/agents) | ⭐⭐⭐⭐ | Intermediate: learning skill + subagent combinations | Composes skills + subagents for multi-agent orchestration. An example of **evolving from a single SKILL.md to an agent-as-skill composition pattern** (★ 35k+, MIT). |
 | [travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills) | ⭐⭐⭐⭐ | Finding an existing skill before writing your own | A curated list of community Claude Skills. |
-| [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | ⭐⭐⭐ | A cross-tool perspective | 1000+ agent skills, compatible with Claude Code / Codex / Gemini CLI / Cursor (★ 26k+, MIT). |
+| [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | ⭐⭐⭐ | A cross-tool perspective | 1000+ agent skills, compatible with Claude Code / Codex / Gemini CLI / Cursor (★ 29k+, MIT). |
 | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | ⭐⭐⭐ | Finding domain-specific skill examples | 232+ Claude Code skills across engineering / marketing / product / compliance. |
 
 ---

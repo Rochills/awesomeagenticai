@@ -267,7 +267,7 @@ Don't know where to start choosing tools? Below are the common pairings in the i
 | **Entire stack is on LangChain** | [LangSmith](https://www.langchain.com/langsmith) (Commercial) | Official observability from LangChain |
 | **Building a Claude agent** (programmatically) | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) ⭐ | Official agent SDK from Anthropic, same runtime as Claude Code |
 | **Deploying an agent as an API service** | [BentoML](https://github.com/bentoml/BentoML) | The most complete, Docker + serving |
-| **Self-hosting an open-source LLM** (to replace paid APIs) | [vLLM](https://github.com/vllm-project/vllm) | High-throughput serving, ★ 79k+ |
+| **Self-hosting an open-source LLM** (to replace paid APIs) | [vLLM](https://github.com/vllm-project/vllm) | High-throughput serving, ★ 87k+ |
 | **Fine-tuning an open-source LLM** | [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) | Unified SFT/DPO/PPO/GRPO for 100+ models, no-code Web UI, widest Chinese community, ★ 70k+ |
 
 **Suggested adoption sequence**:
@@ -293,7 +293,7 @@ Categorized by use case, a single table to get you started with 27 projects. **U
 | | [LangSmith](https://www.langchain.com/langsmith) (Commercial) | ⭐⭐⭐⭐ | For those with their entire stack on LangChain / LangGraph | Official from LangChain, hosted version only |
 | | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | For quick instrumentation without code changes | Proxy-based, get logging + caching for free. ★ 5.7k+, Apache 2.0 |
 | | [weave (W&B)](https://github.com/wandb/weave) | ⭐⭐⭐⭐ | For teams already using W&B for ML experiment tracking | W&B tracing + eval, integrates with wandb |
-| | [comet-ml/opik](https://github.com/comet-ml/opik) | ⭐⭐⭐⭐ | For eval + observability on one open-source platform | Trace what your LLM / agent did, track experiments, and run quality checks (evals). ★ 19k+, Apache 2.0 |
+| | [comet-ml/opik](https://github.com/comet-ml/opik) | ⭐⭐⭐⭐ | For eval + observability on one open-source platform | Trace what your LLM / agent did, track experiments, and run quality checks (evals). ★ 20k+, Apache 2.0 |
 | | [pydantic/logfire](https://github.com/pydantic/logfire) | ⭐⭐⭐⭐ | For tracing agent / LLM calls on the OpenTelemetry standard | Watch and debug what your agent / LLM calls did; from the Pydantic team, built on the OpenTelemetry standard. ★ 4k+, MIT |
 | **Safety / Guardrails** | [NVIDIA-NeMo/Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) | ⭐⭐⭐⭐ | For safety rules around an agent's inputs and outputs | Safety rules you wrap around an LLM app — keep it on-topic, block jailbreaks, filter bad output. ★ 6.6k+, Apache 2.0 |
 | **Advanced Anthropic SDK** | [anthropic-sdk-python](https://github.com/anthropics/anthropic-sdk-python) | ⭐⭐⭐⭐⭐ | For building applications directly on the Claude API | Official Python SDK: streaming / async / tool use / prompt caching / batches / files |
@@ -304,7 +304,7 @@ Categorized by use case, a single table to get you started with 27 projects. **U
 | **Structured Output** | [BoundaryML/baml](https://github.com/BoundaryML/baml) | ⭐⭐⭐⭐ | For getting reliable, validated JSON out of any model | A small dedicated language for getting reliable, checked JSON out of LLMs; works with Claude / OpenAI / local models across 7 programming languages. ★ 8k+, Apache 2.0 |
 | **Deployment** | [BentoML](https://github.com/bentoml/BentoML) | ⭐⭐⭐⭐ | For packaging an agent into a production API service | Docker + serving framework. ★ 8k+, Apache 2.0 |
 | | [LangServe](https://github.com/langchain-ai/langserve) | ⭐⭐⭐ (⚠️ archived) | For quickly deploying a LangChain agent | Based on FastAPI; ⚠️ **repo archived 2026-05** — use LangGraph Platform for new deploys |
-| | [vLLM](https://github.com/vllm-project/vllm) | ⭐⭐⭐⭐ | For self-hosting an open-source LLM to replace paid APIs | High-throughput LLM serving for Llama / Qwen, etc. ★ 79k+, Apache 2.0 |
+| | [vLLM](https://github.com/vllm-project/vllm) | ⭐⭐⭐⭐ | For self-hosting an open-source LLM to replace paid APIs | High-throughput LLM serving for Llama / Qwen, etc. ★ 87k+, Apache 2.0 |
 | **Chinese Deploy / Fine-tune** | [datawhalechina/self-llm](https://github.com/datawhalechina/self-llm) | ⭐⭐⭐⭐ | For Chinese teams wanting to self-host open-source LLMs | A complete Chinese guide from training-to-deployment, for Qwen / Llama / GLM / multimodal. ★ 30k+, Apache 2.0 |
 | | [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) | ⭐⭐⭐⭐⭐ | For fine-tuning open-source LLMs (beyond just prompt eng) | Unified SFT/DPO/PPO/GRPO for 100+ models, no-code Web UI, widest Chinese community. ★ 70k+, Apache 2.0 |
 | **Multi-Agent Case Studies** | [geekan/MetaGPT](https://github.com/geekan/MetaGPT) | ⭐⭐⭐⭐⭐ | For seeing role division + artifact handoff patterns | An SOP-based multi-agent team of PM / Architect / Engineer, generating PRD → design → code. ★ 67k+, MIT |
