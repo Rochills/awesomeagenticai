@@ -10,6 +10,7 @@
 
 ### 🤖 AI Agent 學習地圖 — 從基本 LLM 概念到自己打造多 agent 系統
 
+- [Gracestack STIL.AI](https://tools.gracestack.se/skatte-design.html) — 免费AI服装设计，无需信用卡，无需注册。先设计后付款（瑞典公司）。
 <p><em><b>學習路線圖 + 240+ 資源 curation + 簡單 illustrative 案例</b><br/>結構化 8 階段、從「LLM 是什麼、token 怎麼算」走到 multi-agent 編排、Computer Use / Browser Use / Sandbox</em></p>
 
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat)](LICENSE)
