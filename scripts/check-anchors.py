@@ -123,10 +123,15 @@ def parse_anchor_links(content: str, file_path: Path) -> list[tuple[int, str, st
     return results
 
 
-def should_skip(path: Path) -> bool:
+def should_skip(path: Path, repo_root: Path) -> bool:
     """Skip excluded dirs. Mirror files are validated (EXCLUDE_PATTERNS
     is empty by default; kept as a hook if a pattern ever needs re-adding)."""
-    if any(part in EXCLUDE_DIRS for part in path.parts):
+    # Match on the path RELATIVE to the repo root. Testing path.parts instead
+    # matches directory names anywhere in the ABSOLUTE path, so a checkout under
+    # e.g. `.claude/worktrees/<name>/` skips every file and the gate reports a
+    # silent all-clear. See the 2026-08-02 CHANGELOG entry — the same bug shipped
+    # in check-locale-links.py and was live in check-catalog-counts.py.
+    if any(part in EXCLUDE_DIRS for part in path.relative_to(repo_root).parts):
         return True
     for pat in EXCLUDE_PATTERNS:
         if path.name.endswith(pat):
@@ -184,7 +189,7 @@ def main() -> int:
     all_broken: list[tuple[Path, int, str]] = []
 
     for md in sorted(repo_root.rglob('*.md')):
-        if should_skip(md):
+        if should_skip(md, repo_root):
             continue
         try:
             all_broken.extend(validate_file(md, repo_root))

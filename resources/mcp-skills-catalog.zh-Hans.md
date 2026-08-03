@@ -932,7 +932,7 @@
 
 下面 3 个 skill 是**设计成一起用**的，不是独立工具：
 
-![Claude + 3 个 delegate skill 分工](../resources/diagrams/multi-llm-delegation-composition.png)
+![Claude + 3 个 delegate skill 分工](../resources/diagrams/multi-llm-delegation-composition.zh-Hans.png)
 
 Claude 不擅长 token-heavy 机械式工作（成本高、context 容易爆）；Codex 不擅长对话协作；Gemini 有 1M context 但中型推理稍弱。**分工 = Claude 负责 design / review、Codex 负责 implement、Gemini 负责 long-form draft / synthesis**。
 

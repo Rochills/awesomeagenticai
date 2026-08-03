@@ -85,7 +85,13 @@ def anchors_of(fp: Path) -> set[str]:
 def iter_mirror_files(root: Path):
     for suffix, glob in LOCALES:
         for fp in sorted(root.rglob(glob)):
-            if any(part in EXCLUDE_DIRS for part in fp.parts):
+            # Match on the path RELATIVE to the repo root. Testing fp.parts
+            # instead matches directory names anywhere in the absolute path, so
+            # a checkout living under e.g. `.claude/worktrees/<name>/` excludes
+            # every file in the repo and this gate reports a silent all-clear —
+            # green locally for the wrong reason, while CI (whose runner path has
+            # no excluded component) is the only place it actually runs.
+            if any(part in EXCLUDE_DIRS for part in fp.relative_to(root).parts):
                 continue
             yield suffix, fp
 

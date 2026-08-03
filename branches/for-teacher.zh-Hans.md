@@ -12,7 +12,7 @@
 
 这样的分类参考 AI in Education 文献中常见的行政、教学与学习应用脉络，也加入生成式 AI 在教材生成、反馈与互动支援上的近期讨论（Chen et al., 2020；Mittal et al., 2024）。阅读时建议先理解教师把关原则与使用边界，再依自己的教学需求挑一个分支深入。
 
-![教师与 AI agent 使用场景总览](../resources/diagrams/teacher-ai-use-cases-overview.jpg)
+![教师与 AI agent 使用场景总览](../resources/diagrams/teacher-ai-use-cases-overview.zh-Hans.png)
 
 ### 教师使用 AI 辅助时要注意什么
 
@@ -36,7 +36,7 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
 
 ### 教学现场与学习辅助
 
-![教学现场与学习辅助应用场景](../resources/diagrams/teacher-ai-classroom-use-cases.jpg)
+![教学现场与学习辅助应用场景](../resources/diagrams/teacher-ai-classroom-use-cases.zh-Hans.png)
 
 这类场景偏向“帮学生理解、练习、互动”，AI 比较像教学助教或活动辅助工具。特别注意：不需要在单一教学活动中加入所有要素，而是挑选适合的环节加入 AI agent 设计。
 

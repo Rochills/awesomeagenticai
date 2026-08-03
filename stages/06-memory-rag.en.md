@@ -133,7 +133,7 @@ The most basic RAG is divided into two pipelines:
 - **Data Preprocessing (Ingest Once)**: ingest → chunk → embed → store (index). This step builds the searchable knowledge base.
 - **Retrieval & Generation (Per Query)**: retrieve → generate. This step finds relevant content when the user asks a question and feeds it to the LLM for generation.
 
-![RAG Pipeline Overview](../resources/diagrams/rag-pipeline-overview.jpg)
+![RAG Pipeline Overview](../resources/diagrams/rag-pipeline-overview.en.png)
 
 The RAG Fusion and query rewrite techniques mentioned in the diagram fall under advanced retrieval techniques. When learning RAG for the first time, focus on understanding the main flow.
 
@@ -530,7 +530,7 @@ A good chunk should achieve two things: **sufficient completeness** for the mode
 - **Semantic Chunking**: Splits based on embedding similarity or semantic shifts, where similarity between consecutive chunks changes. Suitable for long documents but more complex and costly.
 - **Hybrid Strategies**: Combines different methods based on document structure and application needs. For example, a research paper might need to preserve chapter context, tables, formulas, and citation references.
 
-![Chunking Strategy Flowchart](../resources/diagrams/chunking-strategies.jpg)
+![Chunking Strategy Flowchart](../resources/diagrams/chunking-strategies.en.png)
 
 > 📚 **Classic Tutorial**: [Greg Kamradt — 5 Levels of Text Splitting](https://github.com/FullStackRetrieval-com/RetrievalTutorials) ★ Essential reading for chunking basics, covering everything from character-based to agentic chunking across five levels, including Jupyter notebooks.
 

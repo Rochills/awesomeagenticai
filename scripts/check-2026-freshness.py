@@ -144,7 +144,11 @@ def scan_file(
 
 
 def should_skip(path: Path, repo_root: Path, cfg: dict) -> bool:
-    if any(part in EXCLUDE_DIRS for part in path.parts):
+    # Match on the path RELATIVE to the repo root — matching path.parts tests
+    # the ABSOLUTE path, so a checkout under e.g. `.claude/worktrees/<name>/`
+    # skips every file and this gate reports a silent all-clear. Same bug as the
+    # 2026-08-02 check-locale-links.py / check-catalog-counts.py fix.
+    if any(part in EXCLUDE_DIRS for part in path.relative_to(repo_root).parts):
         return True
     # Mirror locales (.en.md / .zh-Hans.md) are NO LONGER skipped: stale facts drift
     # into them when canonical is fixed but the mirror is left behind (2026-07 gap).

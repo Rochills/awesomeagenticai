@@ -133,7 +133,7 @@ LLM 知道你的私有 / 領域資料、有 3 種主要做法。**本 stage 教 
 - **資料預處理（ingest 一次）**：ingest → chunk → embed → store（index）。這一步是在建立可檢索的知識庫。
 - **檢索生成（每次 query）**：retrieve → generate。這一步是在使用者提問時，找出相關內容，再交給 LLM 生成回答。
 
-![RAG 流水線總覽](../resources/diagrams/rag-pipeline-overview.jpg)
+![RAG 流水線總覽](../resources/diagrams/rag-pipeline-overview.png)
 
 圖中的 RAG Fusion、query rewrite 等屬於進階檢索技巧。**第一次學 RAG 時，先理解主線流程即可**。
 
@@ -534,7 +534,7 @@ Memory research 2024-2026 集中在 **3 條主軸**：
 - **語意切割（Semantic Chunking）**：依 embedding 或語意變化切，也就是當前區塊與前一個區塊的語意相似度出現差異。適合長文件，但成本與複雜度較高。
 - **混合策略（Hybrid）**：依照應用場景，思考不同文件結構該怎麼混搭切法。例如，一篇論文可能要保留章節、表格、公式與引用脈絡。
 
-![Chunking 策略流程](../resources/diagrams/chunking-strategies.jpg)
+![Chunking 策略流程](../resources/diagrams/chunking-strategies.png)
 
 > 📚 **經典教學**：[Greg Kamradt — 5 Levels of Text Splitting](https://github.com/FullStackRetrieval-com/RetrievalTutorials) ★ chunking 入門必看、從 character-based 一路講到 agentic chunking 五個層次、含 Jupyter notebook。
 

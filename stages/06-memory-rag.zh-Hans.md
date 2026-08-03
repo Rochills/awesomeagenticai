@@ -133,7 +133,7 @@
 - **数据预处理（Ingest 一次）**：ingest → chunk → embed → store（index）。这一步是在构建可检索的知识库。
 - **检索生成（每次 Query）**：retrieve → generate。这一步是在用户提问时，找出相关内容，然后交给 LLM 生成回答。
 
-![RAG Pipeline Overview](../resources/diagrams/rag-pipeline-overview.jpg)
+![RAG Pipeline Overview](../resources/diagrams/rag-pipeline-overview.zh-Hans.png)
 
 图中的 RAG Fusion、query rewrite 等属于进阶检索技巧。**第一次学习 RAG 时，先理解主线流程即可**。
 
@@ -534,7 +534,7 @@ Memory 研究在 2024-2026 年集中在 **3 大主线**：
 - **语义切割（Semantic Chunking）**: 基于 embedding 或语义变化进行分割，即当前块与前一个块的语义相似度出现差异时进行分割。适合长文档，但成本和复杂度较高。
 - **混合策略（Hybrid）**: 根据应用场景，思考不同文档结构该如何混合使用分割方法。例如，一篇论文可能需要保留章节、表格、公式和引用脉络。
 
-![Chunking Strategy Flowchart](../resources/diagrams/chunking-strategies.jpg)
+![Chunking Strategy Flowchart](../resources/diagrams/chunking-strategies.zh-Hans.png)
 
 > 📚 **经典教程**: [Greg Kamradt — 5 Levels of Text Splitting](https://github.com/FullStackRetrieval-com/RetrievalTutorials) ★ Chunking 入门必读，涵盖从 character-based 到 agentic chunking 的五个层级，包含 Jupyter notebook。
 

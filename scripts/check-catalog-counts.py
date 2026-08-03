@@ -32,6 +32,9 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+# Named rather than inlined at the scan site so it can't drift out of sync with
+# the other gates' exclude sets unnoticed.
+SCAN_EXCLUDE_DIRS = {".git", ".claude", "_build", "node_modules", "book"}
 CATALOGS = [
     "resources/mcp-skills-catalog.md",
     "resources/mcp-skills-catalog.en.md",
@@ -138,7 +141,12 @@ def main() -> int:
     real = max(totals.values()) if totals else 0
     stale, checked = [], 0
     for fp in sorted(REPO_ROOT.rglob("*.md")):
-        if any(p in {".git", ".claude", "_build", "node_modules", "book"} for p in fp.parts):
+        # Match on the path RELATIVE to REPO_ROOT. Matching fp.parts tests the
+        # ABSOLUTE path, and this set contains ".claude" — so a checkout under
+        # `.claude/worktrees/<name>/` skipped all 248 markdown files while this
+        # BLOCKING gate still printed its ✓. Found 2026-08-02 alongside the same
+        # bug in check-locale-links.py.
+        if any(p in SCAN_EXCLUDE_DIRS for p in fp.relative_to(REPO_ROOT).parts):
             continue
         if fp.name.startswith("CHANGELOG"):
             continue  # history legitimately records older numbers
