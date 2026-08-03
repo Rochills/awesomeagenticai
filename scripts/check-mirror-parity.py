@@ -102,7 +102,13 @@ def trios():
 def _scan():
     """Yield (canonical_path, {locale: mirror_path}, is_complete) for every canonical."""
     for canon in sorted(REPO_ROOT.rglob("*.md")):
-        if any(p in SKIP_DIR_PARTS for p in canon.parts):
+        # Match on the path RELATIVE to REPO_ROOT. Matching canon.parts tests
+        # the ABSOLUTE path, and SKIP_DIR_PARTS contains ".claude" — so from a
+        # checkout under `.claude/worktrees/<name>/` every file is skipped. Here
+        # the trio-count ratchet turns that into a loud failure rather than a
+        # silent pass, but the walker is still blind. Same bug as the 2026-08-02
+        # sweep across six other gates; pinned by test_repo_scan_excludes.py.
+        if any(p in SKIP_DIR_PARTS for p in canon.relative_to(REPO_ROOT).parts):
             continue
         name = canon.name
         if name in SKIP_FILES or name.endswith((".en.md", ".zh-Hans.md")):

@@ -51,22 +51,13 @@ SKIP_DIR_PARTS = {".git", ".claude", ".ai", "_build", "_site", "node_modules", "
 # Assets with no localized variant yet. Each entry is (page, asset-as-written).
 # Removing an entry after generating the artwork is the whole point — do not add
 # to this list to silence a NEW mismatch without a reason recorded in CHANGELOG.
-KNOWN_MISSING = {
-    ("resources/mcp-skills-catalog.zh-Hans.md",
-     "../resources/diagrams/multi-llm-delegation-composition.png"),
-    ("stages/06-memory-rag.en.md", "../resources/diagrams/rag-pipeline-overview.jpg"),
-    ("stages/06-memory-rag.zh-Hans.md", "../resources/diagrams/rag-pipeline-overview.jpg"),
-    ("stages/06-memory-rag.en.md", "../resources/diagrams/chunking-strategies.jpg"),
-    ("stages/06-memory-rag.zh-Hans.md", "../resources/diagrams/chunking-strategies.jpg"),
-    ("branches/for-teacher.en.md",
-     "../resources/diagrams/teacher-ai-use-cases-overview.jpg"),
-    ("branches/for-teacher.zh-Hans.md",
-     "../resources/diagrams/teacher-ai-use-cases-overview.jpg"),
-    ("branches/for-teacher.en.md",
-     "../resources/diagrams/teacher-ai-classroom-use-cases.jpg"),
-    ("branches/for-teacher.zh-Hans.md",
-     "../resources/diagrams/teacher-ai-classroom-use-cases.jpg"),
-}
+#
+# Currently EMPTY, and that is the desired state: the nine original gaps were all
+# closed on 2026-08-03 (13 diagrams generated, .jpg -> .png), so every entry here
+# became dead data referencing paths that no longer exist. An empty allowlist
+# means any new gap fails the build immediately instead of joining a pile.
+KNOWN_MISSING: set[tuple[str, str]] = set()
+
 
 
 def localized_name(asset: str, locale: str) -> str:
@@ -113,7 +104,7 @@ def main() -> int:
     fixable, gaps, dead, checked = [], [], [], 0
 
     for name in sorted(glob.glob("**/*.md", recursive=True, root_dir=REPO_ROOT)):
-        if any(p in SKIP_DIR_PARTS for p in Path(name).parts):
+        if any(p in SKIP_DIR_PARTS for p in Path(name).parts):  # abs-parts-ok: glob(root_dir=REPO_ROOT) yields relative names
             continue
         locale = next((v for k, v in LOCALE_SUFFIXES.items() if name.endswith(k)), None)
         if locale is None:

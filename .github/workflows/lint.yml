@@ -245,28 +245,18 @@ jobs:
         # links into dead ends. stdlib-only.
         run: python3 scripts/test_locale_links.py
 
-      - name: Check mirror pages embed their own locale's images (blocking)
-        # Companion to check-locale-links.py, which matches `.md` targets only
-        # (its LINK_RE demands a .md suffix) — so image paths were invisible to
-        # it and to every other gate. That blind spot let 9 references embed
-        # Traditional-Chinese-only diagrams from .en.md / .zh-Hans.md pages with
-        # the alt text localized but the picture not.
-        #
-        # Shipped advisory on 2026-08-02 because 9 locale variants did not exist
-        # yet; they were produced the same day, so this is now BLOCKING.
-        # Fix a failure with: python scripts/check-locale-images.py --apply
-        # (that only retargets references whose variant already exists; a
-        # MISSING one needs the artwork produced first — how these were
-        # generated, and the verification traps, are recorded in
-        # resources/diagrams/locale-variant-prompts.md).
-        run: python3 scripts/check-locale-images.py
-
-      - name: check-locale-images.py detection unit tests
-        # Pins the exemptions (.md links / external URLs / fenced code /
-        # already-suffixed targets) plus the EXCLUDE_DIRS absolute-vs-relative
-        # path bug that made both locale gates report a silent all-clear from a
-        # checkout under `.claude/worktrees/`. stdlib-only.
-        run: python3 scripts/test_locale_images.py
+      - name: Repo-walker exclude-path regression tests
+        # The 2026-08-02 "silent false all-clear" class: six gates matched
+        # EXCLUDE_DIRS against the ABSOLUTE path, so a checkout under
+        # `.claude/worktrees/<name>/` (this repo's standard worktree location)
+        # skipped every file and still printed its success line.
+        # check-catalog-counts.py was live — 0 of 248 files scanned, exit 0,
+        # as a BLOCKING gate. CI never saw it: the runner path has no excluded
+        # component, so the gates only went blind locally, which is the one
+        # place they run pre-commit.
+        # Includes a source-level scan that fails if any script reintroduces
+        # the pattern, so this cannot come back a seventh time. stdlib-only.
+        run: python3 scripts/test_repo_scan_excludes.py
 
       - name: refresh-stars.py detection unit tests
         # Pins the 2026-07 star-line write-back + neighbour-leak fix

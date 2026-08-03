@@ -126,8 +126,20 @@ def test_ignores_non_image_links():
 
 # --- allowlist wiring -------------------------------------------------------
 
-def test_known_missing_covers_all_nine():
-    assert len(cil.KNOWN_MISSING) == 9, cil.KNOWN_MISSING
+def test_known_missing_is_empty():
+    """The nine original gaps were closed on 2026-08-03; it must stay at zero.
+
+    This asserted `== 9` while the backlog existed. All nine were generated
+    (13 diagrams, .jpg -> .png), which left every entry pointing at a path that
+    no longer exists — dead data that could never match. An empty allowlist is
+    the stronger state: a new gap fails the build instead of joining a pile.
+
+    Re-adding an entry is a deliberate act and needs a reason in CHANGELOG, per
+    the comment above KNOWN_MISSING itself.
+    """
+    assert cil.KNOWN_MISSING == set(), (
+        "a locale gap was allowlisted instead of fixed: " + repr(cil.KNOWN_MISSING)
+    )
 
 
 def test_known_missing_entries_are_pairs():

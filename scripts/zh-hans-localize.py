@@ -138,7 +138,13 @@ def main() -> int:
     SKIP_PARTS = {".ai", ".claude", "node_modules", "_build", "_site", "book"}
     files = sorted(
         p for p in REPO.rglob("*.zh-Hans.md")
-        if not SKIP_PARTS & set(p.parts)
+        # Intersect against the REPO-RELATIVE parts. Using p.parts tests the
+        # ABSOLUTE path, and SKIP_PARTS contains ".claude" — so from a checkout
+        # under `.claude/worktrees/<name>/` this matched every file and the gate
+        # scanned 0 of 68 zh-Hans files while printing "✓ zh-Hans localization
+        # clean — no drift". Eighth instance of the 2026-08-02 bug class; pinned
+        # by test_repo_scan_excludes.py.
+        if not SKIP_PARTS & set(p.relative_to(REPO).parts)
         and p.relative_to(REPO).as_posix() not in PROTECT
     )
     total = 0

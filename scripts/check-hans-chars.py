@@ -131,7 +131,7 @@ def main() -> int:
     checked = 0
     for name in sorted(glob.glob("**/*.zh-Hans.md", recursive=True, root_dir=REPO_ROOT)):
         rel = Path(name).as_posix()
-        if any(p in SKIP_DIR_PARTS for p in Path(name).parts):
+        if any(p in SKIP_DIR_PARTS for p in Path(name).parts):  # abs-parts-ok: glob(root_dir=REPO_ROOT) yields relative names
             continue
         checked += 1
         for lineno, bad, text in residue_in_file(

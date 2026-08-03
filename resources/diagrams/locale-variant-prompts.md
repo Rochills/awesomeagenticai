@@ -78,11 +78,9 @@
 ## 重產時的檢查
 
 ```bash
-python scripts/check-locale-images.py
+python scripts/check-image-locale.py
 ```
 
-若引用指向別的語系，自動修正：
-
-```bash
-python scripts/check-locale-images.py --apply
-```
+該 gate 把「同語系變體已存在但頁面沒用」當錯誤直接擋，「變體還沒做」則記在它的
+`KNOWN_MISSING` 白名單裡——所以**新增一張缺變體的圖會讓 build 失敗**，不會默默累積。
+補完變體後記得把對應的 `KNOWN_MISSING` 條目一起移除。
