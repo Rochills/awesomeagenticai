@@ -228,7 +228,7 @@ README 跟各 stage 会频繁提到这三个 Claude Code 生态的关键词，�
 
 **开发协作**
 
-- [**github/github-mcp-server**](https://github.com/github/github-mcp-server) ★ 29k+ — GitHub **官方** MCP，issue / PR / repo 操作
+- [**github/github-mcp-server**](https://github.com/github/github-mcp-server) ★ 31k+ — GitHub **官方** MCP，issue / PR / repo 操作
 - [**atlassian/atlassian-mcp-server**](https://github.com/atlassian/atlassian-mcp-server) ★ 908 — Atlassian **官方** Remote MCP（Jira、Confluence）
 - [**jerhadf/linear-mcp-server**](https://github.com/jerhadf/linear-mcp-server) ★ 340+ — Linear MCP server
 - [**korotovsky/slack-mcp-server**](https://github.com/korotovsky/slack-mcp-server) ★ 1.7k+ — Slack MCP，无 admin 权限也能用
