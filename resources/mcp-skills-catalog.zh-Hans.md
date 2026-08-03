@@ -869,6 +869,25 @@
 
 ---
 
+### [morluto/jacobian](https://github.com/morluto/jacobian) ⭐⭐⭐
+
+| 栏位 | 内容 |
+|---|---|
+| 语言 | Python |
+| Stars | ★ 13 |
+| License | MIT |
+| 推荐度 | ⭐⭐⭐ |
+
+**教什么**：用一个可直接安装的数学 MCP server，练习让 agent 调用可组合的精确计算工具；涵盖 polynomial maps、linear algebra 和 graph algorithms。
+**适合谁**：想在 MCP 工作流中加入数学计算，或需要让 agent 处理结构化数学问题的研究者与开发者。
+**备注**：同时提供 MCP server、CLI 和 Python library；可以从一个简单的本地 MCP 配置开始，再按需使用原生 Python API。
+**怎么运行**：
+```bash
+npx -y jacobian mcp
+```
+
+---
+
 ## 13. 研究工作流 Skills（学术 / paper / 文献）
 
 > ⚠️ **maintainer 自家项目区**：以下几个是本 repo 维护者 [@WenyuChiou](https://github.com/WenyuChiou)（Lehigh CEE PhD candidate）日常在用的研究 skills，公开出来给其他研究者参考。**因为是自己的东西、又是相对 niche 的研究场景，star 数量会比通用工具低**。star 门槛在这节是放宽的——选收的标准是“在我自己的研究流程里实际有用”。请自己评估是否合用。

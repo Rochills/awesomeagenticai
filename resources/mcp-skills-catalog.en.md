@@ -869,6 +869,25 @@
 
 ---
 
+### [morluto/jacobian](https://github.com/morluto/jacobian) ⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Language | Python |
+| Stars | ★ 13 |
+| License | MIT |
+| Rating | ⭐⭐⭐ |
+
+**What it teaches**: a directly installable math MCP server for practicing agent calls to composable, exact computations across polynomial maps, linear algebra, and graph algorithms.
+**Who it's for**: researchers and developers who want to add mathematical computation to MCP workflows or have agents work with structured mathematical problems.
+**Notes**: provides an MCP server, CLI, and Python library. Start with a local MCP configuration and use the native Python API when needed.
+**How to run**:
+```bash
+npx -y jacobian mcp
+```
+
+---
+
 ## 13. Research Workflow Skills (academic / paper / lit)
 
 > ⚠️ **Maintainer's own projects**: the following are skills the repo maintainer [@WenyuChiou](https://github.com/WenyuChiou) (Lehigh CEE PhD candidate) uses daily for research and open-sourced for other researchers. **Star counts are lower than general-purpose tools** because these are niche / research-specific. The ★ 100+ inclusion floor is relaxed in this section — the only criterion here is "actually useful in the maintainer's research workflow". Evaluate fit yourself.
