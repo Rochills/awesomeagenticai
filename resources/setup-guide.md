@@ -55,7 +55,7 @@
 
 | CLI Agent | 安裝 / 文件 | 主要 LLM |
 |---|---|---|
-| **Claude Code** | https://docs.anthropic.com/en/docs/claude-code/quickstart | Claude |
+| **Claude Code** | https://code.claude.com/docs/en/quickstart | Claude |
 | **Codex CLI** | https://github.com/openai/codex | GPT 系列 |
 | **Gemini CLI** | https://github.com/google-gemini/gemini-cli | Gemini |
 | **OpenCode** | https://github.com/sst/opencode | 任意（多 provider） |
@@ -100,7 +100,7 @@
 - **Google AI Studio**：https://aistudio.google.com/
   適合先試 Gemini API，免費額度會依地區和帳號狀態不同。
 - **NVIDIA NIM**：https://build.nvidia.com/
-  **托管多個開源 model（Llama / Mistral / DeepSeek-R1 / Qwen / Gemma 等）、OpenAI-compatible API、新帳號送 1000 credits**。適合「想試多個 open-source model 但沒 GPU」的情境。`base_url=https://integrate.api.nvidia.com/v1`。
+  **托管多個開源 model（Llama / Mistral / DeepSeek / Qwen / Gemma 等）、OpenAI-compatible API、新帳號送 1000 credits**。適合「想試多個 open-source model 但沒 GPU」的情境。`base_url=https://integrate.api.nvidia.com/v1`。
 
 #### 中國 / 中文場景（地區友善、價格極便宜）
 

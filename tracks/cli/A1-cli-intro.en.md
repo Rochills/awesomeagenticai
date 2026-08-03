@@ -29,7 +29,7 @@ You should already:
 
 1. [**`resources/agent-paradigms.en.md`**](../../resources/agent-paradigms.en.md) ⭐ — the 5-paradigm map of the agent landscape; read this first to see where CLI agents sit (Type 2 + Type 3) in the wider ecosystem
 2. [**`resources/cli-agents-guide.en.md`**](../../resources/cli-agents-guide.en.md) ⭐ — the core reference for this track. 8 mainstream CLI agents side by side, use-case picks, real-world setups
-3. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — official install
+3. [**Anthropic — Claude Code Quickstart**](https://code.claude.com/docs/en/quickstart) — official install
 4. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex install + auth
 
 ## 🛠 Hands-on Exercises (foundational, illustrative)

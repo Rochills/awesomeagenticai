@@ -28,6 +28,16 @@ CLI 跑得顺了之后，下一步：**把 CLI 接到你的真实团队流程**�
 - 加 observability（trace、cost、latency）到 CLI workflow
 - 规划 cost budget，知道大 task 会花多少 token
 
+## 🚪 进入条件
+
+你应该已经：
+- 完成 [A1](A1-cli-intro.zh-Hans.md)：CLI 已选好、装好、认证好
+- 完成 [A2](A2-cli-workflow.zh-Hans.md)：写过 production CLAUDE.md、会写 slash command、跑过多步骤拆解
+- 对 GitHub Actions / CI 基础熟悉（会看 `.yml` workflow）
+- 对 MCP 概念有印象（没有的话先翻 [Stage 5.2](../../stages/05-claude-code-ecosystem.zh-Hans.md#52--mcpmodel-context-protocol-基础)）
+
+没到的话 → 补完 [A1](A1-cli-intro.zh-Hans.md) + [A2](A2-cli-workflow.zh-Hans.md)。A3 是“组合所有前面学的 → 接到 production”，跳级会看不懂。
+
 ## 📚 必修阅读
 
 1. [**Stage 5.2 — MCP（Model Context Protocol）**](../../stages/05-claude-code-ecosystem.zh-Hans.md#52--mcpmodel-context-protocol-基础) — MCP 概念跟基础
@@ -219,6 +229,8 @@ Track A 的人**已经在用** [Stage 7.5 的进阶概念](../../stages/07.5-adv
 
 #### [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace)
 ★ 1.2k+ — 最简 marketplace template。要把你 team 的 CLI workflow 打包共用时参考。
+
+> 💡 **建议入手路径**：先从 `modelcontextprotocol/servers` 挑一个 reference MCP 接到 CLI → 用 `claude-code-action` 跑第一个 CI workflow → 加 langfuse 看 trace + cost → production 规模化时把 workflow 打包成 marketplace plugin。
 
 ## ✅ Track A 完整通关自我检查
 

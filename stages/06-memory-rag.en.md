@@ -242,7 +242,7 @@ The following six subsections represent common production RAG enhancements from 
 - **Framework Built-ins**: LlamaIndex's `SentenceTransformerRerank` / LangChain's `ContextualCompressionRetriever`.
 
 **Paper / Introduction**:
-- [**Pinecone — Rerankers and Two-Stage Retrieval**](https://www.pinecone.com/learn/series/rag/rerankers/) — Best explanation of the reranker mental model.
+- [**Pinecone — Rerankers and Two-Stage Retrieval**](https://www.pinecone.io/learn/series/rag/rerankers/) — Best explanation of the reranker mental model.
 - [**Anthropic — Contextual Retrieval**](https://www.anthropic.com/news/contextual-retrieval) (listed above) — Demonstrates hybrid + reranker with benchmarks.
 
 ### Query Transformations — HyDE / Multi-Query / RAG Fusion

@@ -68,6 +68,7 @@
 - **schema-design-cheatsheet** 跟 cookbook 2 有交集，但 cheatsheet 讲 schema 规则，cookbook 讲怎么把 server 跑起来。
 - **cli-agents-guide** 是比较 reference；**mcp-skills-catalog** 是工具集成目录。
 - **setup-guide** 给从零开始的人；Stage 0 默认你已经准备好进入学习路线。
+- **跟 [Hello-Agents](https://github.com/datawhalechina/hello-agents) 的关系**：Hello-Agents 是中文圈最完整的 agent 教材，深度高。我们走的是“**roadmap + curated catalog + 动手 recipe**”的角度，不取代它。Stage 5.3 / cookbook 1 都明确 cross-ref Hello-Agents Extra08“如何写出好的 Skill”当深度补充。
 
 ---
 

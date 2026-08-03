@@ -61,7 +61,7 @@
 |---|---|---|---|---|---|
 | **DeepSeek**（深度求索）| V4-Flash（`deepseek-v4-flash`）/ V4-Pro（`deepseek-v4-pro`）| 1M | 推理 / coding / **cost 最低** | 大量 token / code 生成 / math | [api-docs.deepseek.com](https://api-docs.deepseek.com/zh-cn/) |
 | **Kimi**（Moonshot）| K3（2.8T 参数、原生多模态）| **1M** | 长 context / 中文长文 | 整本书读 / 文献分流 | [platform.moonshot.cn](https://platform.moonshot.cn/) |
-| **Hunyuan**（腾讯）| T1（深度思考）+ TurboS | 128k | **可比 DeepSeek R1 推理**、中文 | 中文推理 / 腾讯生态 | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
+| **Hunyuan**（腾讯）| T1（深度思考）+ TurboS | 128k | **深度思考推理**（对标 DeepSeek R1 这条 2025 推理基线）、中文 | 中文推理 / 腾讯生态 | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
 | **MiniMax** | M3 | 1M | 多模态 / 中文长 prose / coding | 中文写作 / 影音 multimodal | [platform.minimax.io](https://platform.minimax.io/) |
 
 > **注**：这组以云端 API 为主、多为 proprietary。DeepSeek 另有部分开源权重（在 HF），主要用法仍是云端 API（旧名 `deepseek-chat`/`deepseek-reasoner` 于 2026-07-24 停用、已改指向 v4-flash）。
@@ -141,6 +141,11 @@
 4. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) - Hugging Face 的图文并茂指南。
 5. [**Anthropic API Pricing**](https://www.anthropic.com/pricing#anthropic-api) - 了解并比较模型成本（例如，1k input + 1k output 的价格）。
 
+**🎥 中文视频补充（强烈推荐）**：
+- [**李宏毅 — 生成式 AI 导论（2024 春台大课程）**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — 第 1-5 集讲 LLM 是什么、怎么运作、token / context window / temperature 怎么影响输出。中文圈最高质量的 LLM 学术级导论、台大授课、官方页含幻灯片 + YouTube。最新整合版见 [**GenAI-ML 2025 秋**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)
+- [**3Blue1Brown — Transformer 可视化**](https://www.youtube.com/watch?v=wjZofJX0v4M)（中文配音版：[3Blue1Brown 中文](https://www.youtube.com/@3Blue1BrownCN)）— LLM 内部运作的可视化入门
+- [**Andrej Karpathy — Intro to LLMs**](https://www.youtube.com/watch?v=zjkBMFhNj_g) — 英文视频、1 小时、英文圈最被推荐的 LLM 入门视频
+
 ## 🛠 动手练习（基础 illustrative 练习）
 
 > 🦙 **本 stage 默认用 Ollama**（成本考量、本机 `gemma4:e4b` 跑得动、$0/run）。每个练习都有 Path A（Ollama、默认）+ Path B（Anthropic、选择性、想看 cloud 高质量时用）。完整 3 路 trade-off 见 [`examples/README.zh-Hans.md`](../examples/README.zh-Hans.md#三条路径--默认用-ollama成本考量)。
@@ -186,6 +191,13 @@ assert r.usage.completion_tokens > 0, "output token 应 > 0"
 print("✅ 练习 1 通过 — Ollama gemma4:e4b 已能本机回应、$0/次")
 ```
 
+**预期输出**（样本）：
+```
+回应：嗨！我是 Gemma、一个由 Google 训练的开源语言模型...
+usage: CompletionUsage(completion_tokens=35, prompt_tokens=12, total_tokens=47)
+✅ 练习 1 通过 — Ollama gemma4:e4b 已能本机回应、$0/次
+```
+
 **慢吗？** Gemma 4B 在 CPU 上约 5-30s/答案、有 GPU（RTX 3060+）<2s。要更快用 `gemma3:1b`、要更聪明改 `qwen2.5:14b` / `llama3.3:8b`（需 8GB+ VRAM）。
 
 </details>
@@ -218,6 +230,13 @@ assert msg.stop_reason in ("end_turn", "max_tokens"), f"非预期 stop_reason: {
 assert len(text) > 0, "回应不应为空"
 assert msg.usage.input_tokens > 0 and msg.usage.output_tokens > 0, "token 数应 > 0"
 print("✅ 练习 1 通过 — 你已成功打通 Anthropic API")
+```
+
+**预期输出**（样本）：
+```
+回应：我是 Claude，一个由 Anthropic 训练的 AI 助理...
+usage: Usage(input_tokens=18, output_tokens=42, ...)
+✅ 练习 1 通过 — 你已成功打通 Anthropic API
 ```
 
 **成本**：每次 ~$0.001 (haiku) / $0.004 (sonnet)、跑这个 hello world 比 Ollama 快 5-15 倍。
@@ -267,6 +286,15 @@ for label, prompt in PROMPTS.items():
 assert max(output_tokens) > min(output_tokens), "temperature=1.0 下、output 长度应该有 variance"
 print("\n✅ 练习 2 通过 — 本机跑 $0")
 print("💡 中文 prompt 通常 input tokens 比 English 多（中文 token 化通常一字 ≈ 2 tokens）")
+```
+
+**预期输出**（样本）：
+```
+[中文] prompt: 用一句话描述一只猫在做什么。
+  input tokens: 32
+  output tokens — min=18 max=58 mean=35.2 stdev=11.4
+
+✅ 练习 2 通过 — 本机跑 $0
 ```
 
 </details>
@@ -338,6 +366,18 @@ assert avg_latency > 0, "latency 应 > 0"
 assert out_tok_avg > 0, "output token 应 > 0"
 print(f"\n✅ 练习 3 通过 — 本机 model $0 但要花 {avg_latency * 1000 / 60:.0f} 分钟跑 1000 次")
 print("💡 对照 Path B Anthropic：1000 次只要 ~10-20 分钟但要 $0.25（haiku）")
+```
+
+**预期输出**（样本）：
+```
+model: gemma4:e4b (本机)
+5 次 latency (sec): min=4.21 max=8.93 mean=6.54
+avg output: 48 tokens、约 7.3 tokens/sec
+
+1000 次成本: $0 (本机)、预计时长: 109.0 分钟
+
+✅ 练习 3 通过 — 本机 model $0 但要花 109 分钟跑 1000 次
+💡 对照 Path B Anthropic：1000 次只要 ~10-20 分钟但要 $0.25（haiku）
 ```
 
 </details>
@@ -450,7 +490,16 @@ print(f"✅ 练习 6 通过 — 你的本机 Ollama 已能透过 OpenAI 兼容 A
 print(f"💡 跑这次完全没花钱（除了你的电力）")
 ```
 
+**预期输出**（样本、实际内容因 model 而异）：
+```
+回应：ReAct 是一种让 AI 结合“推理”和“行动”的方法...
+✅ 练习 6 通过 — 你的本机 Ollama 已能透过 OpenAI 兼容 API 呼叫
+💡 跑这次完全没花钱（除了你的电力）
+```
+
 **为什么要做**：学会跑本地 LLM 后，后面 Stage 3-6 的实验都不会被 API 费用卡住；隐私敏感场景也能 offline。
+
+**没装 Ollama 也想跑**：把 `base_url` 换成 [LM Studio](https://lmstudio.ai)（`http://localhost:1234/v1`）或 [vLLM](https://github.com/vllm-project/vllm) endpoint、API 接口一样。
 
 </details>
 

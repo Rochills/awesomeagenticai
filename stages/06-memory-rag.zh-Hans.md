@@ -242,7 +242,7 @@
 - **框架内置**: LlamaIndex 的 `SentenceTransformerRerank` / LangChain 的 `ContextualCompressionRetriever`。
 
 **论文 / 入门**:
-- [**Pinecone — Rerankers and Two-Stage Retrieval**](https://www.pinecone.com/learn/series/rag/rerankers/) — 对 reranker 心智模型讲解最清晰。
+- [**Pinecone — Rerankers and Two-Stage Retrieval**](https://www.pinecone.io/learn/series/rag/rerankers/) — 对 reranker 心智模型讲解最清晰。
 - [**Anthropic — Contextual Retrieval**](https://www.anthropic.com/news/contextual-retrieval)（上面已列）— 同时演示了 hybrid + reranker，并包含 benchmark。
 
 ### Query Transformations — HyDE / Multi-Query / RAG Fusion

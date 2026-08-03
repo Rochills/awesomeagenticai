@@ -37,14 +37,14 @@
 
 ### 两个维度先分清楚（workflow vs agent / single vs multi）
 
-要看懂 multi-agent framework 之前、有一个有用的厘清方式——把 **workflow vs agent** 跟 **single vs multi LLM** 当成两个正交维度。Anthropic“Building Effective Agents”原文的核心区別是 workflow（固定 code path）vs agent（LLM 自主决定 next step）；我们把它跟 single/multi 叠起来看 4 个象限：
+要看懂 multi-agent framework 之前、有一个有用的厘清方式——把 **workflow vs agent** 跟 **single vs multi LLM** 当成两个正交维度。Anthropic“Building Effective Agents”原文的核心区别是 workflow（固定 code path）vs agent（LLM 自主决定 next step）；我们把它跟 single/multi 叠起来看 4 个象限：
 
 | | **Workflow**<br>（你写好的 code path） | **Agent**<br>（LLM 动态决定下一步） |
 | -------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | **Single LLM** | 线性 pipeline、无分支判断 | 一个 LLM + ReAct loop、自己 plan + adapt<br>（**Stage 3 写的就是这个**） |
 | **Multi LLM** | 预设 routing（譬如“销售问题 → agent A、技术问题 → agent B”） | 2+ agent 互相 handoff、orchestrator 动态分配<br>（**本 stage 主题**） |
 
-**为什么这个区別有用**：production 场景大多落在“single agent workflow”+“single agent”象限——多数任务根本不需要 multi-agent。**真正需要 multi-agent framework 的是右下角象限**——LLM 自主性高 + 多角色协作。但实作上四个象限的边界有时模糊（LangGraph 的 conditional edge 可以同时看成 workflow routing 跟 agent 动态决策）、不要把这个 matrix 当互斥分类。
+**为什么这个区别有用**：production 场景大多落在“single agent workflow”+“single agent”象限——多数任务根本不需要 multi-agent。**真正需要 multi-agent framework 的是右下角象限**——LLM 自主性高 + 多角色协作。但实作上四个象限的边界有时模糊（LangGraph 的 conditional edge 可以同时看成 workflow routing 跟 agent 动态决策）、不要把这个 matrix 当互斥分类。
 
 → 本 stage 后续讨论都假设你已经知道：**Multi-agent framework 主要帮你处理多个 agent 之间的协调、交接、状态管理与重复性样板代码，让你不用从零写整套协作流程**（右下角象限的 orchestration boilerplate）。
 

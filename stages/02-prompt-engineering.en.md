@@ -33,6 +33,10 @@ You should already:
 4. [**dair-ai Prompt Engineering Guide**](https://www.promptingguide.ai/) — academic-flavored, in-depth
 5. [**Anthropic — Prompting Best Practices**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct) — be clear and direct
 
+**🎥 Video supplements (highly recommended)**:
+- [**Hung-yi Lee — Introduction to Generative AI (NTU, Spring 2024)**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — the later episodes cover prompt engineering (few-shot, CoT, in-context learning) plus the matching labs. The most complete university-level treatment of prompting in Mandarin. Latest consolidated edition: [**GenAI-ML, Fall 2025**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)
+- [**Hung-yi Lee — Machine Learning, Spring 2025 (includes the prompt + LLM chapters)**](https://speech.ee.ntu.edu.tw/~hylee/ml/2025-spring.php) — for those who want the full ML background
+
 ## 🛠 Hands-on Exercises
 
 > 🦙 **This stage defaults to Ollama gemma4:e4b** (cost-driven; $0/run). Prompt engineering is especially instructive on small models — they are sensitive to prompt quality, so you can clearly see how much each technique (system prompts, few-shot, CoT, refinement) improves output. Every exercise has Path A (Ollama, default) + Path B (Anthropic, optional).

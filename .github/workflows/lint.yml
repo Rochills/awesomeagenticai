@@ -148,6 +148,68 @@ jobs:
           # stdlib-only script; ubuntu-latest ships python3 (no pip deps).
           python3 scripts/zh-hans-localize.py --check
 
+      - name: Install opencc (for the Traditional-residue check)
+        # The only pip dep in this job. zh-hans-localize.py stays stdlib-only;
+        # this is for check-hans-chars.py, which asserts the real invariant
+        # (converting a zh-Hans file with opencc t2s must be a no-op) instead of
+        # approximating it with a hand-written character list.
+        run: pip install opencc-python-reimplemented
+
+      - name: Check for Traditional-character residue in zh-Hans (blocking)
+        run: |
+          # Blocking gate. zh-hans-localize.py checks Taiwan VOCABULARY and quote
+          # style only — character-level 繁→簡 was assumed to have happened
+          # upstream when the mirror was made with opencc. That left a permanent
+          # hole: a character never converted in the first place was invisible to
+          # every gate here. In 2026-08 it was holding 13 real residues, including
+          # 動手練習 sitting mid-sentence in README.zh-Hans.md.
+          # --require-opencc so a missing dependency fails loudly instead of
+          # turning this into a silent no-op.
+          python3 scripts/check-hans-chars.py --require-opencc
+
+      - name: check-hans-chars.py detection unit tests
+        # Pins the tw2s trap (tw2s maps 么->幺, mangling correct Simplified 什么
+        # into ~880 false positives — the checker must use t2s) and every
+        # exemption: code fences, link targets whose anchors point at zh-TW
+        # headings, the 繁體中文 proper name, and the uniform shields.io badge row.
+        # --require-opencc: fail rather than skip if the dep is missing, so this
+        # step can never exit green having run zero tests.
+        run: python3 scripts/test_hans_chars.py --require-opencc
+
+      - name: Check no mirror lost content vs the canonical (blocking, ratchet)
+        run: |
+          # Blocking gate, and the systemic one. The recurring failure in this repo
+          # is not a bad translation but a MISSING one — in a single 2026-08 sweep
+          # that class turned up five times (the catalog's composition section, the
+          # A2/A3 entry conditions, five expected-output blocks in stages/01, an
+          # entire free-local exercise path, and 202 blockquote lines across 21
+          # example READMEs). No other gate could see any of it: they all check that
+          # what IS there is correct, never that anything is missing.
+          # This is a RATCHET against scripts/mirror-parity-baseline.json — real
+          # legitimate deltas are baselined, and it fails only when a deficit grows
+          # or appears somewhere new. Deficits can therefore only shrink.
+          python3 scripts/check-mirror-parity.py
+
+      - name: check-mirror-parity.py detection unit tests
+        # Pins the ratchet in BOTH directions: a growing gap must fail, a shrinking
+        # one must pass without regenerating the baseline, and a mirror with MORE
+        # content than the canonical is not a deficit.
+        run: python3 scripts/test_mirror_parity.py
+
+      - name: Check mirror pages embed their own locale's image (blocking)
+        run: |
+          # Blocking gate. check-locale-links.py only matches link targets ending
+          # in .md, so image paths were invisible to every gate — 9 mismatches
+          # were shipping, English and Simplified pages embedding Traditional-only
+          # diagrams under localized alt text. Fails on a mismatch whose correct
+          # sibling already exists (a one-line fix) or a dead reference; the 9
+          # assets that genuinely do not exist yet are listed in KNOWN_MISSING so
+          # a NEW mismatch fails instead of quietly joining the pile.
+          python3 scripts/check-image-locale.py
+
+      - name: check-image-locale.py detection unit tests
+        run: python3 scripts/test_image_locale.py
+
       - name: Check MCP catalog counts are consistent (blocking)
         run: |
           # Blocking gate: the catalog's Index per-section counts and the

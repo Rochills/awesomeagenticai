@@ -29,7 +29,7 @@
 
 ## 📚 必修閱讀
 
-1. [**Anthropic — CLAUDE.md best practices**](https://docs.anthropic.com/en/docs/claude-code/memory) ⭐
+1. [**Anthropic — CLAUDE.md best practices**](https://code.claude.com/docs/en/memory) ⭐
 2. [**Stage 2 — Prompt 設計**](../../stages/02-prompt-engineering.md) — workflow design 跟 prompt design 是同一件事的兩面
 3. [**Stage 5.1 — Claude Code 基礎**](../../stages/05-claude-code-ecosystem.md#51--claude-code-基礎) — slash commands 細節
 4. [**`resources/cli-agents-guide.md`** 「跨 CLI 都通用的 prompt 寫法」](../../resources/cli-agents-guide.md) — portable prompt 原則
@@ -84,7 +84,7 @@ description: Review staged changes for security + style
 
 | 分類 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
 |---|---|---|---|---|
-| **CLAUDE.md 範例庫** | [Anthropic 官方 CLAUDE.md 指南](https://docs.claude.com/en/docs/claude-code/memory) | ⭐⭐⭐⭐⭐ | 第一份 CLAUDE.md 從這抄結構 | Claude Code repo 自己的 CLAUDE.md、官方寫法 |
+| **CLAUDE.md 範例庫** | [Anthropic 官方 CLAUDE.md 指南](https://code.claude.com/docs/en/memory) | ⭐⭐⭐⭐⭐ | 第一份 CLAUDE.md 從這抄結構 | Claude Code repo 自己的 CLAUDE.md、官方寫法 |
 | | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看實際在用的 `.claude/` 完整目錄結構 | 不只是 skill collection、也是 CLAUDE.md 範本（★ 247k+） |
 | | [mattpocock/skills](https://github.com/mattpocock/skills) | ⭐⭐⭐⭐ | 想看工程師日常用的 skill 庫 | `.claude/` 結構是好參考。**更多 skill 範例見 [Stage 5.3](../../stages/05-claude-code-ecosystem.md#53--skillsclaude-code-的行為層-claude-code-生態最關鍵的一層)** |
 | **Slash Commands / Custom Prompts** | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | ⭐⭐⭐⭐⭐ | 找官方 plugin 範本 | 官方 plugin marketplace、每個 plugin 內的 commands / skills 是 slash command 範例（★ 30k+） |

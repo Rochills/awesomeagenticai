@@ -28,6 +28,16 @@ After this stop, the CLI is no longer just your personal tool — it's part of y
 - Add observability (trace, cost, latency) to CLI workflows
 - Plan a cost budget — know roughly what a big task costs in tokens
 
+## 🚪 Entry Conditions
+
+You should already:
+- Have completed [A1](A1-cli-intro.en.md): CLI picked, installed, authenticated
+- Have completed [A2](A2-cli-workflow.en.md): written a production CLAUDE.md, written slash commands, decomposed multi-step tasks
+- Be comfortable with GitHub Actions / CI basics (can read a `.yml` workflow)
+- Have at least a rough idea of what MCP is (if not, skim [Stage 5.2](../../stages/05-claude-code-ecosystem.en.md#52--mcp-model-context-protocol--foundation) first)
+
+Not there yet? → finish [A1](A1-cli-intro.en.md) + [A2](A2-cli-workflow.en.md) first. A3 is "combine everything so far → wire it into production"; skipping ahead won't make sense.
+
 ## 📚 Required Reading
 
 1. [**Stage 5.2 — MCP (Model Context Protocol)**](../../stages/05-claude-code-ecosystem.en.md#52--mcp-model-context-protocol--foundation) — MCP concept and basics
@@ -219,6 +229,8 @@ Official GitHub Action template. PR review, issue triage, auto-fix.
 
 #### [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace)
 ★ 1.2k+ — Minimal marketplace template. Reference when packaging your team's CLI workflow.
+
+> 💡 **Suggested order to pick these up**: start by wiring one reference MCP from `modelcontextprotocol/servers` into your CLI → run your first CI workflow with `claude-code-action` → add langfuse to see traces + cost → when you scale to production, package the workflow as a marketplace plugin.
 
 ## ✅ Track A Full Self-Check
 

@@ -32,6 +32,10 @@
 4. [**dair-ai Prompt Engineering Guide**](https://www.promptingguide.ai/) — 学术风，深入
 5. [**Anthropic — Prompting Best Practices**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct) — 直接清楚
 
+**🎥 中文视频补充（强烈推荐）**：
+- [**李宏毅 — 生成式 AI 导论（2024 春台大课程）**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — 中后段集数讲 prompt engineering（few-shot、CoT、in-context learning）+ 对应 lab。中文圈最完整的 prompting 学术级教学。最新整合版见 [**GenAI-ML 2025 秋**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)
+- [**李宏毅 — 机器学习 2025 春（含 prompt + LLM 章节）**](https://speech.ee.ntu.edu.tw/~hylee/ml/2025-spring.php) — 适合想看 ML 完整背景的人
+
 ## 🛠 动手练习
 
 > 🦙 **本 stage 默认用 Ollama gemma4:e4b**（成本考量、$0/run）。Prompt engineering 对小 model 更有教学价值——小 model 对 prompt 质量敏感、能让你看清楚 system prompt / few-shot / CoT / refinement 各自带来多少改善。每个练习都有 Path A（Ollama、默认）+ Path B（Anthropic、选择性）。
@@ -403,7 +407,7 @@ print("💡 用 gemma4:e4b 跑这题特别有感——小 model 对 prompt 质�
 <details>
 <summary>📋 <b>起手码 — Path B（Anthropic API、选择性）</b>（复制到 <code>practice_4_anthropic.py</code>）</summary>
 
-把 Path A 的 client + 循环內 `client.chat.completions.create(...)` 改成：
+把 Path A 的 client + 循环内 `client.chat.completions.create(...)` 改成：
 
 ```python
 import anthropic
@@ -415,9 +419,9 @@ msg = client.messages.create(model="claude-haiku-4-5", max_tokens=200,
 text = msg.content[0].text
 ```
 
-其余 PROMPTS / outputs / assert 邏輯完全相同。**成本**：5 次 ≈ $0.002。
+其余 PROMPTS / outputs / assert 逻辑完全相同。**成本**：5 次 ≈ $0.002。
 
-**Claude vs gemma4 对 prompt 细致度的差别**：Claude haiku 通常 v1 已能写出 OK 段落、v5 加上约束后优化幅度较小；小 model v1 常空泛无用、v5 加禁忌后才開始能读。
+**Claude vs gemma4 对 prompt 细致度的差别**：Claude haiku 通常 v1 已能写出 OK 段落、v5 加上约束后优化幅度较小；小 model v1 常空泛无用、v5 加禁忌后才开始能读。
 
 </details>
 

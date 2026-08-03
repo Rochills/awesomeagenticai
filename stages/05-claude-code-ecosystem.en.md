@@ -262,6 +262,8 @@ MCP / Skills give the agent *more* abilities; **Hooks are the reverse: you attac
 
 > 📈 **Scale check** (Anthropic's own [July 2026 figures](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)): MCP passed **400M monthly SDK downloads** (roughly 4x growth this year), and Claude's connectors directory lists **950+ MCP servers**.
 
+> 🧩 **There are extensions beyond the core (optional reading)**: the 2026-07-28 revision formally separates the core protocol from [extensions](https://modelcontextprotocol.io/extensions/overview). Official ones today are [Tasks](https://modelcontextprotocol.io/extensions/tasks/overview) (async execution of long-running operations, with polling), [Apps](https://modelcontextprotocol.io/extensions/apps/overview) (interactive UI — charts, forms — rendered inline in the conversation), and Skills over MCP. **You do not need these while learning** — writing `@app.tool()` never reaches them. The one rule worth remembering, and it will not expire: **extensions are always off by default and require explicit support from both sides**. So when a tutorial tells you to use one, check that your client actually supports it, or you will silently fall back to core behavior. Official extensions use the `io.modelcontextprotocol/` prefix and live in `ext-`-prefixed repos under the MCP org; `experimental-ext-` ones are still incubating and can change.
+
 **MCP's Three Abstractions**:
 
 | Abstraction | What it is | Example |

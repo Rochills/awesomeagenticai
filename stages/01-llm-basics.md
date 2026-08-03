@@ -64,7 +64,7 @@
 |---|---|---|---|---|---|
 | **DeepSeek**（深度求索）| V4-Flash（`deepseek-v4-flash`）/ V4-Pro（`deepseek-v4-pro`）| 1M | 推理 / coding / **cost 最低** | 大量 token / code 生成 / math | [api-docs.deepseek.com](https://api-docs.deepseek.com/zh-cn/) |
 | **Kimi**（Moonshot）| K3（2.8T 參數、原生多模態）| **1M** | 長 context / 中文長文 | 整本書讀 / 文獻分流 | [platform.moonshot.cn](https://platform.moonshot.cn/) |
-| **Hunyuan**（騰訊）| T1（深度思考）+ TurboS | 128k | **可比 DeepSeek R1 推理**、中文 | 中文推理 / 騰訊生態 | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
+| **Hunyuan**（騰訊）| T1（深度思考）+ TurboS | 128k | **深度思考推理**（對標 DeepSeek R1 這條 2025 推理基線）、中文 | 中文推理 / 騰訊生態 | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
 | **MiniMax** | M3 | 1M | 多模態 / 中文長 prose / coding | 中文寫作 / 影音 multimodal | [platform.minimax.io](https://platform.minimax.io/) |
 
 > **註**：這組以雲端 API 為主、多為 proprietary。DeepSeek 另有部分開源權重（在 HF），主要用法仍是雲端 API（舊名 `deepseek-chat`/`deepseek-reasoner` 於 2026-07-24 停用、已改指向 v4-flash）。

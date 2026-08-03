@@ -201,7 +201,7 @@
 |---|---|---|---|---|
 | **Atlas** ⚠️ | OpenAI（2025-10，**停运 2026-08**）| 仅 macOS（未出 Windows）| 功能并入 ChatGPT app | — |
 | **Comet** | Perplexity | iOS / Android / Win / Mac | ✅ research 最强 | ⚠ 2026 年 Brave 发现可被恶意网页注入；2026-03 联邦禁令禁止访问 Amazon。 |
-| **Dia** | The Browser Company（被 Atlassian 以 6.1 亿美元收购）| macOS | ❌（**不走 agent mode**，聚焦性能）| — |
+| **Dia** | [The Browser Company（被 Atlassian 以 6.1 亿美元收购）](https://efficient.app/compare/dia-vs-comet)| macOS | ❌（**不走 agent mode**，聚焦性能）| — |
 | **Gemini in Chrome** | Google（Gemini 3）| Chrome 全平台 + Android | ✅ **Auto Browse** + **Chrome Skills** | Enterprise Premium $6/用户/月 |
 | **Operator** | OpenAI | — | ❌ **2025-08 停运** | CAPTCHA / JS / session 处理不稳定。 |
 

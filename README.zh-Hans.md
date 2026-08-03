@@ -159,7 +159,7 @@ cd awesome-agentic-ai-zh
 
 走完主干（Track B 16-22 周 / Track A 8-10 周）后，依你的身份挑一条延伸路线继续走。
 
-最重要的说一句话：**不要跳过 動手練習**。每个 stage 的 動手練習都是“不动手就学不会”的东西，光读过去后面会卡住。
+最重要的说一句话：**不要跳过动手练习**。每个 stage 的动手练习都是“不动手就学不会”的东西，光读过去后面会卡住。
 
 > 🎓 **动手练习怎么用才对**：每个练习 folder 里的 `starter.py` 是**完整解答**、不是 TODO skeleton。如果你 clone 下来直接 `cat starter.py` + `python test.py` pass、会误以为“我学会了”、其实没写一行 code。**正确学习法**：`mv starter.py starter_reference.py`、看 signature 不看 body、自己重写、卡住才回去对照。完整方法论 + 每个 stage 的时间预算 + 卡住处理流程看 [`docs/HOW_TO_USE.md`](docs/HOW_TO_USE.md)。
 
@@ -204,7 +204,7 @@ README 跟各 stage 会频繁提到这三个 Claude Code 生态的关键词，�
 - **Skills** — Claude Code 的“行为包”。一个 Skill 就是一份 `SKILL.md`，描述“在什么情境要做什么、可以调用哪些 MCP tool”。写好之后 Claude Code 会自动 discover。详见 [Stage 5.3](stages/05-claude-code-ecosystem.zh-Hans.md#53--skillsclaude-code-的行为层-claude-code-生态最关键的一层)。
 - **Plugins / Marketplaces** — 把 Skills、slash commands、hooks、MCP 设置打包成一个发布单位给 team 或社群安装。Marketplace 就是 plugin 的 catalog。详见 [Stage 5.4](stages/05-claude-code-ecosystem.zh-Hans.md#54--plugins-与-marketplaces)。
 
-对, 应的 動手練習 练习都在 [Stage 5](stages/05-claude-code-ecosystem.zh-Hans.md)，Track A 的 [A3](tracks/cli/A3-cli-production.zh-Hans.md) 也会用到。
+对应的动手练习都在 [Stage 5](stages/05-claude-code-ecosystem.zh-Hans.md)，Track A 的 [A3](tracks/cli/A3-cli-production.zh-Hans.md) 也会用到。
 
 ### 接日常工具：常用 MCP server / Skill
 

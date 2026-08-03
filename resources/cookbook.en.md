@@ -22,6 +22,8 @@
 ## 1. Write Your First Skill
 
 > A Skill is a folder containing `SKILL.md`, which Claude Code discovers automatically upon startup and loads contextually. The minimum viable version can run with as few as 50 lines of code.
+>
+> 📚 **This is the hands-on "get your first one running in 30 minutes" version. For the deeper discussion of what makes a Skill good** → [Hello-Agents Extra08: How to Write a Good Skill](https://github.com/datawhalechina/hello-agents/blob/main/Extra-Chapter/Extra08-如何写出好的Skill.md) (the most complete Chinese-language write-up of Skill best practices, covering how to word the description, how to design references / scripts, and more). The two are complementary: use this recipe to get a first Skill running, then read that one to polish how you write them.
 
 ### Why
 

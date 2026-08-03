@@ -34,7 +34,11 @@ except ImportError:
     sys.exit(2)
 
 
-EXCLUDE_DIRS = {'.ai', 'book', 'node_modules', '.git', 'archives', '.coord'}
+# '.claude' holds git worktrees (.claude/worktrees/<name>/), each a full second copy
+# of the tree. This walker uses Path.rglob, which — unlike glob.glob — descends into
+# dot-directories, so without this every finding is reported twice and the count is
+# meaningless. 2026-08-02: a stray worktree turned 6 stale refs into 13.
+EXCLUDE_DIRS = {'.ai', 'book', 'node_modules', '.git', '.claude', 'archives', '.coord', '_build', '_site'}
 MIRROR_SUFFIXES = ('.en.md', '.zh-Hans.md')  # trilingual mirror locales (zh-TW is canonical)
 
 

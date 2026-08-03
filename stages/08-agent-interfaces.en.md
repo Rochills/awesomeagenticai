@@ -201,7 +201,7 @@ Agent receives a task
 |---|---|---|---|---|
 | **Atlas** ⚠️ | OpenAI (Oct 2025, **discontinued Aug 2026**) | macOS only (never Windows) | folded into ChatGPT app | — |
 | **Comet** | Perplexity | iOS / Android / Win / Mac | ✅ Strongest for research | ⚠ Brave discovered in 2026 it could be injected by malicious webpages; a federal injunction in Mar 2026 blocked its access to Amazon. |
-| **Dia** | The Browser Company (acquired by Atlassian for $610M)| macOS | ❌ (**No agent mode**, focuses on performance) | — |
+| **Dia** | [The Browser Company (acquired by Atlassian for $610M)](https://efficient.app/compare/dia-vs-comet)| macOS | ❌ (**No agent mode**, focuses on performance) | — |
 | **Gemini in Chrome**| Google (Gemini 3) | All Chrome platforms + Android | ✅ **Auto Browse** + **Chrome Skills** | Enterprise Premium $6/user/month |
 | **Operator** | OpenAI | — | ❌ **Discontinued Aug 2025** | Unstable handling of CAPTCHA, JS, and sessions. |
 

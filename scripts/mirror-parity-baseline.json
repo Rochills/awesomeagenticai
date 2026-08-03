@@ -1,0 +1,118 @@
+{
+  "_comment": "Accepted mirror-vs-canonical structural deficits. This is a RATCHET baseline: check-mirror-parity.py fails when a deficit grows or appears somewhere new, never when one shrinks. Regenerate with `python scripts/check-mirror-parity.py --update-baseline` ONLY after genuinely closing a gap — never to silence a new one.",
+  "deficits": {
+    "README.md": {
+      "en": {
+        "blockquote": 1,
+        "h3": 1,
+        "table_rows": 1
+      },
+      "zh-Hans": {
+        "h2": 1,
+        "table_rows": 11
+      }
+    },
+    "RESOURCES.md": {
+      "en": {
+        "blockquote": 1
+      },
+      "zh-Hans": {
+        "blockquote": 1
+      }
+    },
+    "examples/README.md": {
+      "en": {
+        "fences": 1,
+        "h3": 1
+      },
+      "zh-Hans": {
+        "fences": 1,
+        "h3": 1
+      }
+    },
+    "examples/stage-6/05-long-term-memory/README.md": {
+      "en": {
+        "h2": 1,
+        "table_rows": 5
+      },
+      "zh-Hans": {
+        "h2": 1,
+        "table_rows": 5
+      }
+    },
+    "resources/glossary.md": {
+      "zh-Hans": {
+        "h3": 2
+      }
+    },
+    "resources/style-guide.md": {
+      "en": {
+        "h3": 3,
+        "table_rows": 27
+      }
+    },
+    "stages/00-foundations.md": {
+      "en": {
+        "blockquote": 2,
+        "table_rows": 20
+      },
+      "zh-Hans": {
+        "blockquote": 2,
+        "table_rows": 20
+      }
+    },
+    "stages/01-llm-basics.md": {
+      "en": {
+        "blockquote": 2
+      },
+      "zh-Hans": {
+        "blockquote": 1
+      }
+    },
+    "stages/02-prompt-engineering.md": {
+      "en": {
+        "blockquote": 2,
+        "fences": 1
+      },
+      "zh-Hans": {
+        "blockquote": 2
+      }
+    },
+    "stages/05-claude-code-ecosystem.md": {
+      "en": {
+        "blockquote": 1
+      },
+      "zh-Hans": {
+        "blockquote": 1
+      }
+    },
+    "tracks/cli/A1-cli-intro.md": {
+      "en": {
+        "blockquote": 1,
+        "table_rows": 12
+      },
+      "zh-Hans": {
+        "blockquote": 1,
+        "table_rows": 12
+      }
+    },
+    "tracks/cli/A2-cli-workflow.md": {
+      "en": {
+        "table_rows": 9
+      },
+      "zh-Hans": {
+        "table_rows": 9
+      }
+    },
+    "tracks/cli/A3-cli-production.md": {
+      "en": {
+        "table_rows": 11
+      },
+      "zh-Hans": {
+        "table_rows": 11
+      }
+    }
+  },
+  "total_deficit": 185,
+  "trios": 67
+}

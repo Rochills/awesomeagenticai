@@ -31,7 +31,7 @@
 
 1. [**`resources/agent-paradigms.md`**](../../resources/agent-paradigms.md) ⭐ — 5 種 agent 型態的全景圖；先讀這份知道 CLI agent 在整個 agent 生態中的位置（Type 2 + Type 3）
 2. [**`resources/cli-agents-guide.md`**](../../resources/cli-agents-guide.md) ⭐ — 本軌的核心參考。8 個主流 CLI agent 並列比較、依 use case 推薦、實用搭配
-3. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — 官方安裝指南
+3. [**Anthropic — Claude Code Quickstart**](https://code.claude.com/docs/en/quickstart) — 官方安裝指南
 4. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex 安裝跟認證流程
 
 ## 🛠 動手練習（基礎 illustrative 練習）

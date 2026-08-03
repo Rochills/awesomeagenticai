@@ -55,7 +55,7 @@ Agents that live in your terminal — you give one prompt (e.g. "refactor this m
 
 | CLI Agent | Install / Docs | Primary LLM |
 |---|---|---|
-| **Claude Code** | https://docs.anthropic.com/en/docs/claude-code/quickstart | Claude |
+| **Claude Code** | https://code.claude.com/docs/en/quickstart | Claude |
 | **Codex CLI** | https://github.com/openai/codex | GPT family |
 | **Gemini CLI** | https://github.com/google-gemini/gemini-cli | Gemini |
 | **OpenCode** | https://github.com/sst/opencode | Any (multi-provider) |
@@ -100,7 +100,7 @@ Want to script with Python, run batch jobs, integrate LLMs into your own app/aut
 - **Google AI Studio**: https://aistudio.google.com/
   Useful for trying the Gemini API. Free quota depends on region and account state.
 - **NVIDIA NIM**: https://build.nvidia.com/
-  **Hosts many open-source models (Llama / Mistral / DeepSeek-R1 / Qwen / Gemma etc.), OpenAI-compatible API, new accounts get 1000 free credits**. Great when you want to try several open models without local GPU. `base_url=https://integrate.api.nvidia.com/v1`.
+  **Hosts many open-source models (Llama / Mistral / DeepSeek / Qwen / Gemma etc.), OpenAI-compatible API, new accounts get 1000 free credits**. Great when you want to try several open models without local GPU. `base_url=https://integrate.api.nvidia.com/v1`.
 
 #### Chinese / Chinese-language cloud (region-friendly, very cheap)
 

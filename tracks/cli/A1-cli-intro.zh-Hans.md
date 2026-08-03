@@ -31,7 +31,7 @@
 
 1. [**`resources/agent-paradigms.zh-Hans.md`**](../../resources/agent-paradigms.zh-Hans.md) ⭐ — 5 种 agent 型态的全景图；先读这份知道 CLI agent 在整个 agent 生态中的位置（Type 2 + Type 3）
 2. [**`resources/cli-agents-guide.zh-Hans.md`**](../../resources/cli-agents-guide.zh-Hans.md) ⭐ — 本轨的核心参考。8 个主流 CLI agent 并列比较、依 use case 推荐、实用搭配
-3. [**Anthropic — Claude Code Quickstart**](https://docs.anthropic.com/en/docs/claude-code/quickstart) — 官方安装指南
+3. [**Anthropic — Claude Code Quickstart**](https://code.claude.com/docs/en/quickstart) — 官方安装指南
 4. [**OpenAI — Codex Quickstart**](https://github.com/openai/codex/blob/main/README.md) — Codex 安装跟认证流程
 
 ## 🛠 动手练习（基础 illustrative 练习）
@@ -105,7 +105,7 @@
 你能不能：
 
 - [ ] 讲得出 8 个主流 CLI 的核心差别（不查表就答得出 3-4 个）
-- [ ] 你已经選定一个主用 CLI，并有 working setup（装好、认证好、跑过至少 5 个非 hello-world 任务）
+- [ ] 你已经选定一个主用 CLI，并有 working setup（装好、认证好、跑过至少 5 个非 hello-world 任务）
 - [ ] 写过你自己的 `CLAUDE.md` / `AGENTS.md` / `GEMINI.md`
 - [ ] 至少跑过第二个 CLI 一次，知道两个的风格差异
 

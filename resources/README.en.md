@@ -68,6 +68,7 @@ Duplication is intentional only where it helps navigation. The roles stay separa
 - **schema-design-cheatsheet** overlaps with cookbook 2, but the cheatsheet explains schema rules while the cookbook gets a server running.
 - **cli-agents-guide** is a comparison reference; **mcp-skills-catalog** is a tool integration catalog.
 - **setup-guide** is for people starting from zero; Stage 0 assumes you are ready to follow a learning path.
+- **Relationship to [Hello-Agents](https://github.com/datawhalechina/hello-agents)**: Hello-Agents is the most complete Chinese-language agent course available, and it goes deep. This repo works from a different angle, **roadmap + curated catalog + hands-on recipes**, and does not replace it. Stage 5.3 and cookbook 1 both cross-reference Hello-Agents Extra08, "How to Write a Good Skill", as deeper follow-up reading.
 
 ---
 

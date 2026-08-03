@@ -23,7 +23,7 @@ examples/
 └── ...
 ```
 
-短的练习（≤30 LOC）直接以 `<details>` 收摺塞在 stage 档内、不开资料夹。长的（>30 LOC）才开资料夹——避免 stage 档被 code block 撑爆。
+短的练习（≤30 LOC）直接以 `<details>` 收折塞在 stage 档内、不开资料夹。长的（>30 LOC）才开资料夹——避免 stage 档被 code block 撑爆。
 
 ## 怎么跑任一个范例
 
@@ -69,7 +69,7 @@ if hasattr(sys.stdout, "reconfigure"):
 ### Path A（**默认、推荐**）— Ollama 本机
 - 预设 `starter.py` / 第一个 inline `<details>` 用本机 LLM
 - 需 [Ollama](https://ollama.com)、按 stage pull 对应 model：
-  - **Stage 1 + 2**（纯 chat / prompt eng）：`ollama pull gemma4:e4b`（~7.5 GB、多模態、CPU 跑得動）
+  - **Stage 1 + 2**（纯 chat / prompt eng）：`ollama pull gemma4:e4b`（~7.5 GB、多模态、CPU 跑得动）
   - **Stage 3+**（tool use / agent）：`ollama pull qwen2.5:3b`（1.9 GB、tool-use 支持稳定）
 - 全程 $0、offline、隐私敏感资料 OK
 - SDK 用 `openai` package（OpenAI 兼容 API）、`base_url="http://localhost:11434/v1"`

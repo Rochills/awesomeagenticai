@@ -28,7 +28,12 @@ import sys
 from pathlib import Path
 
 # --- Config ---
-EXCLUDE_DIRS = {'.ai', 'book', 'node_modules', '.git', 'archives', '.coord'}
+# '.claude' holds git worktrees (.claude/worktrees/<name>/), each a full second copy
+# of the tree. This walker uses Path.rglob, which — unlike glob.glob — descends into
+# dot-directories, so a stray worktree doubles the work and can fail the build on a
+# stale copy nobody is editing. Found 2026-08-02 alongside the same bug in
+# zh-hans-localize.py and check-2026-freshness.py.
+EXCLUDE_DIRS = {'.ai', 'book', 'node_modules', '.git', '.claude', 'archives', '.coord', '_build', '_site'}
 EXCLUDE_PATTERNS: list[str] = []  # mirror files now validated (see module docstring)
 
 # Markdown link with anchor: [text](path.md#anchor) or [text](#anchor)
