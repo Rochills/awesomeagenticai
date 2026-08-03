@@ -362,7 +362,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 92k+ |
+| Stars | ★ 101k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ |
 
@@ -782,7 +782,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 7.5k+ |
+| Stars | ★ 8.3k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -913,7 +913,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 38 |
+| Stars | ★ 42 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ |
 
