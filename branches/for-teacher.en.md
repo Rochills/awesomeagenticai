@@ -12,7 +12,7 @@ Teacher-facing AI use cases can first be read as three branches: **lesson prep a
 
 This grouping follows common AI in Education discussions around administration, instruction, and learning, while also reflecting recent work on generative AI for material creation, feedback, and interactive support (Chen et al., 2020; Mittal et al., 2024). Start with teacher oversight principles and boundaries, then choose the branch that best matches your teaching need.
 
-![Teacher and AI agent use-case overview](../resources/diagrams/teacher-ai-use-cases-overview.jpg)
+![Teacher and AI agent use-case overview](../resources/diagrams/teacher-ai-use-cases-overview.en.png)
 
 ### What Teachers Should Watch For When Using AI
 
@@ -36,7 +36,7 @@ These workflows help teachers prepare materials. The output should still be revi
 
 ### Classroom and Learning Support
 
-![Classroom and learning support use cases](../resources/diagrams/teacher-ai-classroom-use-cases.jpg)
+![Classroom and learning support use cases](../resources/diagrams/teacher-ai-classroom-use-cases.en.png)
 
 These workflows help students understand, practice, and interact. AI acts more like a teaching assistant or activity support tool. Note that a single lesson does not need to include every element; choose the moments where an AI agent design actually fits the learning activity.
 
@@ -83,7 +83,7 @@ General writing / brainstorming skills. Adaptable for lesson prep.
 
 | Field | Value |
 |---|---|
-| Stars | ★ 28k+ |
+| Stars | ★ 30k+ |
 | License | Apache-2.0 |
 
 **What it teaches**: Hugging Face's official agents curriculum — notebooks, exercises, certifications. A ready-made **AI agent teaching artifact**.
@@ -223,4 +223,4 @@ This branch is the smallest curated section currently. Contributions especially 
 - Teacher-specific MCP servers (gradebook integrations, LMS connections like Canvas / Moodle / Google Classroom)
 - **Subject + grade-level case studies** (e.g., "I used AI to teach middle-school math for a semester — here's my workflow")
 
-See [CONTRIBUTING.md](../CONTRIBUTING.en.md).
+See [CONTRIBUTING.en.md](../CONTRIBUTING.en.md).

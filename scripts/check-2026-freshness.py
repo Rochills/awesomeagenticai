@@ -34,7 +34,11 @@ except ImportError:
     sys.exit(2)
 
 
-EXCLUDE_DIRS = {'.ai', 'book', 'node_modules', '.git', 'archives', '.coord'}
+# '.claude' holds git worktrees (.claude/worktrees/<name>/), each a full second copy
+# of the tree. This walker uses Path.rglob, which — unlike glob.glob — descends into
+# dot-directories, so without this every finding is reported twice and the count is
+# meaningless. 2026-08-02: a stray worktree turned 6 stale refs into 13.
+EXCLUDE_DIRS = {'.ai', 'book', 'node_modules', '.git', '.claude', 'archives', '.coord', '_build', '_site'}
 MIRROR_SUFFIXES = ('.en.md', '.zh-Hans.md')  # trilingual mirror locales (zh-TW is canonical)
 
 
@@ -144,7 +148,11 @@ def scan_file(
 
 
 def should_skip(path: Path, repo_root: Path, cfg: dict) -> bool:
-    if any(part in EXCLUDE_DIRS for part in path.parts):
+    # Match on the path RELATIVE to the repo root — matching path.parts tests
+    # the ABSOLUTE path, so a checkout under e.g. `.claude/worktrees/<name>/`
+    # skips every file and this gate reports a silent all-clear. Same bug as the
+    # 2026-08-02 check-locale-links.py / check-catalog-counts.py fix.
+    if any(part in EXCLUDE_DIRS for part in path.relative_to(repo_root).parts):
         return True
     # Mirror locales (.en.md / .zh-Hans.md) are NO LONGER skipped: stale facts drift
     # into them when canonical is fixed but the mirror is left behind (2026-07 gap).

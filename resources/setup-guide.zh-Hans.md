@@ -55,7 +55,7 @@
 
 | CLI Agent | 安装 / 文档 | 主要 LLM |
 |---|---|---|
-| **Claude Code** | https://docs.anthropic.com/en/docs/claude-code/quickstart | Claude |
+| **Claude Code** | https://code.claude.com/docs/en/quickstart | Claude |
 | **Codex CLI** | https://github.com/openai/codex | GPT 系列 |
 | **Gemini CLI** | https://github.com/google-gemini/gemini-cli | Gemini |
 | **OpenCode** | https://github.com/sst/opencode | 任意（多 provider） |
@@ -97,10 +97,12 @@
 
 - **OpenAI**：https://platform.openai.com/api-keys
   ChatGPT Plus 和 API key 是两件事；订阅 Plus 仍要另外申请 API key。
+
 - **Google AI Studio**：https://aistudio.google.com/
   适合先试 Gemini API，免费额度会依地区和账号状态不同。
+
 - **NVIDIA NIM**：https://build.nvidia.com/
-  **托管多个开源 model（Llama / Mistral / DeepSeek-R1 / Qwen / Gemma 等）、OpenAI-compatible API、新账号送 1000 credits**。适合“想试多个 open-source model 但没 GPU”的情境。`base_url=https://integrate.api.nvidia.com/v1`。
+  **托管多个开源 model（Llama / Mistral / DeepSeek / Qwen / Gemma 等）、OpenAI-compatible API、新账号送 1000 credits**。适合“想试多个 open-source model 但没 GPU”的情境。`base_url=https://integrate.api.nvidia.com/v1`。
 
 #### 中国 / 中文场景（地区友善、价格极便宜）
 
@@ -109,11 +111,14 @@
 - **DeepSeek**：https://platform.deepseek.com/
   web 版 https://chat.deepseek.com 完全免费（含深度思考模式）。API 价格极便宜（**$0.14 input / $0.28 output per 1M token**、比 haiku 便宜约 7 倍）。Code / 推理都很强。
   `base_url=https://api.deepseek.com/v1`、`model=deepseek-v4-flash` 或 `deepseek-v4-pro`。
+
 - **Moonshot Kimi**：https://platform.moonshot.cn/ (中国)、https://platform.moonshot.ai/ (海外)
   web 版 https://kimi.com 免费、**1M token context** 是卖点（很大文件 / 长对话）。API 约 $5-15/1M input、按 context size 阶梯计费。
   `base_url=https://api.moonshot.cn/v1` (中国) / `https://api.moonshot.ai/v1` (海外)、`model=kimi-k3` 等。
+
 - **通义千问 Qwen（Alibaba）**：https://dashscope.console.aliyun.com/
   web 版 https://chat.qwen.ai 免费。API 走 Alibaba Cloud DashScope、有 **OpenAI-compatible endpoint**（[文档](https://help.aliyun.com/zh/dashscope/developer-reference/compatibility-of-openai-with-dashscope/)）。**同样的 Qwen 模型也能用 Ollama 在本机跑**（`ollama pull qwen2.5:3b`）——cloud 跟 local 两条路径都通。
+
 - **智谱 GLM（ZhipuAI）**：https://open.bigmodel.cn/ (中国) / https://z.ai/ (海外)
   web 版 https://chatglm.cn 免费、有 GLM-4.5、GLM-4-Plus。API 有 free tier、学生申请可额外领 credit。
 

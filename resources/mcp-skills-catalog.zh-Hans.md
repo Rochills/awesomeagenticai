@@ -2,22 +2,22 @@
 
 > [繁體中文](./mcp-skills-catalog.md) | **简体中文** | [English](./mcp-skills-catalog.en.md)
 
-> 把 Claude Code（或其他 CLI agent）接到你已经正在用的工具，不用反复切换视窗。本页是 65+ 个分类整理过的 MCP server / Claude Skill / 集成范例（含研究工作流 + multi-LLM delegation 两个专属区）。
+> 把 Claude Code（或其他 CLI agent）接到你已经正在用的工具，不用反复切换视窗。本页是 76+ 个分类整理过的 MCP server / Claude Skill / 集成范例（含研究工作流 + multi-LLM delegation 两个专属区）。
 
 ---
 
 ## 怎么用这份目录
 
 - **想找特定工具的 MCP**：直接看下面分类目录
-- **想看 MCP / Skills / Plugins 是什么**：先看 [README 三个核心用语](../README.zh-Hans.md#三个核心用语mcp--skills--plugins)，再看 [Stage 5 — Claude Code 生态系](../stages/05-claude-code-ecosystem.zh-Hans.md)
+- **想看 MCP / Skills / Plugins 是什么**：先看 [RESOURCES.zh-Hans.md 三个核心用语](../RESOURCES.zh-Hans.md#三个核心用语mcp--skills--plugins)，再看 [Stage 5 — Claude Code 生态系](../stages/05-claude-code-ecosystem.zh-Hans.md)
 - **想看 动手练习 怎么装、怎么测**：看 [Stage 5.2 (MCP)](../stages/05-claude-code-ecosystem.zh-Hans.md#52--mcpmodel-context-protocol-基础) 跟 [Stage 5.3 (Skills)](../stages/05-claude-code-ecosystem.zh-Hans.md#53--skillsclaude-code-的行为层-claude-code-生态最关键的一层)
 
-### 收录原则
+### 收录方向（不是死规则）
 
-- **官方优先**：Anthropic、厂商自己出的 MCP / Skill 排在前
-- **★ 100+ 起跳**：除非是官方，社群 repo 至少 100 stars 才收录
-- **可验证**：所有 stars / license 用 `gh api` 抓即时数据；过时的会在每季 review 时更新
-- **不收**：已 archived、超过 1 年没 commit、license 不明且非官方
+- **官方优先**：Anthropic、厂商自己出的 MCP / Skill 通常排前面
+- **stars 看一下就好**：社群 repo 大致 100+ 比较有人在维护，但“小众但好用”也欢迎送 PR 解释为什么要收
+- **尽量有 metadata**：stars / license 用 `gh api` 抓、有空就更新一轮
+- **避免（不是禁止）**：archived、长期没 commit、license 不明的 repo——niche 工具可以例外
 
 ### 目录
 
@@ -28,10 +28,10 @@
 5. [开发协作（GitHub / Atlassian / Slack…）](#5-开发协作github--atlassian--slack)（9）
 6. [数据库](#6-数据库)（8）
 7. [浏览器自动化 / 网页抓取](#7-浏览器自动化--网页抓取)（4）
-8. [设计（Figma / Excalidraw）](#8-设计figma--excalidraw)（3）
+8. [设计（Figma / Excalidraw）](#8-设计figma--excalidraw)（4）
 9. [监控 / Observability](#9-监控--observability)（3）
 10. [媒体 / 串流（YouTube / Spotify）](#10-媒体--串流youtube--spotify)（3）
-11. [中文圈专属](#11-中文圈专属)（9）
+11. [中文圈专属](#11-中文圈专属)（11）
 12. [其他常用（Cloudflare / Stripe…）](#12-其他常用cloudflare--stripe)（4）
 13. [研究工作流 Skills（学术 / paper / 文献）](#13-研究工作流-skills学术--paper--文献)（4）
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills)（3）
@@ -47,7 +47,7 @@
 | 栏位 | 内容 |
 |---|---|
 | Stars | ★ 4.5k+ |
-| License | NOASSERTION |
+| License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（**官方**） |
 
 **教什么**：Notion 官方 MCP server，可查询 page、创建 page、操作 database。
@@ -71,7 +71,7 @@
 | 栏位 | 内容 |
 |---|---|
 | Stars | ★ 7.4k+ |
-| License | NOASSERTION |
+| License | MIT |
 | 推荐度 | ⭐⭐⭐⭐ |
 
 **教什么**：Claude Code Skill，用浏览器自动化操作 NotebookLM、查询上传文件，回复带 citation。
@@ -83,7 +83,7 @@
 | 栏位 | 内容 |
 |---|---|
 | Stars | ★ 18k+ |
-| License | NOASSERTION |
+| License | MIT |
 | 推荐度 | ⭐⭐⭐⭐ |
 
 **教什么**：非官方 NotebookLM Python API + CLI + agentic skill；功能比上面 skill 多，包含一些 web UI 没开放的能力。
@@ -135,7 +135,7 @@
 | 栏位 | 内容 |
 |---|---|
 | Stars | ★ 162k+ |
-| License | NOASSERTION |
+| License | 无 license 文件（上游未提供；使用前请先确认授权） |
 | 推荐度 | ⭐⭐⭐⭐⭐（**官方**，必装） |
 
 **教什么**：Anthropic 官方 Agent Skills repo，含 docx / xlsx / pptx / pdf 处理 skill。
@@ -146,7 +146,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 3.8k+ |
+| Stars | ★ 4.1k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（社群最热门 Excel MCP） |
 
@@ -158,7 +158,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 1.7k+ |
+| Stars | ★ 1.8k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐（⚠️ 已封存） |
 
@@ -182,7 +182,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 831 |
+| Stars | ★ 880 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（PDF 高效解析） |
 
@@ -206,7 +206,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 8.2k+ |
+| Stars | ★ 8.8k+ |
 | License | NOASSERTION |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -290,7 +290,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 29.5k+ |
+| Stars | ★ 31k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（**官方**） |
 
@@ -314,7 +314,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 878 |
+| Stars | ★ 927 |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐（**官方**） |
 
@@ -326,7 +326,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 1.6k+ |
+| Stars | ★ 1.8k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（无 admin 权限也能用） |
 
@@ -334,13 +334,13 @@
 **适合谁**：个人用户（不是 Slack admin）也想接 Slack 的人。
 **备注**：不需要 admin 级别 token；走用户层 OAuth。
 
-### [jerhadf/linear-mcp-server](https://github.com/jerhadf/linear-mcp-server) ⭐⭐⭐⭐
+### [jerhadf/linear-mcp-server](https://github.com/jerhadf/linear-mcp-server) ⭐⭐⭐（⚠️ 最后 commit 2025-05、已逾一年未更新）
 
 | 栏位 | 内容 |
 |---|---|
 | Stars | ★ 344 |
-| License | NOASSERTION |
-| 推荐度 | ⭐⭐⭐⭐ |
+| License | MIT |
+| 推荐度 | ⭐⭐⭐（⚠️ 已逾一年未更新） |
 
 **教什么**：Linear（issue tracker）MCP——查 issue、建 issue、改 status。
 **适合谁**：用 Linear 管 sprint / backlog 的开发者。
@@ -358,14 +358,12 @@
 **适合谁**：用 Discord 跑社群 / 开源项目的 maintainer。
 **备注**：要 Discord bot token；要小心 rate limit。
 
----
-
 ### [safishamsi/graphify](https://github.com/safishamsi/graphify) ⭐⭐⭐⭐⭐
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 92k+ |
-| License | MIT |
+| Stars | ★ 101k+ |
+| License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐ |
 
 **教什么**：把 codebase / SQL schemas / R scripts / shell scripts / docs / papers / images / videos 变成 queryable knowledge graph 的 AI coding skill。Claude Code、Codex、OpenCode、Cursor、Gemini CLI 都能接。
@@ -376,7 +374,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 57k |
+| Stars | ★ 60k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（写代码必装） |
 
@@ -388,7 +386,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 33k+ |
+| Stars | ★ 36k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（code intelligence） |
 
@@ -404,7 +402,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 15k+ |
+| Stars | ★ 16k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Google 官方**，多 DB） |
 
@@ -428,7 +426,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 2.7k+ |
+| Stars | ★ 2.9k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Supabase 官方社群**） |
 
@@ -440,7 +438,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 1.7k+ |
+| Stars | ★ 1.8k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐（Postgres 写代码辅助） |
 
@@ -464,7 +462,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 1k+ |
+| Stars | ★ 1.1k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐（**MongoDB 官方**） |
 
@@ -476,7 +474,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 504 |
+| Stars | ★ 555 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（**Redis 官方**） |
 
@@ -504,7 +502,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 34k+ |
+| Stars | ★ 35k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Microsoft 官方**） |
 
@@ -536,13 +534,13 @@
 **适合谁**：要抓大量网页当训练数据 / 做 RAG / 做研究的人。
 **备注**：需要 Firecrawl API key（有 free tier）。
 
-### [browserbase/mcp-server-browserbase](https://github.com/browserbase/mcp-server-browserbase) ⭐⭐⭐⭐
+### [browserbase/mcp-server-browserbase](https://github.com/browserbase/mcp-server-browserbase) ⭐⭐⭐⭐（⚠️ 已封存）
 
 | 栏位 | 内容 |
 |---|---|
 | Stars | ★ 3.3k+ |
 | License | Apache-2.0 |
-| 推荐度 | ⭐⭐⭐⭐（**Browserbase 官方**） |
+| 推荐度 | ⭐⭐⭐⭐（**Browserbase 官方**、⚠️ 已封存） |
 
 **教什么**：Browserbase 官方 MCP，配 Stagehand 跑 cloud-based 浏览器。
 **适合谁**：本地跑浏览器太重 / 要在 cloud 并行跑多个 session 的人。
@@ -556,7 +554,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 14.6k+ |
+| Stars | ★ 15k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（最热门 Figma MCP） |
 
@@ -588,13 +586,11 @@
 **适合谁**：需要 real-time canvas sync 跟编程化操作的人。
 **备注**：跟官方版互补，社群维护。
 
----
-
 ### [pbakaus/impeccable](https://github.com/pbakaus/impeccable) ⭐⭐⭐⭐⭐
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 48k+ |
+| Stars | ★ 53k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐ |
 
@@ -610,7 +606,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 3k+ |
+| Stars | ★ 3.3k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Grafana 官方**） |
 
@@ -662,7 +658,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 534 |
+| Stars | ★ 581 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（YouTube 字幕） |
 
@@ -674,8 +670,8 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 510 |
-| License | NOASSERTION |
+| Stars | ★ 557 |
+| License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（YouTube 完整 API） |
 
 **教什么**：完整 YouTube API MCP——除了 transcript，还能管 video、Shorts、analytics。
@@ -726,7 +722,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 20k+ |
+| Stars | ★ 21k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐ |
 
@@ -774,7 +770,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 917 |
+| Stars | ★ 967 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -786,7 +782,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 7.5k+ |
+| Stars | ★ 8.3k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -794,7 +790,7 @@
 **适合谁**：用 Claude Code / Codex / OpenClaw 做投研或量化分析的中文开发者；不想自己刻数据抓取逻辑的人。
 **备注**：一条 `curl` + `pip install` 即可启用；中国 A 股数据类 Skill 中星星数最高的社群实现。兼容 Claude Code、Codex、OpenClaw。
 
-> 想找微信 / 钉钉集成？目前主流是用 chat bot framework（如 zhayujie/CowAgent）而不是纯 MCP server。等正規 MCP 出现再加进来。
+> 想找微信 / 钉钉集成？目前主流是用 chat bot framework（如 zhayujie/CowAgent）而不是纯 MCP server。等正规 MCP 出现再加进来。
 
 ### [MoonshotAI/Kimi-K2](https://github.com/MoonshotAI/Kimi-K2) ⭐⭐⭐
 
@@ -828,7 +824,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 3.7k+ |
+| Stars | ★ 4k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Cloudflare 官方**） |
 
@@ -855,7 +851,7 @@
 | 形式 | hosted MCP server |
 | 推荐度 | ⭐⭐⭐（金融分析工具；了解 hosted vs self-hosted MCP 实现差异的实例） |
 
-**教什么**：YIELD INTELLIGENCE hosted remote MCP server——即时美国国债收益率 + 股息 ETF / REIT / 优先股分析 + 被动收入投资组合优化。2 个工具：`analyze_yield_opportunities`（扫描被动收入机会）+ `optimize_income_portfolio`（面向目标月收入建立投资组合）。已收录于 Anthropic 官方 MCP Registry（`io.github.thebrierfox/intuitek-ace`，since 2026-05-10）。
+**教什么**：YIELD INTELLIGENCE hosted remote MCP server——即时美国国债收益率 + 股息 ETF / REIT / 优先股分析 + 被动收入投资组合优化。2 个工具：`analyze_yield_opportunities`（扫描被动收入机会）+ `optimize_income_portfolio`（面向目标月收入建立投资组合）。已收录于官方 MCP Registry（`io.github.thebrierfox/intuitek-ace`，since 2026-05-10）。
 **适合谁**：用 Claude Code / Claude Desktop 做个人理财分析、想让 AI 找出被动收入机会的人。hosted remote MCP server 范例——直接 plug URL、0 安装、适合 Stage 5 学完 MCP 概念后用来体验 hosted vs self-hosted 差异。
 **备注**：Live endpoint `https://api.intuitek.ai/yield/mcp`（no auth、no API key）。x402 micropayment $1 USDC/call on Base（agent-to-agent 场景）；一般用户免费。纯分析工具，不涉及交易。GitHub：[thebrierfox/intuitek-ace](https://github.com/thebrierfox/intuitek-ace)（MIT License）。
 
@@ -881,7 +877,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 165 |
+| Stars | ★ 182 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（研究流程一整套） |
 
@@ -906,7 +902,7 @@
 | 栏位 | 内容 |
 |---|---|
 | Stars | ★ 45 |
-| License | NOASSERTION |
+| License | MIT |
 | 推荐度 | ⭐⭐⭐⭐ |
 
 **教什么**：Zotero CLI skill——程序化搜索 / 添加 / 分类 / 标记文献。
@@ -917,7 +913,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 38 |
+| Stars | ★ 42 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -931,35 +927,48 @@
 
 > ⚠️ **maintainer 自家项目区**：跟 13 一样，以下是维护者把自己 daily workflow 抽出来公开的 delegation skills。star 门槛放宽，选收标准是“真的能让 Claude planner + Codex/Gemini 执行者组合稳定跑下去”。Multi-LLM 领域变化快，建议跟其他 multi-agent framework（Stage 7 列的）一起评估后选择。
 
+<!-- not-an-entry -->
+### 三个 skill 的组合（composition）
+
+下面 3 个 skill 是**设计成一起用**的，不是独立工具：
+
+![Claude + 3 个 delegate skill 分工](../resources/diagrams/multi-llm-delegation-composition.zh-Hans.png)
+
+Claude 不擅长 token-heavy 机械式工作（成本高、context 容易爆）；Codex 不擅长对话协作；Gemini 有 1M context 但中型推理稍弱。**分工 = Claude 负责 design / review、Codex 负责 implement、Gemini 负责 long-form draft / synthesis**。
+
 ### [WenyuChiou/codex-delegate](https://github.com/WenyuChiou/codex-delegate) ⭐⭐⭐⭐⭐
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 57 |
+| Stars | ★ 62 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐ |
 
-**教什么**：Claude Code skill 把 Codex CLI 当作 execution specialist——适合大量文件 refactor、boilerplate 生成、实现密集任务。Claude 规划 + review，Codex 执行。
-**适合谁**：要在 Claude Code 内把实现工作自动 delegate 给 Codex 的开发者。
-**备注**：搭配 `gemini-delegate-skill` 用（一个跑 code-heavy、一个跑 long-form / CJK）。Stage 7 multi-agent 概念实战版。
+**教什么**：Claude Code skill 把 Codex CLI 当作 execution specialist——大量文件 refactor、batch edits、boilerplate 生成、wrapper-based 实现密集任务。Claude 写 plan + review，Codex 执行。
+**适合谁**：要省 token / 提速大规模机械式编辑的开发者；想验证“multi-agent 不只是 buzzword”的学习者。
+**何时用**：refactor 30+ files、生成 test scaffold、把同一个 pattern port 到 N 个文件、写 migration script。
+**何时不用**：架构决策、bug 诊断、security review、需要 conversation memory 的任务——这些 Claude 直接做更好。
+**备注**：跟 `gemini-delegate-skill` 互补。Stage 7 multi-agent 的实战版。
 
 ### [WenyuChiou/gemini-delegate-skill](https://github.com/WenyuChiou/gemini-delegate-skill) ⭐⭐⭐（⚠️ 已封存 2026-07）
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 34 |
+| Stars | ★ 37 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐（⚠️ 已封存） |
 
-**教什么**：Claude Code skill 把 Gemini CLI 当作 large-context synthesis、英文 / zh-TW / CJK long-form drafting、second-opinion review 的执行者。
-**适合谁**：写长文、跨语言 draft、需要第二意见 review 的人——研究者写 paper / 中文报告场景特别合适。
-**备注**：跟 codex-delegate 互补——“Codex 写 code、Gemini 写 prose”分工。
+**教什么**：Claude Code skill 把 Gemini CLI 当作 long-form / large-context / CJK 执行者——百万 token context window、中文长文 draft、second-opinion review。Claude 出大纲跟 critique，Gemini 写长文。
+**适合谁**：研究者写 paper、知识工作者写中文报告 / Threads post、需要第二个 LLM 意见对照的人。
+**何时用**：长文 draft（>3000 字）、跨多份长文档 synthesis（要塞进 1M token 的 context）、中文 / CJK 内容、要 LLM-vs-LLM 对比视角。
+**何时不用**：短查询、code generation（用 codex）、production-critical 决策（最终人类 review）。
+**备注**：跟 `codex-delegate` 是“Codex 写 code、Gemini 写 prose”的分工。
 
 ### [WenyuChiou/agent-collab-skills](https://github.com/WenyuChiou/agent-collab-skills) ⭐⭐
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | 刚公开、stars 还没积累 |
+| Stars | ★ 22 |
 | License | MIT |
 | 推荐度 | ⭐⭐（experimental，当作 reference 看就好） |
 
@@ -971,7 +980,7 @@
 
 ## 15. 金融 / 交易 Agents
 
-> ⚠️ **应用领域区**：agent 在量化交易 / hedge fund 模拟 / 自动下单的应用。这类 repo 授权状态混杂（部分 NO-LICENSE、部分 Apache-2.0 等开源授权），使用前自行查清楚。**警示**：trading agent 跑真实资金有显著风险，本目录列入是为了学习 agent 设计模式、不是投资建议。
+> ⚠️ **应用领域区**：agent 在量化交易 / hedge fund 模拟 / 自动下单的应用。本节两个 entry 分别是 Apache-2.0 与 MIT，但这类 repo 授权状态普遍混杂，使用前仍请自行查清楚。**警示**：trading agent 跑真实资金有显著风险，本目录列入是为了学习 agent 设计模式、不是投资建议。
 
 ### [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) ⭐⭐⭐
 
@@ -989,13 +998,13 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 59k+ |
-| License | NO-LICENSE |
+| Stars | ★ 62k+ |
+| License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
 **教什么**：多角色 AI hedge fund 模拟，bull / bear / 基本面 / 技术面 / 风控 agent 协作产生 trade recommendation。
 **适合谁**：看过 Stage 7 multi-agent 想要一个完整应用案例的学习者；对 agent + 金融交叉领域有兴趣的人。
-**备注**：NO-LICENSE → 同上；**模拟性质、非投资建议**。
+**备注**：MIT 授权；**模拟性质、非投资建议**。
 
 ---
 
@@ -1005,7 +1014,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 4.5k+ |
+| Stars | ★ 4.8k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（**Exa 官方**） |
 
@@ -1017,9 +1026,9 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 2.1k+ |
+| Stars | ★ 2.3k+ |
 | License | MIT |
-| 推荐度 | ⭐⭐⭐⭐ |
+| 推荐度 | ⭐⭐⭐⭐（新手第一选择） |
 
 **教什么**：把 Tavily search API 包成 MCP——为 LLM / RAG 打造的网页搜索，回传答案 + 出处来源。
 **适合谁**：新手只想让 agent 会上网搜东西的第一选择——免费额度好上手。
@@ -1038,17 +1047,20 @@
 
 ### 要加新的？
 
-1. 开 issue，附 repo 链接 + 为什么 JIA + 属于哪个分类
+1. 开 issue，附 repo 链接 + 为什么要加 + 属于哪个分类
 2. 或直接送 PR：在对应分类下加一个 entry，按上面的格式写（Stars/License/推荐度 + 教什么/适合谁/备注）
 3. **stars < 100 且非官方**通常会被退；除非你能说明 niche use case 强到可以例外
 
-PR 送出前看一下 [`resources/style-guide.md`](style-guide.zh-Hans.md) 跟 [`CONTRIBUTING.md`](../CONTRIBUTING.zh-Hans.md)。
+PR 送出前看一下 [`resources/style-guide.zh-Hans.md`](style-guide.zh-Hans.md) 跟 [`CONTRIBUTING.zh-Hans.md`](../CONTRIBUTING.zh-Hans.md)。
 
 ---
 
-## 维护备注（给未来的 maintainer）
+## 维护备注（给未来想帮忙的人）
 
-- Stars / license 用 `gh api repos/<owner>/<repo>` 抓，每季 review 一次
-- 链接 broken / repo archived 的直接拿掉
-- 出现新分类（如 AR/VR、IoT 等）就加新一节，但 stars < 1k 且 < 3 个 entry 的分类先别开
-- “中文圈专属”分类维持宽松（中文社群 repo 起 stars 较难）
+不是 SLA，是“能做就做”的方向：
+
+- Stars / license 用 `gh api repos/<owner>/<repo>` 抓，**有空 review 一轮就好**——不用排定期程
+- 链接坏了、repo archived → 看到再修
+- 新分类（AR/VR、IoT 等）有 1-2 个值得收的就可以先开
+- “中文圈专属”分类维持宽松，中文社群 repo star 数累积较慢
+- 用词、格式不一致 → 不要苛求，PR 进来能读懂优先

@@ -28,6 +28,7 @@
 ### 為什麼
 
 寫 Skill 跟「在 prompt 裡加幾段 instruction」差別在於：
+
 - Skill 是 **per-domain** 的，不會污染所有 conversation
 - 可以打包跨 project / team 共用
 - Claude 自己決定何時載入（看 description match 不 match）
@@ -202,7 +203,7 @@ if __name__ == "__main__":
 **Claude Code**：用 `claude mcp add` 指令：
 
 ```bash
-claude mcp add hello-mcp python /絕對路徑/到/server.py
+claude mcp add hello-mcp --scope project -- python /絕對路徑/到/server.py
 ```
 
 #### Step 4：重啟 Claude Desktop / Code、測試
@@ -238,6 +239,7 @@ Claude 回（會顯示 tool call icon）：Echo: hello world
 ### 為什麼
 
 最常見場景：
+
 - 把 Markdown / 大綱 → 自動生成 Word / PPT
 - 讀一堆 PDF / Excel → 整理摘要 / 提取數字
 - 改別人傳來的 docx → 加 track changes、或重排格式
@@ -320,6 +322,7 @@ Claude 會根據 user query 自動載入合適的 skill。
 ### 為什麼
 
 NotebookLM 強的地方：
+
 - 上傳 50 份 PDF 自動建索引
 - Q&A 帶 citation（每個答案都標出來自哪份文件第幾頁）
 - 生成 summary / mind map / podcast-style audio overview
@@ -327,6 +330,7 @@ NotebookLM 強的地方：
 弱點：要在 NotebookLM 網頁裡用，跟你的其他 workflow（Claude Code、Obsidian、Zotero）斷開。
 
 兩個方案橋接：
+
 1. **PleasePrompto/notebooklm-skill**（Skill，browser automation）
 2. **teng-lin/notebooklm-py**（Python API + CLI）
 
@@ -405,6 +409,7 @@ print(answer.citations)
 ### 為什麼
 
 研究流程經典痛點：
+
 - 「我那篇 paper 在哪？」——Zotero 有，但要切換視窗
 - 「給我所有講 transformer 的 paper 摘要」——要自己 select、export、丟給 LLM
 - 「這篇 paper 該打什麼 tag？」——人工
@@ -425,6 +430,7 @@ zotero-skills 把這些變成 Claude Code 內一句 prompt 就跑。
 #### Step 1：開啟 Zotero local API
 
 Zotero 桌面版預設不開 API。打開：
+
 - **Edit → Preferences → Advanced → Config Editor**
 - 找 `extensions.zotero.httpServer.enabled`，設 `true`
 - 找 `extensions.zotero.httpServer.port`，預設 `23119`

@@ -26,6 +26,7 @@
 ## 📌 學習目標
 
 走完這個階段後你會：
+
 - 解釋 LLM 是什麼、token 是什麼、context window 是什麼意思
 - 第一次成功呼叫 Claude / GPT / Gemini API 並解析回應
 - 在強項上比較四大 LLM 家族（Claude / GPT / Gemini / Llama）
@@ -64,7 +65,7 @@
 |---|---|---|---|---|---|
 | **DeepSeek**（深度求索）| V4-Flash（`deepseek-v4-flash`）/ V4-Pro（`deepseek-v4-pro`）| 1M | 推理 / coding / **cost 最低** | 大量 token / code 生成 / math | [api-docs.deepseek.com](https://api-docs.deepseek.com/zh-cn/) |
 | **Kimi**（Moonshot）| K3（2.8T 參數、原生多模態）| **1M** | 長 context / 中文長文 | 整本書讀 / 文獻分流 | [platform.moonshot.cn](https://platform.moonshot.cn/) |
-| **Hunyuan**（騰訊）| T1（深度思考）+ TurboS | 128k | **可比 DeepSeek R1 推理**、中文 | 中文推理 / 騰訊生態 | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
+| **Hunyuan**（騰訊）| T1（深度思考）+ TurboS | 128k | **深度思考推理**（對標 DeepSeek R1 這條 2025 推理基線）、中文 | 中文推理 / 騰訊生態 | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
 | **MiniMax** | M3 | 1M | 多模態 / 中文長 prose / coding | 中文寫作 / 影音 multimodal | [platform.minimax.io](https://platform.minimax.io/) |
 
 > **註**：這組以雲端 API 為主、多為 proprietary。DeepSeek 另有部分開源權重（在 HF），主要用法仍是雲端 API（舊名 `deepseek-chat`/`deepseek-reasoner` 於 2026-07-24 停用、已改指向 v4-flash）。
@@ -130,6 +131,7 @@
 ## 🚪 進入條件
 
 你應該已經：
+
 - 能跑 Python script
 - 概念上知道 HTTP / REST 是什麼
 - 至少有一家供應商的 API key（Anthropic / OpenAI / Google）
@@ -139,12 +141,13 @@
 ## 📚 必修閱讀
 
 1. [**Anthropic — Claude 模型總覽**](https://docs.claude.com/en/about-claude/models/overview) — 官方模型 family、含 2026 的 Claude Fable 5（`claude-fable-5`、Mythos-class、2026-06-09 GA）以及 Opus 5 / Sonnet 5 / Haiku 4.5。**Fable 5 是目前最高階的 Claude 層級；Opus 5（2026-07-24 推出、`claude-opus-5`）是現行的 Opus 級旗艦，Opus 4.8 仍可用（官方 docs 已移入 Legacy 區、未 deprecated）。**
-2. [**anthropics/courses — Anthropic API Fundamentals**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic 官方 5 course umbrella、**module 1「Anthropic API Fundamentals」對應本 stage**。Jupyter notebook、用 Claude 3 Haiku（最便宜）跑、跟著做就能拿到 API 基本功
+2. [**anthropics/courses — Anthropic API Fundamentals**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 22k+ — Anthropic 官方 5 course umbrella、**module 1「Anthropic API Fundamentals」對應本 stage**。Jupyter notebook、用 Claude 3 Haiku（最便宜）跑、跟著做就能拿到 API 基本功
 3. [**OpenAI Quickstart**](https://platform.openai.com/docs/quickstart) — 第一次 API call 的步驟
 4. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face 的入門
 5. [**Anthropic API Pricing**](https://www.anthropic.com/pricing#anthropic-api) — 把計價表看完，算一下 1k input + 1k output 的成本
 
 **🎥 中文影片補充（強烈推薦）**：
+
 - [**李宏毅 — 生成式 AI 導論（2024 春台大課程）**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — 第 1-5 集講 LLM 是什麼、怎麼運作、token / context window / temperature 怎麼影響輸出。中文圈最高品質的 LLM 學術級導論、台大授課、官方頁含投影片 + YouTube。最新整合版見 [**GenAI-ML 2025 秋**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)
 - [**3Blue1Brown — Transformer 視覺化**](https://www.youtube.com/watch?v=wjZofJX0v4M)（中文配音版：[3Blue1Brown 中文](https://www.youtube.com/@3Blue1BrownCN)）— LLM 內部運作 visual intro
 - [**Andrej Karpathy — Intro to LLMs**](https://www.youtube.com/watch?v=zjkBMFhNj_g) — 英文影片、1hr、英文圈最被推薦的 LLM 入門影片
@@ -160,7 +163,7 @@
 ### 練習 1：LLM API（hello world）
 五行 Python 呼叫 LLM 並印出回應。**預設用 Ollama 本機跑（免費、offline）**；想看 cloud 答案品質改 Path B Anthropic。詳見 [`examples/README.md`](../examples/README.md#三條路徑--預設用-ollama成本考量)。
 
-<details open>
+<details markdown="1" open>
 <summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、預設）</b>（複製到 <code>practice_1.py</code>、<code>python practice_1.py</code> 就跑）</summary>
 
 ```python
@@ -205,7 +208,7 @@ usage: CompletionUsage(completion_tokens=35, prompt_tokens=12, total_tokens=47)
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>📋 <b>起手碼 — Path B（Anthropic API、選擇性、想看 cloud 高品質時）</b>（複製到 <code>practice_1_anthropic.py</code>）</summary>
 
 ```python
@@ -248,10 +251,11 @@ usage: Usage(input_tokens=18, output_tokens=42, ...)
 
 ### 練習 2：Tokens
 同一個 prompt 跑 100 次，觀察 token 數的變化。
+
 - 注意：`temperature ≠ 0` 會產生變動
 - 注意：同一句話的英文 vs 中文 token 數差異
 
-<details open>
+<details markdown="1" open>
 <summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、預設）</b>（複製到 <code>practice_2.py</code>）</summary>
 
 ```python
@@ -302,7 +306,7 @@ print("💡 中文 prompt 通常 input tokens 比 English 多（中文 token 化
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>📋 <b>起手碼 — Path B（Anthropic API、選擇性）</b>（複製到 <code>practice_2_anthropic.py</code>）</summary>
 
 ```python
@@ -332,7 +336,7 @@ for label, prompt in PROMPTS.items():
 ### 練習 3：Pricing / Latency
 **成本敏感的工作必修**：算出你的 hello-world prompt 在不同 model 上跑 1000 次的成本。Ollama 本機是 $0 但有 latency 成本；Cloud LLM 有 $ 成本但快。**會算這兩個 trade-off 才能挑對 model**。
 
-<details open>
+<details markdown="1" open>
 <summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、量 latency）</b>（複製到 <code>practice_3.py</code>）</summary>
 
 ```python
@@ -388,7 +392,7 @@ avg output: 48 tokens、約 7.3 tokens/sec
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>📋 <b>起手碼 — Path B（Anthropic API、算 $ 成本）</b>（複製到 <code>practice_3_anthropic.py</code>）</summary>
 
 ```python
@@ -402,7 +406,7 @@ import anthropic
 # Anthropic 2026 Q2 公開計價（每 1M token、USD）— 跑前對照 https://www.anthropic.com/pricing
 PRICING = {
     "claude-haiku-4-5":   {"input": 1.00, "output":  5.00},
-    "claude-sonnet-5":    {"input": 3.00, "output": 15.00},
+    "claude-sonnet-5":    {"input": 3.00, "output": 15.00},  # 標準價；2026-08-31 前為優惠價 2.00 / 10.00
     "claude-opus-5":      {"input": 5.00, "output": 25.00},  # Opus 5 (2026-07-24、接替 Opus 4.8) — 維持 5/25 同價
     "claude-fable-5":     {"input": 10.00, "output": 50.00},  # Fable 5 (Mythos-class、最高層級) 約 Opus 的 2 倍
 }
@@ -450,6 +454,7 @@ single: input=14 output=48 → $0.000254
 
 ### 練習 5：Error Handling
 故意觸發錯誤情境並寫 retry：
+
 - API key 錯誤 → 看怎麼 raise
 - prompt 超長 → context window 滿了會發生什麼
 - 網路斷掉 → 寫一個有 exponential backoff 的 retry wrapper
@@ -467,7 +472,7 @@ ollama pull qwen2.5:3b
 ollama serve  # 預設 port 11434
 ```
 
-<details>
+<details markdown="1">
 <summary>📋 <b>起手碼</b>（複製到 <code>practice_6.py</code>）</summary>
 
 ```python
@@ -517,8 +522,8 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 
 | 分類 | Project | ⭐ | 適合誰 | 為什麼推薦 / 備註 |
 |---|---|---|---|---|
-| **官方 cookbook / 入門** | [Anthropic Cookbook](https://github.com/anthropics/claude-cookbooks) | ⭐⭐⭐⭐⭐ | 開始用 Claude API、當參考書查 | Claude API 全功能 notebook（tool use / batch / prompt cache），★ 46k+、MIT |
-| | [Anthropic Courses](https://github.com/anthropics/courses) | ⭐⭐⭐⭐⭐ | 系統性從零學一遍 Claude | Anthropic 自家完整 5 門課（API 基礎 / prompt eval / real-world prompting / tool use），★ 21k+。先跑 `anthropic_api_fundamentals` |
+| **官方 cookbook / 入門** | [Anthropic Cookbook](https://github.com/anthropics/claude-cookbooks) | ⭐⭐⭐⭐⭐ | 開始用 Claude API、當參考書查 | Claude API 全功能 notebook（tool use / batch / prompt cache），★ 50k+、MIT |
+| | [Anthropic Courses](https://github.com/anthropics/courses) | ⭐⭐⭐⭐⭐ | 系統性從零學一遍 Claude | Anthropic 自家完整 5 門課（API 基礎 / prompt eval / real-world prompting / tool use），★ 22k+。先跑 `anthropic_api_fundamentals` |
 | | [OpenAI Cookbook](https://github.com/openai/openai-cookbook) | ⭐⭐⭐⭐⭐ | 用 OpenAI API + structured output / function calling | 跟 Anthropic Cookbook 對照、★ 73k+、MIT。比 Anthropic 大很多、用搜尋 |
 | | [Anthropic Claude API Quickstart](https://docs.anthropic.com/en/docs/get-started) | ⭐⭐⭐⭐ | 5 分鐘上手 | 官方文件、加 bookmark 用 |
 | **中文教材**<br>（章節式） | [datawhalechina/happy-llm](https://github.com/datawhalechina/happy-llm) | ⭐⭐⭐⭐⭐ | 中文讀者想徹底搞懂 LLM 原理 | 對應 Karpathy「Zero to Hero」中文版，★ 32k+。等同 HF LLM Course 中文版 |
@@ -532,7 +537,7 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 | | [mudler/LocalAI](https://github.com/mudler/LocalAI) | ⭐⭐⭐⭐ | 團隊合規、要 self-host 全套 OpenAI 替代 | drop-in OpenAI API 替代品（chat / embedding / image / TTS / STT），★ 46k+ |
 | | [ml-explore/mlx](https://github.com/ml-explore/mlx) | ⭐⭐⭐⭐ | Mac 開發、想榨乾 Apple Silicon | Apple 為 M1+ 量身打造的 ML framework，★ 27k+。搭 `mlx-lm` 用最方便 |
 | **從零打造**<br>（理解原理）| [karpathy — Let's build GPT from scratch](https://www.youtube.com/watch?v=kCc8FmEb1nY) | ⭐⭐⭐⭐⭐ | 想搞懂 LLM 內部、不只會呼叫 | 2hr 高密度影片、用 PyTorch 從零打造 GPT。**暫停跟著寫 code 不要被動看** |
-| | [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | ⭐⭐⭐⭐⭐ | 想用整本書速度慢慢讀完 | Karpathy 影片的書本版：tokenizer → attention → pretraining → finetuning，★ 91k+、Apache-2.0 |
+| | [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | ⭐⭐⭐⭐⭐ | 想用整本書速度慢慢讀完 | Karpathy 影片的書本版：tokenizer → attention → pretraining → finetuning，★ 100k+、Apache-2.0 |
 | | [karpathy/LLM101n](https://github.com/karpathy/LLM101n) | ⭐⭐ | 歷史紀錄 | ⚠️ 已封存（2024-08）、只有大綱、課程沒做完。**直接看上面的「Build GPT from scratch」影片即可** |
 
 > 💡 **建議閱讀路徑**：API 入手就 Anthropic / OpenAI Cookbook → 中文系統路線就 happy-llm + llm-universe → 想深入內部就 Karpathy 影片 + rasbt 書搭 code → 想跑本地就 Ollama 起步、進階再讀 llama.cpp。

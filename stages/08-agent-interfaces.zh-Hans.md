@@ -111,11 +111,13 @@
 ```
 
 **为什么是这个范式（而非 Tool Use）**：
+
 - 大多数软件**没有 API，只有 GUI**——SAP / Excel / Photoshop / 任何传统桌面应用，要让智能体使用就只能在屏幕层面。
 - API 集成（Stage 3 Tool Use）需要等待厂商开放接口，有时根本等不到。
 - 屏幕级是**最后一公里**——“智能体能做人类在电脑上做的任何事”。
 
 **为什么 2026 年才可行**：
+
 - **视觉模型进步**：Claude 4.x / GPT-5.x 全是多模态，看屏幕识别元素的准确度大幅提升。
 - **OS 级训练数据**：[OSWorld dataset (NeurIPS 2024)](https://github.com/xlang-ai/OSWorld) 发布了 369 个跨 OS 的真实任务，让前沿实验室有数据可训。
 - **Anthropic Computer Use beta（2024-10）开启了商业竞争**——OpenAI / Google 跟进，benchmark 一路飙升。
@@ -147,11 +149,13 @@
 > **⚠️ 2026-06 更新（OSWorld 2.0）**：上表是 OSWorld **v1** 的数字。v1 随后被前沿模型逼近饱和，“superhuman” 只在 v1 的短任务（多为 1-2 个 app）成立。[OSWorld 2.0](https://osworld-v2.xlang.ai/)（2026-06、arXiv 2606.29537）改用 108 个 long-horizon workflow（每个约 318 次 tool call，v1 只约 30），当时最强的 Claude Opus 4.8（max thinking）也只到 **20.6%**（500 步预算）、GPT-5.5 约 14%、137 分钟以上的任务没有任何模型破 10%。SOTA 从“76% superhuman”掉到“20% 真实长任务”，正是本段 benchmark 规范要你警惕的落差。
 
 **为什么比 SWE-bench 难**：
+
 - **更开放的任务**：SWE-bench 有明确的测试来判断通过/失败；OSWorld 任务规范模糊（例如“帮我把 csv 变成图”）。
 - **跨多个 OS**：覆盖 Ubuntu / Windows / macOS。
 - **跨应用链**：常需要打开 3-4 个应用（Excel → Chrome → Slack）。
 
 **为什么真实能力 ≠ 数据**（呼应 [Stage 7 reward-hacking 警告](07-multi-agent-production.zh-Hans.md#-agent-benchmark-landscape怎么看不要只看排行榜---reward-hacking-警告)）：
+
 - OSWorld 也在 [UC Berkeley 2026-04 reward-hacking 报告](https://rdi.berkeley.edu/blog/trustworthy-benchmarks-cont/) 名单上，被证明可被 hack 到 100%。
 - **看数据的规范**：不要只看排行榜顶部，你自己的用例的 hold-out 测试才是基准真相。
 
@@ -176,6 +180,7 @@
 | **Screen-pixel + vision**（无 DOM，看截图）| 与 Computer Use 相同，截图 → 视觉 → 坐标 | iframe / Canvas / Shadow DOM / 反自动化网站 |
 
 **为什么 DOM 感知比截图更精确**：
+
 - 直接抓取 `<input name="username">` 元素，**无需视觉模型解析像素**。
 - 速度快 10-100 倍（不运行视觉模型）。
 - 不会误点（元素有确切的边界框）。
@@ -183,7 +188,7 @@
 
 **结论 — 生产级浏览器智能体模式**：**DOM-first + 截图回退**——先尝试 DOM，抓不到再用视觉。browser-use / Atlas / Comet 都采用这种模式。
 
-> 🌐 **浏览器 agent 的第三种模态：accessibility tree**：除了 DOM-aware 跟 screen-pixel（看截图点坐标），2026 production 主流是读**无障碍树**——比 pixel 稳、比原始 DOM 省 token。要实际接，[microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp)（★34k、Apache-2.0、走 accessibility tree）是 Track A 直接挂 Claude Code 就能用的浏览器 MCP。
+> 🌐 **浏览器 agent 的第三种模态：accessibility tree**：除了 DOM-aware 跟 screen-pixel（看截图点坐标），2026 production 主流是读**无障碍树**——比 pixel 稳、比原始 DOM 省 token。要实际接，[microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp)（★ 35k+、Apache-2.0、走 accessibility tree）是 Track A 直接挂 Claude Code 就能用的浏览器 MCP。
 
 ### 迷你术语词典（就地解释）
 
@@ -201,7 +206,7 @@
 |---|---|---|---|---|
 | **Atlas** ⚠️ | OpenAI（2025-10，**停运 2026-08**）| 仅 macOS（未出 Windows）| 功能并入 ChatGPT app | — |
 | **Comet** | Perplexity | iOS / Android / Win / Mac | ✅ research 最强 | ⚠ 2026 年 Brave 发现可被恶意网页注入；2026-03 联邦禁令禁止访问 Amazon。 |
-| **Dia** | The Browser Company（被 Atlassian 以 6.1 亿美元收购）| macOS | ❌（**不走 agent mode**，聚焦性能）| — |
+| **Dia** | [The Browser Company（被 Atlassian 以 6.1 亿美元收购）](https://efficient.app/compare/dia-vs-comet)| macOS | ❌（**不走 agent mode**，聚焦性能）| — |
 | **Gemini in Chrome** | Google（Gemini 3）| Chrome 全平台 + Android | ✅ **Auto Browse** + **Chrome Skills** | Enterprise Premium $6/用户/月 |
 | **Operator** | OpenAI | — | ❌ **2025-08 停运** | CAPTCHA / JS / session 处理不稳定。 |
 
@@ -216,6 +221,7 @@
 | **Playwright + LLM**（DIY）| — | 不是专门的框架，但 Playwright 是 web 自动化的标准，加上 LLM 包装器即可使用。 |
 
 **为什么 browser-use 这么火（86k 星）**：
+
 - DOM-first 范式**对 web 来说比截图+视觉更精确**，速度也更快。
 - LLM 厂商无关（不绑定 Claude / GPT）。
 - 5 行 Python 上手，入门门槛低。
@@ -233,11 +239,13 @@
 ### 为什么智能体必须使用沙箱
 
 **威胁模型**：智能体写代码 → 在哪里运行？
+
 - ❌ **主机（最坏情况）**：智能体可能 `rm -rf /` / 连接互联网泄露数据 / 读取 `.ssh/id_rsa` / 安装恶意软件。
 - ⚠ **同一用户隔离进程（中等）**：能阻止部分攻击，但文件系统 / 网络仍然开放。
 - ✅ **隔离沙箱（必要）**：独立的文件系统 / 进程 / 网络，出事可直接丢弃。
 
 **为什么 2026 年才正式成为生产要求**：
+
 - **2026-04 OpenAI Agents SDK 更新**：[内置支持 7 个沙箱提供商](https://openai.com/index/the-next-evolution-of-the-agents-sdk/)（Blaxel / Cloudflare / Daytona / E2B / Modal / Runloop / Vercel）。
 - 之前都依赖 [Claude Code](05-claude-code-ecosystem.zh-Hans.md) / [Cursor](https://www.cursor.com) 的审批门来阻止——但生产级智能体**无人值守，必须使用沙箱**。
 
@@ -257,6 +265,7 @@
 | **GPU passthrough** | VM / microVM 访问主机 GPU 的技术（**只有 Modal 支持**）。| — | — | 在沙箱内运行推理 / 微调 |
 
 **核心要点**：
+
 - **Container** = 快 + 隔离弱（共享内核）
 - **VM** = 慢 + 隔离强（独立内核）
 - **microVM** = 兼顾（快 < 100ms + 独立内核）→ **大多数智能体沙箱选择 microVM**
@@ -283,6 +292,7 @@
 - **2026-04 之后**：**架构上合理**——SDK 内置 harness 抽象层 + 沙箱抽象层 + Codex 文件系统工具。
 
 **3 个关键新功能**：
+
 1. **Native harness** — 智能体循环 / 模型调用 / 工具路由 / 切换 / 审批 / 追踪 / 恢复全在 SDK 层。
 2. **Native sandbox execution** — 可自带沙箱，或使用内置的 7 个提供商（Blaxel / Cloudflare / Daytona / E2B / Modal / Runloop / Vercel）。
 3. **Codex filesystem tools** — 智能体写文件 / 读文件 / 运行命令都有 SDK 级 API。
@@ -319,6 +329,7 @@
 ### 跨应用工作流示例
 
 “**帮我把 Q3 的 csv 文件做成图表，存到 Slack 的 #finance 频道**”：
+
 1. Claude Code（接入 Computer-use MCP）打开 Excel。
 2. 加载 csv，使用图表向导生成图表。
 3. 截图。
@@ -380,6 +391,7 @@ agent = Agent(
 ### 4. GUI 智能体训练数据
 
 如果你想**训练自己的 Computer Use 模型**（少数人会做）：
+
 - [**OSWorld dataset**](https://github.com/xlang-ai/OSWorld) — 369 个跨 OS 任务，包含截图和基准操作。
 - [**WebArena**](https://github.com/web-arena-x/webarena) — web 导航 benchmark。
 - [**Mind2Web**](https://github.com/OSU-NLP-Group/Mind2Web) — 真实世界的 web 任务。
@@ -393,11 +405,13 @@ agent = Agent(
 ### 案例 1 — Comet 被 Brave 发现可被网页注入
 
 **攻击原理**（[Brave Research 2026](https://brave.com/blog/comet-prompt-injection)）：
+
 - Comet 智能体查看网页 → 网页中隐藏恶意 prompt（如在 HTML 注释中）。
 - LLM 解析网页时将恶意 prompt 当作指令执行。
 - 结果：智能体被劫持，操作用户 Gmail / 银行 / 账户。
 
 **为何这是新的攻击面**：
+
 - 传统 SQL 注入攻击路径：**用户输入 → 服务器**（在服务器端过滤即可阻止）。
 - 通过 web 内容的 Prompt injection：**web 内容 → LLM 上下文**（在 LLM 上下文中难以区分指令与内容）。
 - **防御方式完全不同**——无法套用 SQL 注入那套方法。
@@ -407,6 +421,7 @@ agent = Agent(
 2026 年 3 月，美国联邦法官对 Comet 下达初步禁令，**禁止该智能体访问 Amazon 账户**——理由是 Comet 在 Amazon 账户上的操作不稳定，且涉及未经授权的商业活动。
 
 **为何这是法律风险信号**：
+
 - 智能体操作他人账户可能违反该平台的 ToS。
 - 大型电子商务 / 银行平台可能采取法律行动阻止智能体。
 - 生产级智能体部署前**必须检查目标平台的 ToS**。
@@ -455,6 +470,7 @@ agent = Agent(
 | **Claude 智能体原生路线** | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | Stage 7 已介绍，Anthropic 早于 OpenAI 抽象出 harness |
 
 **建议上手顺序**：
+
 1. **Track A 入门**：使用 Claude Computer Use Docker quickstart 跑通第一个跨应用任务（30 分钟）
 2. **Track B 入门**：使用 browser-use 编写 web 智能体（10 分钟）
 3. 添加沙箱隔离：接入 E2B 或 Daytona

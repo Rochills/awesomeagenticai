@@ -55,7 +55,7 @@ Agents that live in your terminal — you give one prompt (e.g. "refactor this m
 
 | CLI Agent | Install / Docs | Primary LLM |
 |---|---|---|
-| **Claude Code** | https://docs.anthropic.com/en/docs/claude-code/quickstart | Claude |
+| **Claude Code** | https://code.claude.com/docs/en/quickstart | Claude |
 | **Codex CLI** | https://github.com/openai/codex | GPT family |
 | **Gemini CLI** | https://github.com/google-gemini/gemini-cli | Gemini |
 | **OpenCode** | https://github.com/sst/opencode | Any (multi-provider) |
@@ -97,10 +97,12 @@ Want to script with Python, run batch jobs, integrate LLMs into your own app/aut
 
 - **OpenAI**: https://platform.openai.com/api-keys
   ChatGPT Plus and API access are separate; Plus subscribers still need an API key.
+
 - **Google AI Studio**: https://aistudio.google.com/
   Useful for trying the Gemini API. Free quota depends on region and account state.
+
 - **NVIDIA NIM**: https://build.nvidia.com/
-  **Hosts many open-source models (Llama / Mistral / DeepSeek-R1 / Qwen / Gemma etc.), OpenAI-compatible API, new accounts get 1000 free credits**. Great when you want to try several open models without local GPU. `base_url=https://integrate.api.nvidia.com/v1`.
+  **Hosts many open-source models (Llama / Mistral / DeepSeek / Qwen / Gemma etc.), OpenAI-compatible API, new accounts get 1000 free credits**. Great when you want to try several open models without local GPU. `base_url=https://integrate.api.nvidia.com/v1`.
 
 #### Chinese / Chinese-language cloud (region-friendly, very cheap)
 
@@ -109,11 +111,14 @@ Want to script with Python, run batch jobs, integrate LLMs into your own app/aut
 - **DeepSeek**: https://platform.deepseek.com/
   Free web at https://chat.deepseek.com (with a deep-thinking mode). API is extremely cheap (**$0.14 input / $0.28 output per 1M tokens — about 7× cheaper than haiku**). Strong code and reasoning.
   `base_url=https://api.deepseek.com/v1`, `model=deepseek-v4-flash` or `deepseek-v4-pro`.
+
 - **Moonshot Kimi**: https://platform.moonshot.cn/ (China) / https://platform.moonshot.ai/ (international)
   Free web at https://kimi.com. Selling point: **1M-token context window** (great for large files / long conversations). API ~$5-15 per 1M input, tiered by context size.
   `base_url=https://api.moonshot.cn/v1` (CN) / `https://api.moonshot.ai/v1` (intl), e.g. `model=kimi-k3`.
+
 - **Qwen (Alibaba)**: https://dashscope.console.aliyun.com/
   Free web at https://chat.qwen.ai. API via Alibaba Cloud DashScope with an **OpenAI-compatible endpoint** ([docs](https://help.aliyun.com/zh/dashscope/developer-reference/compatibility-of-openai-with-dashscope/)). **The same Qwen models also run locally via Ollama** (`ollama pull qwen2.5:3b`) — cloud and local paths both work.
+
 - **GLM (ZhipuAI)**: https://open.bigmodel.cn/ (China) / https://z.ai/ (intl)
   Free web at https://chatglm.cn. Has GLM-4.5 and GLM-4-Plus. Free tier available; students can apply for extra credit.
 

@@ -9,9 +9,13 @@
 
 > 💡 Term-unfamiliar? (prompt / few-shot / CoT / system prompt / …) → see [`resources/glossary.en.md`](../resources/glossary.en.md).
 
+> 📋 **Chapter structure**: Learning goals → Entry conditions → Required reading → [optional · concept map] → Hands-on exercises → Curated Projects → Self-check
+> 🔑 **Key terms**: see [`resources/glossary.en.md`](../resources/glossary.en.md) (every term used in each stage is collected there)
+
 ## 📌 Learning Goals
 
 After this stage you will be able to:
+
 - Write structured prompts (role + task + format + examples)
 - Apply few-shot prompting and know when it helps
 - Use chain-of-thought (CoT) for reasoning tasks
@@ -21,17 +25,23 @@ After this stage you will be able to:
 ## 🚪 Entry Conditions
 
 You should already:
+
 - Be able to call an LLM API (Stage 1)
 - Be able to parse / iterate over API responses
 
 ## 📚 Required Reading
 
-1. [**anthropics/prompt-eng-interactive-tutorial**](https://github.com/anthropics/prompt-eng-interactive-tutorial) ⭐⭐⭐⭐⭐ ★ 35k+ — **Anthropic's official interactive tutorial**, 9 chapters of Jupyter notebooks (basic / intermediate / advanced + appendix), with playground and answer key. Runs on Claude 3 Haiku (cheapest). **The canonical hands-on resource for Stage 2.** Also packaged as module 2 of the [**anthropics/courses**](https://github.com/anthropics/courses) 5-course umbrella — for broader coverage (API Fundamentals / Real World Prompting / Eval / Tool Use) go straight to the umbrella
-2. [**anthropics/courses — Real World Prompting**](https://github.com/anthropics/courses) ⭐⭐⭐⭐ ★ 21k+ — Module 3 of the same umbrella, **"how to actually use prompting in real situations"**: chatbot / legal / financial / coding case walkthroughs. Read #1 first, then this.
+1. [**anthropics/prompt-eng-interactive-tutorial**](https://github.com/anthropics/prompt-eng-interactive-tutorial) ⭐⭐⭐⭐⭐ ★ 37k+ — **Anthropic's official interactive tutorial**, 9 chapters of Jupyter notebooks (basic / intermediate / advanced + appendix), with playground and answer key. Runs on Claude 3 Haiku (cheapest). **The canonical hands-on resource for Stage 2.** Also packaged as module 2 of the [**anthropics/courses**](https://github.com/anthropics/courses) 5-course umbrella — for broader coverage (API Fundamentals / Real World Prompting / Eval / Tool Use) go straight to the umbrella
+2. [**anthropics/courses — Real World Prompting**](https://github.com/anthropics/courses) ⭐⭐⭐⭐ ★ 22k+ — Module 3 of the same umbrella, **"how to actually use prompting in real situations"**: chatbot / legal / financial / coding case walkthroughs. Read #1 first, then this.
 3. [**Anthropic Prompt Engineering Guide**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — official docs, pairs with #1
 3. [**OpenAI Prompt Engineering**](https://platform.openai.com/docs/guides/prompt-engineering) — OpenAI's perspective
 4. [**dair-ai Prompt Engineering Guide**](https://www.promptingguide.ai/) — academic-flavored, in-depth
 5. [**Anthropic — Prompting Best Practices**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct) — be clear and direct
+
+**🎥 Video supplements (highly recommended)**:
+
+- [**Hung-yi Lee — Introduction to Generative AI (NTU, Spring 2024)**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — the later episodes cover prompt engineering (few-shot, CoT, in-context learning) plus the matching labs. The most complete university-level treatment of prompting in Mandarin. Latest consolidated edition: [**GenAI-ML, Fall 2025**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)
+- [**Hung-yi Lee — Machine Learning, Spring 2025 (includes the prompt + LLM chapters)**](https://speech.ee.ntu.edu.tw/~hylee/ml/2025-spring.php) — for those who want the full ML background
 
 ## 🛠 Hands-on Exercises
 
@@ -44,7 +54,7 @@ You should already:
 ### Exercise 1: System Prompt
 Same user message, three different system prompts. Watch the personality / output format change.
 
-<details open>
+<details markdown="1" open>
 <summary>📋 <b>Starter code — Path A (local Ollama gemma4:e4b, default)</b> (copy to <code>practice_1.py</code>)</summary>
 
 ```python
@@ -94,9 +104,21 @@ except json.JSONDecodeError:
 print(f"\n✅ Exercise 1 passed — same question, three different personas / formats / tones")
 ```
 
+**Expected output** (sample; gemma4:e4b follows the system prompt reasonably well, though less strictly than Claude):
+```
+--- [Strict lawyer] ---
+Per Article 421 of the Civil Code...
+
+--- [Kindergarten teacher] ---
+A lease is like lending a toy to a friend — you agree when it comes back and how many sweets it costs...
+
+--- [JSON machine] ---
+{"answer": "A lease is an agreement in which one party lets another use a thing...", "confidence": 0.85}
+```
+
 </details>
 
-<details>
+<details markdown="1">
 <summary>📋 <b>Starter code — Path B (Anthropic API, optional)</b> (copy to <code>practice_1_anthropic.py</code>)</summary>
 
 ```python
@@ -137,13 +159,14 @@ print(f"\n✅ Exercise 1 passed (Anthropic)")
 ### Exercise 2: Few-Shot
 
 **Get these three terms first** — the only difference is how many examples you show the LLM:
+
 - **Zero-shot (0-shot)**: no examples, just ask.
 - **One-shot (1-shot)**: give **1** "input → answer" example first, then ask.
 - **Few-shot (the 3-shot below is exactly this)**: give a few (usually 2–5) examples first — the LLM copies their format and judgment criteria, and accuracy usually jumps.
 
 Pick a classification task. Run it 0-shot, then 3-shot. Measure accuracy difference.
 
-<details open>
+<details markdown="1" open>
 <summary>📋 <b>Starter code — Path A (local Ollama gemma4:e4b, default)</b> (copy to <code>practice_2.py</code>)</summary>
 
 ```python
@@ -223,7 +246,7 @@ print("💡 Small models (gemma4:e4b) are more format-sensitive, so few-shot usu
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>📋 <b>Starter code — Path B (Anthropic API, optional)</b> (copy to <code>practice_2_anthropic.py</code>)</summary>
 
 ```python
@@ -253,11 +276,12 @@ def classify(text: str, *, use_few_shot: bool) -> str:
 
 ### Exercise 3: CoT
 Pick a math word problem. Compare:
+
 - Plain prompt
 - Plain prompt + "Let's think step by step"
 - Plain prompt + worked example showing CoT
 
-<details open>
+<details markdown="1" open>
 <summary>📋 <b>Starter code — Path A (local Ollama gemma4:e4b, default)</b> (copy to <code>practice_3.py</code>)</summary>
 
 ```python
@@ -317,7 +341,7 @@ print(f"\n✅ Exercise 3 passed — {correct}/3 correct")
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>📋 <b>Starter code — Path B (Anthropic API, optional)</b> (copy to <code>practice_3_anthropic.py</code>)</summary>
 
 Same logic as Path A, just swap the client and `ask()`:
@@ -342,7 +366,7 @@ def ask(prompt: str) -> str:
 ### Exercise 4: Iterative Refinement
 Take a vague prompt, refine it 5 times. Track the iterations. Notice what changes improve quality.
 
-<details open>
+<details markdown="1" open>
 <summary>📋 <b>Starter code — Path A (local Ollama gemma4:e4b, default)</b> (copy to <code>practice_4.py</code>) — this exercise has no "right answer"; the point is observing the process</summary>
 
 ```python
@@ -391,7 +415,7 @@ print("💡 The 5 dimensions: (1) target audience (2) format (3) length (4) exam
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>📋 <b>Starter code — Path B (Anthropic API, optional)</b> (copy to <code>practice_4_anthropic.py</code>)</summary>
 
 Same loop and PROMPTS as Path A, with Anthropic SDK:
@@ -412,6 +436,8 @@ for label, prompt in PROMPTS.items():
 
 </details>
 
+**Going further**: dump all 5 rounds of output to a CSV. Stage 7 Exercise 2 shows how to turn that into an eval harness so you can quantify *how much* a prompt actually improved.
+
 ## 🎯 Curated Projects
 
 4 categories, 9 projects in one table. **Pick by "Best for"; click through for depth on the repo / site.**
@@ -423,10 +449,10 @@ for label, prompt in PROMPTS.items():
 | | [NirDiamant/Prompt_Engineering](https://github.com/NirDiamant/Prompt_Engineering) | ⭐⭐⭐⭐ | Learn-by-running | 22 techniques, each in its own notebook, more hands-on than dair-ai, ★ 7.7k+ |
 | **Official cookbook** | [Anthropic Cookbook — Prompt patterns](https://github.com/anthropics/claude-cookbooks) | ⭐⭐⭐⭐⭐ | Advanced Claude prompting (prompt caching / multimodal) | Introduced in Stage 1; for this stage focus on `misc/prompt_caching.ipynb` and `multimodal/` |
 | | [GoogleCloudPlatform/generative-ai](https://github.com/GoogleCloudPlatform/generative-ai) | ⭐⭐⭐ | Google stack (PaLM / Gemini) users | Google Cloud's prompting cookbook; cross-vendor perspective |
-| **Inspiration collection**<br>(steal patterns, don't copy)| [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) | ⭐⭐⭐ | When you're stuck for ideas | Hundreds of "Act as a [role]..." prompts, ★ 162k+, CC0. **Take the pattern, rewrite — don't copy verbatim** |
+| **Inspiration collection**<br>(steal patterns, don't copy)| [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) | ⭐⭐⭐ | When you're stuck for ideas | Hundreds of "Act as a [role]..." prompts, ★ 166k+, CC0. **Take the pattern, rewrite — don't copy verbatim** |
 | **Production management**<br>(scale up)| [microsoft/prompt-engine](https://github.com/microsoft/prompt-engine) | ⭐⭐ (⚠️ archived) | Managing many prompts in production | TypeScript library; ⚠️ **no updates since 2023, repo archived** — find a maintained alternative |
 | | [microsoft/promptflow](https://github.com/microsoft/promptflow) | ⭐⭐⭐ | Team apps needing eval | Visual prompt design + eval tooling, ★ 11k+ |
-| | [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy) ⭐ **Stage 2 → 3 bridge** | ⭐⭐⭐⭐⭐ | After dair-ai, want to scale prompts | Treat prompts as code, compiler auto-optimizes, ★ 34k+, MIT |
+| | [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy) ⭐ **Stage 2 → 3 bridge** | ⭐⭐⭐⭐⭐ | After dair-ai, want to scale prompts | Treat prompts as code, compiler auto-optimizes, ★ 36k+, MIT |
 
 > **Note**: dspy is a framework, not a tutorial — higher entry barrier; pair it with the [dspy.ai](https://dspy.ai/) official tutorial. NirDiamant uses NOASSERTION custom terms (research / non-commercial leaning).
 
@@ -458,8 +484,8 @@ Engineering practice for LLM-powered systems can be divided into **three stack l
 
 Further reading (optional, for when you want to dig deeper):
 
-- [`Meirtz/Awesome-Context-Engineering`](https://github.com/Meirtz/Awesome-Context-Engineering) (★ 3k+) — comprehensive survey from prompt engineering to production agents
-- [`Windy3f3f3f3f/how-claude-code-works`](https://github.com/Windy3f3f3f3f/how-claude-code-works) (★ 3k+) — Claude Code internals, includes a context-engineering chapter
+- [`Meirtz/Awesome-Context-Engineering`](https://github.com/Meirtz/Awesome-Context-Engineering) (★ 3.3k+) — comprehensive survey from prompt engineering to production agents
+- [`Windy3f3f3f3f/how-claude-code-works`](https://github.com/Windy3f3f3f3f/how-claude-code-works) (★ 3.3k+) — Claude Code internals, includes a context-engineering chapter
 
 ## ✅ Self-Check Before Stage 3
 

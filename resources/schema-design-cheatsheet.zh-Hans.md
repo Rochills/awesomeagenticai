@@ -142,6 +142,15 @@ LLM 看到 `success: false` 就知道要处理错误，不会把空数据当答�
 
 ---
 
+## Schema 演进的小建议
+
+- 加参数要 backward-compatible：新参数设 `default` 而不是 required
+- 改参数含义 → 开新 tool（`get_weather_v2`），旧的标 deprecated 一段时间再下
+- description 改了要重新测——LLM 行为对 description 敏感，连标点都会影响
+- 上 production 前用 [promptfoo](https://github.com/promptfoo/promptfoo) eval 一下“LLM 在 5-10 个典型 query 是否选对 tool”
+
+---
+
 ## 延伸阅读
 
 - [Anthropic — Tool Use Guide](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview) — 官方 schema 规格

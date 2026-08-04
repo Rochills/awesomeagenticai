@@ -14,6 +14,7 @@
 ## 📌 學習目標
 
 走完這個階段後你會：
+
 - 寫出結構化 prompt（角色 + 任務 + 格式 + 範例）
 - 應用 few-shot prompting，並知道什麼時候有用
 - 在推理任務上使用 chain-of-thought（CoT）
@@ -23,19 +24,21 @@
 ## 🚪 進入條件
 
 你應該已經：
+
 - 會呼叫 LLM API（Stage 1）
 - 會解析 / 走訪 API 回應
 
 ## 📚 必修閱讀
 
-1. [**anthropics/prompt-eng-interactive-tutorial**](https://github.com/anthropics/prompt-eng-interactive-tutorial) ⭐⭐⭐⭐⭐ ★ 35k+ — **Anthropic 官方互動教學**、9 章 Jupyter notebook（basic / intermediate / advanced + appendix），含 playground 跟 answer key。用 Claude 3 Haiku（最便宜）跑得起來、**Stage 2 的 canonical 動手教材**。也是 [**anthropics/courses**](https://github.com/anthropics/courses) 5 course umbrella 的 module 2，想看更廣（含 API Fundamentals / Real World Prompting / Eval / Tool Use）直接看 umbrella
-2. [**anthropics/courses — Real World Prompting**](https://github.com/anthropics/courses) ⭐⭐⭐⭐ ★ 21k+ — 同 umbrella 的 module 3，**「真實情境下怎麼用 prompting」**：chatbot / legal / financial / coding 案例 walk-through。看完 #1 再來看 #2
+1. [**anthropics/prompt-eng-interactive-tutorial**](https://github.com/anthropics/prompt-eng-interactive-tutorial) ⭐⭐⭐⭐⭐ ★ 37k+ — **Anthropic 官方互動教學**、9 章 Jupyter notebook（basic / intermediate / advanced + appendix），含 playground 跟 answer key。用 Claude 3 Haiku（最便宜）跑得起來、**Stage 2 的 canonical 動手教材**。也是 [**anthropics/courses**](https://github.com/anthropics/courses) 5 course umbrella 的 module 2，想看更廣（含 API Fundamentals / Real World Prompting / Eval / Tool Use）直接看 umbrella
+2. [**anthropics/courses — Real World Prompting**](https://github.com/anthropics/courses) ⭐⭐⭐⭐ ★ 22k+ — 同 umbrella 的 module 3，**「真實情境下怎麼用 prompting」**：chatbot / legal / financial / coding 案例 walk-through。看完 #1 再來看 #2
 3. [**Anthropic Prompt Engineering Guide**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — 官方 docs、配合上面 #1 一起讀
 3. [**OpenAI Prompt Engineering**](https://platform.openai.com/docs/guides/prompt-engineering) — OpenAI 觀點
 4. [**dair-ai Prompt Engineering Guide**](https://www.promptingguide.ai/) — 學術風，深入
 5. [**Anthropic — Prompting Best Practices**](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct) — 直接清楚
 
 **🎥 中文影片補充（強烈推薦）**：
+
 - [**李宏毅 — 生成式 AI 導論（2024 春台大課程）**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — 中後段集數講 prompt engineering（few-shot、CoT、in-context learning）+ 對應 lab。中文圈最完整的 prompting 學術級教學。最新整合版見 [**GenAI-ML 2025 秋**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)
 - [**李宏毅 — 機器學習 2025 春（含 prompt + LLM 章節）**](https://speech.ee.ntu.edu.tw/~hylee/ml/2025-spring.php) — 適合想看 ML 完整背景的人
 
@@ -50,7 +53,7 @@
 ### 練習 1：System Prompt
 同樣的 user message，三個不同的 system prompt。觀察人格 / 輸出格式怎麼變。
 
-<details open>
+<details markdown="1" open>
 <summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、預設）</b>（複製到 <code>practice_1.py</code>）</summary>
 
 ```python
@@ -114,7 +117,7 @@ print("💡 觀察：律師長、老師短、JSON 機器一定是 {...}")
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>📋 <b>起手碼 — Path B（Anthropic API、選擇性）</b>（複製到 <code>practice_1_anthropic.py</code>）</summary>
 
 ```python
@@ -148,6 +151,7 @@ print(f"\n✅ 練習 1 通過（Anthropic）")
 ```
 
 **主要差異**：
+
 - Anthropic: `system=...` 參數
 - Ollama / OpenAI-compatible: `messages=[{"role": "system", ...}, ...]`
 
@@ -158,13 +162,14 @@ print(f"\n✅ 練習 1 通過（Anthropic）")
 ### 練習 2：Few-Shot
 
 **先搞懂這三個詞**——差別只在你給 LLM 看「幾個範例」：
+
 - **Zero-shot（0-shot）**：不給範例、直接問。
 - **One-shot（1-shot）**：先給 **1 個**「輸入 → 答案」範例再問。
 - **Few-shot（下面用的 3-shot 就是）**：給幾個（通常 2-5 個）範例再問——LLM 照著範例的格式跟判斷標準做，準確率通常明顯變高。
 
 挑一個分類任務。先用 0-shot 跑，再用 3-shot 跑。量一下準確率差多少。
 
-<details open>
+<details markdown="1" open>
 <summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、預設）</b>（複製到 <code>practice_2.py</code>）</summary>
 
 ```python
@@ -244,7 +249,7 @@ print("💡 小 model（gemma4:e4b）對格式更敏感，所以 few-shot 的幫
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>📋 <b>起手碼 — Path B（Anthropic API、選擇性）</b>（複製到 <code>practice_2_anthropic.py</code>）</summary>
 
 ```python
@@ -270,11 +275,12 @@ def classify(text: str, *, use_few_shot: bool) -> str:
 
 ### 練習 3：CoT
 挑一個數學文字題，比較：
+
 - 純 prompt
 - 純 prompt + 「Let's think step by step」
 - 純 prompt + 一個展示 CoT 的範例
 
-<details open>
+<details markdown="1" open>
 <summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、預設）</b>（複製到 <code>practice_3.py</code>）</summary>
 
 ```python
@@ -335,7 +341,7 @@ print(f"💡 觀察小 model：A 純 prompt 通常答錯、B/C 加 CoT 後明顯
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>📋 <b>起手碼 — Path B（Anthropic API、選擇性）</b>（複製到 <code>practice_3_anthropic.py</code>）</summary>
 
 把 Path A 的 client + ask() 改成：
@@ -359,7 +365,7 @@ def ask(prompt: str) -> str:
 ### 練習 4：Iterative Refinement
 拿一個模糊的 prompt，refine 5 次。把每一輪記下來。觀察哪些改動會提升品質。
 
-<details open>
+<details markdown="1" open>
 <summary>📋 <b>起手碼 — Path A（本機 Ollama gemma4:e4b、預設）</b>（複製到 <code>practice_4.py</code>）— 這題沒有「對錯」、重點是觀察過程</summary>
 
 ```python
@@ -407,7 +413,7 @@ print("💡 用 gemma4:e4b 跑這題特別有感——小 model 對 prompt 質�
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>📋 <b>起手碼 — Path B（Anthropic API、選擇性）</b>（複製到 <code>practice_4_anthropic.py</code>）</summary>
 
 把 Path A 的 client + 迴圈內 `client.chat.completions.create(...)` 改成：
@@ -441,10 +447,10 @@ text = msg.content[0].text
 | | [NirDiamant/Prompt_Engineering](https://github.com/NirDiamant/Prompt_Engineering) | ⭐⭐⭐⭐ | 偏好「邊跑邊學」 | 22 種技巧、獨立 notebook，比 dair-ai 更動手，★ 7.7k+|
 | **官方 cookbook** | [Anthropic Cookbook — Prompt patterns](https://github.com/anthropics/claude-cookbooks) | ⭐⭐⭐⭐⭐ | Claude 進階 prompting（含 prompt caching / multimodal）| Stage 1 已介紹、本 stage 重點看 `misc/prompt_caching.ipynb` 跟 `multimodal/` |
 | | [GoogleCloudPlatform/generative-ai](https://github.com/GoogleCloudPlatform/generative-ai) | ⭐⭐⭐ | 用 Google 技術棧（PaLM / Gemini）| Google Cloud 的 prompting cookbook、跨廠商觀點 |
-| **靈感 collection**<br>（找模式、不要照抄）| [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) | ⭐⭐⭐ | 卡關時找靈感 | 上百個「Act as a [角色]...」prompt，★ 162k+、CC0。**把模式拿出來改寫、不要照抄** |
+| **靈感 collection**<br>（找模式、不要照抄）| [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) | ⭐⭐⭐ | 卡關時找靈感 | 上百個「Act as a [角色]...」prompt，★ 166k+、CC0。**把模式拿出來改寫、不要照抄** |
 | **Production 管理**<br>（規模化）| [microsoft/prompt-engine](https://github.com/microsoft/prompt-engine) | ⭐⭐（⚠️ 已封存）| production 要管很多 prompt 時 | TypeScript library；⚠️ **2023 起無更新、repo 已封存**——找維護中的替代 |
 | | [microsoft/promptflow](https://github.com/microsoft/promptflow) | ⭐⭐⭐ | 團隊型應用、需要 eval | 視覺化 prompt 設計 + 評估工具，★ 11k+ |
-| | [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy) ⭐ **Stage 2 → 3 橋** | ⭐⭐⭐⭐⭐ | 跑完 dair-ai 想規模化 prompt | 把 prompt 當 code 寫，用 compiler 自動最佳化，★ 34k+、MIT |
+| | [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy) ⭐ **Stage 2 → 3 橋** | ⭐⭐⭐⭐⭐ | 跑完 dair-ai 想規模化 prompt | 把 prompt 當 code 寫，用 compiler 自動最佳化，★ 36k+、MIT |
 
 > **註**：dspy 是 framework 不是 tutorial、門檻較高，建議搭配 [dspy.ai](https://dspy.ai/) 官方 tutorial 讀；NirDiamant 用 NOASSERTION 自訂條款（偏研究 / 非商用）。
 
@@ -476,8 +482,8 @@ LLM-powered system 的工程實踐分成 **3 層 stack**（不是 1 次 call vs 
 
 延伸閱讀（不必修、未來想深挖時看）：
 
-- [`Meirtz/Awesome-Context-Engineering`](https://github.com/Meirtz/Awesome-Context-Engineering)（★ 3k+）——從 prompt engineering 一路推到 production agent 的 survey
-- [`Windy3f3f3f3f/how-claude-code-works`](https://github.com/Windy3f3f3f3f/how-claude-code-works)（★ 3k+）——Claude Code 內部解析，含 context engineering 章節
+- [`Meirtz/Awesome-Context-Engineering`](https://github.com/Meirtz/Awesome-Context-Engineering)（★ 3.3k+）——從 prompt engineering 一路推到 production agent 的 survey
+- [`Windy3f3f3f3f/how-claude-code-works`](https://github.com/Windy3f3f3f3f/how-claude-code-works)（★ 3.3k+）——Claude Code 內部解析，含 context engineering 章節
 
 ## ✅ 進 Stage 3 前的自我檢查
 

@@ -9,6 +9,9 @@
 
 > 💡 **Don't recognize a term?** (LLM / token / context window / temperature / RAG / agent / …) → check [`resources/glossary.en.md`](../resources/glossary.en.md) for 30-second definitions.
 
+> 📋 **Structure of this chapter**: learning goals → prerequisites → required reading → 〔optional · concept map〕→ hands-on exercises → curated projects → self-check  
+> 🔑 **Key terms**: see [`resources/glossary.en.md`](../resources/glossary.en.md) (every term each stage uses is collected there)
+
 ### 3 Core Terms (memorize these—all later stages use them)
 
 | Term | Chinese | One-liner |
@@ -24,6 +27,7 @@
 ## 📌 Learning Goals
 
 After this stage you will be able to:
+
 - Explain what an LLM is, what tokens are, and what context window means
 - Make your first API call to Claude / GPT / Gemini and parse the response
 - Compare the four major LLM families (Claude / GPT / Gemini / Llama) on strengths
@@ -62,7 +66,7 @@ These are the main choices for Chinese-language work, in two groups: **API-only*
 |---|---|---|---|---|---|
 | **DeepSeek** | V4-Flash (`deepseek-v4-flash`) / V4-Pro (`deepseek-v4-pro`) | 1M | reasoning / coding / **lowest cost** | high-token workloads / code generation / math | [api-docs.deepseek.com](https://api-docs.deepseek.com/zh-cn/) |
 | **Kimi** (Moonshot) | K3 (2.8T params, native multimodal) | **1M** | long context / Chinese long-form writing | whole-book reading / literature triage | [platform.moonshot.cn](https://platform.moonshot.cn/) |
-| **Hunyuan** (Tencent) | T1 (deep-thinking) + TurboS | 128k | **DeepSeek R1-comparable reasoning**, Chinese | Chinese reasoning / Tencent ecosystem | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
+| **Hunyuan** (Tencent) | T1 (deep-thinking) + TurboS | 128k | **deep-thinking reasoning** (measured against the 2025 DeepSeek R1 baseline), Chinese | Chinese reasoning / Tencent ecosystem | [hunyuan.tencent.com](https://hunyuan.tencent.com/) |
 | **MiniMax** | M3 | 1M | multimodal / Chinese long prose / coding | Chinese writing / video and audio multimodal | [platform.minimax.io](https://platform.minimax.io/) |
 
 > **Note**: This group is mostly cloud-API and proprietary. DeepSeek also has some open weights (on HF), but the cloud API is still the main way to use it (the legacy names `deepseek-chat`/`deepseek-reasoner` retire 2026-07-24 and now alias to v4-flash).
@@ -77,7 +81,7 @@ These are the main choices for Chinese-language work, in two groups: **API-only*
 
 > **Note**: All three offer both an **open version (Apache 2.0 or MIT) and a paid cloud API** (GLM's open version is now 5.2, MIT). The open versions run on your own machine via [Ollama](https://ollama.com/).
 
-> ⚠️ **Xiaomi MiMo** is listed in [`resources/cli-agents-guide.md`](../resources/cli-agents-guide.en.md) for Hermes Agent routing, but as of 2026-05 there is no authoritative official source to verify it, so it is not included in this table. To try it, connect through [Hermes Agent](https://github.com/NousResearch/hermes-agent) 200+ provider routing.
+> ⚠️ **Xiaomi MiMo** is listed in [`resources/cli-agents-guide.en.md`](../resources/cli-agents-guide.en.md) for Hermes Agent routing, but as of 2026-05 there is no authoritative official source to verify it, so it is not included in this table. To try it, connect through [Hermes Agent](https://github.com/NousResearch/hermes-agent) 200+ provider routing.
 
 ### 🌍 Western Open-Source (4 providers, self-host defaults)
 
@@ -128,6 +132,7 @@ These are the main choices for running on your own hardware, avoiding API fees, 
 ## 🚪 Entry Conditions
 
 You should already:
+
 - Be able to run a Python script
 - Know what HTTP / REST is conceptually
 - Have an API key from at least one provider (Anthropic / OpenAI / Google)
@@ -137,10 +142,16 @@ If not — go back to Stage 0 first.
 ## 📚 Required Reading
 
 1. [**Anthropic — Claude Model Overview**](https://docs.claude.com/en/about-claude/models/overview) — official model family overview, including 2026's Claude Fable 5 (`claude-fable-5`, Mythos-class, GA 2026-06-09) plus Opus 5 / Sonnet 5 / Haiku 4.5. **Fable 5 is the highest Claude tier; Opus 5 (launched 2026-07-24, `claude-opus-5`) is the current Opus-class flagship, and Opus 4.8 is still available as legacy (moved to the docs' Legacy section, not deprecated).**
-2. [**anthropics/courses — Anthropic API Fundamentals**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 21k+ — Anthropic's official 5-course umbrella; **module 1 "Anthropic API Fundamentals" maps to this stage**. Jupyter notebooks, runs on Claude 3 Haiku (cheapest), hands-on walkthrough of API essentials.
+2. [**anthropics/courses — Anthropic API Fundamentals**](https://github.com/anthropics/courses) ⭐⭐⭐⭐⭐ ★ 22k+ — Anthropic's official 5-course umbrella; **module 1 "Anthropic API Fundamentals" maps to this stage**. Jupyter notebooks, runs on Claude 3 Haiku (cheapest), hands-on walkthrough of API essentials.
 3. [**OpenAI Quickstart**](https://platform.openai.com/docs/quickstart) — first API call walkthrough
 4. [**A Visual Guide to LLM Tokenizers**](https://huggingface.co/learn/llm-course/chapter6/1) — Hugging Face's intro
 5. [**Anthropic API Pricing**](https://www.anthropic.com/pricing#anthropic-api) — read the pricing table, calculate cost for 1k input + 1k output
+
+**🎥 Video supplements (highly recommended)**:
+
+- [**Hung-yi Lee — Introduction to Generative AI (NTU, Spring 2024)**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — episodes 1-5 cover what an LLM is, how it works, and how token / context window / temperature shape the output. a university-level Mandarin-language course taught at National Taiwan University; the course page carries slides plus YouTube. Latest consolidated edition: [**GenAI-ML, Fall 2025**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)
+- [**3Blue1Brown — Transformers, visually explained**](https://www.youtube.com/watch?v=wjZofJX0v4M) (Mandarin dub: [3Blue1Brown 中文](https://www.youtube.com/@3Blue1BrownCN)) — a visual intro to what happens inside an LLM
+- [**Andrej Karpathy — Intro to LLMs**](https://www.youtube.com/watch?v=zjkBMFhNj_g) — English, 1 hr, the most widely recommended LLM primer in English
 
 ## 🛠 Hands-on Exercises (foundational, illustrative)
 
@@ -153,7 +164,7 @@ If not — go back to Stage 0 first.
 ### Exercise 1: LLM API (hello world)
 Five-line Python script that calls an LLM and prints the response. **Defaults to local Ollama (free, offline)**; switch to Path B Anthropic when you want cloud-quality answers. Details in [`examples/README.en.md`](../examples/README.en.md#three-paths--default-is-ollama-cost-driven).
 
-<details open>
+<details markdown="1" open>
 <summary>📋 <b>Starter code — Path A (local Ollama gemma4:e4b, default)</b> (copy to <code>practice_1.py</code> and run <code>python practice_1.py</code>)</summary>
 
 ```python
@@ -187,11 +198,18 @@ assert r.usage.completion_tokens > 0, "output token count should be > 0"
 print("✅ Exercise 1 passed — local Ollama gemma4:e4b answered for $0")
 ```
 
+**Expected output** (sample):
+```
+Response: Hi! I'm Gemma, an open-source language model trained by Google...
+usage: CompletionUsage(completion_tokens=35, prompt_tokens=12, total_tokens=47)
+✅ Exercise 1 passed — local Ollama gemma4:e4b answered for $0
+```
+
 **How slow?** Gemma 4B on CPU: ~5-30 s/answer; on GPU (RTX 3060+): <2 s. For speed use `gemma3:1b`; for quality use `qwen2.5:14b` / `llama3.3:8b` (needs 8 GB+ VRAM).
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>📋 <b>Starter code — Path B (Anthropic API, optional, when you want cloud quality)</b> (copy to <code>practice_1_anthropic.py</code>)</summary>
 
 ```python
@@ -221,16 +239,24 @@ assert msg.usage.input_tokens > 0 and msg.usage.output_tokens > 0, "token counts
 print("✅ Exercise 1 passed — Anthropic API is reachable from your machine")
 ```
 
+**Expected output** (sample):
+```
+Response: I'm Claude, an AI assistant made by Anthropic...
+usage: Usage(input_tokens=18, output_tokens=42, ...)
+✅ Exercise 1 passed — Anthropic API is reachable from your machine
+```
+
 **Cost**: ~$0.001/run (haiku) or ~$0.004/run (sonnet); this hello-world is also 5-15× faster than Ollama.
 
 </details>
 
 ### Exercise 2: Tokens
 Run the same prompt 100 times and watch token counts vary.
+
 - Notice: `temperature ≠ 0` produces variation
 - Notice: token count for the SAME English vs Chinese sentence
 
-<details open>
+<details markdown="1" open>
 <summary>📋 <b>Starter code — Path A (local Ollama gemma4:e4b, default)</b> (copy to <code>practice_2.py</code>)</summary>
 
 ```python
@@ -270,9 +296,18 @@ print("\n✅ Exercise 2 passed — observed temperature → token variance, $0/r
 print("💡 Chinese prompts typically use MORE input tokens (one Chinese character ≈ 2 tokens)")
 ```
 
+**Expected output** (sample):
+```
+[Chinese] prompt: 用一句話描述一隻貓在做什麼。
+  input tokens: 32
+  output tokens — min=18 max=58 mean=35.2 stdev=11.4
+
+✅ Exercise 2 passed — observed temperature → token variance, $0/run
+```
+
 </details>
 
-<details>
+<details markdown="1">
 <summary>📋 <b>Starter code — Path B (Anthropic API, optional)</b> (copy to <code>practice_2_anthropic.py</code>)</summary>
 
 ```python
@@ -301,7 +336,7 @@ for label, prompt in PROMPTS.items():
 ### Exercise 3: Pricing / Latency
 **Cost-sensitive work required**: compute how long and how much it takes to run 1000 hello-world inferences. Local Ollama is $0 but has latency cost; cloud LLMs cost money but are faster. **Knowing this trade-off is how you pick the right model**.
 
-<details open>
+<details markdown="1" open>
 <summary>📋 <b>Starter code — Path A (local Ollama gemma4:e4b, measure latency)</b> (copy to <code>practice_3.py</code>)</summary>
 
 ```python
@@ -341,9 +376,21 @@ print(f"\n✅ Exercise 3 passed — local model is $0 but takes ~{avg_latency * 
 print("💡 Compare Path B Anthropic: 1000 runs is ~10-20 min at $0.25 (haiku)")
 ```
 
+**Expected output** (sample):
+```
+model: gemma4:e4b (local)
+5 latencies (sec): min=4.21 max=8.93 mean=6.54
+avg output: 48 tokens, ~7.3 tokens/sec
+
+1000-run cost: $0 (local); projected duration: 109.0 minutes
+
+✅ Exercise 3 passed — local model is $0 but takes ~109 min for 1000 runs
+💡 Compare Path B Anthropic: 1000 runs is ~10-20 min at $0.25 (haiku)
+```
+
 </details>
 
-<details>
+<details markdown="1">
 <summary>📋 <b>Starter code — Path B (Anthropic API, compute $ cost)</b> (copy to <code>practice_3_anthropic.py</code>)</summary>
 
 ```python
@@ -357,7 +404,7 @@ import anthropic
 # Anthropic public pricing 2026 Q2 (per 1M tokens, USD) — verify at https://www.anthropic.com/pricing
 PRICING = {
     "claude-haiku-4-5":   {"input": 1.00, "output":  5.00},
-    "claude-sonnet-5":    {"input": 3.00, "output": 15.00},
+    "claude-sonnet-5":    {"input": 3.00, "output": 15.00},  # standard rate; introductory 2.00 / 10.00 through 2026-08-31
     "claude-opus-5":      {"input": 5.00, "output": 25.00},  # Opus 5 (2026-07-24, succeeds Opus 4.8) — same 5/25 pricing
     "claude-fable-5":     {"input": 10.00, "output": 50.00},  # Fable 5 (Mythos-class, highest tier) ~2x Opus
 }
@@ -403,6 +450,7 @@ Send the same prompt to Claude, GPT, and Gemini simultaneously, compare their re
 
 ### Exercise 5: Error Handling
 Trigger error conditions deliberately and write retry logic:
+
 - Wrong API key → see how it raises
 - Over-long prompt → what happens when the context window is full
 - Network drop → write a retry wrapper with exponential backoff
@@ -420,7 +468,7 @@ ollama pull qwen2.5:3b
 ollama serve  # default port 11434
 ```
 
-<details>
+<details markdown="1">
 <summary>📋 <b>Starter code</b> (copy to <code>practice_6.py</code>)</summary>
 
 ```python
@@ -451,7 +499,16 @@ print(f"✅ Exercise 6 passed — local Ollama reachable through the OpenAI-comp
 print(f"💡 This run cost you $0 (except for electricity)")
 ```
 
+**Expected output** (sample; the actual wording varies by model):
+```
+Response: ReAct is a method that lets an AI combine "reasoning" and "acting"...
+✅ Exercise 6 passed — local Ollama reachable through the OpenAI-compatible API
+💡 This run cost you $0 (except for electricity)
+```
+
 **Why do this**: once you can run local LLMs, Stage 3-6 experiments aren't bottlenecked on API costs; privacy-sensitive work also stays offline.
+
+**Want to run it without installing Ollama**: point `base_url` at [LM Studio](https://lmstudio.ai) (`http://localhost:1234/v1`) or a [vLLM](https://github.com/vllm-project/vllm) endpoint instead — the API surface is the same.
 
 </details>
 
@@ -461,8 +518,8 @@ print(f"💡 This run cost you $0 (except for electricity)")
 
 | Category | Project | ⭐ | Best for | Why / Notes |
 |---|---|---|---|---|
-| **Official cookbook / starting point** | [Anthropic Cookbook](https://github.com/anthropics/claude-cookbooks) | ⭐⭐⭐⭐⭐ | Starting with Claude API; reference lookup | Full-feature Claude API notebooks (tool use / batch / prompt cache), ★ 46k+, MIT |
-| | [Anthropic Courses](https://github.com/anthropics/courses) | ⭐⭐⭐⭐⭐ | Systematic Claude learning from zero | Anthropic's own 5-course set (API fundamentals / prompt eval / real-world prompting / tool use), ★ 21k+. Start with `anthropic_api_fundamentals` |
+| **Official cookbook / starting point** | [Anthropic Cookbook](https://github.com/anthropics/claude-cookbooks) | ⭐⭐⭐⭐⭐ | Starting with Claude API; reference lookup | Full-feature Claude API notebooks (tool use / batch / prompt cache), ★ 50k+, MIT |
+| | [Anthropic Courses](https://github.com/anthropics/courses) | ⭐⭐⭐⭐⭐ | Systematic Claude learning from zero | Anthropic's own 5-course set (API fundamentals / prompt eval / real-world prompting / tool use), ★ 22k+. Start with `anthropic_api_fundamentals` |
 | | [OpenAI Cookbook](https://github.com/openai/openai-cookbook) | ⭐⭐⭐⭐⭐ | OpenAI API + structured output / function calling | Pair with Anthropic Cookbook, ★ 73k+, MIT. Much bigger than Anthropic's — use search |
 | | [Anthropic Claude API Quickstart](https://docs.anthropic.com/en/docs/get-started) | ⭐⭐⭐⭐ | 5-minute start | Official docs, bookmark it |
 | **Chinese textbook**<br>(chapter-style) | [datawhalechina/happy-llm](https://github.com/datawhalechina/happy-llm) | ⭐⭐⭐⭐⭐ | Chinese readers wanting LLM internals | Karpathy "Zero to Hero" Chinese counterpart, ★ 32k+. Equivalent to HF LLM Course in Chinese |
@@ -476,7 +533,7 @@ print(f"💡 This run cost you $0 (except for electricity)")
 | | [mudler/LocalAI](https://github.com/mudler/LocalAI) | ⭐⭐⭐⭐ | Team compliance, self-host full OpenAI replacement | Drop-in OpenAI API replacement (chat / embedding / image / TTS / STT), ★ 46k+ |
 | | [ml-explore/mlx](https://github.com/ml-explore/mlx) | ⭐⭐⭐⭐ | Mac dev, squeeze Apple Silicon | Apple's ML framework for M1+, ★ 27k+. Pair with `mlx-lm` for ease |
 | **Build from scratch**<br>(understand internals)| [karpathy — Let's build GPT from scratch](https://www.youtube.com/watch?v=kCc8FmEb1nY) | ⭐⭐⭐⭐⭐ | Understand LLM internals, not just API calls | 2hr high-density video, build GPT in PyTorch from scratch. **Pause and code along, don't passive-watch** |
-| | [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | ⭐⭐⭐⭐⭐ | Book-pace read of the same material | Book version of Karpathy's video: tokenizer → attention → pretraining → finetuning, ★ 91k+, Apache-2.0 |
+| | [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | ⭐⭐⭐⭐⭐ | Book-pace read of the same material | Book version of Karpathy's video: tokenizer → attention → pretraining → finetuning, ★ 100k+, Apache-2.0 |
 | | [karpathy/LLM101n](https://github.com/karpathy/LLM101n) | ⭐⭐ | Historical reference | ⚠️ Archived (2024-08), outline only, course never finished. **Watch "Build GPT from scratch" above instead** |
 
 > 💡 **Suggested reading order**: API-first → Anthropic / OpenAI Cookbook · Chinese systematic path → happy-llm + llm-universe · deep internals → Karpathy video + rasbt book with code · local-only → start with Ollama, then llama.cpp.

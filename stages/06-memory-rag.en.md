@@ -4,11 +4,11 @@
 
 ⏱ **Estimated Time**: 2 weeks (approx. 10 hours)
 
-> 💡 This stage is dense with terminology (**RAG / vector databases / embedding / chunking / hybrid search / reranking...**) — if unfamiliar, first consult [`resources/glossary.md` 3](../resources/glossary.en.md#3-memory--retrieval--rag).
+> 💡 This stage is dense with terminology (**RAG / vector databases / embedding / chunking / hybrid search / reranking...**) — if unfamiliar, first consult [`resources/glossary.en.md` 3](../resources/glossary.en.md#3-memory--retrieval--rag).
 >
 > 📋 **Chapter Structure**: Positioning → Entry Point → **RAG Core** (Basics + Advanced + DSPy + Eval) → **Bridge** → **Memory Core** (3 patterns + trio + advanced) → Chunking → Reflexion / Reasoning → Practice → Projects
 >
-> 🔑 **Key Terms**: See [`resources/glossary.md` 3](../resources/glossary.en.md#3-memory--retrieval--rag) (memory / RAG / embedding / chunking / reranking)
+> 🔑 **Key Terms**: See [`resources/glossary.en.md` 3](../resources/glossary.en.md#3-memory--retrieval--rag) (memory / RAG / embedding / chunking / reranking)
 
 This stage is not about memorizing more terminology. It is about understanding how agents manage context.
 
@@ -93,6 +93,7 @@ LLMs can use your private / domain data in three main ways. **This stage teaches
 ## 🚪 Prerequisites
 
 You should have already:
+
 - Completed Stage 3 (ability to write tool use, call LLM APIs, understand ReAct loop) — **hard technical prerequisite**
 - Walked through Stage 4 (agent frameworks) + Stage 5 (Claude Code ecosystem) — the curriculum main line is **3 → 4 → 5 → 6** (see the [README learning map](../README.en.md#-learning-map-two-tracks)); not a hard technical prerequisite, but RAG / memory often pairs with frameworks + Claude Code memory mechanisms so following the sequence gives a more complete understanding, and [Stage 7](07-multi-agent-production.en.md) expects you to have completed 4 + 5 + 6
 - Be able to run Python `pip install` to install SDKs (will use `chromadb`, `sentence-transformers`, etc. later)
@@ -133,7 +134,7 @@ The most basic RAG is divided into two pipelines:
 - **Data Preprocessing (Ingest Once)**: ingest → chunk → embed → store (index). This step builds the searchable knowledge base.
 - **Retrieval & Generation (Per Query)**: retrieve → generate. This step finds relevant content when the user asks a question and feeds it to the LLM for generation.
 
-![RAG Pipeline Overview](../resources/diagrams/rag-pipeline-overview.jpg)
+![RAG Pipeline Overview](../resources/diagrams/rag-pipeline-overview.en.png)
 
 The RAG Fusion and query rewrite techniques mentioned in the diagram fall under advanced retrieval techniques. When learning RAG for the first time, focus on understanding the main flow.
 
@@ -155,13 +156,14 @@ These are the minimal structural elements. **The 3 most common pitfalls**:
 
 > 📚 **For more RAG pitfalls and solutions**: [NirDiamant/RAG_Techniques](https://github.com/NirDiamant/RAG_Techniques) ★ Large Production RAG Cookbook, includes 30+ techniques + Jupyter notebook examples.
 
-> 📄 **The two places RAG actually breaks (don't only tune chunking)**: (1) **parsing / ingest**: PDF → clean markdown is where garbage-in starts: [docling-project/docling](https://github.com/docling-project/docling) (★61k, MIT), [opendatalab/MinerU](https://github.com/opendatalab/MinerU) (strong on Chinese / scientific PDFs; **AGPL**, mind the license), [microsoft/markitdown](https://github.com/microsoft/markitdown) (★150k+, MIT). (2) **picking an embedding model**: your first retrieval-quality decision: check the [MTEB leaderboard](https://huggingface.co/spaces/mteb/leaderboard); for Chinese / multilingual, [BGE-M3](https://github.com/FlagOpen/FlagEmbedding) (★12k, MIT) is a common pick.
+> 📄 **The two places RAG actually breaks (don't only tune chunking)**: (1) **parsing / ingest**: PDF → clean markdown is where garbage-in starts: [docling-project/docling](https://github.com/docling-project/docling) (★ 64k+, MIT), [opendatalab/MinerU](https://github.com/opendatalab/MinerU) (strong on Chinese / scientific PDFs; **AGPL**, mind the license), [microsoft/markitdown](https://github.com/microsoft/markitdown) (★150k+, MIT). (2) **picking an embedding model**: your first retrieval-quality decision: check the [MTEB leaderboard](https://huggingface.co/spaces/mteb/leaderboard); for Chinese / multilingual, [BGE-M3](https://github.com/FlagOpen/FlagEmbedding) (★12k, MIT) is a common pick.
 
 After implementing the basic skeleton, complete Exercises 1-4 (Embeddings / Vector DB / Chunking / Full Pipeline) to gain practical experience, then move to the next section on Advanced RAG Techniques.
 
 ## 🚀 Advanced RAG Techniques (Read After Basic RAG)
 
 The following six subsections represent common production RAG enhancements from 2024-2026, grouped by the stage they are added to the pipeline:
+
 - **After Retrieve** — GraphRAG / Contextual Retrieval / Hybrid Search & Reranking
 - **Before Retrieve** (Query Rewriting) — Query Transformations
 - **During Retrieve** (Control Flow) — Adaptive / Agentic RAG
@@ -181,16 +183,19 @@ The following six subsections represent common production RAG enhancements from 
 **Mental Model**: Vanilla RAG cuts documents into chunks and relies on embedding similarity for retrieval—but it **doesn't know which entities are the same or their relationships**. GraphRAG constructs a knowledge graph by extracting (entity, relation, entity) triples from documents during ingestion. Retrieval then uses both vector similarity and graph traversal to find related entities and their connections.
 
 **When to Use**:
+
 - Tasks requiring **multi-hop reasoning** (A → B → C to answer).
 - Cross-document entity referencing (company financial reports, research papers, legal cases).
 - Questions like "How does X affect Y, and what is Y linked to Z?" — Vanilla RAG typically only retrieves content related to X.
 
 **When Not to Use**:
+
 - Documents without entity-relation links (standalone FAQs, independent product manuals).
 - Small knowledge bases (< 1k chunks) — Vanilla RAG is sufficient.
 - Tight budgets — KG construction can be 10-50x more token-intensive than regular RAG.
 
 **Representative Frameworks**:
+
 - [**HKUDS/LightRAG**](https://github.com/HKUDS/LightRAG) ★ **35.1k** MIT EMNLP 2025 — Currently the hottest community choice, lightweight, KG + vector hybrid, lower cost than Microsoft's version.
 - [**Microsoft GraphRAG**](https://github.com/microsoft/graphrag) — Original reference implementation, Apache-2.0, includes community detection.
 - [**gusye1234/nano-graphrag**](https://github.com/gusye1234/nano-graphrag) — Minimal implementation (< 1000 lines) for understanding core principles.
@@ -202,11 +207,13 @@ The following six subsections represent common production RAG enhancements from 
 **Mental Model**: Vanilla chunks lose original document context—a chunk like "Q3 revenue grew 15%" doesn't tell you **which company** or **which year's** Q3. Anthropic's 2024 proposal: During ingestion, use an LLM to generate a 50-100 token **contextual header** for each chunk (e.g., "This chunk is from ACME Corp 2024 Q3 earnings, discussing the cloud segment...") and prepend it before embedding. Combined with **prompt caching**, this allows sending the entire document + each chunk only once, sharing the cache for subsequent chunks.
 
 **When to Use**:
+
 - Chunks are semantically distant from their original document's topic (financial reports, research papers, long narratives).
 - You are willing to incur an initial ingest cost for improved retrieval accuracy.
 - You are using Claude or plan to leverage prompt caching (other models can run this, but without cache benefits).
 
 **When Not to Use**:
+
 - Chunks are self-contained (FAQs, product descriptions, definitions).
 - Knowledge base changes frequently (requires re-ingestion).
 - Extremely tight budgets — ingest cost is higher than vanilla, even with caching discounts.
@@ -214,6 +221,7 @@ The following six subsections represent common production RAG enhancements from 
 **Why it Saves 90% Cost**: Anthropic's report suggests prompt caching reduces costs to ~1/10 by treating the entire document as a cached prefix and only sending differences for each chunk. However, **this only saves on ingest, not retrieval**.
 
 **Representative Implementations**:
+
 - [**Anthropic — Contextual Retrieval Blog**](https://www.anthropic.com/news/contextual-retrieval) ⭐ — Official explanation + benchmark (failed retrieval rate dropped from 5.7% to 1.9%).
 - [**Anthropic Cookbook**](https://platform.claude.com/cookbook/capabilities-contextual-embeddings-guide) — End-to-end Jupyter notebook with prompt templates.
 
@@ -222,27 +230,32 @@ The following six subsections represent common production RAG enhancements from 
 ### 🎯 Hybrid Search & Reranking — Two Common Reinforcement Components for Production RAG
 
 **Mental Model**:
+
 - **Hybrid Search** = Combines vector similarity (semantic match) with BM25/keyword search (literal match), using methods like [RRF (Reciprocal Rank Fusion)](https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf) to fuse scores. This addresses the dual blind spots of pure vector search: missing keyword matches due to different phrasing and weak semantic embedding for proper nouns, product IDs, technical terms, or rare words.
 - **Reranking** = First stage retrieves **top-50** chunks (prioritizing recall, broad fetch) → then a **cross-encoder reranker** re-scores and ranks the top **top-5** (prioritizing precision, fine-grained filtering). Cross-encoders (which process query + chunk together) are much more accurate than bi-encoders (query/chunk processed separately) but are too slow for initial retrieval, hence only used in the second stage.
 
 **Why These Are "Must-Add Polishes"**: Production RAG evaluations almost universally show that adding hybrid search + rerankers improves recall@5 from around 70% to 85-90% with low marginal cost and mature tooling. **These offer the best cost/benefit**.
 
 **When to Use**:
+
 - Production RAG (not demos/experiments).
 - Queries containing proper nouns, product IDs, technical terms, or rare words (pure vector search might miss these).
 - Budget allows for an additional 100-300ms latency per query.
 
 **When to Defer**:
+
 - Experimental phase / MVP (get basic RAG working first).
 - Extremely tight budget / latency constraints (rerankers add an extra model call).
 
 **Representative Tools**:
+
 - **Hybrid Search**: [Weaviate](https://github.com/weaviate/weaviate) (built-in BM25 + vector + RRF) / [Qdrant](https://github.com/qdrant/qdrant) (supports sparse + dense vectors) / pgvector + Postgres FTS.
 - **Rerankers**: [Cohere Rerank API](https://docs.cohere.com/docs/rerank-overview) (commercial, widely used) / [BGE Reranker](https://huggingface.co/BAAI/bge-reranker-large) (open-source, HuggingFace, good performance in Chinese) / [Jina Reranker](https://jina.ai/reranker).
 - **Framework Built-ins**: LlamaIndex's `SentenceTransformerRerank` / LangChain's `ContextualCompressionRetriever`.
 
 **Paper / Introduction**:
-- [**Pinecone — Rerankers and Two-Stage Retrieval**](https://www.pinecone.com/learn/series/rag/rerankers/) — Best explanation of the reranker mental model.
+
+- [**Pinecone — Rerankers and Two-Stage Retrieval**](https://www.pinecone.io/learn/series/rag/rerankers/) — Best explanation of the reranker mental model.
 - [**Anthropic — Contextual Retrieval**](https://www.anthropic.com/news/contextual-retrieval) (listed above) — Demonstrates hybrid + reranker with benchmarks.
 
 ### Query Transformations — HyDE / Multi-Query / RAG Fusion
@@ -260,6 +273,7 @@ The following six subsections represent common production RAG enhancements from 
 **When Not to Use**: When the query is already long and structured (e.g., RAG over code, user pastes an error stack trace)—rewriting might introduce noise.
 
 **Papers / Implementations**:
+
 - [**HyDE (Gao et al. 2022)**](https://arxiv.org/abs/2212.10496) — Original paper.
 - [**RAG Fusion (Raudaschl 2023)**](https://github.com/Raudaschl/rag-fusion) — Reference implementation for Multi-Query + RRF.
 - LangChain includes `MultiQueryRetriever` / LlamaIndex includes `HyDEQueryTransform` built-in.
@@ -286,6 +300,7 @@ The following six subsections represent common production RAG enhancements from 
 **Mental Model**: Basic chunking creates flat chunks—but the **main thesis of a long document isn't contained in any single chunk**. RAPTOR recursively clusters and summarizes chunks, building a **multi-layer tree**: bottom layer = original chunks, middle layers = summaries of related chunk groups, top layer = overall document summary. Retrieval can then search the entire tree or specific abstraction levels.
 
 **Why it's Useful**:
+
 - Retrieves answers for **abstract queries** (e.g., "What is the main conclusion of this paper?"—the original chunks might not have this sentence, but the top-level summary does).
 - Retrieves **specific details** effectively (bottom chunks are preserved).
 - Unlike GraphRAG—RAPTOR uses a **tree** (hierarchical summarization), while GraphRAG uses a **graph** (entity-relation).
@@ -294,6 +309,7 @@ The following six subsections represent common production RAG enhancements from 
 **When Not to Use**: Independent chunks (FAQs); frequently changing knowledge bases (rebuilding the tree is costly).
 
 **Paper / Implementation**:
+
 - [**RAPTOR (Sarthi et al. ICLR 2024)**](https://arxiv.org/abs/2401.18059) ⭐ — Original paper.
 - [**parthsarthi03/raptor**](https://github.com/parthsarthi03/raptor) — Official reference implementation.
 - LlamaIndex has built-in `RAPTOR pack`.
@@ -303,11 +319,13 @@ The following six subsections represent common production RAG enhancements from 
 **Mental Model**: Traditional RAG/Agents involve manually writing prompts and chains. DSPy **eliminates prompt writing**—you define "signatures" (input/output types) and write programs (chain structures); DSPy then compiles the optimal prompts, few-shot examples, and retriever settings using LLMs. Proposed by Stanford NLP group in 2024 and championed by Karpathy, it's increasingly adopted in production.
 
 **When to Use**:
+
 - Your RAG prompts have accumulated over 6 months and are hard to maintain; you want automatic optimization.
 - The same program needs to switch between different LLM providers (DSPy recompiles automatically).
 - Your agent system has multiple steps; you want to track metrics and traces.
 
 **When Not to Use**:
+
 - You only have one prompt and don't need optimization.
 - You are new to LLMs and haven't explored prompting yet.
 
@@ -326,6 +344,7 @@ Advanced RAG research in 2024-2025 is converging on **3 main themes**:
 3. **🤖 Agentic RAG** — Retrieval evolves from a fixed pipeline into a tool within an agent loop (the agent decides how many times and how to retrieve). Representatives: A-RAG, Self-RAG (covered in Adaptive / Agentic RAG).
 
 **2 Other Areas Worth Exploring**:
+
 - **🛡 RAG Security** — Corpus poisoning / prompt injection become critical in production considerations. Representatives: [RAGPart / RAGMask](https://arxiv.org/abs/2512.24268).
 - **🔧 Prompting is Dead** — Systems automatically search for optimal prompt + retriever combinations. Representatives: [**DSPy**](https://github.com/stanfordnlp/dspy) (Stanford's "programming not prompting" paradigm, see DSPy subsection above).
 
@@ -336,10 +355,10 @@ Advanced RAG research in 2024-2025 is converging on **3 main themes**:
 | **HippoRAG 2** | KG + Personalized PageRank, cross-document multi-hop, hippocampus-inspired | [Gutiérrez et al. ICML 2025](https://arxiv.org/abs/2502.14802), [OSU-NLP-Group/HippoRAG](https://github.com/OSU-NLP-Group/HippoRAG) ⭐ |
 | **ColPali** | Direct image embedding from PDFs, bypassing OCR, multimodal RAG entry point | [Faysse et al. 2024](https://arxiv.org/abs/2407.01449) |
 | **A-RAG / SoK Agentic RAG** | Retrieval as a tool, agent decides retrieval frequency/method | [Ayanami0730/arag](https://github.com/Ayanami0730/arag), [SoK survey](https://arxiv.org/abs/2603.07379) ⭐ |
-| **DSPy** | No prompt writing, program + signature for auto-optimization | [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy) ★ 34.4k |
-| **LightRAG** | Lightweight alternative to MS GraphRAG, EMNLP 2025 | [HKUDS/LightRAG](https://github.com/HKUDS/LightRAG) ★ 35.1k (already in GraphRAG section) |
+| **DSPy** | No prompt writing, program + signature for auto-optimization | [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy) ★ 36k+ |
+| **LightRAG** | Lightweight alternative to MS GraphRAG, EMNLP 2025 | [HKUDS/LightRAG](https://github.com/HKUDS/LightRAG) ★ 38k+ (already in GraphRAG section) |
 
-<details>
+<details markdown="1">
 <summary>📚 Full Overview — 12 Other Advanced RAG Techniques Worth Knowing (Expand to View)</summary>
 
 | Technique | One-Liner | Year / Paper |
@@ -450,6 +469,7 @@ After learning the three patterns, you do not need to build a memory store from 
 | [**LangMem**](https://github.com/langchain-ai/langmem) | 1.4k★ | MIT | **LangChain-native memory** | Official LangChain memory library, integrates directly with LangGraph, useful when you are already committed to the LangChain stack |
 
 **How to choose**:
+
 - Building coding agents → **agentmemory** (MCP-native, aligned with the Stage 5 ecosystem)
 - Building chatbots / personal assistants → **mem0** (most mature, largest community)
 - Building long-running agents across weeks or months → **Letta** (strong OS-paging model)
@@ -467,7 +487,7 @@ After learning the three patterns, you do not need to build a memory store from 
 | **Working memory** | Current task context | The LLM context window itself |
 | **Episodic memory** | Specific experiences from past tasks | Reflexion records, prior trajectories |
 | **Semantic memory** | Abstract facts / knowledge | RAG knowledge bases, user profiles, preferences |
-| **Procedural memory** | How to perform actions / skills | Tool definitions, [Skills (Stage 5.3)](05-claude-code-ecosystem.md#53--skillsclaude-code-的行為層-claude-code-生態最關鍵的一層) |
+| **Procedural memory** | How to perform actions / skills | Tool definitions, [Skills (Stage 5.3)](05-claude-code-ecosystem.en.md#53--skills-claude-codes-behavior-layer--the-most-critical-layer-of-the-claude-code-ecosystem) |
 
 → **Why it is useful**: the three patterns above (buffer / summary / vector) mostly handle working + episodic memory. Production agents usually need to account for all four layers. CoALA is a practical checklist for spotting which layer your agent is missing.
 
@@ -500,7 +520,7 @@ Memory research in 2024-2026 is focusing on **3 main themes**:
 | **HippoRAG 2** | KG + Personalized PageRank, cross-document multi-hop, ICML 2025 | [Gutiérrez et al. 2025](https://arxiv.org/abs/2502.14802), [OSU-NLP-Group/HippoRAG](https://github.com/OSU-NLP-Group/HippoRAG) ⭐ |
 | **Memory in the Age of AI Agents** (Survey) | 3D taxonomy (temporal / substrate / control) + benchmark compilation | [Hu et al. 2025-12](https://arxiv.org/abs/2512.13564) ⭐ |
 
-<details>
+<details markdown="1">
 <summary>📚 Full Overview — 8 Other Memory Works Worth Knowing (Expand to View)</summary>
 
 | Work | One-Liner | Year / Paper |
@@ -530,7 +550,7 @@ A good chunk should achieve two things: **sufficient completeness** for the mode
 - **Semantic Chunking**: Splits based on embedding similarity or semantic shifts, where similarity between consecutive chunks changes. Suitable for long documents but more complex and costly.
 - **Hybrid Strategies**: Combines different methods based on document structure and application needs. For example, a research paper might need to preserve chapter context, tables, formulas, and citation references.
 
-![Chunking Strategy Flowchart](../resources/diagrams/chunking-strategies.jpg)
+![Chunking Strategy Flowchart](../resources/diagrams/chunking-strategies.en.png)
 
 > 📚 **Classic Tutorial**: [Greg Kamradt — 5 Levels of Text Splitting](https://github.com/FullStackRetrieval-com/RetrievalTutorials) ★ Essential reading for chunking basics, covering everything from character-based to agentic chunking across five levels, including Jupyter notebooks.
 
@@ -588,10 +608,12 @@ print(chunks[0])
 ### 📚 Want to Implement / Dive Deeper
 
 **Papers**:
+
 - [**Reflexion (Shinn et al. 2023)**](https://arxiv.org/abs/2303.11366) ⭐ — The **full version** paper. Algorithm 1 outlines how the memory buffer is used.
 - [**Self-Refine (Madaan et al. 2023)**](https://arxiv.org/abs/2303.17651) — Baseline comparison; version without episodic memory.
 
 **Reference Implementations**:
+
 - [**noahshinn/reflexion**](https://github.com/noahshinn/reflexion) — Reference implementation by the paper's lead author (includes full episodic memory workflow).
 - [**LangChain — Reflexion**](https://langchain-ai.github.io/langgraph/tutorials/reflexion/reflexion/) — LangGraph version, directly integrable with the RAG pipeline exercise in this stage.
 - [**mem0**](https://github.com/mem0ai/mem0) (listed above) + [**Letta**](https://github.com/letta-ai/letta) (listed above) — Memory layers that can directly serve as episodic stores for Reflexion.
@@ -599,7 +621,7 @@ print(chunks[0])
 > 💡 **Delineation with Stage 3 Reflection**:
 > - To understand "how the reflection loop works and runs in a single turn" → Stage 3 Reflection.
 > - To understand "how reflections accumulate across sessions and agents learn from past lessons" → This section.
-> - To see how reflection is used in production agents (Cursor / Claude Code) → [Stage 5 5.7 Harness Internals](05-claude-code-ecosystem.md#57--claude-code-source-解剖reference-harness-implementation-track-b-必看).
+> - To see how reflection is used in production agents (Cursor / Claude Code) → [Stage 5 5.7 Harness Internals](05-claude-code-ecosystem.en.md#57--dissecting-claude-code-source-reference-harness-implementation--a-must-read-for-track-b).
 
 ## 🤔 Advanced Reasoning / Reflection — 2024-2026 Trends ⭐ Covers Both Tracks
 
@@ -696,7 +718,7 @@ Unsure where to start with tool selection? Here are commonly used combinations i
 | **First RAG Implementation** (Quickest Start) | [Chroma](https://github.com/chroma-core/chroma) + [LlamaIndex](https://github.com/run-llama/llama_index) | Local-first, zero-ops, beginner-friendly quickstart. Default for Stage 6 exercises. |
 | **Enterprise-Grade RAG Framework** (Alternative to LangChain/LlamaIndex) | [Haystack (deepset)](https://github.com/deepset-ai/haystack) ★ 25.2k Apache-2.0 | Open-source by deepset, production-oriented orchestration, mature for enterprise NLP scenarios. |
 | **Agent Long-Term Memory** (See 5 mainstream memory layers that can ship) | [agentmemory](https://github.com/rohitg00/agentmemory) / [mem0](https://github.com/mem0ai/mem0) / [Letta](https://github.com/letta-ai/letta) / [Zep](https://github.com/getzep/zep) / [LangMem](https://github.com/langchain-ai/langmem) | Detailed above in 5 mainstream memory layers that can ship. |
-| **RAG / Memory Evaluation** (Must-Have) | [ragas](https://github.com/explodinggradients/ragas) ★ 13.9k | Standard RAG evaluation tool, 8+ metrics, reference-free + reference-based. |
+| **RAG / Memory Evaluation** (Must-Have) | [ragas](https://github.com/explodinggradients/ragas) ★ 15k+ | Standard RAG evaluation tool, 8+ metrics, reference-free + reference-based. |
 | **Production-Scale RAG** (Millions of Docs) | [Qdrant](https://github.com/qdrant/qdrant) + LlamaIndex | Rust-based vector DB, faster than Chroma at scale. |
 | **Existing Postgres Environment** | [pgvector](https://github.com/pgvector/pgvector) | Postgres extension, unified SQL + vector in one DB, simplest ops. |
 | **Enterprise RAG + Web UI** | [RAGFlow](https://github.com/infiniflow/ragflow) | Robust document parsing (OCR/tables/layout), enterprise-grade, includes Web UI. |
@@ -706,6 +728,7 @@ Unsure where to start with tool selection? Here are commonly used combinations i
 | **Tutorial Collection** | [ai-engineering-hub](https://github.com/patchy631/ai-engineering-hub) | RAG + agent tutorial collection, Jupyter notebook format. |
 
 **Recommended Entry Sequence**:
+
 1. First essential installation: **Chroma + LlamaIndex** (for Stage 6 exercises).
 2. For agent memory needs: Add **mem0** (simplest memory layer).
 3. For production scaling: Switch to **Qdrant** or **pgvector**.
@@ -718,23 +741,23 @@ Categorized for quick reference; **choose by use case ("Entry Point") and follow
 | Category | Project | ⭐ | Who It's For | Why Recommended / Notes |
 |---|---|---|---|---|
 | **RAG Framework**<br>(Full Pipeline) | [LlamaIndex](https://github.com/run-llama/llama_index) | ⭐⭐⭐⭐⭐ | Applications focused on documents | Core RAG library, provides document loaders / chunking / retrieval / query engines. ★ 49k+ |
-| | [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | ⭐⭐⭐⭐⭐ | Teams shipping RAG to non-developers | Production-ready RAG engine, deep document understanding (layout/tables/OCR) + hybrid retrieval + agent loops + Web UI. ★ 79k+, Apache-2.0. |
-| | [HKUDS/LightRAG](https://github.com/HKUDS/LightRAG) | ⭐⭐⭐⭐ | Those exploring research-grade graph + long-context memory methods | Graph + vector hybrid retrieval + summarization-based memory, backed by EMNLP 2025 paper. ★ 37k+, MIT. Research-oriented codebase. |
-| **Vector DB**<br>(Local-First) | [Chroma](https://github.com/chroma-core/chroma) | ⭐⭐⭐⭐⭐ | Exercises 2 / 4, easiest vector DB to start with | Open-source embedding database, runs locally, in-memory/SQLite backend, zero ops. ★ 27k+, Apache-2.0. **Install**: `pip install chromadb` |
-| **Vector DB**<br>(Production Scale) | [Qdrant](https://github.com/qdrant/qdrant) | ⭐⭐⭐⭐⭐ | When Chroma can't keep up, need production scale | Rust-based vector DB, offers cloud and self-hosted options. ★ 31k+ |
+| | [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | ⭐⭐⭐⭐⭐ | Teams shipping RAG to non-developers | Production-ready RAG engine, deep document understanding (layout/tables/OCR) + hybrid retrieval + agent loops + Web UI. ★ 86k+, Apache-2.0. |
+| | [HKUDS/LightRAG](https://github.com/HKUDS/LightRAG) | ⭐⭐⭐⭐ | Those exploring research-grade graph + long-context memory methods | Graph + vector hybrid retrieval + summarization-based memory, backed by EMNLP 2025 paper. ★ 38k+, MIT. Research-oriented codebase. |
+| **Vector DB**<br>(Local-First) | [Chroma](https://github.com/chroma-core/chroma) | ⭐⭐⭐⭐⭐ | Exercises 2 / 4, easiest vector DB to start with | Open-source embedding database, runs locally, in-memory/SQLite backend, zero ops. ★ 28k+, Apache-2.0. **Install**: `pip install chromadb` |
+| **Vector DB**<br>(Production Scale) | [Qdrant](https://github.com/qdrant/qdrant) | ⭐⭐⭐⭐⭐ | When Chroma can't keep up, need production scale | Rust-based vector DB, offers cloud and self-hosted options. ★ 33k+ |
 | **Vector DB**<br>(Hybrid) | [Weaviate](https://github.com/weaviate/weaviate) | ⭐⭐⭐⭐ | Production deployment + schema constraints | Built-in modules (text2vec/generative/classification), schema-driven, native BM25 + vector hybrid. ★ 16k+ |
-| **Vector DB**<br>(Existing Postgres) | [pgvector](https://github.com/pgvector/pgvector) | ⭐⭐⭐⭐ | Teams already using Postgres | Postgres extension, unified SQL + vector in one DB, simplest ops. ★ 21k+ |
+| **Vector DB**<br>(Existing Postgres) | [pgvector](https://github.com/pgvector/pgvector) | ⭐⭐⭐⭐ | Teams already using Postgres | Postgres extension, unified SQL + vector in one DB, simplest ops. ★ 22k+ |
 | **Vector DB**<br>(Runs in-app) | [lancedb/lancedb](https://github.com/lancedb/lancedb) | ⭐⭐⭐⭐ | Apps that want a vector DB built in, with no separate server | A vector DB that runs inside your app (no server to start); handles text + images, and searches by keyword + vector together. ★ 11k+, Apache-2.0. |
-| **Memory Framework**<br>(Auto Fact Extraction) | [mem0ai/mem0](https://github.com/mem0ai/mem0) | ⭐⭐⭐⭐⭐ | Personal assistants / chatbots needing user-level memory | Self-refining memory layer, cross-session fact storage. ★ 59k+ |
-| **Memory Framework**<br>(OS-Paging) | [Letta (formerly MemGPT)](https://github.com/letta-ai/letta) | ⭐⭐⭐⭐ | Agents running for extended periods (months) | Hierarchical memory (working/archival), OS-paging concept. ★ 22k+ |
+| **Memory Framework**<br>(Auto Fact Extraction) | [mem0ai/mem0](https://github.com/mem0ai/mem0) | ⭐⭐⭐⭐⭐ | Personal assistants / chatbots needing user-level memory | Self-refining memory layer, cross-session fact storage. ★ 62k+ |
+| **Memory Framework**<br>(OS-Paging) | [Letta (formerly MemGPT)](https://github.com/letta-ai/letta) | ⭐⭐⭐⭐ | Agents running for extended periods (months) | Hierarchical memory (working/archival), OS-paging concept. ★ 24k+ |
 | **Memory (In-Framework)** | [LangChain — Memory](https://python.langchain.com/docs/concepts/memory/) | ⭐⭐⭐ | Already using LangChain | 4 abstract memory types (buffer/summary/vectorstore-backed/entity). |
 | **Advanced RAG Techniques** | [Anthropic — Contextual Retrieval Cookbook](https://platform.claude.com/cookbook/capabilities-contextual-embeddings-guide) | ⭐⭐⭐⭐⭐ | After basic RAG, want to upgrade | Claude with prompt caching for contextual chunking (full end-to-end examples). |
 | **Chinese RAG Template** | [chatchat-space/Langchain-Chatchat](https://github.com/chatchat-space/Langchain-Chatchat) | ⭐⭐⭐⭐ | Chinese knowledge bases / RAG applications | Widely used in Chinese community, local LLM support (ChatGLM/Qwen/Llama/Ollama), good Chinese defaults. ★ 38k+, Apache-2.0. ⚠️ Last update Nov 2025 (marginal). |
-| **Tutorial Collection** | [ai-engineering-hub](https://github.com/patchy631/ai-engineering-hub) | ⭐⭐⭐⭐ | Interested in seeing "how the same concept is implemented in different contexts" | Thematic LLM / RAG / agent tutorial collection, Jupyter notebooks, useful across many stages. ★ 34k+, MIT. |
-| **Production AI Assistant**<br>(Learn to Ship RAG) | [onyx](https://github.com/onyx-dot-app/onyx) (formerly Danswer) | ⭐⭐⭐⭐⭐ | Want to see "how RAG-driven AI assistants are productionized" | Open-source enterprise AI assistant, cross-LLM support, full ingest/retrieval/chat/admin. ★ 29.4k, active maintenance. |
+| **Tutorial Collection** | [ai-engineering-hub](https://github.com/patchy631/ai-engineering-hub) | ⭐⭐⭐⭐ | Interested in seeing "how the same concept is implemented in different contexts" | Thematic LLM / RAG / agent tutorial collection, Jupyter notebooks, useful across many stages. ★ 36k+, MIT. |
+| **Production AI Assistant**<br>(Learn to Ship RAG) | [onyx](https://github.com/onyx-dot-app/onyx) (formerly Danswer) | ⭐⭐⭐⭐⭐ | Want to see "how RAG-driven AI assistants are productionized" | Open-source enterprise AI assistant, cross-LLM support, full ingest/retrieval/chat/admin. ★ 31k+, active maintenance. |
 | **RAG Cookbook**<br>(30+ Techniques) | [NirDiamant/RAG_Techniques](https://github.com/NirDiamant/RAG_Techniques) | ⭐⭐⭐⭐⭐ | After basic RAG, want to explore various implementations | Large RAG techniques cookbook, includes Self-RAG / HyDE / Multi-Query / Adaptive and 30+ Jupyter notebook examples. |
-| **DSPy**<br>(Programming not Prompting) | [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy) | ⭐⭐⭐⭐⭐ | Used LLMs for a while, want to auto-optimize prompts + chains | Stanford NLP group, ★ 34.4k MIT, Path 3 paradigm (See DSPy in Advanced RAG Techniques) |
-| **RAG / Memory Eval**<br>(Must-Have) | [explodinggradients/ragas](https://github.com/explodinggradients/ragas) | ⭐⭐⭐⭐⭐ | After completing Exercise 4 (Full RAG Pipeline), want to measure retrieval accuracy | Standard RAG evaluation tool, 8+ metrics, reference-free + reference-based. ★ 13.9k Apache-2.0 |
+| **DSPy**<br>(Programming not Prompting) | [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy) | ⭐⭐⭐⭐⭐ | Used LLMs for a while, want to auto-optimize prompts + chains | Stanford NLP group, ★ 36k+ MIT, Path 3 paradigm (See DSPy in Advanced RAG Techniques) |
+| **RAG / Memory Eval**<br>(Must-Have) | [explodinggradients/ragas](https://github.com/explodinggradients/ragas) | ⭐⭐⭐⭐⭐ | After completing Exercise 4 (Full RAG Pipeline), want to measure retrieval accuracy | Standard RAG evaluation tool, 8+ metrics, reference-free + reference-based. ★ 15k+ Apache-2.0 |
 
 ## ✅ Self-Check Before Entering Stage 7
 

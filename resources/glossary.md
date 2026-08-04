@@ -110,6 +110,7 @@ LLM 一次能「看」多少 token。**2026 frontier**：Claude Sonnet 5 / Opus 
 讓 LLM 呼叫你定義好的 function（查 DB、算數學、開瀏覽器…）。LLM 回的不是文字而是 `{"function": "search", "args": {...}}`、你的程式去執行、把結果再丟回 LLM。
 
 **兩個詞概念相同、API schema 不一樣**：
+
 - **Anthropic「Tool Use」**：schema 用 `input_schema`（JSON Schema 直接放）
 - **OpenAI / Ollama「Function Calling」**：包一層 `{"type": "function", "function": {...}}` 外層
 - LLM 內部接收的 token 表達不同、寫 SDK 跨家時要記得對應好
@@ -247,6 +248,7 @@ Google 發起、現由 Linux Foundation 治理的 agent 之間溝通協定，類
 Anthropic 2024 推的開放協定、讓任何 LLM host（Claude Code、Cursor、自寫 agent）用同一套介面接外部 tool server，2025-12 已捐給 Linux Foundation 旗下的 Agentic AI Foundation。把它想成「**LLM 的 USB 接口**」。
 
 **技術上標準化 3 種 primitives**：
+
 - **Tools**：LLM 可呼叫的 function（read DB / search web / send email…）
 - **Resources**：LLM 可讀取的資料（檔案內容、API response、DB rows…）
 - **Prompts**：可複用的 prompt 模板（給 user 在 host 內 `/` 觸發）
@@ -393,6 +395,7 @@ LLM 「自信地說錯」——把不存在的 API 編出來、把錯的數字�
 工程「**模型外圍的執行與控制層**」——所有不是 model weights、也不是 prompt string 本身的工程元件：agent loop / tool registry / context manager / permissions / safety layer / memory layer / eval / observability / retry / circuit breaker 等。Simon Willison 2025：「**coding agent = LLM + harness**」、Addy Osmani：「harness = 所有不是 model 本身的程式碼」。[OpenAI 2026-02 也使用 "Harness Engineering" 這個說法](https://openai.com/index/harness-engineering)。Claude Code、Cursor、OpenCode 等 CLI agent 都是 harness。**framework 把 LLM 包成 agent、harness 把 agent 包成可上線使用的產品**。
 
 對比：
+
 - **Framework**（Stage 4）規範 **API**：你呼叫的介面長什麼樣
 - **Harness**（本詞）規範 **runtime**：怎麼跑、怎麼 recovery、怎麼觀測
 

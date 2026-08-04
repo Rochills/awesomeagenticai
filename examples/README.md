@@ -23,7 +23,7 @@ examples/
 └── ...
 ```
 
-短的練習（≤30 LOC）直接以 `<details>` 收摺塞在 stage 檔內、不開資料夾。長的（>30 LOC）才開資料夾——避免 stage 檔被 code block 撐爆。
+短的練習（≤30 LOC）直接以 `<details markdown="1">` 收摺塞在 stage 檔內、不開資料夾。長的（>30 LOC）才開資料夾——避免 stage 檔被 code block 撐爆。
 
 ## 怎麼跑任一個範例
 
@@ -67,7 +67,7 @@ if hasattr(sys.stdout, "reconfigure"):
 每個練習都同時提供 3 條路徑：
 
 ### Path A（**默認、推薦**）— Ollama 本機
-- 預設 `starter.py` / 第一個 inline `<details>` 用本機 LLM
+- 預設 `starter.py` / 第一個 inline `<details markdown="1">` 用本機 LLM
 - 需 [Ollama](https://ollama.com)、按 stage pull 對應 model：
   - **Stage 1 + 2**（純 chat / prompt eng）：`ollama pull gemma4:e4b`（~7.5 GB、多模態、CPU 跑得動）
   - **Stage 3+**（tool use / agent）：`ollama pull qwen2.5:3b`（1.9 GB、tool-use 支援穩定）
@@ -76,7 +76,7 @@ if hasattr(sys.stdout, "reconfigure"):
 - 適合：所有讀者（默認推這條）
 
 ### Path B（選擇性）— Anthropic API（想看 cloud 高品質時）
-- 對照 `starter_anthropic.py`（folder）或第二個 inline `<details>` 區塊
+- 對照 `starter_anthropic.py`（folder）或第二個 inline `<details markdown="1">` 區塊
 - 需 `ANTHROPIC_API_KEY`、跑一輪約 $0.001（haiku）/ $0.004（sonnet）
 - 答案品質 / latency 都比本機 Ollama 強
 - 適合：production 要求高品質、需要 long-context、Stage 7 production tier
@@ -126,6 +126,8 @@ if hasattr(sys.stdout, "reconfigure"):
 | **`claude-haiku-4-5`** ⭐ | $1 | $5 | 200k | 最便宜、Stage 1-7 練習 cloud 對照都 OK |
 | **`claude-sonnet-5`** ⭐ | $3 | $15 | 1M | **production 默認**、Stage 5+ agent 開發 |
 | `claude-opus-5` | $5 | $25 | 1M | Opus 級旗艦（2026-07-24 推出、接替 Opus 4.8、同價）、複雜推理 / 長 context refactor |
+
+> 💰 **Sonnet 5 目前是優惠價**：[官方定價頁](https://platform.claude.com/docs/en/about-claude/pricing) 標明 **2026-08-31 前為 $2 / $10**、2026-09-01 起才回到表中的 $3 / $15。下面的預算估算用的是回歸後的標準價，所以現在實際跑會比估算便宜約三分之一。
 
 訂閱替代：Claude Pro $20/月含 Sonnet 用量、Claude Max $100/月含 Opus。詳細看 [resources/cli-agents-guide.md](../resources/cli-agents-guide.md)。
 
@@ -192,7 +194,7 @@ r = client.chat.completions.create(model="meta/llama-3.3-70b-instruct", messages
 
 ### 怎麼從 Ollama 換到 Anthropic？
 
-每個練習都有 `<details>` Path B 區塊或 `starter_anthropic.py`、改 3 行：
+每個練習都有 `<details markdown="1">` Path B 區塊或 `starter_anthropic.py`、改 3 行：
 
 ```python
 # 從這個（Path A 默認）：
@@ -226,6 +228,7 @@ r = client.messages.create(model="claude-haiku-4-5", ...)
 ## 貢獻 / 報錯
 
 跑不過、結果跟預期輸出對不上、或想補一個新練習：
+
 - 開 issue 標 `examples` label
 - 或直接 PR、follow 本資料夾「設計原則」表格的規則
 

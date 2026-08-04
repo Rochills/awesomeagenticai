@@ -2,7 +2,7 @@
 
 > [繁體中文](./mcp-skills-catalog.md) | [简体中文](./mcp-skills-catalog.zh-Hans.md) | **English**
 
-> Connect Claude Code (or any other CLI agent) to the apps you already use, without window-hopping. This page is a curated index of 65+ MCP servers / Claude Skills / integrations grouped by use case (incl. research-workflow + multi-LLM-delegation dedicated sections).
+> Connect Claude Code (or any other CLI agent) to the apps you already use, without window-hopping. This page is a curated index of 76+ MCP servers / Claude Skills / integrations grouped by use case (incl. research-workflow + multi-LLM-delegation dedicated sections).
 
 ---
 
@@ -28,10 +28,10 @@
 5. [Dev Collaboration (GitHub / Atlassian / Slack…)](#5-dev-collaboration-github--atlassian--slack) (9)
 6. [Databases](#6-databases) (8)
 7. [Browser Automation / Web Scraping](#7-browser-automation--web-scraping) (4)
-8. [Design (Figma / Excalidraw)](#8-design-figma--excalidraw) (3)
+8. [Design (Figma / Excalidraw)](#8-design-figma--excalidraw) (4)
 9. [Monitoring / Observability](#9-monitoring--observability) (3)
 10. [Media / Streaming (YouTube / Spotify)](#10-media--streaming-youtube--spotify) (3)
-11. [Chinese-language Ecosystem](#11-chinese-language-ecosystem) (9)
+11. [Chinese-language Ecosystem](#11-chinese-language-ecosystem) (11)
 12. [Other Common (Cloudflare / Stripe…)](#12-other-common-cloudflare--stripe) (4)
 13. [Research Workflow Skills](#13-research-workflow-skills-academic--paper--lit) (4)
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills) (3)
@@ -47,7 +47,7 @@
 | Field | Value |
 |---|---|
 | Stars | ★ 4.5k+ |
-| License | NOASSERTION |
+| License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (**official**) |
 
 **What it does**: Notion's official MCP server — query pages, create pages, manipulate databases.
@@ -71,7 +71,7 @@
 | Field | Value |
 |---|---|
 | Stars | ★ 7.4k+ |
-| License | NOASSERTION |
+| License | MIT |
 | Rating | ⭐⭐⭐⭐ |
 
 **What it does**: a Claude Code Skill that uses browser automation to query NotebookLM, with citation-backed answers.
@@ -83,7 +83,7 @@
 | Field | Value |
 |---|---|
 | Stars | ★ 18k+ |
-| License | NOASSERTION |
+| License | MIT |
 | Rating | ⭐⭐⭐⭐ |
 
 **What it does**: unofficial NotebookLM Python API + CLI + agentic skill; broader feature set than the skill above, including capabilities the web UI doesn't expose.
@@ -135,7 +135,7 @@
 | Field | Value |
 |---|---|
 | Stars | ★ 162k+ |
-| License | NOASSERTION |
+| License | No license file (none provided upstream; confirm terms before use) |
 | Rating | ⭐⭐⭐⭐⭐ (**official**, must-install) |
 
 **What it does**: Anthropic's official Agent Skills repo — includes docx / xlsx / pptx / pdf processing skills.
@@ -146,7 +146,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 3.8k+ |
+| Stars | ★ 4.1k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (most popular community Excel MCP) |
 
@@ -158,7 +158,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 1.7k+ |
+| Stars | ★ 1.8k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐ (⚠️ archived) |
 
@@ -182,7 +182,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 831 |
+| Stars | ★ 880 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (high-throughput PDF) |
 
@@ -206,7 +206,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 8.2k+ |
+| Stars | ★ 8.8k+ |
 | License | NOASSERTION |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -290,7 +290,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 29.5k+ |
+| Stars | ★ 31k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (**official**) |
 
@@ -314,7 +314,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 878 |
+| Stars | ★ 927 |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐ (**official**) |
 
@@ -326,7 +326,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 1.6k+ |
+| Stars | ★ 1.8k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (no admin permissions needed) |
 
@@ -334,13 +334,13 @@
 **Audience**: individual users (not Slack admins) who still want LLM-Slack integration.
 **Notes**: doesn't need admin tokens; uses user-level OAuth.
 
-### [jerhadf/linear-mcp-server](https://github.com/jerhadf/linear-mcp-server) ⭐⭐⭐⭐
+### [jerhadf/linear-mcp-server](https://github.com/jerhadf/linear-mcp-server) ⭐⭐⭐ (⚠️ last commit 2025-05, over a year stale)
 
 | Field | Value |
 |---|---|
 | Stars | ★ 344 |
-| License | NOASSERTION |
-| Rating | ⭐⭐⭐⭐ |
+| License | MIT |
+| Rating | ⭐⭐⭐ (⚠️ no update in over a year) |
 
 **What it does**: Linear (issue tracker) MCP — query issues, create issues, change status.
 **Audience**: developers managing sprints / backlogs in Linear.
@@ -362,8 +362,8 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 92k+ |
-| License | MIT |
+| Stars | ★ 101k+ |
+| License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐⭐ |
 
 **What it does**: AI coding skill that turns codebases / SQL schemas / R scripts / shell scripts / docs / papers / images / videos into a queryable knowledge graph. Works across Claude Code, Codex, OpenCode, Cursor, Gemini CLI.
@@ -374,7 +374,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 57k |
+| Stars | ★ 60k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (must-have for coding) |
 
@@ -386,7 +386,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 33k+ |
+| Stars | ★ 36k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (code intelligence) |
 
@@ -402,7 +402,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 15k+ |
+| Stars | ★ 16k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐⭐ (**Google official**, multi-DB) |
 
@@ -426,7 +426,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 2.7k+ |
+| Stars | ★ 2.9k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐⭐ (**Supabase official-community**) |
 
@@ -438,7 +438,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 1.7k+ |
+| Stars | ★ 1.8k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐ (Postgres coding aid) |
 
@@ -462,7 +462,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 1k+ |
+| Stars | ★ 1.1k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐ (**MongoDB official**) |
 
@@ -474,7 +474,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 504 |
+| Stars | ★ 555 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (**Redis official**) |
 
@@ -502,7 +502,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 34k+ |
+| Stars | ★ 35k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐⭐ (**Microsoft official**) |
 
@@ -534,13 +534,13 @@
 **Audience**: people scraping large amounts of web data for training / RAG / research.
 **Notes**: requires Firecrawl API key (has a free tier).
 
-### [browserbase/mcp-server-browserbase](https://github.com/browserbase/mcp-server-browserbase) ⭐⭐⭐⭐
+### [browserbase/mcp-server-browserbase](https://github.com/browserbase/mcp-server-browserbase) ⭐⭐⭐⭐ (⚠️ archived)
 
 | Field | Value |
 |---|---|
 | Stars | ★ 3.3k+ |
 | License | Apache-2.0 |
-| Rating | ⭐⭐⭐⭐ (**Browserbase official**) |
+| Rating | ⭐⭐⭐⭐ (**Browserbase official**, ⚠️ archived) |
 
 **What it does**: Browserbase's official MCP, paired with Stagehand for cloud-based browser automation.
 **Audience**: people whose local browser automation is too heavy / who need parallel cloud sessions.
@@ -554,7 +554,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 14.6k+ |
+| Stars | ★ 15k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (most popular Figma MCP) |
 
@@ -590,7 +590,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 48k+ |
+| Stars | ★ 53k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐⭐ |
 
@@ -606,7 +606,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 3k+ |
+| Stars | ★ 3.3k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐⭐ (**Grafana official**) |
 
@@ -658,7 +658,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 534 |
+| Stars | ★ 581 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (YouTube transcripts) |
 
@@ -670,8 +670,8 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 510 |
-| License | NOASSERTION |
+| Stars | ★ 557 |
+| License | MIT |
 | Rating | ⭐⭐⭐⭐ (full YouTube API) |
 
 **What it does**: full YouTube API MCP — beyond transcripts, also video management, Shorts, analytics.
@@ -722,7 +722,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 20k+ |
+| Stars | ★ 21k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐⭐ |
 
@@ -770,7 +770,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 917 |
+| Stars | ★ 967 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -782,7 +782,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 7.5k+ |
+| Stars | ★ 8.3k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -824,7 +824,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 3.7k+ |
+| Stars | ★ 4k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐⭐ (**Cloudflare official**) |
 
@@ -851,7 +851,7 @@
 | Type | hosted MCP server |
 | Rating | ⭐⭐⭐ (finance analysis tool; practical example of hosted vs self-hosted MCP architecture) |
 
-**What it does**: YIELD INTELLIGENCE hosted remote MCP server — live US Treasury yield rates, dividend ETF / REIT / preferred stock analysis, and passive income portfolio optimization. Two tools: `analyze_yield_opportunities` (scans passive income options) + `optimize_income_portfolio` (builds a portfolio toward a target monthly income). Listed in the Anthropic official MCP Registry (`io.github.thebrierfox/intuitek-ace`, since 2026-05-10).
+**What it does**: YIELD INTELLIGENCE hosted remote MCP server — live US Treasury yield rates, dividend ETF / REIT / preferred stock analysis, and passive income portfolio optimization. Two tools: `analyze_yield_opportunities` (scans passive income options) + `optimize_income_portfolio` (builds a portfolio toward a target monthly income). Listed in the official MCP Registry (`io.github.thebrierfox/intuitek-ace`, since 2026-05-10).
 **Audience**: people doing personal finance analysis in Claude Code / Claude Desktop who want AI to surface passive income opportunities. Good hands-on example of a hosted remote MCP server — plug the URL in, zero install, useful for Stage 5 learners exploring the hosted vs self-hosted difference.
 **Notes**: Live endpoint `https://api.intuitek.ai/yield/mcp` (no auth, no API key required). x402 micropayment $1 USDC/call on Base (agent-to-agent scenarios); free for regular users. Analysis-only, no trading. GitHub: [thebrierfox/intuitek-ace](https://github.com/thebrierfox/intuitek-ace) (MIT License).
 
@@ -877,7 +877,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 165 |
+| Stars | ★ 182 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (full research workflow) |
 
@@ -902,7 +902,7 @@
 | Field | Value |
 |---|---|
 | Stars | ★ 45 |
-| License | NOASSERTION |
+| License | MIT |
 | Rating | ⭐⭐⭐⭐ |
 
 **What it does**: Zotero CLI skill — programmatically search, add, classify, annotate references.
@@ -913,7 +913,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 38 |
+| Stars | ★ 42 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -927,6 +927,7 @@
 
 > ⚠️ **Maintainer's own projects** (same as 13): delegation skills the maintainer extracted from daily workflow. Star floor is relaxed; criterion is "the Claude-planner + Codex/Gemini-executor combo runs reliably". Multi-LLM space evolves quickly — evaluate alongside the multi-agent frameworks listed in Stage 7 before adopting.
 
+<!-- not-an-entry -->
 ### How the three skills compose
 
 The 3 skills below are **designed to be used together**, not as standalone tools:
@@ -939,7 +940,7 @@ Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is b
 
 | Field | Value |
 |---|---|
-| Stars | ★ 57 |
+| Stars | ★ 62 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ |
 
@@ -953,7 +954,7 @@ Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is b
 
 | Field | Value |
 |---|---|
-| Stars | ★ 34 |
+| Stars | ★ 37 |
 | License | MIT |
 | Rating | ⭐⭐⭐ (⚠️ archived) |
 
@@ -967,7 +968,7 @@ Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is b
 
 | Field | Value |
 |---|---|
-| Stars | recently published, no stars yet |
+| Stars | ★ 22 |
 | License | MIT |
 | Rating | ⭐⭐ (experimental — treat as reference) |
 
@@ -979,7 +980,7 @@ Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is b
 
 ## 15. Finance / Trading Agents
 
-> ⚠️ **Application-domain section**: agents applied to quantitative trading, hedge-fund simulation, and automated order placement. Licensing varies (NO-LICENSE to permissive open-source); verify each repo before reuse. **Caveat**: real-money trading agents carry significant risk; listed here for agent-design study, not as investment advice.
+> ⚠️ **Application-domain section**: agents applied to quantitative trading, hedge-fund simulation, and automated order placement. The two entries here are Apache-2.0 and MIT, but licensing across this category varies widely — verify each repo before reuse. **Caveat**: real-money trading agents carry significant risk; listed here for agent-design study, not as investment advice.
 
 ### [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) ⭐⭐⭐
 
@@ -997,13 +998,13 @@ Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is b
 
 | Field | Value |
 |---|---|
-| Stars | ★ 59k+ |
-| License | NO-LICENSE |
+| Stars | ★ 62k+ |
+| License | MIT |
 | Rating | ⭐⭐⭐ |
 
 **What it does**: a multi-role AI hedge-fund simulation where bull / bear / fundamentals / technicals / risk agents collaborate to produce trade recommendations.
 **Audience**: Stage 7 multi-agent learners wanting a complete application example; people interested in the agent × finance crossover.
-**Notes**: NO-LICENSE → same caveat as above. **Simulation only — not investment advice.**
+**Notes**: MIT-licensed; same caveat as above. **Simulation only — not investment advice.**
 
 ---
 
@@ -1013,7 +1014,7 @@ Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is b
 
 | Field | Value |
 |---|---|
-| Stars | ★ 4.5k+ |
+| Stars | ★ 4.8k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (**Exa official**) |
 
@@ -1025,7 +1026,7 @@ Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is b
 
 | Field | Value |
 |---|---|
-| Stars | ★ 2.1k+ |
+| Stars | ★ 2.3k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (beginner-friendly web search) |
 
@@ -1050,7 +1051,7 @@ If your integration isn't above, check these catalogs first:
 2. Or PR directly: add an entry under the relevant category in this format (Stars / License / Rating + What it does / Audience / Notes).
 3. **Stars < 100 + non-official** typically gets rejected unless you can argue a strong niche use case.
 
-Read [`resources/style-guide.en.md`](style-guide.en.md) and [`CONTRIBUTING.md`](../CONTRIBUTING.en.md) before submitting.
+Read [`resources/style-guide.en.md`](style-guide.en.md) and [`CONTRIBUTING.en.md`](../CONTRIBUTING.en.md) before submitting.
 
 ---
 

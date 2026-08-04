@@ -77,6 +77,21 @@ stale_patterns:
     qualifier_terms: ['前身', '歷史', 'lineage', '舊版', '原始', 'baseline', '基線', '基线', 'predecessor', 'history']
     note: 'Opus 4.8 (May 2026) supersedes 4.7. Opus 5 (2026-07-24) is now the recommended Opus-class default, but Opus 4.8 stays ACTIVE (not deprecated) and is deliberately NOT listed as a stale pattern'
 
+  # --- MCP Python SDK (added 2026-08 after the v2 breakage) -------------------
+  # The 2026-07-28 spec revision itself is invisible to a learner, but the SDK
+  # released the same day was NOT: `pip install mcp` started resolving to 2.x,
+  # and the repo's only runnable MCP tutorial died on the import line. These two
+  # patterns are what a reader would actually hit, so they are what we watch.
+  - pattern: 'from mcp\.server import Server|@app\.list_tools\(\)|@app\.call_tool\(\)'
+    qualifier_terms: ['v1', 'V1', '前身', '歷史', '历史', 'lineage', '舊版', '旧版',
+                      'legacy', 'migration', '遷移', '迁移', 'deprecated', '已失效']
+    note: 'MCP Python SDK v1 API. v2.0.0 (2026-07-28) moved the low-level Server handlers to constructor params; teach MCPServer + @app.tool() instead'
+
+  - pattern: 'pip install mcp(?![-"\w])'
+    qualifier_terms: ['裸寫', '裸写', 'bare', '會裝到', '会装到', 'gets you', '⚠️',
+                      'v1', '鎖版本', '锁版本', 'pin']
+    note: 'Unpinned MCP SDK install — v2.0.0 is a breaking change, so teach pip install "mcp>=2,<3" (quoting the bare form inside a warning is fine and is what the qualifier terms allow)'
+
 # Stale date-bound framing — 時間性過時用詞
 # 注意：用 \s* 而不是字面 space、因為中文常寫 "2025年" 沒空格
 stale_date_phrases:

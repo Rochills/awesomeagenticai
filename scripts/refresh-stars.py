@@ -27,7 +27,13 @@ MD_GLOB = "**/*.md"
 # (e.g. Langchain-Chatchat ★37k). Auto-refreshing them corrupts the record —
 # the bot mis-associates this repo's URL with a nearby prose ★ and overwrites it
 # with this repo's current count (2026-07 incident). Never scan .github.
-EXCLUDE_DIRS = {".git", ".github", ".ai", "node_modules", "_build", ".venv"}
+# '.claude' holds git worktrees (.claude/worktrees/<name>/), each a full second copy
+# of the tree. This walker uses Path.rglob, which descends into dot-directories, so
+# without this a refresh REWRITES the stale worktree copy as well as the real files —
+# worse than the read-only double-counting the same bug caused in the other gates.
+# Fourth script found with this hole (after zh-hans-localize, check-2026-freshness,
+# check-anchors), 2026-08-03.
+EXCLUDE_DIRS = {".git", ".github", ".ai", ".claude", "node_modules", "_build", "_site", ".venv"}
 
 # 抓 GitHub repo URL：https://github.com/owner/repo
 GITHUB_RE = re.compile(r"https://github\.com/([\w.-]+)/([\w.-]+?)(?:[#?/)\s]|$)")
@@ -74,7 +80,11 @@ def normalize_repo(owner: str, name: str) -> str | None:
 def find_md_files(root: Path) -> list[Path]:
     files = []
     for fp in root.glob(MD_GLOB):
-        if any(part in EXCLUDE_DIRS for part in fp.parts):
+        # Relative to `root`, not fp.parts — matching the ABSOLUTE path makes a
+        # checkout under an excluded-looking directory (e.g. `.ai/`, `book/`,
+        # `.claude/worktrees/`) skip everything and silently find no star lines.
+        # Same bug as the 2026-08-02 check-locale-links.py fix.
+        if any(part in EXCLUDE_DIRS for part in fp.relative_to(root).parts):
             continue
         files.append(fp)
     return files

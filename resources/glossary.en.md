@@ -110,6 +110,7 @@ The difference is this: plain LLM = Q&A; agent = the three elements + a continui
 Lets the LLM call functions you defined (DB lookup, math, browser, …). Instead of plain text, the LLM returns `{"function": "search", "args": {…}}`. Your code executes it and feeds the result back to the LLM.
 
 **The concept is the same; the API schema differs**:
+
 - **Anthropic "Tool Use"**: uses `input_schema` (JSON Schema directly)
 - **OpenAI / Ollama "Function Calling"**: wraps it in an outer `{"type": "function", "function": {...}}`
 - The token representation the LLM sees differs internally, so when writing a cross-vendor SDK you need to map them correctly
@@ -247,6 +248,7 @@ An agent ↔ agent communication protocol started by Google and now governed by 
 Anthropic's open protocol, introduced in 2024, that lets any LLM host (Claude Code, Cursor, your own agent) connect to external tool servers through one interface; donated to the Linux Foundation's Agentic AI Foundation in 2025-12. Think "**USB for LLMs**".
 
 **Technically it standardizes 3 primitives**:
+
 - **Tools**: functions an LLM can call (read DB / search web / send email…)
 - **Resources**: data an LLM can read (file contents, API responses, DB rows…)
 - **Prompts**: reusable prompt templates (triggered inside the host with `/`)
@@ -393,6 +395,7 @@ The discipline of engineering **what information goes into the context window on
 The discipline of engineering the **execution and control layer around the model** — everything that is not model weights and not just the prompt string itself: agent loop / tool registry / context manager / permissions / safety layer / memory layer / eval / observability / retry / circuit breaker, etc. Simon Willison 2025: **coding agent = LLM + harness**. Addy Osmani: harness = all the code that is not the model itself. [OpenAI also used the term "Harness Engineering" in February 2026](https://openai.com/index/harness-engineering). Claude Code, Cursor, OpenCode, etc. are harnesses. **A framework wraps an LLM into an agent; a harness wraps an agent into a product that can actually go live.**
 
 Contrast:
+
 - **Framework** (Stage 4) defines the **API**: what the interface you call looks like
 - **Harness** (this term) defines the **runtime**: how it runs, how it recovers, how it is observed
 

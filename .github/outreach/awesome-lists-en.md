@@ -56,5 +56,6 @@ Rendered site: https://wenyuchiou.github.io/awesome-agentic-ai-zh/
 - ❌ Don't PR to `e2b-dev/awesome-ai-agents` — verified 2026-05-21, last
   push 2025-02-26 (~15 months stale / effectively abandoned); a PR there
   will not be merged. Removed from the target table for this reason.
+
 - ❌ Don't omit the "trilingual / English-maintained" note — the `-zh`
   name otherwise gets it mis-filed or rejected as out-of-scope.

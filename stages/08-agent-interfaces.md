@@ -111,11 +111,13 @@ agent 收到任務
 ```
 
 **Why 這個 paradigm（vs Tool Use）**：
+
 - 大多軟體**沒 API、只有 GUI**——SAP / Excel / Photoshop / 任何傳統桌面 app、你要 agent 用就只能 screen-level
 - API integration（Stage 3 Tool Use）要等廠商開介面、有時等不到
 - Screen-level 是**最後一哩**——「agent 能做 human 在電腦上做的任何事」
 
 **Why 2026 才行得通**：
+
 - **Vision model 進步**：Claude 4.x / GPT-5.x 全 multimodal、看螢幕識別 element 準度大幅升
 - **OS-level 訓練資料**：[OSWorld dataset (NeurIPS 2024)](https://github.com/xlang-ai/OSWorld) 釋出 369 個跨 OS 真實任務、讓 frontier lab 有資料訓
 - **Anthropic Computer Use beta（2024-10）開啟商業競賽**——OpenAI / Google 跟上、benchmark 一路飆
@@ -147,11 +149,13 @@ agent 收到任務
 > **⚠️ 2026-06 更新（OSWorld 2.0）**：上表是 OSWorld **v1** 的數字。v1 隨後被前沿模型逼近飽和，「superhuman」只在 v1 的短任務（多半 1-2 個 app）成立。[OSWorld 2.0](https://osworld-v2.xlang.ai/)（2026-06、arXiv 2606.29537）改用 108 個 long-horizon workflow（每個約 318 次 tool call，v1 只約 30），當時最強的 Claude Opus 4.8（max thinking）也只到 **20.6%**（500 步預算）、GPT-5.5 約 14%、137 分鐘以上的任務沒有任何模型破 10%。SOTA 從「76% superhuman」掉到「20% 真實長任務」，正是本段 benchmark 紀律要你警惕的落差。
 
 **Why 比 SWE-bench 難**：
+
 - **更開放任務**：SWE-bench 有清楚 test 判 pass / fail；OSWorld 任務 spec 模糊（"幫我把 csv 變成圖"）
 - **跨多個 OS**：Ubuntu / Windows / macOS 都有
 - **跨應用 chain**：常要打開 3-4 個 app（Excel → Chrome → Slack）
 
 **Why 真實能力 ≠ 數字**（呼應 [Stage 7 reward-hacking 警告](07-multi-agent-production.md#-agent-benchmark-landscape怎麼看不要只看排行榜---reward-hacking-警告)）：
+
 - OSWorld 也在 [UC Berkeley 2026-04 reward-hacking 報告](https://rdi.berkeley.edu/blog/trustworthy-benchmarks-cont/) 名單上、被證可 hack 到 100%
 - **看數字紀律**：別只看 leaderboard top、看你自己 use case 的 hold-out test 才是 ground truth
 
@@ -176,6 +180,7 @@ agent 收到任務
 | **Screen-pixel + vision**（沒 DOM、看截圖）| 跟 Computer Use 一樣、screenshot → vision → coords | iframe / Canvas / Shadow DOM / 防自動化 |
 
 **Why DOM-aware 比 screenshot 精準**：
+
 - 直接抓 `<input name="username">` element、**不用 vision 解析像素**
 - 速度快 10-100×（不跑 vision model）
 - 不會 misclick（element 有確切 bounding box）
@@ -183,7 +188,7 @@ agent 收到任務
 
 **結論 — production browser agent pattern**：**DOM-first + screenshot fallback**——先嘗試 DOM、抓不到再用 vision。browser-use / Atlas / Comet 都用這 pattern。
 
-> 🌐 **瀏覽器 agent 的第三種模態：accessibility tree**：除了 DOM-aware 跟 screen-pixel（看截圖點座標），2026 production 主流是讀**無障礙樹**——比 pixel 穩、比原始 DOM 省 token。要實際接，[microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp)（★34k、Apache-2.0、走 accessibility tree）是 Track A 直接掛 Claude Code 就能用的瀏覽器 MCP。
+> 🌐 **瀏覽器 agent 的第三種模態：accessibility tree**：除了 DOM-aware 跟 screen-pixel（看截圖點座標），2026 production 主流是讀**無障礙樹**——比 pixel 穩、比原始 DOM 省 token。要實際接，[microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp)（★ 35k+、Apache-2.0、走 accessibility tree）是 Track A 直接掛 Claude Code 就能用的瀏覽器 MCP。
 
 ### Mini-glossary（就地解釋）
 
@@ -216,6 +221,7 @@ agent 收到任務
 | **Playwright + LLM**（DIY）| — | 不是專門 framework、但 Playwright 是 web automation 標準、加 LLM wrapper 就能用 |
 
 **Why browser-use 86k stars 這麼火**：
+
 - DOM-first paradigm **比 screenshot+vision 對 web 精準** + 速度快
 - LLM-vendor agnostic（不綁 Claude / GPT）
 - 5 行 Python 起步、entry barrier 低
@@ -233,11 +239,13 @@ agent 收到任務
 ### 為什麼 agent 一定要 sandbox
 
 **Threat model**：agent 寫 code → 在哪跑？
+
 - ❌ **Host 機器（最壞）**：agent 可能 `rm -rf /` / 連 internet 泄資料 / 讀 `.ssh/id_rsa` / 安裝 malware
 - ⚠ **同 user 隔離 process（中等）**：能擋部分但 file system / network 仍開
 - ✅ **隔離 sandbox（必要）**：獨立 filesystem / process / network、出事可丟掉
 
 **為什麼 2026 才正式變 production 要求**：
+
 - **2026-04 OpenAI Agents SDK 更新**：[內建支援 7 個 sandbox provider](https://openai.com/index/the-next-evolution-of-the-agents-sdk/)（Blaxel / Cloudflare / Daytona / E2B / Modal / Runloop / Vercel）
 - 之前都靠 [Claude Code](05-claude-code-ecosystem.md) / [Cursor](https://www.cursor.com) 的 approval gate 擋——但 production agent **無人盯、必須 sandbox**
 
@@ -257,6 +265,7 @@ agent 收到任務
 | **GPU passthrough** | VM / microVM 訪問 host GPU 的技術（**Modal 唯一支援**）| — | — | sandbox 內跑 inference / fine-tune |
 
 **核心要記**：
+
 - **Container** = 快 + 隔離弱（共用 kernel）
 - **VM** = 慢 + 隔離強（獨立 kernel）
 - **microVM** = 兼顧（快 < 100ms + 獨立 kernel）→ **agent sandbox 多半選 microVM**
@@ -283,6 +292,7 @@ agent 收到任務
 - **2026-04 之後**：**architecturally sound**——SDK 內建 harness 抽象層 + sandbox 抽象層 + Codex filesystem tools
 
 **3 個關鍵新功能**：
+
 1. **Native harness** — agent loop / model calls / tool routing / handoffs / approvals / tracing / recovery 全在 SDK 層
 2. **Native sandbox execution** — bring your own sandbox 或用內建 7 個 provider（Blaxel / Cloudflare / Daytona / E2B / Modal / Runloop / Vercel）
 3. **Codex filesystem tools** — agent 寫檔 / 讀檔 / 跑 command 都有 SDK-level API
@@ -319,6 +329,7 @@ agent 收到任務
 ### 跨 app workflow 範例
 
 「**幫我把 Q3 csv 變成圖、存到 Slack #finance**」：
+
 1. Claude Code（接 Computer-use MCP）打開 Excel
 2. 載入 csv、用 chart wizard 生成圖表
 3. 截圖
@@ -380,6 +391,7 @@ agent = Agent(
 ### 4. GUI agent 訓練資料
 
 如果你想**訓自己的 Computer Use model**（少數人會做）：
+
 - [**OSWorld dataset**](https://github.com/xlang-ai/OSWorld) — 369 個跨 OS 任務、screenshot + ground truth action
 - [**WebArena**](https://github.com/web-arena-x/webarena) — web navigation benchmark
 - [**Mind2Web**](https://github.com/OSU-NLP-Group/Mind2Web) — real-world web tasks
@@ -393,11 +405,13 @@ agent = Agent(
 ### 案例 1 — Comet 被 Brave 發現可被網頁注入
 
 **攻擊原理**（[Brave Research 2026](https://brave.com/blog/comet-prompt-injection)）：
+
 - Comet agent 看網頁 → 網頁裡藏惡意 prompt（如 HTML 註解內）
 - LLM 解析網頁時把惡意 prompt 當指令執行
 - 結果：agent 被 hijack 操作 user Gmail / 銀行 / 帳號
 
 **Why 這是新攻擊面**：
+
 - 傳統 SQL injection 攻擊路徑：**user input → server**（在 server-side 過濾就擋）
 - Prompt injection through web content：**web content → LLM context**（在 LLM context 內難分指令 vs 內容）
 - **Defense 完全不同**——無法套 SQL injection 那套
@@ -407,6 +421,7 @@ agent = Agent(
 2026-03 美國聯邦法官對 Comet 下 preliminary injunction、**禁止 agent 存取 Amazon 帳號**——理由是 Comet 在 Amazon 帳號操作不穩、且涉及未授權商業活動。
 
 **Why 這是 legal risk signal**：
+
 - Agent 操作他人帳號可能違反該平台 ToS
 - 大型 e-commerce / banking 平台可能用 legal action 擋 agent
 - production agent 部署前**必查目標平台 ToS**
@@ -455,6 +470,7 @@ agent = Agent(
 | **Claude agent 原生路線** | [claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | Stage 7 已介紹、Anthropic 早於 OpenAI 抽象出 harness |
 
 **建議入手順序**：
+
 1. **Track A 入門**：用 Claude Computer Use Docker quickstart 跑通第一個跨 app 任務（30 分鐘）
 2. **Track B 入門**：用 browser-use 寫 web agent（10 分鐘）
 3. 加 sandbox 隔離：接 E2B 或 Daytona

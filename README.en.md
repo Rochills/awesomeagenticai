@@ -8,19 +8,21 @@
 
 # awesome-agentic-ai-zh
 
+### 🤖 AI Agent Learning Roadmap — from basic LLM concepts to building your own multi-agent systems
+
+<p><em><b>Learning roadmap + 240+ curated resources + simple illustrative cases</b><br/>A structured 8-stage path, from "what is an LLM, how are tokens counted" to multi-agent orchestration, Computer Use / Browser Use / Sandbox</em></p>
+
+[![License](https://img.shields.io/badge/license-MIT-blue?style=flat)](LICENSE)
+[![繁中](https://img.shields.io/badge/lang-繁體中文-red?style=flat)](README.md)
+[![简中](https://img.shields.io/badge/lang-简体中文-orange?style=flat)](README.zh-Hans.md)
+[![EN](https://img.shields.io/badge/lang-English-blue?style=flat)](README.en.md)
+![GitHub stars](https://img.shields.io/github/stars/WenyuChiou/awesome-agentic-ai-zh?style=flat&logo=github)
+![GitHub forks](https://img.shields.io/github/forks/WenyuChiou/awesome-agentic-ai-zh?style=flat&logo=github)
+[![Docs site](https://img.shields.io/badge/docs-Pages-2ea44f?style=flat)](https://wenyuchiou.github.io/awesome-agentic-ai-zh/)
+
 </div>
 
-[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![繁中](https://img.shields.io/badge/語言-繁體中文-red)](README.md)
-[![简中](https://img.shields.io/badge/語言-简体中文-orange)](README.zh-Hans.md)
-[![EN](https://img.shields.io/badge/lang-English-blue)](README.en.md)
-![GitHub stars](https://img.shields.io/github/stars/WenyuChiou/awesome-agentic-ai-zh?logo=github)
-![GitHub forks](https://img.shields.io/github/forks/WenyuChiou/awesome-agentic-ai-zh?logo=github)
-[![Docs site](https://img.shields.io/badge/docs-Pages-2ea44f)](https://wenyuchiou.github.io/awesome-agentic-ai-zh/)
-
 > **Trilingual — the English edition is fully maintained, not a thin machine translation** (only ~0.4% of English lines carry any CJK, almost all intentional bilingual term-mapping). zh-TW is the curation source of truth (new content lands there first); the English and 简中 editions track the same structure, with CI checking localization correctness and anchor integrity across all three.
-
-**Learning roadmap + 240+ curated resources + simple illustrative cases** — three pillars helping you go from "I don't know where to start" to "I can design multi-agent systems". Structured **8-stage** path from LLM fundamentals to multi-agent orchestration, Computer Use / Browser Use / Code Sandbox.
 
 ---
 
@@ -33,7 +35,7 @@ Concretely:
 | Pillar | What it does | Scale |
 |---|---|---|
 | **Learning roadmap** | Organizes scattered high-quality projects, tutorials, and required reading into **8 stages** (including Stage 5 + Stage 8 as two shared hubs) + 2 tracks + 5 specialized branches, from zero to advanced | 8 stages, 2 tracks |
-| **Resource curation** | Each stage curates **240+** projects (star rating, audience, what they teach, how to run) plus an MCP/Skill catalog covering the Chinese AI ecosystem (DeepSeek, Zhipu, Kimi, …) | 240+ projects, 65 MCP/Skill |
+| **Resource curation** | Each stage curates **240+** projects (star rating, audience, what they teach, how to run) plus an MCP/Skill catalog covering the Chinese AI ecosystem (DeepSeek, Zhipu, Kimi, …) | 240+ projects, 76 MCP/Skill |
 | **Simple illustrative cases** | Each stage ships 1-5 **foundational exercises** (70-150 line starter + dual-path Ollama/Anthropic SDK comparison + mock-based tests) | 23 exercise folders |
 
 After the main path, you go from "**LLM user**" to "**agent system builder**" — capable of designing multi-agent collaboration, writing your own MCP server, and shipping real agent systems.
@@ -44,6 +46,9 @@ After the main path, you go from "**LLM user**" to "**agent system builder**" �
 
 - [🎯 Why this exists](#-why-this-exists)
 - [📚 Quick Start](#-quick-start)
+  - [Read online](#read-online)
+  - [Local clone](#local-clone)
+  - [✨ What you get](#-what-you-get)
 - [🗺️ Learning Map (Two Tracks)](#️-learning-map-two-tracks)
 - [💡 How to Learn](#-how-to-learn)
 - [📚 Related Resources](#-related-resources)
@@ -213,6 +218,7 @@ Common quick links, grouped by **scenario**:
 |---|---|---|
 | Want to build Skill / MCP server / Word / Zotero / local LLM integration | [`resources/cookbook.en.md`](resources/cookbook.en.md) | 6 step-by-step recipes, 30-50 min each |
 | Want to use subagents but do not know who to dispatch, how to dispatch, or what work to dispatch | [`resources/subagent-cookbook.en.md`](resources/subagent-cookbook.en.md) | 15 copy-paste dispatch recipes |
+| Write your own subagent / compose several / debug a broken one (advanced) | [`resources/subagent-advanced.en.md`](resources/subagent-advanced.en.md) | 4 description-writing bugs + 3 composition patterns + 5 debug entry points |
 | Stuck on tool calling (LLM won't call / schema broken / ReAct won't stop) | [`examples/stage-5/tool-calling-tutor/`](examples/stage-5/tool-calling-tutor/) | Claude Code installable skill, 4-symptom diagnostic |
 | How to use the hands-on exercises correctly (active vs passive mode) | [`docs/HOW_TO_USE.md`](docs/HOW_TO_USE.md) | 5-10 min read, applies to every stage |
 
@@ -221,7 +227,7 @@ Common quick links, grouped by **scenario**:
 | Your situation | Where | Scope |
 |---|---|---|
 | Connect to Notion / Obsidian / Excel / GitHub / etc. | [`RESOURCES.en.md` daily-tool integrations](RESOURCES.en.md#daily-tool-integrations-mcp-servers--skills) | 7-8 highlights |
-| Full MCP server / Skill catalog (stars, categories) | [`resources/mcp-skills-catalog.en.md`](resources/mcp-skills-catalog.en.md) | 65+ entries, 16 categories |
+| Full MCP server / Skill catalog (stars, categories) | [`resources/mcp-skills-catalog.en.md`](resources/mcp-skills-catalog.en.md) | 76+ entries, 16 categories |
 
 ### 🔬 Research / Production
 
@@ -244,7 +250,7 @@ This repo is an AI learning document — if you've also curated great resources,
 - 🌏 **Translations** — improve the English edition or translate to other languages
 - 🌱 **Become a Stage / Branch maintainer** — long-term review of a specific area, see [CONTRIBUTORS.md](CONTRIBUTORS.md)
 
-PR process and style rules: [CONTRIBUTING.md](CONTRIBUTING.en.md) + [resources/style-guide.en.md](resources/style-guide.en.md).
+PR process and style rules: [CONTRIBUTING.en.md](CONTRIBUTING.en.md) + [resources/style-guide.en.md](resources/style-guide.en.md).
 
 > 🤖 **New project links are auto-audited** — when a PR adds a new `github.com/owner/repo` link, a GitHub Action comments with its stars, license, archived status, and last-push, flagging archived / stale (>6 months) / unlicensed entries against the curation bar. Advisory only, never blocks — the maintainer decides what gets in (v1 runs on maintainer-branch PRs; fork PRs are skipped for now due to token scope).
 

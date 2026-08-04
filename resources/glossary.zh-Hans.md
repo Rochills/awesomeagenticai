@@ -110,6 +110,7 @@ LLM 一次能“看”多少 token。**2026 frontier**：Claude Sonnet 5 / Opus 
 让 LLM 调用你定义好的 function（查 DB、算数学、开浏览器…）。LLM 回的不是文字而是 `{"function": "search", "args": {...}}`，你的程序去执行、把结果再丢回 LLM。
 
 **两个词概念相同，但 API schema 不一样**：
+
 - **Anthropic 的 "Tool Use"**：schema 用 `input_schema`（直接放 JSON Schema）
 - **OpenAI / Ollama 的 "Function Calling"**：外面再包一层 `{"type": "function", "function": {...}}`
 - LLM 内部接收到的 token 表达也不同，写跨厂商 SDK 时要记得对应好
@@ -218,7 +219,7 @@ Anthropic 2024 提的方法——chunk 加上“整份文件的脉络摘要”�
 
 ---
 
-## 4. Multi-Agent（多 agent）
+## 4. Multi-Agent
 
 ### Multi-Agent（多 agent）
 
@@ -247,6 +248,7 @@ Google 发起、现由 Linux Foundation 治理的 agent 之间沟通协定，类
 Anthropic 在 2024 推出的开放协定，让任何 LLM host（Claude Code、Cursor、自写 agent）都能用同一套接口连接外部 tool server，2025-12 已捐给 Linux Foundation 旗下的 Agentic AI Foundation。把它想成“**LLM 的 USB 接口**”。
 
 **技术上标准化了 3 种 primitives**：
+
 - **Tools**：LLM 可调用的 function（read DB / search web / send email…）
 - **Resources**：LLM 可读取的数据（文件内容、API response、DB rows…）
 - **Prompts**：可复用的 prompt 模板（给用户在 host 内用 `/` 触发）
@@ -325,6 +327,14 @@ Claude Code 内以 `/` 开头的指令（`/help`、`/compact`、`/plan` 等）�
 
 LLM 把 prompt 前缀 cache 起来，下次同前缀只算 cache hit 的便宜价（Anthropic 90% off、OpenAI 50% off）。Long context + 重复 query 的场景可以省很多钱。
 
+### Streaming（流式输出）
+
+LLM 边生边回（一个 token 一个 token），不是等全部生成完才丢整段回来。读者体验较好（像在打字）；技术上用 SSE 或 chunked transfer。**production 交互式应用几乎都开**。代价：客户端要能 handle partial response、ReAct 内 tool call 解析要等到 stream 结束。
+
+### Batch API（批量 API）
+
+把大量 LLM 请求打包送（不要求实时），24 小时内回。**Anthropic / OpenAI 通常打 5 折**。适合非交互场景：批量摘要、批量分类、eval 跑大量 test case、ETL pipeline。**交互式 chat 不能用**——延迟对用户体验来说太久。
+
 ### Token Cost / Inference Cost
 
 每次 LLM 调用的成本 = input tokens × input price + output tokens × output price。Agent 跑 ReAct loop 的成本可以累积很快——大 codebase grep 一次可能花 10 万 token。
@@ -385,6 +395,7 @@ LLM “自信地说错”——把不存在的 API 编出来、把错的数字�
 工程 **模型外面的执行与控制层**——所有不是 model weights、也不是 prompt string 本身的工程元件：agent loop / tool registry / context manager / permissions / safety layer / memory layer / eval / observability / retry / circuit breaker 等。Simon Willison 2025：**coding agent = LLM + harness**。Addy Osmani：harness = 所有不是 model 本身的代码。[OpenAI 也在 2026-02 使用了 "Harness Engineering" 这个说法](https://openai.com/index/harness-engineering)。Claude Code、Cursor、OpenCode 等 CLI agent 都是 harness。**framework 把 LLM 包成 agent，harness 把 agent 包成可上线使用的产品**。
 
 对比：
+
 - **Framework**（Stage 4）规范 **API**：你调用的接口长什么样
 - **Harness**（本词）规范 **runtime**：怎么跑、怎么 recovery、怎么观测
 

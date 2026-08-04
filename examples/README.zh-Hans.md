@@ -23,7 +23,7 @@ examples/
 └── ...
 ```
 
-短的练习（≤30 LOC）直接以 `<details>` 收摺塞在 stage 档内、不开资料夹。长的（>30 LOC）才开资料夹——避免 stage 档被 code block 撑爆。
+短的练习（≤30 LOC）直接以 `<details markdown="1">` 收折塞在 stage 档内、不开资料夹。长的（>30 LOC）才开资料夹——避免 stage 档被 code block 撑爆。
 
 ## 怎么跑任一个范例
 
@@ -67,16 +67,16 @@ if hasattr(sys.stdout, "reconfigure"):
 每个练习都同时提供 3 条路径：
 
 ### Path A（**默认、推荐**）— Ollama 本机
-- 预设 `starter.py` / 第一个 inline `<details>` 用本机 LLM
+- 预设 `starter.py` / 第一个 inline `<details markdown="1">` 用本机 LLM
 - 需 [Ollama](https://ollama.com)、按 stage pull 对应 model：
-  - **Stage 1 + 2**（纯 chat / prompt eng）：`ollama pull gemma4:e4b`（~7.5 GB、多模態、CPU 跑得動）
+  - **Stage 1 + 2**（纯 chat / prompt eng）：`ollama pull gemma4:e4b`（~7.5 GB、多模态、CPU 跑得动）
   - **Stage 3+**（tool use / agent）：`ollama pull qwen2.5:3b`（1.9 GB、tool-use 支持稳定）
 - 全程 $0、offline、隐私敏感资料 OK
 - SDK 用 `openai` package（OpenAI 兼容 API）、`base_url="http://localhost:11434/v1"`
 - 适合：所有读者（默认推这条）
 
 ### Path B（选择性）— Anthropic API（想看 cloud 高质量时）
-- 对照 `starter_anthropic.py`（folder）或第二个 inline `<details>` 区块
+- 对照 `starter_anthropic.py`（folder）或第二个 inline `<details markdown="1">` 区块
 - 需 `ANTHROPIC_API_KEY`、跑一轮约 $0.001（haiku）/ $0.004（sonnet）
 - 答案质量 / latency 都比本机 Ollama 强
 - 适合：production 要求高质量、需要 long-context、Stage 7 production tier
@@ -126,6 +126,8 @@ if hasattr(sys.stdout, "reconfigure"):
 | **`claude-haiku-4-5`** ⭐ | $1 | $5 | 200k | 最便宜、Stage 1-7 练习 cloud 对照都 OK |
 | **`claude-sonnet-5`** ⭐ | $3 | $15 | 1M | **production 默认**、Stage 5+ agent 开发 |
 | `claude-opus-5` | $5 | $25 | 1M | Opus 级旗舰（2026-07-24 推出、接替 Opus 4.8、同价）、复杂推理 / 长 context refactor |
+
+> 💰 **Sonnet 5 目前是优惠价**：[官方定价页](https://platform.claude.com/docs/en/about-claude/pricing) 标明 **2026-08-31 前为 $2 / $10**、2026-09-01 起才回到表中的 $3 / $15。下面的预算估算用的是回归后的标准价，所以现在实际跑会比估算便宜约三分之一。
 
 订阅替代：Claude Pro $20/月含 Sonnet 用量、Claude Max $100/月含 Opus。详细看 [resources/cli-agents-guide.zh-Hans.md](../resources/cli-agents-guide.zh-Hans.md)。
 
@@ -190,6 +192,24 @@ r = client.chat.completions.create(model="meta/llama-3.3-70b-instruct", messages
 
 > 🎯 **新手默认**：先全本机跑、预算上限 $5。**Stage 7 production tier 才考虑 sonnet 升级**。
 
+### 怎么从 Ollama 换到 Anthropic？
+
+每个练习都有 `<details markdown="1">` Path B 区块或 `starter_anthropic.py`，改 3 行：
+
+```python
+# 从这个（Path A 默认）：
+from openai import OpenAI
+client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+r = client.chat.completions.create(model="gemma4:e4b", ...)
+
+# 换成这个（Path B、若有 ANTHROPIC_API_KEY）：
+import anthropic
+client = anthropic.Anthropic()
+r = client.messages.create(model="claude-haiku-4-5", ...)
+```
+
+主要差异：messages create 方法名、response shape（`choices[0].message.content` vs `content[0].text`）、tool spec wrap（OpenAI 多一层 `{"type": "function", "function": {...}}`）。详细对照表见 [`resources/cli-agents-guide.zh-Hans.md`](../resources/cli-agents-guide.zh-Hans.md)。
+
 ## 对应 stage 索引
 
 | Stage | 练习 | 范例位置 |
@@ -208,6 +228,7 @@ r = client.chat.completions.create(model="meta/llama-3.3-70b-instruct", messages
 ## 贡献 / 报错
 
 跑不过、结果跟预期输出对不上、或想补一个新练习：
+
 - 开 issue 标 `examples` label
 - 或直接 PR、follow 本资料夹“设计原则”表格的规则
 

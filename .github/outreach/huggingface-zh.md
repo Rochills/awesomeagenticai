@@ -92,6 +92,8 @@ taken.
 - HF community page: huggingface.co/posts (treat like a discussion forum)
 - **Do not** tag random HF people; if pitching to maintainer, identify by past
   ML/agent work specifically
+
 - HF Learn: huggingface.co/learn — if our content ever gets featured, the
   HF Learn audience is exactly our target
+
 - For zh-Hans segment: HF has a 中文社群 page; can post there separately

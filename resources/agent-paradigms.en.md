@@ -77,7 +77,7 @@ You want to use DeepSeek-V4-Pro (the former R1 reasoning lineage now merged into
 
 ## Type 4: Cloud-deployed — exemplar: Hermes Agent
 
-**Exemplar**: [Hermes Agent](https://github.com/NousResearch/hermes-agent) (Nous Research, ★ 213k+, MIT)
+**Exemplar**: [Hermes Agent](https://github.com/NousResearch/hermes-agent) (Nous Research, ★ 224k+, MIT)
 
 **Hero example**:
 You're on the subway, you open Telegram on your phone, and you message your Hermes bot: "Pull today's arXiv ML papers, give me 3 highlights, send the result back to Telegram." Hermes — running on your $5 DigitalOcean VPS — receives the message, decides to use GPT-5 (paper discovery) + Claude Opus (summary) + Gemini Flash (compression to 3 bullet points), executes the pipeline, and sends the result back. You never touched your laptop.
@@ -95,6 +95,7 @@ You're on the subway, you open Telegram on your phone, and you message your Herm
 **Distinguishing trait**: ~$5/month VPS hosting + API costs; China-region LLM support (GLM / Kimi) — a useful backup to switch to when US services are flaky.
 
 **Trade-offs**:
+
 - ⚠️ Self-improving skills are a new capability with no independent security audit yet — don't enable it for high-stakes tasks (medical / legal / payments)
 - You lose IDE/terminal-style direct filesystem manipulation; you adopt a chat-first workflow
 - You need self-host fluency (Linux / Docker / systemd basics)
@@ -124,6 +125,7 @@ You run a law firm. You need AI to help organize a client's medical records + me
 **Distinguishing trait**: one-time hardware investment, then API cost goes to zero; lives inside NVIDIA's edge hardware ecosystem; Jetson Thor can run a 30B model.
 
 **Trade-offs**:
+
 - Model size is bounded by edge hardware (Orin Nano tops out at 7B, Thor at 30B)
 - Setup is more involved than cloud (you need NVIDIA Jetson familiarity, JetPack, Docker, Ollama)
 - No 24/7 cross-platform convenience like cloud-deployed
@@ -145,6 +147,7 @@ There are two main implementation paths:
 | **Claude Code native** (Stage 5.5) | Write `.claude/agents/<name>.md`; invoke it from the main session with the Task tool | Claude Code subagents + Claude Agent SDK |
 
 **The difference is runtime ownership**:
+
 - Framework path: your own Python process runs the orchestrator, and each sub-agent is an object inside your program
 - Claude path: Claude Code spawns a new agent instance itself; parent / child share the Claude runtime, and the parent only sees the child’s final result (context is isolated automatically)
 
@@ -161,6 +164,7 @@ Real power users often run **2 or 3 types simultaneously**, each handling what i
 ![Personal power-user multi-type workflow](../resources/diagrams/power-user-multi-type-workflow.en.png)
 
 **Why this combination**:
+
 - Type 2 handles code (terminal is the most natural interface)
 - Type 4 handles routines + cross-platform (works when your laptop is closed)
 - Type 5 handles privacy (data cannot leave the machine)

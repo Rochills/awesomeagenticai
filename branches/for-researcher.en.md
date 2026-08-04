@@ -24,7 +24,7 @@ Research days break into stages, and AI plays a different role at each stage. Us
 
 ## Curated Projects
 
-> 💡 **Want to wire Claude Code into NotebookLM, Obsidian, Notion, Excel, PDF, Excalidraw, and other research tools?** 65+ integrations in [`resources/mcp-skills-catalog.en.md`](../resources/mcp-skills-catalog.en.md) (grouped by use case). The section below keeps research-specific tools and marketplaces.
+> 💡 **Want to wire Claude Code into NotebookLM, Obsidian, Notion, Excel, PDF, Excalidraw, and other research tools?** 76+ integrations in [`resources/mcp-skills-catalog.en.md`](../resources/mcp-skills-catalog.en.md) (grouped by use case). The section below keeps research-specific tools and marketplaces.
 
 ### Research Workflow Marketplaces
 
@@ -53,7 +53,7 @@ Claude Code infrastructure for PhD researchers — skills, agents, hooks, rules 
 
 | Field | Value |
 |---|---|
-| Stars | ★ 27k+ |
+| Stars | ★ 28k+ |
 | License | Apache-2.0 |
 
 **What it teaches**: Autonomous deep-research agent — planner + multi-source crawl + report synthesis. Give it a research topic, get a markdown / PDF brief out.
@@ -68,7 +68,7 @@ Claude Code infrastructure for PhD researchers — skills, agents, hooks, rules 
 
 | Field | Value |
 |---|---|
-| Stars | ★ 28k+ |
+| Stars | ★ 30k+ |
 | License | MIT |
 
 **What it teaches**: Multi-perspective outline-then-write pipeline — plain-language version: (1) simulate different perspectives asking questions, (2) organize those questions into an outline, then (3) generate a Wikipedia-style draft. From Stanford OVAL.
