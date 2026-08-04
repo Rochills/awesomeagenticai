@@ -2,7 +2,7 @@
 
 > **繁體中文** | [简体中文](./mcp-skills-catalog.zh-Hans.md) | [English](./mcp-skills-catalog.en.md)
 
-> 把 Claude Code（或其他 CLI agent）接到你已經在用的工具，不用反覆切換視窗。本頁是 76+ 個分類整理過的 MCP server / Claude Skill / 整合範例（含研究工作流 + multi-LLM delegation 兩個專屬區）。
+> 把 Claude Code（或其他 CLI agent）接到你已經在用的工具，不用反覆切換視窗。本頁是 77+ 個分類整理過的 MCP server / Claude Skill / 整合範例（含研究工作流 + multi-LLM delegation 兩個專屬區）。
 
 ---
 
@@ -32,7 +32,7 @@
 9. [監控 / Observability](#9-監控--observability)（3）
 10. [媒體 / 串流（YouTube / Spotify）](#10-媒體--串流youtube--spotify)（3）
 11. [中文圈專用](#11-中文圈專用)（11）
-12. [其他常用（Cloudflare / Stripe…）](#12-其他常用cloudflare--stripe)（4）
+12. [其他常用（Cloudflare / Stripe…）](#12-其他常用cloudflare--stripe)（5）
 13. [研究工作流 Skills（學術 / paper / 文獻）](#13-研究工作流-skills學術--paper--文獻)（4）
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills)（3）
 15. [金融 / 交易 Agents](#15-金融--交易-agents)（2）
@@ -874,14 +874,13 @@
 
 | 欄位 | 內容 |
 |---|---|
-| 語言 | Python |
-| Stars | ★ 13 |
+| Stars | ★ 14 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐ |
 
 **教什麼**：用一個可直接安裝的數學 MCP server，練習讓 agent 呼叫可組合的精確計算工具；涵蓋 polynomial maps、linear algebra 與 graph algorithms。
 **適合誰**：想在 MCP 工作流中加入數學計算、或需要讓 agent 處理結構化數學問題的研究者與開發者。
-**備註**：同時提供 MCP server、CLI 與 Python library；可從一個簡單的本地 MCP 設定開始，再按需使用原生 Python API。
+**備註**：Python 專案，但透過 npm 發佈啟動器，所以用 `npx` 起 server。同時提供 MCP server、CLI 與 Python library；可從一個簡單的本地 MCP 設定開始，再按需使用原生 Python API。
 **怎麼跑**：
 ```bash
 npx -y jacobian mcp
