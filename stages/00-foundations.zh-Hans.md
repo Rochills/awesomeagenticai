@@ -56,7 +56,7 @@
 | **CLI / Shell** | [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line) | 想系统性学命令行 | ★ 160k+、多语言版、新手到进阶都涵盖 |
 | | [Learn Shell](https://www.learnshell.org/) | 喜欢互动式练习 | 互动式 Bash 教学、浏览器内跑 |
 | | [explainshell.com](https://explainshell.com/) | debug shell 指令 | 把任何 shell 指令拆解讲解（debug 救星） |
-| **REST API** | [MDN — HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) | 想搞懂 HTTP 协议 | 最 canonical 的 web reference |
+| **REST API** | [MDN — HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) | 想搞懂 HTTP 协议 | Mozilla 维护的 web 平台参考文档 |
 | | [Postman Learning Center](https://learning.postman.com/) | 用 GUI 探索 API | API 探索工具、视觉化好 |
 | | [HTTPie](https://github.com/httpie/cli) | 偏好 CLI、`curl` 太丑 | 比 `curl` 友善的命令行 HTTP client |
 | **YAML / JSON** | [YAML 官网](https://yaml.org/) | 需要查语法规格 | YAML 规格文件 |

@@ -220,6 +220,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 | [**Terminal-Bench**](https://github.com/laude-institute/terminal-bench) | terminal 任務 | 領先 | Claude Opus 4.8 |
 | **GAIA** | general assistant | **74.6%** | Claude Sonnet 4.5（Princeton HAL）|
 | [**WebArena**](https://github.com/web-arena-x/webarena) | web 導航 | **68.7%** | （領先 model 未公布）|
+| [**ClawBench**](https://github.com/TIGER-AI-Lab/ClawBench) | 真實網站上的 browser agent 任務 | **44.6%**（lenient）/**24.6%**（strict） | Claude Opus 4.7（V2 Hermes leaderboard history、2026-08 快照:58/130 通過）；283 個任務、144 個真實網站、Apache-2.0、[論文](https://arxiv.org/abs/2604.08523)；V2 兩階段 rubric 較 V1 嚴格 |
 | [**OSWorld**](https://github.com/xlang-ai/OSWorld) | OS-level 桌面控制 | v1 **76.26%**（接近飽和）| OpenAI CUA 38%；[OSWorld 2.0](https://osworld-v2.xlang.ai/)（2026-06、long-horizon）已取代 v1、真實長任務 SOTA 僅 ~20%（Opus 4.8 20.6%），見 Stage 8 |
 | [**τ-bench**](https://github.com/sierra-research/tau-bench) | tool use 多輪對話 | （較難 hack）| Anthropic / OpenAI 領先 |
 | **RE-bench** | research engineering | （較難 hack、接近人類 baseline）| Frontier model |

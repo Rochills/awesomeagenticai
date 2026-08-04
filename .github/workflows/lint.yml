@@ -246,7 +246,7 @@ jobs:
         run: python3 scripts/test_locale_links.py
 
       - name: Repo-walker exclude-path regression tests
-        # The 2026-08-02 "silent false all-clear" class: six gates matched
+        # The 2026-08-02 "silent false all-clear" class: eight gates matched
         # EXCLUDE_DIRS against the ABSOLUTE path, so a checkout under
         # `.claude/worktrees/<name>/` (this repo's standard worktree location)
         # skipped every file and still printed its success line.
@@ -255,7 +255,7 @@ jobs:
         # component, so the gates only went blind locally, which is the one
         # place they run pre-commit.
         # Includes a source-level scan that fails if any script reintroduces
-        # the pattern, so this cannot come back a seventh time. stdlib-only.
+        # the pattern, so this cannot come back a ninth time. stdlib-only.
         run: python3 scripts/test_repo_scan_excludes.py
 
       - name: refresh-stars.py detection unit tests

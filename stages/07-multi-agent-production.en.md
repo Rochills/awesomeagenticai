@@ -220,6 +220,7 @@ Before choosing a model or building an agent, you'll want to look at benchmark n
 | [**Terminal-Bench**](https://github.com/laude-institute/terminal-bench) | terminal tasks | Leading | Claude Opus 4.8 |
 | **GAIA** | general assistant | **74.6%** | Claude Sonnet 4.5 (Princeton HAL) |
 | [**WebArena**](https://github.com/web-arena-x/webarena) | web navigation | **68.7%** | (leading model not disclosed) |
+| [**ClawBench**](https://github.com/TIGER-AI-Lab/ClawBench) | browser-agent tasks on real websites | **44.6%** (lenient)/**24.6%** (strict) | Claude Opus 4.7 (V2 Hermes leaderboard history, 2026-08 snapshot: 58/130 passed); 283 tasks, 144 real websites, Apache-2.0, [paper](https://arxiv.org/abs/2604.08523); V2's two-stage rubric is stricter than V1 |
 | [**OSWorld**](https://github.com/xlang-ai/OSWorld) | OS-level desktop control | v1 **76.26%** (near-saturated) | OpenAI CUA 38%; [OSWorld 2.0](https://osworld-v2.xlang.ai/) (2026-06, long-horizon) superseded v1 — realistic long-task SOTA only ~20% (Opus 4.8 20.6%), see Stage 8 |
 | [**τ-bench**](https://github.com/sierra-research/tau-bench) | multi-turn dialogue with tool use | (Harder to hack) | Anthropic / OpenAI leading |
 | **RE-bench** | research engineering | (Harder to hack, close to human baseline) | Frontier models |
