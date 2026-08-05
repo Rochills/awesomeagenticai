@@ -141,7 +141,7 @@ cd awesome-agentic-ai-zh
 >
 > 两个 hub 出现在两条 track 内、视角不同、学的深度也不同（内文有 Track A / Track B 分视角段）。
 
-> 💡 **想看跨 stage 的完整示例？** [7 步构建你的第一个 AI Agent](walkthroughs/build-first-agent-in-7-steps.zh-Hans.md) — 同一个 Paper Summary Bot 从 Stage 1 一路写到 Stage 7，~350 行真实代码（**Track B 适用**）
+> 💡 **想看跨 stage 的完整示例？** [7 步构建你的第一个 AI Agent](walkthroughs/build-first-agent-in-7-steps.zh-Hans.md) — 同一个 Paper Summary Bot 从 Stage 1 一路写到 Stage 7，~300 行真实代码（**Track B 适用**）
 
 走完主干后，依你的身份挑一条延伸路线继续走。**不确定挑哪条？**
 

@@ -139,7 +139,7 @@ The two tracks are **not mutually exclusive** — most people start with A to ge
 > - **Stage 5** = Claude Code Ecosystem (MCP / Skills / Plugins / Subagents) — Track A learns MCP-into-CLI, Track B learns agent runtime structure
 > - **Stage 8** = Agent Interfaces (Computer Use / Browser / Sandbox, 2024-2026 frontier) — Track A learns "how to use" for task delegation, Track B learns "how to build" with embedded interfaces
 
-> 💡 **Want a concrete cross-stage example?** [Build Your First AI Agent in 7 Steps](walkthroughs/build-first-agent-in-7-steps.en.md) — same Paper Summary Bot traced from Stage 1 through Stage 7, ~350 lines of executable code (**Track B**)
+> 💡 **Want a concrete cross-stage example?** [Build Your First AI Agent in 7 Steps](walkthroughs/build-first-agent-in-7-steps.en.md) — same Paper Summary Bot traced from Stage 1 through Stage 7, ~300 lines of executable code (**Track B**)
 
 After the main path, pick one of 5 specialized branches. **Not sure which?**
 

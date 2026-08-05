@@ -6,6 +6,16 @@ Format: `YYYY-MM-DD · category · 1-line summary (commit-sha)`.
 
 ---
 
+## 2026-08-04（第二批）
+
+- **fix** · **主線 walkthrough 的 Python 第一次真的被跑過,抓到 4 個真實缺陷 + 1 個簡中版根本不能編譯**。`walkthroughs/build-first-agent-in-7-steps.md` 的 9 個 python block(302 行)全部抽成文件自己指定的檔名,在乾淨 venv(Python 3.14 + anthropic 0.120.2 / langgraph 1.2.10 / langchain-core 1.5.3 / chromadb 1.5.9)逐一執行,`Anthropic` 與 `requests` 用 mock 攔截——**沒用 API key、沒產生費用**。三語同步修好。
+- **fix** · **Stage 6 的「RAG memory」實測完全沒在存東西**,兩層問題疊在一起。表層是 `store_paper(arxiv_id="...")` 把**字面字串 `"..."`** 當 id;底層是 DB 空的時候 `find_similar()` 回 `[]`,`if not similar: return` 提前退出,**`store_paper` 從來沒被呼叫過**——第一篇永遠不會進 DB,下一篇進來 DB 還是空的。實測連存 3 篇 `count=0`。修法:先存再回傳、id 改用 `state["arxiv_id"]`、`add()` 改 `upsert()`(實測 `add()` 遇重複 id 是**靜默忽略、不報錯**)。修後 `count` 1 → 2 → 3。
+- **fix** · **存進 memory 的根本不是摘要,是 reviewer 的判定字串**——這個是 review 時才抓到的第 4 個,而且**單看 `count` 是「修好了」的**。`compare` node 跑在 `reflect` 之後,而 `reflect` 會 append 一則 `[Reviewer 判定: …]`,所以 `state["messages"][-1]` 拿到的是判定不是摘要。實測三篇論文存進去的文件**完全相同**(真實情況下都是 `[Reviewer 判定: PASS]`,因為那個 prompt 明說「只回答 PASS 或 NEEDS_REVISION」)。改成往回找最後一則 AI 訊息;Stage 4 自己的 demo `print` 也踩同一個坑,一併修。**這正是「結構檢查過了不代表內容對」的實例——`count` 1→2→3 全綠,存的卻是三份一模一樣的垃圾。**
+- **fix** · **`compare_with_memory` 算出來的結果被 LangGraph 丟掉**。回傳 `{"comparison": ...}` 但 `State` 只宣告 `messages` / `revisions`,LangGraph 會過濾掉沒宣告的 key——實測 invoke 後 keys 是 `['messages','revisions']`。那次比對的 LLM 呼叫照樣計費、結果拿不到。改成 `class MemoryState(State)` 明確宣告 `arxiv_id` / `comparison`,並補上 invoke 範例(原文件根本沒示範怎麼呼叫這個 graph)。
+- **fix** · **`import` 一個 stage 的檔案就會送出真實 API 呼叫**。`step2` / `step3` / `step4` 都在 module 層執行 demo,而後面的 stage 會 import 它們拿 `SYSTEM_PROMPT` / `run_agent` / `State`。實測光是 `import step2_paper_summary` 就送出一次 `max_tokens=800` 的呼叫,內容還是佔位字串。三個檔案包進 `if __name__ == "__main__":`,修後被 import 的 4 個檔案**共 0 次呼叫**。`step1` 沒加 guard 是刻意的——全文 `import step1` 出現 0 次。
+- **fix** · **簡中版有 2 個 python block 根本不能 parse**,而且其中一個是 **Stage 1**——簡中讀者跑的第一支程式就 `SyntaxError`。原因是 `\n` 這個跳脫序列被展開成真實換行,f-string 因此沒閉合(`unterminated f-string literal`)。這是既有問題、不是這批造成的,但這批本來要宣告「三語都驗過」,不修就是謊報。全 repo 掃了 303 個 python fence,確認只有這一處是**語系之間不一致**的失敗(其餘失敗的是三語一致的刻意片段)。
+- **docs** · `.github/TESTING-STATUS.md` 拆成兩列照實寫:**Stage 1-6 的 6 個 block ✅ 實跑過**、**Stage 7 的 3 個 block ⚠️ 部分未跑**——7.1 `eval_provider` 實跑通過,7.2 `step7_observability` 因 langfuse 4.x 把 `observe` 從 `langfuse.decorators` 移走而 import 失敗,7.3 `main.py` 因 venv 沒裝 fastapi / uvicorn 沒跑。合計 9 個 block 跑了 7 個。同檔下方那條「因為版本會過期所以選擇不測」的理由也標記為 Stage 1-6 已不成立。**沒有宣稱全部驗完**:需要真實 API key 的端到端輸出品質仍未驗。
+
 ## 2026-08-04
 
 - **ci** · **`main` 加上 branch protection,但只防災難**。禁止 force-push、禁止刪除 `main`,`enforce_admins: true`(對自己也生效)。**不要求 PR、不設 required status checks**——因為過去 60 天的 108 個 commit 裡,**只有 14 個的 sha 對得上已 merge PR 的 merge commit**(0 個 merge commit),其餘 **94 個都是直接推 main**,而 CLAUDE.md 本來就寫「小改動偏好直接進 main」。擋的是 history 被覆蓋、分支被刪這種**救不回來**的事;內容錯誤仍然只會事後報紅、不會攔下。要真正攔阻得強制所有變更走 PR,那是另一個決定。
