@@ -875,7 +875,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 14 |
+| Stars | ★ 16 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐ |
 
@@ -897,7 +897,7 @@ npx -y jacobian mcp
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 182 |
+| Stars | ★ 201 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐⭐（研究流程一整套） |
 
@@ -909,7 +909,7 @@ npx -y jacobian mcp
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 10 |
+| Stars | ★ 12 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐（窄但深） |
 

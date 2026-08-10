@@ -874,7 +874,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 14 |
+| Stars | ★ 16 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -896,7 +896,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 182 |
+| Stars | ★ 201 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (full research workflow) |
 
@@ -908,7 +908,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 10 |
+| Stars | ★ 12 |
 | License | MIT |
 | Rating | ⭐⭐⭐ (narrow but deep) |
 
