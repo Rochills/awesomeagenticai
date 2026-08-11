@@ -21,7 +21,7 @@
 | Interface | 操作对象 | 工作原理 | 代表工具 |
 |---|---|---|---|
 | **🖱 Computer Use**（screen-level）| 任何桌面应用（Excel / SAP / Photoshop / 无 API 的软件）| 截图 → 视觉模型分析 → 计算坐标 → 模拟键鼠 | Anthropic Claude Computer Use / OpenAI Codex desktop / Gemini in Chrome |
-| **🌐 Browser Use**（web-level）| 任何网页 | DOM 感知导航 + 必要时视觉回退 | Comet / browser-use（开源，86k 星）/ ChatGPT Agent Mode |
+| **🌐 Browser Use**（web-level）| 任何网页 | DOM 感知导航 + 必要时视觉回退 | Comet / browser-use（开源，108k 星）/ ChatGPT Agent Mode |
 | **📦 Code Sandbox**（isolated exec）| 智能体生成的代码在隔离环境中运行 | microVM / 容器 / 用户空间内核 | E2B / Daytona / Modal / Vercel Sandbox / OpenAI Agents SDK（2026 年 4 月内置）|
 
 ### 与之前阶段的区别（避免概念混淆）
@@ -86,7 +86,7 @@
 2. [**Anthropic — Claude Release Notes（模型总览）**](https://docs.anthropic.com/en/release-notes/overview) — Claude Opus 5（`claude-opus-5`，2026-07-24）是目前建议的默认模型，官方文档说复杂 agentic coding 与企业工作“从 Claude Opus 5 开始”。其上还有 Mythos-class 的 Claude Fable 5（`claude-fable-5`）——Anthropic 目前公开发布中能力最强的模型，留给需要最高能力的工作；Mythos 5（`claude-mythos-5`）规格相同但仅限邀请。Opus 4.8（2026 年 5 月，Dynamic Workflows + parallel subagent harness 随它推出）仍可用，但官方文档已把它移到 Legacy models 区。
 3. [**OpenAI — The next evolution of the Agents SDK**](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) ⭐ **2026-04** — 内置沙箱和 harness 抽象，是生产级编码智能体架构的里程碑。
 4. [**OpenAI — Computer-Using Agent (CUA)**](https://openai.com/index/computer-using-agent/) — OpenAI 版本的 Computer Use，包含 WebArena / OSWorld 数据。
-5. [**browser-use docs**](https://docs.browser-use.com/) — 开源 web agent 排名第一（86k+ 星），5 行 Python 即可上手。
+5. [**browser-use docs**](https://docs.browser-use.com/) — 开源 web agent 排名第一（108k+ 星），5 行 Python 即可上手。
 6. [**Microsoft OmniParser**](https://microsoft.github.io/OmniParser/) — 开源的 GUI 解析工具，是 Computer Use 的重要组成部分。
 
 > 💡 **选择性阅读**：纯 Track A 读者阅读 1 + 2；纯 Track B 读者必读 3 + 5 + 6；想全面了解则全部阅读。
@@ -216,11 +216,11 @@
 
 | 框架 | 状态 | 强项 |
 |---|---|---|
-| [**browser-use**](https://github.com/browser-use/browser-use) ⭐ | **86k+ 星，MIT** | 2026 年最火的开源软件，Python，5 行上手，支持 OpenAI / Claude / Gemini / Ollama。 |
+| [**browser-use**](https://github.com/browser-use/browser-use) ⭐ | **108k+ 星，MIT** | 2026 年最火的开源软件，Python，5 行上手，支持 OpenAI / Claude / Gemini / Ollama。 |
 | [**Microsoft OmniParser v2**](https://github.com/microsoft/OmniParser) | 2026 年更新，Apache 2.0 | 基于视觉的 GUI 解析，延迟改善 60%，使用 ScreenSpot Pro 准确率达 39.6%。同一仓库包含 **OmniTool**（Windows 11 VM 控制，可搭配 GPT-5.5 / Claude Opus 5 / DeepSeek-V4-Pro / Qwen 2.5VL / Claude Computer Use）。 |
 | **Playwright + LLM**（DIY）| — | 不是专门的框架，但 Playwright 是 web 自动化的标准，加上 LLM 包装器即可使用。 |
 
-**为什么 browser-use 这么火（86k 星）**：
+**为什么 browser-use 这么火（108k 星）**：
 
 - DOM-first 范式**对 web 来说比截图+视觉更精确**，速度也更快。
 - LLM 厂商无关（不绑定 Claude / GPT）。
@@ -344,7 +344,7 @@
 
 ### 1. 使用 browser-use 编写 web 智能体
 
-**为何使用 browser-use**：86k 星，5 行上手，LLM 厂商无关，生产就绪。
+**为何使用 browser-use**：108k 星，5 行上手，LLM 厂商无关，生产就绪。
 
 ```python
 from browser_use import Agent
@@ -459,7 +459,7 @@ agent = Agent(
 |---|---|---|
 | **第一次接触 Computer Use** | Anthropic [Claude Computer Use Docker quickstart](https://github.com/anthropics/anthropic-quickstarts) | 官方 Docker，5 分钟上手 |
 | **桌面后台工作流** | [OpenAI Codex desktop](https://openai.com/index/codex-for-almost-everything/)（2026 年 4 月）| 不抢占光标，可并行 |
-| **第一个 web 智能体**（开源） | [browser-use](https://github.com/browser-use/browser-use) ⭐ | 86k+ 星，5 行 Python，LLM 厂商无关 |
+| **第一个 web 智能体**（开源） | [browser-use](https://github.com/browser-use/browser-use) ⭐ | 108k+ 星，5 行 Python，LLM 厂商无关 |
 | **GUI 解析研究**（开源）| [Microsoft OmniParser v2](https://github.com/microsoft/OmniParser) | 基于视觉，延迟改善 60% |
 | **主力 AI 浏览器**（消费 / 研究）| [Comet](https://comet.perplexity.ai/)（研究）/ ChatGPT Agent Mode（ChatGPT 用户；Atlas 2026-08 停运）| 各家智能体模式强项不同 |
 | **企业 / Chrome 生态系统** | [Gemini in Chrome](https://gemini.google/overview/gemini-in-chrome/) | Auto Browse + Skills + DLP |
@@ -486,10 +486,10 @@ agent = Agent(
 | **Computer Use SDK** | [anthropics/anthropic-quickstarts](https://github.com/anthropics/anthropic-quickstarts) | ⭐⭐⭐⭐⭐ | 第一次接触 Computer Use | 含 Docker quickstart，5 分钟上手 |
 | | [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | ⭐⭐⭐⭐⭐ | 使用 OpenAI 编写生产级智能体 | 2026-04 内置 harness + 7 个沙箱提供商 |
 | | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | ⭐⭐⭐⭐⭐ | 使用 Claude 编写生产级智能体 | Anthropic 的智能体 SDK，早于 OpenAI，与 Claude Code 同一运行时 |
-| **Browser Use OSS** | [browser-use/browser-use](https://github.com/browser-use/browser-use) ⭐ | ⭐⭐⭐⭐⭐ | 开源 web 智能体第一名 | 86k+ 星，MIT，LLM 厂商无关 |
+| **Browser Use OSS** | [browser-use/browser-use](https://github.com/browser-use/browser-use) ⭐ | ⭐⭐⭐⭐⭐ | 开源 web 智能体第一名 | 108k+ 星，MIT，LLM 厂商无关 |
 | | [microsoft/OmniParser](https://github.com/microsoft/OmniParser) | ⭐⭐⭐⭐ | 基于视觉的 GUI 解析 | v2 延迟改善 60%，Apache 2.0，含 OmniTool（Windows VM 控制）|
-| **Computer Use Agent Stack** | [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | ⭐⭐⭐⭐ | 在桌面跑开源 computer-use agent | ByteDance 开源的"computer use"agent、会看屏幕、操作你的桌面，36k+ 星，Apache-2.0 |
-| | [trycua/cua](https://github.com/trycua/cua) | ⭐⭐⭐⭐ | 打造 / sandbox computer-use agent | 打造"computer use"agent 的开源工具箱：安全 sandbox、SDK、测试，跨 macOS / Linux / Windows，18k+ 星，MIT |
+| **Computer Use Agent Stack** | [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | ⭐⭐⭐⭐ | 在桌面跑开源 computer-use agent | ByteDance 开源的"computer use"agent、会看屏幕、操作你的桌面，38k+ 星，Apache-2.0 |
+| | [trycua/cua](https://github.com/trycua/cua) | ⭐⭐⭐⭐ | 打造 / sandbox computer-use agent | 打造"computer use"agent 的开源工具箱：安全 sandbox、SDK、测试，跨 macOS / Linux / Windows，21k+ 星，MIT |
 | **AI 浏览器**（闭源 / 消费）| [Atlas](https://openai.com/index/introducing-chatgpt-atlas/)（⚠️ 停运 2026-08）| ⭐⭐⭐ | ChatGPT 用户 + Agent Mode | OpenAI 出品，功能已并入 ChatGPT 桌面 app |
 | | [Comet](https://comet.perplexity.ai/) | ⭐⭐⭐⭐ | 面向研究的智能体浏览器 | Perplexity 出品，全平台，有引用支持。⚠ Brave 注入 + Amazon 禁令 |
 | | [Dia](https://www.diabrowser.com/) | ⭐⭐⭐ | 想要 AI 浏览器但**不要** agent mode | Browser Company 出品（被 Atlassian 以 6.1 亿美元收购），聚焦性能 |
@@ -524,7 +524,7 @@ agent = Agent(
 ### Voice agents（语音界面）
 
 - [**Vapi**](https://vapi.ai/) / [**Retell**](https://www.retellai.com/) — 商业语音智能体平台
-- [**LiveKit Agents**](https://github.com/livekit/agents) — 开源，★ 11k+
+- [**LiveKit Agents**](https://github.com/livekit/agents) — 开源，★ 12k+
 - [**OpenAI Realtime API**](https://platform.openai.com/docs/guides/realtime) — 直接构建 speech-to-speech 智能体
 
 ### VLA（Vision-Language-Action）机器人

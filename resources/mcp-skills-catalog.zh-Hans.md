@@ -119,7 +119,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 394 |
+| Stars | ★ 430 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -251,7 +251,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 859 |
+| Stars | ★ 908 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（M365 全套） |
 
@@ -351,7 +351,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 414 |
+| Stars | ★ 443 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -387,7 +387,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 36k+ |
+| Stars | ★ 38k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（code intelligence） |
 
@@ -591,7 +591,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 53k+ |
+| Stars | ★ 57k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐ |
 
@@ -874,7 +874,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 14 |
+| Stars | ★ 25 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -896,7 +896,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 182 |
+| Stars | ★ 201 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（研究流程一整套） |
 
@@ -908,7 +908,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 10 |
+| Stars | ★ 11 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐（窄但深） |
 
@@ -932,7 +932,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 42 |
+| Stars | ★ 46 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐ |
 

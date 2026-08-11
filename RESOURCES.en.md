@@ -53,8 +53,8 @@ Connect Claude Code (or any other CLI agent) to the apps you already use, withou
 
 ### Research Workflow (by the repo maintainer)
 
-- [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 182 — 14 research-workflow skills as a 5-plugin marketplace
-- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 42 — Zotero + Obsidian + NotebookLM integration workspace
+- [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 201 — 14 research-workflow skills as a 5-plugin marketplace
+- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 46 — Zotero + Obsidian + NotebookLM integration workspace
 - [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 45 — Zotero CLI skill
 - [**WenyuChiou/codex-delegate**](https://github.com/WenyuChiou/codex-delegate) ★ 62 [**gemini-delegate-skill**](https://github.com/WenyuChiou/gemini-delegate-skill) ★ 34 (⚠️ archived) — multi-LLM delegation pair (for the Gemini lane, use Gemini CLI directly)
 
@@ -87,7 +87,7 @@ This repo **doesn't replace** flat awesome lists. When you already know which to
 ### Chinese-speaking community
 
 - [**datawhalechina/hello-agents**](https://github.com/datawhalechina/hello-agents) — Datawhale systematic agent tutorial (zh-Hans)
-- [**WangRongsheng/awesome-LLM-resources**](https://github.com/WangRongsheng/awesome-LLM-resources) — comprehensive zh-Hans LLM resources (8k+ stars)
+- [**WangRongsheng/awesome-LLM-resources**](https://github.com/WangRongsheng/awesome-LLM-resources) — comprehensive zh-Hans LLM resources (8.8k+ stars)
 - [**AiHubCN/Awesome-Chinese-LLM**](https://github.com/AiHubCN/Awesome-Chinese-LLM) — open-source Chinese LLM catalog
 - [**hardness1020/awesome-agent-architecture**](https://github.com/hardness1020/awesome-agent-architecture) — section-by-section teardown of modern agent harnesses (loop engineering, tools, permissions, context, memory, evaluation) studied through systems such as Claude Code and Hermes Agent, with a runnable Python demo per section (trilingual: EN / zh-TW / zh-Hans)
 

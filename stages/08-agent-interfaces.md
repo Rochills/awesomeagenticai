@@ -21,7 +21,7 @@
 | Interface | 操作對象 | 工作原理 | 代表工具 |
 |---|---|---|---|
 | **🖱 Computer Use**（screen-level）| 任何桌面 app（Excel / SAP / Photoshop / 沒 API 的軟體）| screenshot → vision → 算座標 → 模擬鍵鼠 | Anthropic Claude Computer Use / OpenAI Codex desktop / Gemini in Chrome |
-| **🌐 Browser Use**（web-level）| 任何網頁 | DOM-aware navigation + 必要時 vision fallback | Comet / browser-use（OSS 86k stars）/ ChatGPT Agent Mode |
+| **🌐 Browser Use**（web-level）| 任何網頁 | DOM-aware navigation + 必要時 vision fallback | Comet / browser-use（OSS 108k stars）/ ChatGPT Agent Mode |
 | **📦 Code Sandbox**（isolated exec）| agent 生成的 code 在隔離環境跑 | microVM / Container / user-space kernel（userland） | E2B / Daytona / Modal / Vercel Sandbox / OpenAI Agents SDK（April 2026 內建）|
 
 ### 跟前面 stage 的差別（避免概念混淆）
@@ -86,7 +86,7 @@
 2. [**Anthropic — Claude Release Notes（模型總覽）**](https://docs.anthropic.com/en/release-notes/overview) — Claude Opus 5（`claude-opus-5`，2026-07-24）是目前建議的預設模型，官方文件說複雜 agentic coding 與企業工作「從 Claude Opus 5 開始」。其上還有 Mythos-class 的 Claude Fable 5（`claude-fable-5`）——Anthropic 目前公開發布中能力最強的模型，留給需要最高能力的工作；Mythos 5（`claude-mythos-5`）規格相同但僅限邀請。Opus 4.8（2026-05，Dynamic Workflows + parallel subagent harness 隨它推出）仍可用，但官方文件已把它移到 Legacy models 區。
 3. [**OpenAI — The next evolution of the Agents SDK**](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) ⭐ **2026-04** — 內建 sandbox + harness 抽象、production coding agent architecturally sound milestone
 4. [**OpenAI — Computer-Using Agent (CUA)**](https://openai.com/index/computer-using-agent/) — OpenAI 版 Computer Use + WebArena / OSWorld 數字
-5. [**browser-use docs**](https://docs.browser-use.com/) — OSS web agent 第一名（86k+ stars）、5 行 Python 起步
+5. [**browser-use docs**](https://docs.browser-use.com/) — OSS web agent 第一名（108k+ stars）、5 行 Python 起步
 6. [**Microsoft OmniParser**](https://microsoft.github.io/OmniParser/) — 開源 GUI parsing、Computer Use 重要 building block
 
 > 💡 **挑著讀**：純 Track A 讀 1 + 2、純 Track B 必讀 3 + 5 + 6、想理解全局都讀。
@@ -216,11 +216,11 @@ agent 收到任務
 
 | 框架 | 狀態 | 強項 |
 |---|---|---|
-| [**browser-use**](https://github.com/browser-use/browser-use) ⭐ | **86k+ stars、MIT** | 2026 最火 OSS、Python、5 行起步、支援 OpenAI / Claude / Gemini / Ollama |
+| [**browser-use**](https://github.com/browser-use/browser-use) ⭐ | **108k+ stars、MIT** | 2026 最火 OSS、Python、5 行起步、支援 OpenAI / Claude / Gemini / Ollama |
 | [**Microsoft OmniParser v2**](https://github.com/microsoft/OmniParser) | 2026 更新、Apache 2.0 | vision-based GUI parsing、60% latency 改善、ScreenSpot Pro 39.6% accuracy。同 repo 內含 **OmniTool**（Windows 11 VM 控制、可搭 GPT-5.5 / Claude Opus 5 / DeepSeek-V4-Pro / Qwen 2.5VL / Claude Computer Use）|
 | **Playwright + LLM**（DIY）| — | 不是專門 framework、但 Playwright 是 web automation 標準、加 LLM wrapper 就能用 |
 
-**Why browser-use 86k stars 這麼火**：
+**Why browser-use 108k stars 這麼火**：
 
 - DOM-first paradigm **比 screenshot+vision 對 web 精準** + 速度快
 - LLM-vendor agnostic（不綁 Claude / GPT）
@@ -344,7 +344,7 @@ agent 收到任務
 
 ### 1. 用 browser-use 寫 web agent
 
-**Why browser-use**：86k stars、5 行起步、LLM-vendor agnostic、production-ready。
+**Why browser-use**：108k stars、5 行起步、LLM-vendor agnostic、production-ready。
 
 ```python
 from browser_use import Agent
@@ -459,7 +459,7 @@ agent = Agent(
 |---|---|---|
 | **第一次接觸 Computer Use** | Anthropic [Claude Computer Use Docker quickstart](https://github.com/anthropics/anthropic-quickstarts) | 官方 Docker、5 分鐘起步 |
 | **桌面 background workflow** | [OpenAI Codex desktop](https://openai.com/index/codex-for-almost-everything/)（April 2026）| 不搶 cursor、可平行 |
-| **第一個 web agent**（OSS） | [browser-use](https://github.com/browser-use/browser-use) ⭐ | 86k stars、5 行 Python、LLM-vendor agnostic |
+| **第一個 web agent**（OSS） | [browser-use](https://github.com/browser-use/browser-use) ⭐ | 108k+ stars、5 行 Python、LLM-vendor agnostic |
 | **GUI parsing 研究**（OSS）| [Microsoft OmniParser v2](https://github.com/microsoft/OmniParser) | vision-based、60% latency 改善 |
 | **AI Browser 主力**（消費 / research）| [Comet](https://comet.perplexity.ai/)（research）/ ChatGPT Agent Mode（ChatGPT user；Atlas 2026-08 停運）| 各家 agent mode 強項不同 |
 | **企業 / Chrome ecosystem** | [Gemini in Chrome](https://gemini.google/overview/gemini-in-chrome/) | Auto Browse + Skills + DLP |
@@ -486,10 +486,10 @@ agent = Agent(
 | **Computer Use SDK** | [anthropics/anthropic-quickstarts](https://github.com/anthropics/anthropic-quickstarts) | ⭐⭐⭐⭐⭐ | 第一次接觸 Computer Use | 含 Docker quickstart、5 分鐘起步 |
 | | [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | ⭐⭐⭐⭐⭐ | 用 OpenAI 寫 production agent | 2026-04 內建 harness + 7 sandbox provider |
 | | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | ⭐⭐⭐⭐⭐ | 用 Claude 寫 production agent | Anthropic 早於 OpenAI 的 agent SDK、跟 Claude Code 同 runtime |
-| **Browser Use OSS** | [browser-use/browser-use](https://github.com/browser-use/browser-use) ⭐ | ⭐⭐⭐⭐⭐ | OSS web agent 第一名 | 86k+ stars、MIT、LLM-vendor agnostic |
+| **Browser Use OSS** | [browser-use/browser-use](https://github.com/browser-use/browser-use) ⭐ | ⭐⭐⭐⭐⭐ | OSS web agent 第一名 | 108k+ stars、MIT、LLM-vendor agnostic |
 | | [microsoft/OmniParser](https://github.com/microsoft/OmniParser) | ⭐⭐⭐⭐ | vision-based GUI parsing | v2 60% latency 改善、Apache 2.0、含 OmniTool（Windows VM control）|
-| **Computer Use Agent Stack** | [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | ⭐⭐⭐⭐ | 在桌面跑開源 computer-use agent | ByteDance 開源的「computer use」agent、會看螢幕、操作你的桌面，36k+ stars、Apache-2.0 |
-| | [trycua/cua](https://github.com/trycua/cua) | ⭐⭐⭐⭐ | 打造 / sandbox computer-use agent | 打造「computer use」agent 的開源工具箱：安全 sandbox、SDK、測試，跨 macOS / Linux / Windows，18k+ stars、MIT |
+| **Computer Use Agent Stack** | [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | ⭐⭐⭐⭐ | 在桌面跑開源 computer-use agent | ByteDance 開源的「computer use」agent、會看螢幕、操作你的桌面，38k+ stars、Apache-2.0 |
+| | [trycua/cua](https://github.com/trycua/cua) | ⭐⭐⭐⭐ | 打造 / sandbox computer-use agent | 打造「computer use」agent 的開源工具箱：安全 sandbox、SDK、測試，跨 macOS / Linux / Windows，21k+ stars、MIT |
 | **AI Browser**（閉源 / 消費）| [Atlas](https://openai.com/index/introducing-chatgpt-atlas/)（⚠️ 停運 2026-08）| ⭐⭐⭐ | ChatGPT user + Agent Mode | OpenAI 出品、功能已併入 ChatGPT 桌面 app |
 | | [Comet](https://comet.perplexity.ai/) | ⭐⭐⭐⭐ | research 用 agent browser | Perplexity 出品、全平台、citation-backed。⚠ Brave 注入 + Amazon injunction |
 | | [Dia](https://www.diabrowser.com/) | ⭐⭐⭐ | 想要 AI browser 但**不要** agent mode | Browser Company 出品（被 Atlassian $610M 收購）、聚焦效能 |
@@ -524,7 +524,7 @@ agent = Agent(
 ### Voice agents（語音介面）
 
 - [**Vapi**](https://vapi.ai/) / [**Retell**](https://www.retellai.com/) — 商業 voice agent platform
-- [**LiveKit Agents**](https://github.com/livekit/agents) — OSS、★ 11k+
+- [**LiveKit Agents**](https://github.com/livekit/agents) — OSS、★ 12k+
 - [**OpenAI Realtime API**](https://platform.openai.com/docs/guides/realtime) — speech-to-speech 直接做 agent
 
 ### VLA（Vision-Language-Action）機器人

@@ -21,7 +21,7 @@
 | Interface | Target of Operation | How it Works | Representative Tools |
 |---|---|---|---|
 | **🖱 Computer Use** (screen-level)| Any desktop app (Excel, SAP, Photoshop, software without APIs) | Screenshot → Vision model analyzes → Calculate coordinates → Simulate keyboard/mouse | Anthropic Claude Computer Use / OpenAI Codex desktop / Gemini in Chrome |
-| **🌐 Browser Use** (web-level) | Any webpage | DOM-aware navigation + Vision fallback when necessary | Comet / browser-use (OSS, 86k stars) / ChatGPT Agent Mode |
+| **🌐 Browser Use** (web-level) | Any webpage | DOM-aware navigation + Vision fallback when necessary | Comet / browser-use (OSS, 108k stars) / ChatGPT Agent Mode |
 | **📦 Code Sandbox** (isolated exec)| Agent-generated code running in an isolated environment | microVM / Container / Userspace kernel | E2B / Daytona / Modal / Vercel Sandbox / OpenAI Agents SDK (built-in as of April 2026) |
 
 ### How This Stage Differs from Previous Ones (Avoiding Conceptual Confusion)
@@ -86,7 +86,7 @@ If you don't meet these, go back and catch up.
 2. [**Anthropic — Claude Release Notes (model overview)**](https://docs.anthropic.com/en/release-notes/overview) — Claude Opus 5 (`claude-opus-5`, 2026-07-24) is the current recommended default; Anthropic's docs say to "start with Claude Opus 5 for complex agentic coding and enterprise work". Above it sits the Mythos-class Claude Fable 5 (`claude-fable-5`), Anthropic's most capable widely released model, reserved for workloads that need the highest available capability; Mythos 5 (`claude-mythos-5`) has the same specs but is invitation-only. Opus 4.8 (May 2026, which shipped Dynamic Workflows + the parallel subagent harness) is still available, but the docs have moved it into the Legacy models section.
 3. [**OpenAI — The next evolution of the Agents SDK**](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) ⭐ **April 2026** — A milestone for architecturally sound production coding agents, with a built-in sandbox and harness abstractions.
 4. [**OpenAI — Computer-Using Agent (CUA)**](https://openai.com/index/computer-using-agent/) — OpenAI's version of Computer Use, with WebArena/OSWorld numbers.
-5. [**browser-use docs**](https://docs.browser-use.com/) — The #1 open-source web agent (86k+ stars), get started with 5 lines of Python.
+5. [**browser-use docs**](https://docs.browser-use.com/) — The #1 open-source web agent (108k+ stars), get started with 5 lines of Python.
 6. [**Microsoft OmniParser**](https://microsoft.github.io/OmniParser/) — An open-source GUI parsing tool and an important building block for Computer Use.
 
 > 💡 **Read selectively**: Track A students should read 1 & 2. Track B students must read 3, 5, & 6. Read everything if you want the full picture.
@@ -216,11 +216,11 @@ Agent receives a task
 
 | Framework | Status | Strengths |
 |---|---|---|
-| [**browser-use**](https://github.com/browser-use/browser-use) ⭐ | **86k+ stars, MIT** | Hottest OSS in 2026, Python, 5-line setup, supports OpenAI/Claude/Gemini/Ollama. |
+| [**browser-use**](https://github.com/browser-use/browser-use) ⭐ | **108k+ stars, MIT** | Hottest OSS in 2026, Python, 5-line setup, supports OpenAI/Claude/Gemini/Ollama. |
 | [**Microsoft OmniParser v2**](https://github.com/microsoft/OmniParser) | Updated 2026, Apache 2.0 | Vision-based GUI parsing, 60% latency improvement, 39.6% accuracy with ScreenSpot Pro. The same repo includes **OmniTool** (Windows 11 VM control, can be used with GPT-5.5 / Claude Opus 5 / DeepSeek-V4-Pro / Qwen 2.5VL / Claude Computer Use). |
 | **Playwright + LLM** (DIY)| — | Not a dedicated framework, but Playwright is the standard for web automation. Just add an LLM wrapper to use it. |
 
-**Why is `browser-use` so popular (86k stars)?**:
+**Why is `browser-use` so popular (108k stars)?**:
 
 - The DOM-first paradigm is **more accurate for the web than screenshot+vision** and much faster.
 - It's LLM-vendor agnostic (not tied to Claude or GPT).
@@ -344,7 +344,7 @@ A common sticking point for new readers, explained here:
 
 ### 1. Write a Web Agent with `browser-use`
 
-**Why `browser-use`**: 86k stars, 5-line setup, LLM-vendor agnostic, and production-ready.
+**Why `browser-use`**: 108k stars, 5-line setup, LLM-vendor agnostic, and production-ready.
 
 ```python
 from browser_use import Agent
@@ -459,7 +459,7 @@ Use the OpenAI Agents SDK (April 2026 version) to integrate a sandbox for runnin
 |---|---|---|
 | **First time with Computer Use** | Anthropic [Claude Computer Use Docker quickstart](https://github.com/anthropics/anthropic-quickstarts) | Official Docker, 5-minute setup. |
 | **Desktop background workflows** | [OpenAI Codex desktop](https://openai.com/index/codex-for-almost-everything/) (April 2026)| Doesn't hog the cursor, allows parallel tasks. |
-| **First web agent** (OSS) | [browser-use](https://github.com/browser-use/browser-use) ⭐ | 86k+ stars, 5 lines of Python, LLM-vendor agnostic. |
+| **First web agent** (OSS) | [browser-use](https://github.com/browser-use/browser-use) ⭐ | 108k+ stars, 5 lines of Python, LLM-vendor agnostic. |
 | **GUI parsing research** (OSS) | [Microsoft OmniParser v2](https://github.com/microsoft/OmniParser) | Vision-based, 60% latency improvement. |
 | **Main AI Browser** (consumer/research)| [Comet](https://comet.perplexity.ai/) (research) / ChatGPT Agent Mode (ChatGPT user; Atlas discontinued Aug 2026)| Different browsers excel at different agent modes. |
 | **Enterprise / Chrome ecosystem** | [Gemini in Chrome](https://gemini.google/overview/gemini-in-chrome/) | Auto Browse + Skills + DLP. |
@@ -486,10 +486,10 @@ A table of 17 projects, categorized by use case.
 | **Computer Use SDK**| [anthropics/anthropic-quickstarts](https://github.com/anthropics/anthropic-quickstarts) | ⭐⭐⭐⭐⭐ | First time with Computer Use | Includes a Docker quickstart, 5-minute setup. |
 | | [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | ⭐⭐⭐⭐⭐ | Building production agents with OpenAI | April 2026: built-in harness + 7 sandbox providers. |
 | | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | ⭐⭐⭐⭐⭐ | Building production agents with Claude | Anthropic's agent SDK, predates OpenAI's, same runtime as Claude Code. |
-| **Browser Use OSS**| [browser-use/browser-use](https://github.com/browser-use/browser-use) ⭐ | ⭐⭐⭐⭐⭐ | #1 OSS web agent | 86k+ stars, MIT, LLM-vendor agnostic. |
+| **Browser Use OSS**| [browser-use/browser-use](https://github.com/browser-use/browser-use) ⭐ | ⭐⭐⭐⭐⭐ | #1 OSS web agent | 108k+ stars, MIT, LLM-vendor agnostic. |
 | | [microsoft/OmniParser](https://github.com/microsoft/OmniParser) | ⭐⭐⭐⭐ | Vision-based GUI parsing | v2 has 60% latency improvement, Apache 2.0, includes OmniTool (Windows VM control). |
-| **Computer Use Agent Stack** | [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | ⭐⭐⭐⭐ | Running an open computer-use agent on the desktop | ByteDance's open "computer use" agent that sees the screen and controls your desktop. 36k+ stars, Apache-2.0. |
-| | [trycua/cua](https://github.com/trycua/cua) | ⭐⭐⭐⭐ | Building / sandboxing computer-use agents | Open toolkit for building "computer use" agents — safe sandboxes, SDKs, and tests on macOS / Linux / Windows. 18k+ stars, MIT. |
+| **Computer Use Agent Stack** | [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop) | ⭐⭐⭐⭐ | Running an open computer-use agent on the desktop | ByteDance's open "computer use" agent that sees the screen and controls your desktop. 38k+ stars, Apache-2.0. |
+| | [trycua/cua](https://github.com/trycua/cua) | ⭐⭐⭐⭐ | Building / sandboxing computer-use agents | Open toolkit for building "computer use" agents — safe sandboxes, SDKs, and tests on macOS / Linux / Windows. 21k+ stars, MIT. |
 | **AI Browser** (closed-source/consumer)| [Atlas](https://openai.com/index/introducing-chatgpt-atlas/) (⚠️ discontinued Aug 2026) | ⭐⭐⭐ | ChatGPT users + Agent Mode | From OpenAI; features folded into the ChatGPT desktop app. |
 | | [Comet](https://comet.perplexity.ai/) | ⭐⭐⭐⭐ | Research-focused agent browser | From Perplexity, all platforms, citation-backed. ⚠ Brave injection + Amazon injunction. |
 | | [Dia](https://www.diabrowser.com/) | ⭐⭐⭐ | For those who want an AI browser **without** agent mode| From The Browser Company (acquired by Atlassian for $610M), focuses on performance. |
@@ -524,7 +524,7 @@ This stage covered the three interface layers of **desktop, browser, and sandbox
 ### Voice agents
 
 - [**Vapi**](https://vapi.ai/) / [**Retell**](https://www.retellai.com/) — Commercial voice agent platforms
-- [**LiveKit Agents**](https://github.com/livekit/agents) — OSS, 9k+ stars
+- [**LiveKit Agents**](https://github.com/livekit/agents) — OSS, ★ 12k+
 - [**OpenAI Realtime API**](https://platform.openai.com/docs/guides/realtime) — For building speech-to-speech agents directly
 
 ### VLA (Vision-Language-Action) robots

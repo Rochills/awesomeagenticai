@@ -517,7 +517,10 @@ Run: `promptfoo eval && promptfoo view`
 
 ```python
 # step7_observability.py
-from langfuse.decorators import observe
+# observe moved to the top-level package in langfuse **3.0**; only 2.x used
+# `from langfuse.decorators import observe`. Both 3.x and 4.x use the line below —
+# switch back to the old path only if you are pinned to 2.x.
+from langfuse import observe
 from step3_tool_use import run_agent  # agent from earlier stages
 
 @observe(name="paper-summary-agent")

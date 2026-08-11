@@ -530,7 +530,7 @@ Response: ReAct is a method that lets an AI combine "reasoning" and "acting"...
 | | [LangChain Academy](https://academy.langchain.com/) | ⭐⭐⭐⭐ | Visual learners who like video courses | LangChain's official free course, includes RAG / agent. **Skip the LangChain marketing segments** |
 | **Local execution**<br>(no API costs)| [ollama/ollama](https://github.com/ollama/ollama) | ⭐⭐⭐⭐⭐ | First-time local LLM | This repo's Path A default, OpenAI-compat API, ★ 170k+ |
 | | [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | ⭐⭐⭐⭐⭐ | Understanding quantization / how 7B fits in 8GB RAM | Ollama's underlying inference engine, ★ 119k+, MIT |
-| | [mudler/LocalAI](https://github.com/mudler/LocalAI) | ⭐⭐⭐⭐ | Team compliance, self-host full OpenAI replacement | Drop-in OpenAI API replacement (chat / embedding / image / TTS / STT), ★ 46k+ |
+| | [mudler/LocalAI](https://github.com/mudler/LocalAI) | ⭐⭐⭐⭐ | Team compliance, self-host full OpenAI replacement | Drop-in OpenAI API replacement (chat / embedding / image / TTS / STT), ★ 48k+ |
 | | [ml-explore/mlx](https://github.com/ml-explore/mlx) | ⭐⭐⭐⭐ | Mac dev, squeeze Apple Silicon | Apple's ML framework for M1+, ★ 27k+. Pair with `mlx-lm` for ease |
 | **Build from scratch**<br>(understand internals)| [karpathy — Let's build GPT from scratch](https://www.youtube.com/watch?v=kCc8FmEb1nY) | ⭐⭐⭐⭐⭐ | Understand LLM internals, not just API calls | 2hr high-density video, build GPT in PyTorch from scratch. **Pause and code along, don't passive-watch** |
 | | [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | ⭐⭐⭐⭐⭐ | Book-pace read of the same material | Book version of Karpathy's video: tokenizer → attention → pretraining → finetuning, ★ 100k+, Apache-2.0 |

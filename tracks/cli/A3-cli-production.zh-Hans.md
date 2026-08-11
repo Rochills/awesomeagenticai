@@ -198,7 +198,7 @@ Track A 的人**已经在用** [Stage 7.5 的进阶概念](../../stages/07.5-adv
 | | [wong2/awesome-mcp-servers](https://github.com/wong2/awesome-mcp-servers) | ⭐⭐⭐⭐ | 想找特定领域的社群 MCP | 社群 MCP server catalog、150+ 个依分类整理 |
 | **CI 集成 patterns** | [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | ⭐⭐⭐⭐⭐ | 第一个 CI workflow 从官方范本起步 | 官方 GitHub Action 范本、PR review / issue triage / 自动 fix |
 | | [continuedev/continue](https://github.com/continuedev/continue) | ⭐⭐⭐⭐ | 想把 AI checks 接到 PR pipeline 强制执行 | ★ 35k+。完整介绍见 [`branches/for-developer.zh-Hans.md`](../../branches/for-developer.zh-Hans.md) |
-| **Observability + Cost** | [langfuse/langfuse](https://github.com/langfuse/langfuse) | ⭐⭐⭐⭐⭐ | 想把 trace、cost、session 都接起来 | open source LLM observability，★ 31k+。详见 [Stage 7 Observability](../../stages/07-multi-agent-production.zh-Hans.md#练习-3observability) |
+| **Observability + Cost** | [langfuse/langfuse](https://github.com/langfuse/langfuse) | ⭐⭐⭐⭐⭐ | 想把 trace、cost、session 都接起来 | open source LLM observability，★ 32k+。详见 [Stage 7 Observability](../../stages/07-multi-agent-production.zh-Hans.md#练习-3observability) |
 | | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | 想要最快的 logging（改 base_url 就好） | proxy-based 监控、改 base_url 就有 logging + caching，★ 6k+ |
 | | [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) | ⭐⭐⭐⭐⭐ | CLI workflow 升级到 production 前跑回归测试 | eval framework，★ 23k+。详见 [Stage 7 Eval](../../stages/07-multi-agent-production.zh-Hans.md#练习-2eval) |
 | **Production CLI workflow 范本** | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | 看完整实际在用的 workflow 长什么样 | 整套 production-ready skill collection、★ 265k+。看别人怎么把 CLI workflow 做完整 |

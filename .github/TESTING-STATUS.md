@@ -2,7 +2,7 @@
 
 > 這份是給 maintainer / 第一個跑各個 build 的人看的。**誠實地說明哪些 code 真的跑過、哪些只是 syntax check、哪些完全沒測**。
 
-最後更新：2026-08-04
+最後更新：2026-08-10
 
 ---
 
@@ -10,7 +10,7 @@
 
 | 項目 | 狀態 | 證據 |
 |---|---|---|
-| `scripts/refresh-stars.py` | ✅ Verified | 在 main 上跑過 N 次，0 drift / 0 not-found 都有實際輸出 |
+| `scripts/refresh-stars.py` | ✅ Verified | 19 組單元測試綠 + **7 個突變全部被殺**（還原 no-op 防呆 / 重試 / `FETCH_GONE` 三態 / 算繪比對 / 越界檢查，各自都會讓測試 FAIL）。2026-08-10 實跑：275 repos、drift 0 / prose-drift 0 / not-found 0 / could-not-query 0、exit 0，`--threshold 5` 與 CI 用的 `--threshold 50` 兩種參數都跑過。**反向也驗過**：把 `stages/08` 英文版改回舊星數後，同一道指令報 5 筆、exit 1（確認它真的會抓，不是剛好沒東西可報）。此列原本寫「在 main 上跑過 N 次」，那個 N 是沒填完的佔位字 |
 | `scripts/pr-link-audit.py` | ✅ Verified | unit tests 綠 + offline `--diff-file` smoke；live `gh api` 正確 flag 了 archived LangServe（★/license/pushed 都對證過） |
 | `.github/workflows/pr-link-audit.yml` | ✅ Verified | PR #68（throwaway、已關）真 PR 實測：Action 觸發、首發 POST + 第 2 次 push sticky PATCH 更新（同一 comment id、無重複）、archived / stale(23mo) / no-license flag 全對、2 runs 都綠。fork PR 仍略過（read-only token、by design） |
 | `scripts/check-links.py --fast` | ✅ Verified | 跑過 120 GitHub URLs 全 OK |
@@ -21,7 +21,7 @@
 | `.github/workflows/anchor-validator.yml` | ✅ Verified | ubuntu runner 上實跑：`pull_request` 12 次、`schedule` 3 次、`workflow_dispatch` 1 次，全綠。2026-08-04 起移除 paths 過濾並加上 `push: [main]`，每個 PR 與每次 push 到 main 都會跑（push 側尚未累積執行紀錄） |
 | `.github/workflows/stage-template-check.yml` | ✅ Verified | ubuntu runner 上實跑：`pull_request` 7 次、`workflow_dispatch` 3 次。run 25934104948（2026-05-15、sha d278caf）失敗過一次，但那是 **false positive**——stage 07.5 是 reading-map 章、依設計就沒有 REQUIRED sections（失敗當時的 sha d278caf 上 README 已標「（reading map）」「1 週（不寫 code）」），53e723d 把 `07.5-` 加進 `SKIP_STAGES` 之後 25934453808 轉綠。**所以這個 gate 至今沒攔下過真實的 template 違規**；其餘 9 次全綠。2026-08-04 起移除 paths 過濾並補上 `push: [main]` 與每月 cron——三個 gate 裡原本只有它連 schedule 都沒有（push / schedule 側尚未累積執行紀錄） |
 | `walkthroughs/…7-steps.md` Stage 1-6 的 Python（6 個 block）| ✅ Verified（2026-08-04） | 抽成檔案後在乾淨 venv（Python 3.14 + anthropic 0.120.2 / langgraph 1.2.10 / langchain-core 1.5.3 / chromadb 1.5.9）逐一執行，`Anthropic` 與 `requests` 以 mock 攔截（**未用 API key、未產生費用**）。抓到並修好 4 個缺陷：① Stage 6 的 memory 實測 `count=0`（空 DB 時提前 return，`store_paper` 從未被呼叫；加上 id 寫死 `"..."`，而 `add()` 遇重複 id 會靜默忽略）；② `compare_with_memory` 讀 `messages[-1]`，但那是 `reflect` 的判定訊息不是摘要——實測三篇論文存進去的文件**完全相同**（都是 `[Reviewer 判定: PASS]`）；③ 它回傳的 `comparison` 被 LangGraph 丟掉（`State` 沒宣告）；④ `import step2` 就送出一次真實 API 呼叫。修後實測：存進去的是各自的摘要、`count` 1→2→3、`comparison` 保留、被 import 的 4 個檔案 0 次呼叫。三語 27 個 block 現在都能 `ast.parse` |
-| `walkthroughs/…7-steps.md` Stage 7 的 Python（3 個 block）| ⚠️ 部分未跑 | **7.1 `eval_provider` ✅ 實跑**（`call_api()` 回傳 `{'output': …}`）；**7.2 `step7_observability` ⚠️ import 失敗**——langfuse 4.14.2 已把 `observe` 從 `langfuse.decorators` 移到 `langfuse`；**7.3 `main.py` ⚠️ 未跑**——venv 沒裝 `fastapi` / `uvicorn`。後兩者待修 |
+| `walkthroughs/…7-steps.md` Stage 7 的 Python（3 個 block）| ✅ Verified（2026-08-10） | **7.1 `eval_provider`**：`call_api()` 回傳 `{'output': …}`。**7.2 `step7_observability`**：原本 import 失敗（`observe` 在 langfuse **3.0** 就移到套件頂層，只有 2.x 用 `langfuse.decorators`；實測 2.60.10 / 3.0.0 / 4.14.2 三版確認），改掉 import path 後 ✅，`@observe(name=…)` 的用法在 4.14.2 未變（已查 signature）。**7.3 `main.py`**：裝了 fastapi 0.141.1 / uvicorn 0.52.1 / pydantic 2.13.4 後實跑——`TestClient` 打 `POST /summarize` 回 **HTTP 200** 與 `{'summary': …}`，缺欄位回 **HTTP 422**（pydantic 驗證）。至此 **9 個 block 全部執行過** |
 
 ---
 

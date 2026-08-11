@@ -744,7 +744,7 @@ OpenAI 的 **o1**（2024-09）开启了这一趋势，随后是开源的 DeepSee
 
 | 分类 | Project | ⭐ | 适用人群 | 推荐理由 / 备注 |
 |---|---|---|---|---|
-| **RAG Framework**<br>（完整流水线） | [LlamaIndex](https://github.com/run-llama/llama_index) | ⭐⭐⭐⭐⭐ | 以文档为核心的应用 | 以 RAG 为核心，提供 document loader / chunking / retrieval / query engine 一站式服务。★ 49k+ |
+| **RAG Framework**<br>（完整流水线） | [LlamaIndex](https://github.com/run-llama/llama_index) | ⭐⭐⭐⭐⭐ | 以文档为核心的应用 | 以 RAG 为核心，提供 document loader / chunking / retrieval / query engine 一站式服务。★ 51k+ |
 | | [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | ⭐⭐⭐⭐⭐ | 希望将 RAG 部署给非开发者用户使用的团队 | Production 级别的 RAG engine，深度文档理解（layout / 表格 / OCR）+ hybrid retrieval + agent loop + Web UI。★ 86k+，Apache-2.0 许可。 |
 | | [HKUDS/LightRAG](https://github.com/HKUDS/LightRAG) | ⭐⭐⭐⭐ | 探索研究级 graph + long-context memory 方法的开发者 | graph + vector hybrid retrieval + summarization-based memory，基于 EMNLP 2025 论文。★ 38k+，MIT 许可。代码风格偏研究。 |
 | **Vector DB**<br>（本地优先） | [Chroma](https://github.com/chroma-core/chroma) | ⭐⭐⭐⭐⭐ | 练习 2 / 4，最容易上手的 vector DB | 开源的 embedding 数据库，可本地运行，支持 in-memory / SQLite 后端，零运维。★ 28k+，Apache-2.0 许可。**安装**: `pip install chromadb` |

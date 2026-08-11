@@ -119,7 +119,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 394 |
+| Stars | ★ 430 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -251,7 +251,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 859 |
+| Stars | ★ 908 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (full M365) |
 
@@ -351,7 +351,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 414 |
+| Stars | ★ 443 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -387,7 +387,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 36k+ |
+| Stars | ★ 38k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (code intelligence) |
 
@@ -591,7 +591,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 53k+ |
+| Stars | ★ 57k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐⭐ |
 
@@ -874,7 +874,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 14 |
+| Stars | ★ 25 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -896,7 +896,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 182 |
+| Stars | ★ 201 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (full research workflow) |
 
@@ -908,7 +908,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 10 |
+| Stars | ★ 11 |
 | License | MIT |
 | Rating | ⭐⭐⭐ (narrow but deep) |
 
@@ -932,7 +932,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 42 |
+| Stars | ★ 46 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ |
 

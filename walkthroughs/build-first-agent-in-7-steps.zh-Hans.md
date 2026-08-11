@@ -517,7 +517,9 @@ tests:
 
 ```python
 # step7_observability.py
-from langfuse.decorators import observe
+# langfuse **3.0** 起 observe 就在包顶层；只有 2.x 是 `from langfuse.decorators import observe`。
+# 3.x / 4.x 都用下面这行；装到 2.x 才需要改回旧路径。
+from langfuse import observe
 from step3_tool_use import run_agent  # 前面 stage 的 agent
 
 @observe(name="paper-summary-agent")
