@@ -874,7 +874,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 25 |
+| Stars | ★ 29 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
