@@ -6,6 +6,13 @@ Format: `YYYY-MM-DD · category · 1-line summary (commit-sha)`.
 
 ---
 
+## 2026-08-11(第四批)
+
+- **content** · **Stage 1 的「西方開源」表加入 Meta 的 Muse(4 家 → 5 家)**,三語同步。`Muse Glimmer 30B`、**Apache 2.0**、131k context、多模態輸入、單張消費級 GPU 就跑得動,是 Meta 第一個**專為 agent 設計**的開放權重模型(tool use / 長任務 / 失敗回復)。查證走第一手:Meta 官方 developer 頁 + Meta 自己在 HF 上的 model card(`meta-models/Muse-Glimmer-30B`),不是引用新聞稿。
+- **content** · **`Muse Spark` 刻意只寫「還沒釋出」**。新聞普遍寫成「Meta 也會放 Spark 的權重」,但實際查 HF 是**空的**——那是宣告的意圖、不是已發生的事實。表格只收 Glimmer,註解寫明 Spark 未釋出。同理,Glimmer 是**多模態輸入**(image-text-to-text)而不是新聞常寫的純文字 agent 模型,這點依 model card 寫。
+- **content** · **順帶點出 Meta 現在兩條線並行**:Llama 走 Llama Community License、Muse 走 Apache 2.0。這是這次真正值得讀者知道的變化——同一家公司、兩種授權策略。
+- **docs** · **更正我自己一個講太重的判斷**。我原本說 `stages/01` 那條授權說明(把 Llama Community License 當成「有條款限制」的例子)會因為 Muse 而「變得不正確」,還說那是最該改的地方。實際重讀:那條是在定義**授權類型**、不是在宣稱 Meta 只用哪一種,本身依然成立,**不需要改**。這是同一天內第二次我把「這份文件現在錯了」講得比實情重(前一次是自投標示那條政策),記下來。
+
 ## 2026-08-11(第三批)
 
 - **content** · **Stage 7 的「精選 Projects」加入 `open-multi-agent/open-multi-agent`(issue #83)**,放在 Multi-Agent Orchestration 分類第 4 條。**第一手查證過才收**:★ 6,756、MIT、未封存、當天還有 push、**52 位 contributor、20 個 release**——不是一個人掛在那裡的專案。投稿者宣稱的兩件事也各自驗過:`npm create oma-app` 對應的 `create-oma-app` 套件**真的存在**(v0.8.0、2026-08-10 發佈),README 裡 `runTeam` / `runTasks` / Run Viewer / checkpoint 也都找得到。

@@ -83,18 +83,19 @@ These are the main choices for Chinese-language work, in two groups: **API-only*
 
 > ⚠️ **Xiaomi MiMo** is listed in [`resources/cli-agents-guide.en.md`](../resources/cli-agents-guide.en.md) for Hermes Agent routing, but as of 2026-05 there is no authoritative official source to verify it, so it is not included in this table. To try it, connect through [Hermes Agent](https://github.com/NousResearch/hermes-agent) 200+ provider routing.
 
-### 🌍 Western Open-Source (4 providers, self-host defaults)
+### 🌍 Western Open-Source (5 providers, self-host defaults)
 
 These are the main choices for running on your own hardware, avoiding API fees, or handling privacy-sensitive work. You can install them in one command through [Ollama](https://ollama.com/).
 
 | Model family | Active size | License | Strengths | Best for | Official |
 |---|---|---|---|---|---|
 | **Llama** (Meta) | 3.3 70B | Llama Community License | general-purpose / broadest ecosystem / Ollama default | self-hosting intro / fine-tune base | [llama.com](https://www.llama.com/) · [HF Meta](https://huggingface.co/meta-llama) |
+| **Muse** (Meta) | Glimmer 30B dense | Apache 2.0 | **purpose-built for agents** (tool use / long tasks / failure recovery) / multimodal input / 131k context | local agents / coding agents / a single consumer GPU | [developer.meta.com](https://developer.meta.com/ai/models/muse-glimmer/) · [HF meta-models](https://huggingface.co/meta-models/Muse-Glimmer-30B) |
 | **Gemma** (Google) | Gemma 4 26B MoE + 31B dense | Apache 2.0 | **small and efficient** / strong Apple MLX integration / multimodal | edge / mobile / 4-8 GB RAM machines | [ai.google.dev/gemma](https://ai.google.dev/gemma) |
 | **Mistral** (Mistral AI) | Small 4 / Ministral 3 / Large 3 | open weights (license varies; Large 3 is Apache 2.0) | Small 4 unifies reasoning / vision / coding; EU sovereignty | commercial self-host / EU sovereignty | [mistral.ai](https://mistral.ai/) · [HF Mistral](https://huggingface.co/mistralai) |
 | **Phi** (Microsoft) | Phi-4 14B + multimodal | MIT | **small but strong** / reasoning / edge-friendly | 4 GB+ RAM / mobile / reasoning intro | [HF microsoft](https://huggingface.co/microsoft) |
 
-> **Note**: Llama 4 (Scout / Maverick) shipped 2025-04, but they're large MoE models, so 3.3 70B remains the practical single-GPU self-host base (the table shows 3.3); Behemoth never shipped. Gemma 4 was released 2026-04, ranked #3 on LMArena's open-weights board; Phi-4 also has a multimodal version.
+> **Note**: Llama 4 (Scout / Maverick) shipped 2025-04, but they're large MoE models, so 3.3 70B remains the practical single-GPU self-host base (the table shows 3.3); Behemoth never shipped. Gemma 4 was released 2026-04, ranked #3 on LMArena's open-weights board; Phi-4 also has a multimodal version. **Muse Glimmer** shipped 2026-08-10 and is Meta's first open-weight model built specifically for agents, distilled from the closed **Muse Spark** (Meta's own card calls it "generally less capable than Muse Spark"); **Spark's weights are not released** — Meta says they will be, but nothing is on Hugging Face yet, so only Glimmer is listed here. Note that Meta now runs two lines in parallel: Llama under the Llama Community License, Muse under Apache 2.0.
 
 ### 🎯 Which One Should I Pick? (by scenario)
 

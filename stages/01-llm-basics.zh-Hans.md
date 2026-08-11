@@ -82,18 +82,19 @@
 
 > ⚠️ **小米 MiMo** 虽在 [`resources/cli-agents-guide.zh-Hans.md`](../resources/cli-agents-guide.zh-Hans.md) 列入 Hermes Agent routing，但 2026-05 无权威官方 source 可验证，暂不收进此表。要试 → 通过 [Hermes Agent](https://github.com/NousResearch/hermes-agent) 200+ provider routing 接入。
 
-### 🌍 西方开源（4 家、self-host 主力）
+### 🌍 西方开源（5 家、self-host 主力）
 
 跑在自己机器、不付 API、隐私敏感场景的主力——可通过 [Ollama](https://ollama.com/) 一行指令装起来：
 
 | Model 家族 | 大小（活跃）| License | 强项 | 适合任务 | 官方 |
 |---|---|---|---|---|---|
 | **Llama**（Meta）| 3.3 70B | Llama Community License | 通用 / 生态最广 / Ollama 默认 | self-host 入门 / fine-tune base | [llama.com](https://www.llama.com/) · [HF Meta](https://huggingface.co/meta-llama) |
+| **Muse**（Meta）| Glimmer 30B dense | Apache 2.0 | **agent 专用**（tool use / 长任务 / 失败恢复）/ 多模态输入 / 131k context | 本机 agent / coding agent / 单张消费级 GPU | [developer.meta.com](https://developer.meta.com/ai/models/muse-glimmer/) · [HF meta-models](https://huggingface.co/meta-models/Muse-Glimmer-30B) |
 | **Gemma**（Google）| Gemma 4 26B MoE + 31B dense | Apache 2.0 | **小巧高效** / Apple MLX 整合好 / multimodal | Edge / mobile / 4-8GB RAM 机器 | [ai.google.dev/gemma](https://ai.google.dev/gemma) |
 | **Mistral**（Mistral AI）| Small 4 / Ministral 3 / Large 3 | 开源权重（license 依版本、Large 3 为 Apache 2.0）| Small 4 统一 reasoning / vision / coding、EU 主权 | 商用 self-host / EU 主权 | [mistral.ai](https://mistral.ai/) · [HF Mistral](https://huggingface.co/mistralai) |
 | **Phi**（Microsoft）| Phi-4 14B + multimodal | MIT | **小但强** / reasoning / 适合 edge | 4GB+ RAM / mobile / reasoning 入门 | [HF microsoft](https://huggingface.co/microsoft) |
 
-> **注**：Llama 4（Scout / Maverick）于 2025-04 发布，但属大型 MoE，单机自架的实用基准仍是 3.3 70B（表中为 3.3）、Behemoth 未发布；Gemma 4 为 2026-04 发布、LMArena 开源组第 3；Phi-4 另有 multimodal 版。
+> **注**：Llama 4（Scout / Maverick）于 2025-04 发布，但属大型 MoE，单机自架的实用基准仍是 3.3 70B（表中为 3.3）、Behemoth 未发布；Gemma 4 为 2026-04 发布、LMArena 开源组第 3；Phi-4 另有 multimodal 版。**Muse Glimmer** 为 2026-08-10 发布、Meta 第一个专为 agent 设计的开放权重模型,由闭源的 **Muse Spark** 蒸馏而来（Meta 自己说它“整体不如 Spark”）；**Spark 的 weights 目前还没发布**——Meta 说会放,但 HF 上还查不到,所以这里只收 Glimmer。注意 Meta 现在两条线并行:Llama 走 Llama Community License,Muse 走 Apache 2.0。
 
 ### 🎯 我该选哪家？（按场景反查）
 
