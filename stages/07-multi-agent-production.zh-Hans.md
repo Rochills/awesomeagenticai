@@ -289,13 +289,14 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 
 ## 🎯 精选 Projects（范本 / SDK / 工具 collection）
 
-按用途分类、27 个项目一张表搞定。**挑入口看“适合谁”、想深入点链接看 repo**。
+按用途分类、28 个项目一张表搞定。**挑入口看“适合谁”、想深入点链接看 repo**。
 
 | 分类 | Project | ⭐ | 适合谁 | 为什么推荐 / 备注 |
 |---|---|---|---|---|
 | **Multi-Agent Orchestration** | [microsoft/autogen](https://github.com/microsoft/autogen) | ⭐⭐⭐⭐⭐ | 想要 GroupChat 自由 debate pattern | Stage 4 介绍过、production 场景再回头看 multi-agent 辩论 / brainstorming 模式 |
 | | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | ⭐⭐⭐⭐⭐ | 想要 role-based 流水线 | 角色式 multi-agent（research → writer → reviewer），最简单 production pattern |
 | | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | ⭐⭐⭐⭐⭐ | 需要 audit trail / checkpoint / human-in-the-loop | state machine 路线、production 控制最强 |
+| | [open-multi-agent/open-multi-agent](https://github.com/open-multi-agent/open-multi-agent) | ⭐⭐⭐⭐ | 写 TypeScript、想在同一个 repo 里对照“动态规划”与“固定 pipeline” | 由 coordinator 在 runtime 把 goal 规划成 task DAG，再交给 scheduler 执行；`runTeam()` 从 goal 动态规划、`runTasks()` 跑写死的 pipeline，两种写法可以直接比。上面三个都是 Python 生态，这条补的是 TypeScript 路线。★ 6.8k+、MIT |
 | **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | 把 eval 流程标准化、CI 整合 | YAML config、跨模型比较。★ 23k+、MIT |
 | | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | 学术 benchmark 主张（MMLU / HellaSwag / GSM8K）| 学术等级。★ 13k+、MIT |
 | | [openai/evals](https://github.com/openai/evals) | ⭐⭐⭐⭐ | OpenAI 专属 eval / 想回馈上游 | ★ 19k+ |

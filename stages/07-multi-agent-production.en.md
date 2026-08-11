@@ -289,13 +289,14 @@ Don't know where to start choosing tools? Below are the common pairings in the i
 
 ## 🎯 Featured Projects (Templates / SDKs / Tool Collections)
 
-Categorized by use case, a single table to get you started with 27 projects. **Use "Who is it for" as your entry point, and click the repo link for a deeper dive.**
+Categorized by use case, a single table to get you started with 28 projects. **Use "Who is it for" as your entry point, and click the repo link for a deeper dive.**
 
 | Category | Project | ⭐ | Who is it for | Why it's recommended / Notes |
 |---|---|---|---|---|
 | **Multi-Agent Orchestration** | [microsoft/autogen](https://github.com/microsoft/autogen) | ⭐⭐⭐⭐⭐ | Those who want a GroupChat free-debate pattern | Introduced in Stage 4, revisit for multi-agent debate / brainstorming patterns in production scenarios |
 | | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | ⭐⭐⭐⭐⭐ | Those who want a role-based assembly line | Role-based multi-agent (research → writer → reviewer), the simplest production pattern |
 | | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | ⭐⭐⭐⭐⭐ | Those needing an audit trail / checkpoint / human-in-the-loop | State machine approach, strongest for production control |
+| | [open-multi-agent/open-multi-agent](https://github.com/open-multi-agent/open-multi-agent) | ⭐⭐⭐⭐ | TypeScript users who want to compare dynamic planning against a fixed pipeline in one repo | A coordinator plans the task DAG at runtime and hands it to a scheduler; `runTeam()` plans from a goal while `runTasks()` runs an explicitly defined pipeline, so the two styles sit side by side. The three above are Python-ecosystem; this adds the TypeScript route. ★ 6.8k+, MIT |
 | **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | To standardize the eval process, CI integration | YAML config, cross-model comparison. ★ 23k+, MIT |
 | | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | For academic benchmarks (MMLU / HellaSwag / GSM8K) | Academic grade. ★ 13k+, MIT |
 | | [openai/evals](https://github.com/openai/evals) | ⭐⭐⭐⭐ | For OpenAI-specific evals / want to contribute upstream | ★ 19k+ |
