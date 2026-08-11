@@ -171,6 +171,79 @@ def test_apply_replacements_skips_out_of_range_and_stale_lines():
     assert (applied, files_changed) == (0, 0)
     assert fp.read_text(encoding="utf-8") == "★ 10k+\n"
 
+def test_changelog_is_never_scanned():
+    """CHANGELOG.md records what a count WAS; refreshing it falsifies history.
+
+    Same class as the .github exclusion (2026-07: the bot overwrote historical
+    launch stats and other repos' counts with this repo's current number). At
+    at the v2026.08.11 tag CHANGELOG.md held 30 historical ★ with 0 bound to a
+    repo, so --apply could not reach them yet; this pins it shut before a future
+    entry pairs a repo URL with a ★ on one line. (The ★ total climbs with every
+    changelog entry — "0 bound" is the figure that describes the exposure.)
+    """
+    assert "CHANGELOG.md" in rs.EXCLUDE_FILES
+    scanned = rs.find_md_files(rs.REPO_ROOT)
+    assert not [p for p in scanned if p.name == "CHANGELOG.md"], \
+        "CHANGELOG.md must not be scanned"
+    # The real file exists — otherwise this test would pass vacuously.
+    assert (rs.REPO_ROOT / "CHANGELOG.md").is_file()
+
+
+def test_excluded_file_is_never_rewritten_by_apply():
+    """The exclusion has to hold on the WRITE path, not just the report.
+
+    A filter that only hides a file from the report while --apply still edits it
+    is the worst of both worlds: silent history corruption with no evidence in
+    the log.
+
+    Routes through the REAL find_md_files by pointing rs.REPO_ROOT at a temp
+    corpus, rather than mocking find_md_files. The first version of this test
+    mocked it with an inline copy of the exclusion check, which made it blind to
+    exactly the regression that matters: deleting the filter from
+    find_md_files() left this test passing, because it never called that
+    function. It only caught an emptied EXCLUDE_FILES — which the simpler
+    test_changelog_is_never_scanned already catches — so it was pure redundancy
+    dressed up as write-path coverage.
+    """
+    import io, tempfile, pathlib, shutil, sys as _s
+    from contextlib import redirect_stdout, redirect_stderr
+    root = pathlib.Path(tempfile.mkdtemp())
+    changelog = root / "CHANGELOG.md"
+    # A repo URL and a ★ on ONE line — the shape that becomes rewritable the
+    # moment the exclusion is gone. A sibling .md proves the corpus is live.
+    changelog.write_text(
+        "- bumped [alpha](https://github.com/acme/alpha) ★ 5k+ that week\n",
+        encoding="utf-8")
+    sibling = root / "page.md"
+    sibling.write_text(
+        "- [alpha](https://github.com/acme/alpha) ★ 5k+\n", encoding="utf-8")
+    before = changelog.read_bytes()
+
+    orig_root, orig_fetch, orig_argv = rs.REPO_ROOT, rs.fetch_stars, _s.argv
+    rs.REPO_ROOT = root                                  # real find_md_files runs
+    rs.fetch_stars = lambda repo, retries=2: 50_000      # 10x -> genuine drift
+    _s.argv = ["refresh-stars.py", "--apply"]
+    buf = io.StringIO()
+    try:
+        with redirect_stdout(buf), redirect_stderr(io.StringIO()):
+            try:
+                rs.main()
+            except SystemExit:
+                pass
+        out = buf.getvalue()
+        after = changelog.read_bytes()
+        sibling_text = sibling.read_text(encoding="utf-8")
+    finally:
+        rs.REPO_ROOT, rs.fetch_stars, _s.argv = orig_root, orig_fetch, orig_argv
+        shutil.rmtree(root, ignore_errors=True)
+
+    assert after == before, "an excluded file was rewritten by --apply"
+    # The sibling MUST have been rewritten — otherwise this test would pass
+    # simply because nothing was ever eligible, and prove nothing at all.
+    assert "★ 50k+" in sibling_text, f"corpus was not actually live: {sibling_text}"
+    assert "Applied 1 drift fixes across 1 files" in out, out
+
+
 def test_prose_stars_re_matches_every_locale_wording():
     """Prose counts must be seen in all three locales, ★-form must not be eaten.
 

@@ -39,6 +39,23 @@ MD_GLOB = "**/*.md"
 # check-anchors), 2026-08-03.
 EXCLUDE_DIRS = {".git", ".github", ".ai", ".claude", "node_modules", "_build", "_site", ".venv"}
 
+# Same reasoning as .github, one level down: these files DISCUSS star counts
+# rather than DECLARING them, so every number in them is a quotation, not a
+# claim to keep fresh.
+#   CHANGELOG.md — records what a count WAS on a date ("★ 25 → 29", "★ 11k+").
+#     Rewriting those falsifies the history they exist to preserve. Measured
+#     at the v2026.08.11 tag: 30 historical ★, 0 currently bound to a repo, so
+#     --apply could not reach them yet — this closes it before a future entry
+#     pairs a repo URL with a ★ on one line and quietly makes them rewritable.
+#     (The ★ total moves every time anyone writes a changelog entry; "0 bound"
+#     is the number that actually characterises the exposure.)
+#   It also generates its own false advisories: writing the 2026-08-11 entry, a
+#     sentence *describing* a counter-example ("a line saying `agents <N>k+
+#     stars` identifies nothing") was itself counted as a prose star claim.
+#     Rewording sentence-by-sentence is whack-a-mole — a changelog about star
+#     counts will always contain star-count-shaped text.
+EXCLUDE_FILES = {"CHANGELOG.md"}
+
 # 抓 GitHub repo URL：https://github.com/owner/repo
 GITHUB_RE = re.compile(r"https://github\.com/([\w.-]+)/([\w.-]+?)(?:[#?/)\s]|$)")
 # 抓 markdown 內標註的 stars：`| Stars | ★ 12k+ |` 或 inline `★ 12k+`
@@ -101,6 +118,10 @@ def find_md_files(root: Path) -> list[Path]:
         # `.claude/worktrees/`) skip everything and silently find no star lines.
         # Same bug as the 2026-08-02 check-locale-links.py fix.
         if any(part in EXCLUDE_DIRS for part in fp.relative_to(root).parts):
+            continue
+        # Matched on the basename, so a CHANGELOG.md in any subdirectory is
+        # skipped too — they are all release history, wherever they sit.
+        if fp.name in EXCLUDE_FILES:
             continue
         files.append(fp)
     return files
