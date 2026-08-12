@@ -94,7 +94,7 @@ Desktop version of ChatGPT. Ask questions about screenshots, voice conversation,
 
 | Field | Value |
 |---|---|
-| Stars | ★ 187k+ |
+| Stars | ★ 196k+ |
 | License | MIT |
 
 **What it teaches**: Open-source coding agent **not tied to any specific LLM provider** — use Claude, GPT, Gemini, or local Ollama, your choice. Community-maintained, fast iteration.

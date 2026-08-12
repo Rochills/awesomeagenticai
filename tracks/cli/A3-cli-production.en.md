@@ -200,7 +200,7 @@ Four categories, nine projects, one table. **Pick an entry point from the "Who i
 | | [continuedev/continue](https://github.com/continuedev/continue) | ⭐⭐⭐⭐ | Wiring AI checks into the PR pipeline and enforcing them | ★ 35k+. Full intro in [`branches/for-developer.en.md`](../../branches/for-developer.en.md) |
 | **Observability + Cost** | [langfuse/langfuse](https://github.com/langfuse/langfuse) | ⭐⭐⭐⭐⭐ | Wanting trace / cost / sessions all in one place | Open-source LLM observability, ★ 32k+. See [Stage 7 Observability](../../stages/07-multi-agent-production.en.md#exercise-3-observability) |
 | | [Helicone](https://github.com/Helicone/helicone) | ⭐⭐⭐⭐ | Wanting the fastest logging there is (just change `base_url`) | Proxy-based monitoring, change `base_url` and you get logging + caching, ★ 6k+ |
-| | [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) | ⭐⭐⭐⭐⭐ | Running regression tests before promoting a CLI workflow to production | Eval framework, ★ 23k+. See [Stage 7 Eval](../../stages/07-multi-agent-production.en.md#exercise-2-eval) |
+| | [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) | ⭐⭐⭐⭐⭐ | Running regression tests before promoting a CLI workflow to production | Eval framework, ★ 24k+. See [Stage 7 Eval](../../stages/07-multi-agent-production.en.md#exercise-2-eval) |
 | **Production CLI Workflow Templates** | [obra/superpowers](https://github.com/obra/superpowers) | ⭐⭐⭐⭐ | Seeing what a complete, actually-in-use workflow looks like | Production-ready skill collection, ★ 265k+. See how someone else does a complete CLI workflow |
 | | [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace) | ⭐⭐⭐ | Packaging your team's CLI workflow for sharing | Minimal marketplace template, ★ 1.2k+ |
 

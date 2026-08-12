@@ -873,7 +873,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 31 |
+| Stars | ★ 34 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -907,7 +907,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 11 |
+| Stars | ★ 12 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐（窄但深） |
 
@@ -1004,7 +1004,7 @@ Claude 不擅长 token-heavy 机械式工作（成本高、context 容易爆）�
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 93k+ |
+| Stars | ★ 97k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐ |
 

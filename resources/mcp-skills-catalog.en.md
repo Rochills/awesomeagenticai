@@ -873,7 +873,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 31 |
+| Stars | ★ 34 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -907,7 +907,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 11 |
+| Stars | ★ 12 |
 | License | MIT |
 | Rating | ⭐⭐⭐ (narrow but deep) |
 
@@ -1004,7 +1004,7 @@ Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is b
 
 | Field | Value |
 |---|---|
-| Stars | ★ 93k+ |
+| Stars | ★ 97k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐ |
 

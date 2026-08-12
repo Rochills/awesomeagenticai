@@ -6,6 +6,15 @@ Format: `YYYY-MM-DD · category · 1-line summary (commit-sha)`.
 
 ---
 
+## 2026-08-12(第二批)
+
+- **diagram** · **新增第二張圖〈一張「圖」裡面有什麼〉(三語、1920×1080)**,接在 `stages/07`〈迴圈跟圖差在哪〉的核心引言正下方。五層那張回答「有哪五層」,這張回答**下一個問題**:圖到底長什麼樣。刻意畫成**由左到右的流程圖**、跟五層那張的堆疊構圖區隔開。圖上把**迴圈做不到的三件事**畫出來:兩格同時跑、不通過退回、以及**每個 agent 格右上角一個 ⟳ 標「格子裡面它自己繞圈」**——讓「迴圈活在格子裡」變成看得見的東西,而不是只有一句話。四種格子四色四 icon:**agent / 工具 / 驗證 / 人**。
+- **fix** · **這張圖第一版有兩個版面缺陷,而且只有開圖才看得到**。① 「兩格可以同時跑」被放在退回箭頭旁邊,讀起來像在標那條箭頭——**英文版更嚴重,橘色退回線直接穿過那行字**(`these two run at the sa|me time`);② 「不通過就退回」壓在圖例膠囊的上框線上。尺寸、aspect、檔案時間戳全部正常,`.result.json` 也回報 success。修法照 `locale-variant-prompts.md` 的教訓——**指定重新生成、附完整規格,而不是叫它「只修這兩點」**(上批四次嘗試裡,叫它改圖有兩次擅自重新設計節點還引入新缺陷)。v2 三語都乾淨。
+- **content** · **收錄 `AMAP-ML/LongHorizon-Harness`(issue #89),Multi-Agent Orchestration 第 5 列**,三語。收它的理由不是「又一個 framework」,而是**它剛好是上面那張圖的實作**:Manager / Executor / **Auditor** 三個角色,Executor 每輪用新 context、Auditor 獨立檢查後才寫進持久 state——就是圖上「檢查對不對」那一格。第一手查證:★ 587、MIT、未封存、當天有 push、5 個 release,`lh-harness` 在 PyPI 上是 v0.1.4,README 確實有 Manager / Executor / Auditor。
+- **content** · **給 ⭐⭐⭐ 而不是投稿者建議的 ⭐⭐⭐⭐,而且把「很新」寫進條目**。同分類的 `open-multi-agent` 是 4.5 個月、52 位 contributor、20 個 release,而這個是 **2026-08-04 建立(8 天)、2 位 contributor**——兩個給同一級會讓這欄失去鑑別力。條目裡直接寫「**很新**:2026-08-04 建立、2 位 contributor,還沒有長期維護紀錄」,不藏。另外 repo description 宣稱有 OpenClaw 整合,但**README 裡找不到**,所以只寫 README 支持得了的部分。表格 28 → 29,三語同步(這個數字一樣沒有 gate 在管)。
+- **chore** · **刪掉 `prompt-context-harness-stack.{png,en.png,zh-Hans.png}`**。它畫的是三層,已被五層那張取代;刪之前確認已發佈內容零引用(只剩 CHANGELOG 歷史紀錄提到),git history 留得住。
+- **chore** · 順帶跑例行星數更新:**24 處 drift、12 個檔**,修完重跑 277 個 repo 全部收斂。
+
 ## 2026-08-12
 
 - **content** · **分層模型從三層改成五層,而且改的重點不是數字**。以前六個地方各自重述一次這個模型,結果講出**三種版本**:`stages/02` ×2 說「三層」、`stages/06` 掛一張三層的圖、`stages/07` 標題說三層但下面註解又補「Loop 是第四層」、glossary 的 Loop 條目自稱第四層、Graph 條目存在卻沒接進階梯、`stages/07.5` 還特別警告「這跟 Stage 7 的三層不一樣」。**只把 3 改成 5 半年後會再漂一次**,所以改成 **1 個 canonical + 5 個指標**:`stages/07` 是唯一出處,其他五處只指回去、不重述。

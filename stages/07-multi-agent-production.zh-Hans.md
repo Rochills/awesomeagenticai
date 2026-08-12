@@ -60,6 +60,8 @@
 
 > **格子里面，是 agent 自己绕圈；格子跟格子之间，是你安排的顺序。**
 
+![一张“图”里面有什么](../resources/diagrams/inside-a-graph.zh-Hans.png)
+
 所以两者不是二选一——**图是把好几个循环装进格子、再排好顺序**。而且格子里放的不一定是 agent：**也可以是一个工具、一段检查、或是“这里要人按核准才能往下”**。
 
 **为什么要多这一层**：格子画出来，你才看得到它现在卡在哪一格、才能从中间接着跑、才能两格同时跑。反过来说，**全部塞回同一个格子，就退回原本的循环了**。
@@ -285,7 +287,7 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 > - 每次 model upgrade → 跑内部 eval set 验证、不只看厂商公布的 benchmark 提升
 > - 接 [langfuse](https://github.com/langfuse/langfuse) / [promptfoo](https://github.com/promptfoo/promptfoo) 把 eval 自动化、每次 deploy 都跑
 
-> 📊 **observability 认一个可携标准 + 两个评估观念**：(1) **OpenTelemetry GenAI 惯例**（`gen_ai.*` semantic conventions）——langfuse / Arize Phoenix / Helicone 都吐 OTel-兼容 span，认这层才不被单一工具绑死；OTel-native 的 [Arize Phoenix](https://github.com/Arize-ai/phoenix)（★ 10k+）可看。(2) **pass^k**（同一题连对 k 次的概率 = 可靠度，不是只看过一次）+ [τ²-bench](https://github.com/sierra-research/tau2-bench)。(3) 多 agent 失败有现成词汇：**MAST**（[arXiv 2503.13657](https://arxiv.org/abs/2503.13657)、14 种失败模式分 3 类）。
+> 📊 **observability 认一个可携标准 + 两个评估观念**：(1) **OpenTelemetry GenAI 惯例**（`gen_ai.*` semantic conventions）——langfuse / Arize Phoenix / Helicone 都吐 OTel-兼容 span，认这层才不被单一工具绑死；OTel-native 的 [Arize Phoenix](https://github.com/Arize-ai/phoenix)（★ 11k+）可看。(2) **pass^k**（同一题连对 k 次的概率 = 可靠度，不是只看过一次）+ [τ²-bench](https://github.com/sierra-research/tau2-bench)。(3) 多 agent 失败有现成词汇：**MAST**（[arXiv 2503.13657](https://arxiv.org/abs/2503.13657)、14 种失败模式分 3 类）。
 
 ## 🎯 常用 Multi-Agent / Production 工具推荐（按用途分类）
 
@@ -296,7 +298,7 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 | **第一次写 multi-agent**（最快上手）| [crewAI](https://github.com/crewAIInc/crewAI) | role-based、几行 code 跑起来、production pattern 直接 |
 | **想要 group debate / brainstorm pattern** | [AutoGen](https://github.com/microsoft/autogen) | GroupChat 自由辩论、Microsoft 出品 |
 | **production 要 audit trail / checkpoint / human-in-loop** | [LangGraph](https://github.com/langchain-ai/langgraph) | state machine、控制最完整 |
-| **eval 标准化**（CI / regression 必装）| [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config、跨模型比较、★ 23k+ |
+| **eval 标准化**（CI / regression 必装）| [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | YAML config、跨模型比较、★ 24k+ |
 | **eval + observability 同平台** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | OSS、tracing + eval + prompt mgmt、★ 32k+ |
 | **不改程序、快速 instrumentation** | [Helicone](https://github.com/Helicone/helicone) | proxy 中介、不绑 framework |
 | **全 stack 在 LangChain** | [LangSmith](https://www.langchain.com/langsmith)（商业）| LangChain 官方 observability |
@@ -315,7 +317,7 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 
 ## 🎯 精选 Projects（范本 / SDK / 工具 collection）
 
-按用途分类、28 个项目一张表搞定。**挑入口看“适合谁”、想深入点链接看 repo**。
+按用途分类、29 个项目一张表搞定。**挑入口看“适合谁”、想深入点链接看 repo**。
 
 | 分类 | Project | ⭐ | 适合谁 | 为什么推荐 / 备注 |
 |---|---|---|---|---|
@@ -323,7 +325,8 @@ Production agent 跑久了，**cost / latency 两条线会吃掉你大半预算�
 | | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | ⭐⭐⭐⭐⭐ | 想要 role-based 流水线 | 角色式 multi-agent（research → writer → reviewer），最简单 production pattern |
 | | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | ⭐⭐⭐⭐⭐ | 需要 audit trail / checkpoint / human-in-the-loop | state machine 路线、production 控制最强 |
 | | [open-multi-agent/open-multi-agent](https://github.com/open-multi-agent/open-multi-agent) | ⭐⭐⭐⭐ | 写 TypeScript、想在同一个 repo 里对照“动态规划”与“固定 pipeline” | 由 coordinator 在 runtime 把 goal 规划成 task DAG，再交给 scheduler 执行；`runTeam()` 从 goal 动态规划、`runTasks()` 跑写死的 pipeline，两种写法可以直接比。上面三个都是 Python 生态，这条补的是 TypeScript 路线。★ 6.8k+、MIT |
-| **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | 把 eval 流程标准化、CI 整合 | YAML config、跨模型比较。★ 23k+、MIT |
+| | [AMAP-ML/LongHorizon-Harness](https://github.com/AMAP-ML/LongHorizon-Harness) | ⭐⭐⭐ | 想看“验证那一格”在真实项目里长什么样 | 把长任务拆成 Manager / Executor / **Auditor** 三个角色，Executor 每轮用新 context，Auditor 独立检查后才写进持久 state——就是上面那张图里“检查对不对”那一格的实现。包在 Claude Code / Codex 外层，不用自己重写 agent loop。**很新**：2026-08-04 建立、2 位 contributor，还没有长期维护纪录。★ 587、MIT |
+| **Eval Frameworks** | [promptfoo](https://github.com/promptfoo/promptfoo) ⭐ | ⭐⭐⭐⭐⭐ | 把 eval 流程标准化、CI 整合 | YAML config、跨模型比较。★ 24k+、MIT |
 | | [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) | ⭐⭐⭐⭐ | 学术 benchmark 主张（MMLU / HellaSwag / GSM8K）| 学术等级。★ 13k+、MIT |
 | | [openai/evals](https://github.com/openai/evals) | ⭐⭐⭐⭐ | OpenAI 专属 eval / 想回馈上游 | ★ 19k+ |
 | **Observability** | [langfuse](https://github.com/langfuse/langfuse) ⭐ | ⭐⭐⭐⭐⭐ | 自架 production observability | OSS LangSmith 替代、traces + sessions + evals + prompt mgmt。★ 32k+、MIT |
