@@ -824,7 +824,7 @@ You are a senior code reviewer. When invoked:
 
 ## 5.7 — Claude Code Source 解剖（reference harness implementation）⭐ Track B 必看
 
-> **本节定位**：本节**不是** harness engineering 的 discipline 概念教学——discipline 级的定义 / **8 元件** / prompt→context→harness 三层 lineage 是 **[Stage 7 Harness Engineering](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念)** 在讲。**本节是 case study**——拿 Claude Code（一个被广泛使用的 reference harness）的 source code 来解剖、把 Stage 7 列的 8 个元件**中前 6 个 runtime-internal 元件**（Eval / Cost-Latency 两个是 cross-cutting、不在 source 主 loop）**在实现里找到对应位置**。
+> **本节定位**：本节**不是** harness engineering 的 discipline 概念教学——discipline 级的定义 / **8 元件** / prompt→context→harness 五层工程分工 是 **[Stage 7 Harness Engineering](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念)** 在讲。**本节是 case study**——拿 Claude Code（一个被广泛使用的 reference harness）的 source code 来解剖、把 Stage 7 列的 8 个元件**中前 6 个 runtime-internal 元件**（Eval / Cost-Latency 两个是 cross-cutting、不在 source 主 loop）**在实现里找到对应位置**。
 
 ### 学习目标
 
@@ -834,7 +834,7 @@ You are a senior code reviewer. When invoked:
 - 在 source 里标出 [Stage 7 列的 8 个 harness 元件](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念)**中**前 6 个 runtime-internal 元件（agent loop / tool registry / context manager / safety layer / retry / telemetry）各自的 file:line。Stage 7 列的第 7 个 Eval 是外挂、第 8 个 Cost / Latency 是 cross-cutting、不在 source 主 loop 内、不在本练习范围
 - 讲得出 Claude Code 的 agent loop 跟 Stage 3 练习 3 from-scratch ReAct 差在哪——上线部署的 agent 多了哪些东西
 
-> **discipline 级概念在哪**：harness engineering 是什么 / framework vs harness 差别 / prompt→context→harness 三层 lineage → 全部见 **[Stage 7 Harness Engineering](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念)**。本节只负责 Claude Code source 的 case study。
+> **discipline 级概念在哪**：harness engineering 是什么 / framework vs harness 差别 / prompt→context→harness 五层工程分工 → 全部见 **[Stage 7 Harness Engineering](07-multi-agent-production.zh-Hans.md#-harness-engineering--production-agent-runtime-的工程设计--本-stage-核心概念)**。本节只负责 Claude Code source 的 case study。
 
 ### 📚 必修阅读
 

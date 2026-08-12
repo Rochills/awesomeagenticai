@@ -824,7 +824,7 @@ You are a senior code reviewer. When invoked:
 
 ## 5.7 — Claude Code Source 解剖（reference harness implementation）⭐ Track B 必看
 
-> **本節定位**：本節**不是** harness engineering 的學科級概念教學——學科級的定義 / **8 個核心元件** / prompt→context→harness 三層工程分工 是 **[Stage 7 Harness Engineering](07-multi-agent-production.md#-harness-engineering--production-agent-runtime-的工程設計--本-stage-核心概念)** 在講。**本節是 case study**——拿 Claude Code（一個被廣泛使用的參考實作）的 source code 來解剖、把 Stage 7 列的 8 個元件**中前 6 個 runtime-internal 元件**（Eval / Cost-Latency 兩個是跨層議題、不在 source 主 loop）**在實作裡找到對應位置**。
+> **本節定位**：本節**不是** harness engineering 的學科級概念教學——學科級的定義 / **8 個核心元件** / prompt→context→harness 五層工程分工 是 **[Stage 7 Harness Engineering](07-multi-agent-production.md#-harness-engineering--production-agent-runtime-的工程設計--本-stage-核心概念)** 在講。**本節是 case study**——拿 Claude Code（一個被廣泛使用的參考實作）的 source code 來解剖、把 Stage 7 列的 8 個元件**中前 6 個 runtime-internal 元件**（Eval / Cost-Latency 兩個是跨層議題、不在 source 主 loop）**在實作裡找到對應位置**。
 
 ### 學習目標
 
@@ -834,7 +834,7 @@ You are a senior code reviewer. When invoked:
 - 在 source 裡標出 [Stage 7 列的 8 個 harness 元件](07-multi-agent-production.md#-harness-engineering--production-agent-runtime-的工程設計--本-stage-核心概念)**中**前 6 個 runtime-internal 元件（agent loop / tool registry（agent 可呼叫工具的清單 + 介面定義） / context manager / safety layer / retry / telemetry）各自的 file:line。Stage 7 列的第 7 個 Eval 是外掛、第 8 個 Cost / Latency 是 cross-cutting、不在 source 主 loop 內、不在本練習範圍
 - 講得出 Claude Code 的 agent loop 跟 Stage 3 練習 3 from-scratch ReAct 差在哪——上線部署的 agent 多了哪些東西
 
-> **學科級概念在哪**：harness engineering 是什麼 / framework vs harness 差別 / prompt→context→harness 三層工程分工 → 全部見 **[Stage 7 Harness Engineering](07-multi-agent-production.md#-harness-engineering--production-agent-runtime-的工程設計--本-stage-核心概念)**。本節只負責 Claude Code source 的 case study。
+> **學科級概念在哪**：harness engineering 是什麼 / framework vs harness 差別 / prompt→context→harness 五層工程分工 → 全部見 **[Stage 7 Harness Engineering](07-multi-agent-production.md#-harness-engineering--production-agent-runtime-的工程設計--本-stage-核心概念)**。本節只負責 Claude Code source 的 case study。
 
 ### 📚 必修閱讀
 

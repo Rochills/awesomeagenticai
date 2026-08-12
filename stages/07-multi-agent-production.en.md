@@ -6,7 +6,7 @@
 
 > 💡 High density of terminology (multi-agent / handoff / eval / observability / guardrails...) → Refer to [`resources/glossary.en.md` 4 + 6](../resources/glossary.en.md#4-multi-agent).
 
-> 📋 **Chapter Composition**: [What is Multi-Agent · Productionization (Positioning) + Three-layer engineering split + When to use multi-agent] → Learning Objectives → Entry Conditions → Required Reading → Harness Engineering (**8 core components including Cost/Latency**) → Hands-on Exercises (including Exercise 6 Cost Optimization) → **Agent Benchmark Landscape: how to read it, not just the leaderboard** → Recommended Tools → Featured Projects → Self-Check
+> 📋 **Chapter Composition**: [What is Multi-Agent · Productionization (Positioning) + Five-layer engineering split + When to use multi-agent] → Learning Objectives → Entry Conditions → Required Reading → Harness Engineering (**8 core components including Cost/Latency**) → Hands-on Exercises (including Exercise 6 Cost Optimization) → **Agent Benchmark Landscape: how to read it, not just the leaderboard** → Recommended Tools → Featured Projects → Self-Check
 > 🔑 **Key Terms**: See [`resources/glossary.en.md` 4 + 6](../resources/glossary.en.md#4-multi-agent) (multi-agent / orchestration / handoff / eval / observability / harness (the execution and control layer around the model))
 
 This is the final stage. You are moving from "I can build an agent" to "I can make an agent **truly stable for people to use**"—with multiple agents collaborating, with eval, with observability, and deployable to a usable environment. **"Productionization" ≠ enterprise scale**—as long as an agent can produce stable output and be used by others, it falls within the scope of this stage.
@@ -24,23 +24,49 @@ This is the final stage. You are moving from "I can build an agent" to "I can ma
 - **Stage 4** = how to choose a single-agent framework, patterns like ReAct / Plan-Execute
 - **This stage** = **multi-agent collaboration** + **harness engineering** (execution-system engineering) + **deployment to a usable environment / observability / eval**
 
-### The three-layer engineering split: Prompt → Context → Harness
+### The five-layer engineering split: Prompt → Context → Harness → Loop → Graph
 
-Engineering work can be split into three layers, corresponding to different positions in the stack (not the difference between one call and many calls):
+> 📍 **This section is the canonical source for this repo's "layering" model**. Other chapters that mention layers should point back here instead of restating the model each time. Previously, six places explained it separately and drifted into three different versions.
 
-| Layer | Concept | Core question | Unit of concern | Corresponding stage |
-|---|---|---|---|---|
-| 1 | **Prompt Engineering** | How should I ask this time? | **single LLM call** | [Stage 2](02-prompt-engineering.en.md) |
-| 2 | **Context Engineering** | What information should the model receive this time? | **context across multiple interactions** | [Stage 6](06-memory-rag.en.md) |
-| **3** | **Harness Engineering**<br>(**This stage**) | How does the whole workflow run? | **executable LLM workflow / system** | **This stage** |
+These five layers are **not a difficulty ladder**. They describe **how much scope you are managing**. They are also not a flat list: **each next layer appears because the previous layer hits a wall** (unrelated to "one call vs. many calls"):
 
-> 🔁 **The next layer: Loop Engineering**. After prompt → context → harness, the fourth discipline emerging in 2026 is **engineering the agent's iteration loop itself**: the goal, available tools, context management, **termination logic**, and error handling that keep an agent reliable across hundreds of steps and multiple sessions. Claude Code's `/goal` (give a verifiable completion condition and the agent loops until it is met) is exactly this; [Stage 5.6 Dynamic Workflows](05-claude-code-ecosystem.en.md) is the agent writing its own loop script. Lineage: ReAct (2022) → AutoGPT (2023) → /goal (2026).
+| Layer | Concept | Purpose (what it solves) | Wall it hits → why the next layer exists | Corresponding stage | Name source |
+|---|---|---|---|---|---|
+| 1 | **Prompt Engineering** | Ask the right thing this time | It does not know the data you have | [Stage 2](02-prompt-engineering.en.md) | Officially used |
+| 2 | **Context Engineering** | Let it read the right information | It knows, but still cannot act | [Stage 6](06-memory-rag.en.md) | Officially used |
+| **3** | **Harness Engineering**<br>(**This stage**) | Let it actually act without blowing up on errors | One run cannot finish a large job | **This stage** | Officially used |
+| 4 | **Loop Engineering** | Let it finish by itself without you watching | It runs by itself, so you cannot see what it is doing | [Stage 5.6](05-claude-code-ecosystem.en.md) | ⚠️ Unofficial name |
+| 5 | **Graph Engineering** | Make the process visible, controllable, and resumable | — (currently the outermost layer) | [Stage 4](04-agent-frameworks.en.md) | ⚠️ Unofficial name |
+
+![Agent engineering five-layer stack](../resources/diagrams/agent-engineering-5layer.en.png)
+
+> ⚠️ **Pay attention to the "Name source" column**. The first three terms are used by vendor documentation (Anthropic has context engineering material, and OpenAI used harness engineering in 2026-02). **The last two are not**: Loop / Graph Engineering are community names. The concepts are real, but Anthropic calls similar mechanisms *dynamic workflows*, while Google ADK and Microsoft Agent Framework use *graph-based workflow(s)*. If you cannot find "graph engineering" in official docs, you are not missing it.
 
 **Plain-language difference**:
 
 - **Prompt** = design a good way of asking so the model answers correctly this time
 - **Context** = dynamically decide which background, memory, documents, and tool results to include so the model understands the current situation
 - **Harness** = connect prompt, context, tools, state, flow control, and error handling into a system that can actually run
+- **Loop** = give it a goal, let it repeat until the result is good enough, and decide when it should stop
+- **Graph** = split the work into boxes first, draw which box connects to which, and make the process visible and resumable
+
+### Loop vs. graph: what is the difference?
+
+**Loop** = you give it a goal, and it keeps working until it decides the result is good enough. You do not see much in the middle; you mostly see the result. Like washing dishes: pick one up, wash it, check whether it is clean, wash again if needed. **There is one path; the agent decides how many times to go around.**
+
+**Graph** = you first split the work into **boxes** and draw lines for who follows whom. Like a restaurant kitchen: chop, cook, plate. The order is written down, and two burners can run at the same time.
+
+The easiest sentence to remember:
+
+> **Inside a box, the agent loops; between boxes, you define the order.**
+
+So this is not either-or. **A graph puts several loops into boxes, then orders those boxes.** And a box does not have to contain an agent: **it can also be a tool, a check, or a "human must approve before continuing" gate**.
+
+**Why add this layer**: once the boxes are drawn, you can see which box is stuck, resume from the middle, and run two boxes in parallel. Conversely, **if you put everything back into one box, you are back to a plain loop**.
+
+**The cost matters**: a graph forces you to decide up front which boxes exist. If the job is simply "keep trying until it works" and nobody needs to inspect the path afterward, drawing a graph is extra work. In that case, a loop is the right tool. **The more you trust the agent, the fewer boxes you draw.**
+
+**Lineage**: ReAct (2022) → AutoGPT (2023) → Claude Code's `/goal` (2026, give a verifiable completion condition and let the agent loop until it is met). [Stage 5.6 Dynamic Workflows](05-claude-code-ecosystem.en.md) is the agent writing its own loop script; the runnable graph example is in [`examples/stage-4/03-graph-workflow/`](../examples/stage-4/03-graph-workflow/README.en.md).
 
 **This stage's 3 core questions**:
 
@@ -94,7 +120,7 @@ If not, go back and complete the previous stages. This stage is about "combining
 
 ### Positioning: The execution and control layer around the model
 
-To turn an LLM into a usable agent, you usually run into three layers of engineering problems. These three layers correspond to different engineering positions, not simply "one call" versus "many calls."
+To turn an LLM into a usable agent, the first thing you meet is **the first three of the five layers** (the full ladder is in "The five-layer engineering split" above). These three layers correspond to different engineering positions, not simply "one call" versus "many calls."
 
 > 💡 **Simon Willison 2025**: "coding agent = LLM + harness"; harness = all the code **that is not the model itself**.
 >

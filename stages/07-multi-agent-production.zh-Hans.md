@@ -6,7 +6,7 @@
 
 > 💡 用语密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.zh-Hans.md` 4 + 6](../resources/glossary.zh-Hans.md#4-multi-agent)。
 
-> 📋 **本章组成**：〔Multi-Agent · Production 化 是什么（先定位）+ 三层工程分工 + 何时用 multi-agent〕→ 学习目标 → 进入条件 → 必修阅读 → Harness Engineering（**8 个核心元件含 Cost/Latency**）→ 动手练习（含练习 6 Cost Optimization）→ **Agent Benchmark Landscape：怎么看，不要只看排行榜** → 常用工具推荐 → 精选 Projects → 自我检查
+> 📋 **本章组成**：〔Multi-Agent · Production 化 是什么（先定位）+ 五层工程分工 + 何时用 multi-agent〕→ 学习目标 → 进入条件 → 必修阅读 → Harness Engineering（**8 个核心元件含 Cost/Latency**）→ 动手练习（含练习 6 Cost Optimization）→ **Agent Benchmark Landscape：怎么看，不要只看排行榜** → 常用工具推荐 → 精选 Projects → 自我检查
 > 🔑 **关键名词**：见 [`resources/glossary.zh-Hans.md` 4 + 6](../resources/glossary.zh-Hans.md#4-multi-agent)（multi-agent / orchestration / handoff / eval / observability / harness（模型外围的执行与控制层））
 
 最后一个阶段。你正从“我会做 agent”走向“我能让 agent **真的给人稳定用**——多个 agent 协作、有 eval、有 observability、能部署到可用环境”。**“Production 化” ≠ enterprise scale**——只要 agent 能稳定产出 + 能让别人使用，就算进入这 stage 范围。
@@ -24,23 +24,49 @@
 - **Stage 4** = 单 agent framework 怎么挑、ReAct / Plan-Execute 等 pattern
 - **本 stage** = **多 agent 协作** + **harness engineering**（执行系统工程）+ **部署到可用环境 / observability / eval**
 
-### 三层工程分工：Prompt → Context → Harness
+### 五层工程分工：Prompt → Context → Harness → Loop → Graph
 
-工程分工可以分成三层，对应 stack 的不同位置（不是 call 一次 vs 多次的差别）：
+> 📍 **这一节是这个 repo 讲“分层”的 canonical 出处**。其他章节提到分层时只会指回这里，不各自重述一遍——以前六个地方各讲一次，结果讲出三种版本。
 
-| 层级 | 概念 | 核心问题 | 关注单位 | 对应 stage |
-|---|---|---|---|---|
-| 1 | **Prompt Engineering** | 这一次要怎么问？ | **单次 LLM call** | [Stage 2](02-prompt-engineering.zh-Hans.md) |
-| 2 | **Context Engineering** | 这次该给模型哪些信息？ | **多次互动中的上下文** | [Stage 6](06-memory-rag.zh-Hans.md) |
-| **3** | **Harness Engineering**<br>（**本 stage**） | 整个流程怎么跑起来？ | **可执行的 LLM workflow / system** | **本 stage** |
+这五层**不是难度阶梯**，是“**你在管多大范围**”。而且它们不是并列的清单，是**一层撞墙、才生出下一层**（跟“call 一次 vs 多次”无关）：
 
-> 🔁 **下一层：Loop Engineering（循环工程）**：prompt → context → harness 之后，2026 浮现的第四层是“**设计 agent 的迭代循环本身**”——目标、可用工具、context 管理、**终止条件**、错误处理，让 agent 跑数百步、跨 session 仍可靠。Claude Code 的 `/goal`（给一个可验证的完成条件、agent 自己 loop 到达成）就是这个方向；[Stage 5.6 Dynamic Workflows](05-claude-code-ecosystem.zh-Hans.md) 则是 agent 自己写出 loop 脚本。谱系：ReAct（2022）→ AutoGPT（2023）→ /goal（2026）。
+| 层级 | 概念 | 目的（要解决什么） | 撞到什么墙 → 所以有下一层 | 对应 stage | 名称来源 |
+|---|---|---|---|---|---|
+| 1 | **Prompt Engineering** | 这一次问对 | 它不知道你手上的资料 | [Stage 2](02-prompt-engineering.zh-Hans.md) | 官方采用 |
+| 2 | **Context Engineering** | 让它读到该读的 | 知道了，也还动不了手 | [Stage 6](06-memory-rag.zh-Hans.md) | 官方采用 |
+| **3** | **Harness Engineering**<br>（**本 stage**） | 让它真的动手，出错不炸掉 | 一次跑不完一件大事 | **本 stage** | 官方采用 |
+| 4 | **Loop Engineering** | 让它自己做完，不用你盯 | 它自己跑，你就看不见它在干嘛 | [Stage 5.6](05-claude-code-ecosystem.zh-Hans.md) | ⚠️ 非官方名称 |
+| 5 | **Graph Engineering** | 看得到、管得住、能重来 | —（目前最外一层） | [Stage 4](04-agent-frameworks.zh-Hans.md) | ⚠️ 非官方名称 |
+
+![Agent 工程五层 Stack](../resources/diagrams/agent-engineering-5layer.zh-Hans.png)
+
+> ⚠️ **“名称来源”那一栏要看一下**。前三个词厂商自己的文件在用（Anthropic 有 context engineering 专文、OpenAI 2026-02 用了 harness engineering）。**后两个没有**：Loop / Graph Engineering 是社群讲出来的名字，概念真的成立，但 Anthropic 官方叫 *dynamic workflows*、Google ADK 与 Microsoft Agent Framework 叫 *graph-based workflow(s)*。你去查官方文件查不到“graph engineering”这个词，不是你漏看。
 
 **白话差异**：
 
 - **Prompt** = 设计一个好的问法，让模型这次回答准
 - **Context** = 动态决定要放入哪些背景、记忆、文件、工具结果，让模型知道当前情境
 - **Harness** = 把 prompt、context、tools、state、流程控制、错误处理串成一套真的能跑的系统
+- **Loop** = 交代一个目标，让它自己重复做到够好为止，并且决定“什么时候该停”
+- **Graph** = 先把工作拆成几个格子、画出谁接谁，让过程看得到、能从中间接着跑
+
+### 循环跟图差在哪（这两个最容易混）
+
+**循环**＝你交代一个目标，它自己一直做到觉得可以为止。中间你看不到，只看到结果。像洗碗：拿起来、洗、看干不干净，不干净再洗一次。**路只有一条，转几圈它自己决定。**
+
+**图**＝先把工作拆成几个**格子**，用线画出谁接谁。像餐厅出菜：切、炒、摆盘，顺序先写好，而且两个炉可以同时开。
+
+最好记的一句：
+
+> **格子里面，是 agent 自己绕圈；格子跟格子之间，是你安排的顺序。**
+
+所以两者不是二选一——**图是把好几个循环装进格子、再排好顺序**。而且格子里放的不一定是 agent：**也可以是一个工具、一段检查、或是“这里要人按核准才能往下”**。
+
+**为什么要多这一层**：格子画出来，你才看得到它现在卡在哪一格、才能从中间接着跑、才能两格同时跑。反过来说，**全部塞回同一个格子，就退回原本的循环了**。
+
+**代价要讲清楚**：图逼你事先想清楚要拆成哪几格。如果事情就是“一直试到成功”、也没人要回头查，那先画图只是多做工——那种时候循环才是对的工具。**你越信得过它，格子画得越少。**
+
+**谱系**：ReAct（2022）→ AutoGPT（2023）→ Claude Code 的 `/goal`（2026，给一个可验证的完成条件、让 agent 自己 loop 到达成）。[Stage 5.6 Dynamic Workflows](05-claude-code-ecosystem.zh-Hans.md) 则是 agent 自己写出 loop 脚本；可以直接跑的图范例在 [`examples/stage-4/03-graph-workflow/`](../examples/stage-4/03-graph-workflow/README.zh-Hans.md)。
 
 **本 stage 三个核心问题**：
 
@@ -94,7 +120,7 @@
 
 ### 定位：模型外围的执行与控制层
 
-要把 LLM 变成可用的 agent，通常会碰到三层工程问题。这三层对应的是不同工程位置，不是单纯用“一次 call”或“多次 call”来区分。
+要把 LLM 变成可用的 agent，最先碰到的是**五层里的前三层**（完整阶梯见上面〈五层工程分工〉）。这三层对应的是不同工程位置，不是单纯用“一次 call”或“多次 call”来区分。
 
 > 💡 **Simon Willison 2025**：“coding agent = LLM + harness”；harness = 所有**不是 model 本身**的代码。
 >

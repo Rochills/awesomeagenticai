@@ -824,7 +824,7 @@ A single table to cover 4 projects. **Pick an entry point by looking at "Best fo
 
 ## 5.7 — Dissecting Claude Code Source (reference harness implementation) ⭐ A must-read for Track B
 
-> **Positioning of this section**: This section is **not** a discipline-level tutorial on harness engineering—the definition, the **8 components**, and the three-layer lineage of prompt→context→harness are covered in **[Stage 7 Harness Engineering](07-multi-agent-production.en.md#-harness-engineering--engineering-design-for-a-production-agent-runtime--core-concept-of-this-stage)**. **This section is a case study**—we're dissecting the source code of Claude Code (a widely-used reference harness) to find the corresponding locations in the implementation for the **first 6 runtime-internal components** of the 8 components listed in Stage 7 (the other two, Eval and Cost-Latency, are cross-cutting and not in the main source loop).
+> **Positioning of this section**: This section is **not** a discipline-level tutorial on harness engineering—the definition, the **8 components**, and the prompt→context→harness five-layer engineering split are covered in **[Stage 7 Harness Engineering](07-multi-agent-production.en.md#-harness-engineering--engineering-design-for-a-production-agent-runtime--core-concept-of-this-stage)**. **This section is a case study**—we're dissecting the source code of Claude Code (a widely-used reference harness) to find the corresponding locations in the implementation for the **first 6 runtime-internal components** of the 8 components listed in Stage 7 (the other two, Eval and Cost-Latency, are cross-cutting and not in the main source loop).
 
 ### Learning Goals
 
@@ -834,7 +834,7 @@ After completing this section, you will be able to:
 - Pinpoint in the source the file:line for the first 6 runtime-internal harness components from the [8 components listed in Stage 7](07-multi-agent-production.en.md#-harness-engineering--engineering-design-for-a-production-agent-runtime--core-concept-of-this-stage) (agent loop / tool registry / context manager / safety layer / retry / telemetry). The 7th, Eval, is a plugin, and the 8th, Cost / Latency, is cross-cutting; they are not in the main source loop and are outside the scope of this exercise.
 - Explain the difference between Claude Code's agent loop and the from-scratch ReAct from Stage 3, Exercise 3—what extra components a deployed agent needs that a from-scratch one doesn't.
 
-> **Where are the discipline-level concepts?**: What harness engineering is / the difference between a framework and a harness / the three-layer lineage of prompt→context→harness → all covered in **[Stage 7 Harness Engineering](07-multi-agent-production.en.md#-harness-engineering--engineering-design-for-a-production-agent-runtime--core-concept-of-this-stage)**. This section is only responsible for the case study of the Claude Code source.
+> **Where are the discipline-level concepts?**: What harness engineering is / the difference between a framework and a harness / the prompt→context→harness five-layer engineering split → all covered in **[Stage 7 Harness Engineering](07-multi-agent-production.en.md#-harness-engineering--engineering-design-for-a-production-agent-runtime--core-concept-of-this-stage)**. This section is only responsible for the case study of the Claude Code source.
 
 ### 📚 Required Reading
 

@@ -436,7 +436,7 @@ for label, prompt in PROMPTS.items():
 
 </details>
 
-**Going further**: dump all 5 rounds of output to a CSV. Stage 7 Exercise 2 shows how to turn that into an eval harness so you can quantify *how much* a prompt actually improved.
+**Going further**: dump all 5 rounds of output to a CSV. Stage 7 Exercise 2 shows how to turn that into an eval harness (the evaluation scaffold, i.e. the outer program / control layer used to run evals; see Advanced: what layers sit above prompting?) so you can quantify *how much* a prompt actually improved.
 
 ## 🎯 Curated Projects
 
@@ -458,9 +458,9 @@ for label, prompt in PROMPTS.items():
 
 > 💡 **Suggested reading order**: dair-ai guide for theory → Anthropic Cookbook for Claude implementation → NirDiamant for hands-on → dspy when going to production.
 
-## 🔭 Advanced: The Three Layers of Prompt → Context → Harness Engineering
+## 🔭 Advanced: What layers sit above prompting?
 
-Engineering practice for LLM-powered systems can be divided into **three stack layers**. This is not about "one call vs. many calls." Each layer engineers a different object:
+Engineering practice for LLM-powered systems is layered. This is not about "one call vs. many calls." **Here we only look at the three layers directly adjacent to prompt writing**; the full model has **five layers**, with Loop and Graph further out. See [Stage 7 five-layer engineering split](07-multi-agent-production.en.md#the-five-layer-engineering-split-prompt--context--harness--loop--graph), the canonical source for the layering model. Each layer engineers a different object:
 
 - **Prompt Engineering** (this stage) = engineering **the string sent into the model**
 - **Context Engineering** (Stage 6) = engineering **what information goes into the context window on each call** — dynamically assembling RAG retrieval results, memory, tool definitions, and conversation history
@@ -468,7 +468,7 @@ Engineering practice for LLM-powered systems can be divided into **three stack l
 
 → The three layers are **orthogonal**: a one-call RAG app is still doing context engineering (the point is assembling context, not how many calls happen); a 50-call chatbot with no retrieval is still only doing prompt engineering.
 
-**Full three-layer lineage in this roadmap**:
+**Where these three layers fit in this roadmap** (for the full five-layer model, see Stage 7):
 
 | Discipline | What is being engineered | Where this roadmap teaches it fully |
 |---|---|---|

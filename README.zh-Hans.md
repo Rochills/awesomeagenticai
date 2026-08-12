@@ -177,7 +177,7 @@ cd awesome-agentic-ai-zh
 - **Part 4（Stage 6-7）：进阶集成** — memory / RAG / multi-agent 协作 / harness engineering
 - **Part 5（Stage 8） 共用 hub** — Agent Interfaces（Computer Use / Browser Use / Code Sandbox、2024-2026 frontier、两条 track 都会用到）
 
-> 🔭 **三层概念进化**：**prompt engineering**（Stage 2、单一 prompt 怎么写）→ **context engineering**（Stage 3 之后、怎么动态组 system prompt + memory + retrieved chunks + tool schema）→ **harness engineering**（Stage 7、agent loop / eval / observability / deploy 整套包成 production system）。3 个术语对应 3 个 phase、不必另外找资源。详见 [`stages/02-prompt-engineering.zh-Hans.md`](stages/02-prompt-engineering.zh-Hans.md) 进阶：context engineering 跟 [`stages/07-multi-agent-production.zh-Hans.md`](stages/07-multi-agent-production.zh-Hans.md) 必修阅读 5+6。
+> 🔭 **概念分层的演进**：**prompt engineering**（Stage 2、单一 prompt 怎么写）→ **context engineering**（Stage 3 之后、怎么动态组 system prompt + memory + retrieved chunks + tool schema）→ **harness engineering**（Stage 7、agent loop / eval / observability / deploy 整套包成 production system）。2026 之后社群又往外接了 **loop**（让它自己跑完）与 **graph**（把流程摊开来看得到）两层——**完整五层与各层目的见 [Stage 7 五层工程分工](stages/07-multi-agent-production.zh-Hans.md#五层工程分工prompt--context--harness--loop--graph)**。详见 [`stages/02-prompt-engineering.zh-Hans.md`](stages/02-prompt-engineering.zh-Hans.md) 进阶：context engineering 跟 [`stages/07-multi-agent-production.zh-Hans.md`](stages/07-multi-agent-production.zh-Hans.md) 必修阅读 5+6。
 
 走完主干（Track B 16-22 周 / Track A 8-10 周）后，依你的身份挑一条延伸路线继续走。
 

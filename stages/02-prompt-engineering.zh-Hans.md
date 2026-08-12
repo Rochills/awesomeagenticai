@@ -434,7 +434,7 @@ text = msg.content[0].text
 
 </details>
 
-**进阶做法**：把这 5 轮输出全存进 csv、Stage 7 练习 2 会教怎么把这变成 eval harness 量化“prompt 改善了多少”。
+**进阶做法**：把这 5 轮输出全存进 csv、Stage 7 练习 2 会教怎么把这变成 eval harness（评估脚手架、即“跑评估用的外围程序 / 控制层”、完整定义见下面 进阶：往上还有哪几层）量化“prompt 改善了多少”。
 
 ## 🎯 精选 Projects
 
@@ -456,9 +456,9 @@ text = msg.content[0].text
 
 > 💡 **建议阅读路径**：dair-ai guide 入手（理论） → Anthropic Cookbook 看 Claude 实作 → NirDiamant 边跑边学 → 进 production 时读 dspy。
 
-## 🔭 进阶：prompt → context → harness 三层 engineering
+## 🔭 进阶：往上还有哪几层
 
-LLM-powered system 的工程实践可以拆成 **3 层 stack**。这不是 1 次 call vs N 次 call 的区别，而是每一层工程的对象 **不一样**：
+LLM-powered system 的工程实践是分层的。这不是 1 次 call vs N 次 call 的区别。**这里先看跟“写 prompt”直接相邻的三层**——完整是**五层**，往外还有 Loop 与 Graph，见 [Stage 7 五层工程分工](07-multi-agent-production.zh-Hans.md#五层工程分工prompt--context--harness--loop--graph)（分层的 canonical 出处）。每一层工程的对象 **不一样**：
 
 - **Prompt Engineering**（本 stage）= 工程 **送进模型的那段字符串**
 - **Context Engineering**（Stage 6）= 工程 **每次 call 时，context window 里装什么信息**——动态组装 RAG retrieve 结果、memory、tool definitions、对话 history
@@ -466,7 +466,7 @@ LLM-powered system 的工程实践可以拆成 **3 层 stack**。这不是 1 次
 
 → 三层 **正交**：一次 call 的 RAG app 也在做 context engineering（重点是组 context，不是 call 几次）；50 次 call 但没做 retrieval 的 chatbot 仍然只是在做 prompt engineering。
 
-**这条路线里的完整三层 lineage**：
+**这三层在本路线的学习进度**（完整五层见 Stage 7）：
 
 | Discipline | 工程“什么” | 在哪一 stage 完整学 |
 |---|---|---|

@@ -16,7 +16,7 @@ This stage is not about memorizing more terminology. It is about understanding h
 - **Memory answers**: what should an agent remember across conversations, sessions, and tasks?
 - **Context Engineering is the higher-level question**: before each LLM call, what information should be assembled into the prompt so the model can make the right decision inside a limited context window?
 
-→ This connects directly to Stage 7's three engineering layers: **Prompt = how to ask on this call / Context = what information to include on this call / Harness = how the whole agent system runs**. This stage is the middle layer.
+→ This connects directly to Stage 7's five-layer engineering split: **Prompt = how to ask on this call / Context = what information to include on this call / Harness = how the whole agent system runs / Loop = letting it run itself to completion / Graph = making the execution flow explicit**. This stage is layer 2.
 
 ### The two context capabilities an agent needs
 
@@ -44,11 +44,11 @@ The point is not "how many conversations you opened." The point is "**what you p
 
 📺 **Visual Learning**: [Hung-Yi Lee 2025 Lecture 2 — Context Engineering: The Key Technology Behind AI Agents](https://www.youtube.com/watch?v=lVdajtNpaGI) (NTU Introduction to Generative AI & Machine Learning 2025)
 
-### Where it sits in the three-layer stack
+### Where it sits in the five-layer stack
 
-![Prompt → Context → Harness engineering stack](../resources/diagrams/prompt-context-harness-stack.en.png)
+![Agent engineering five-layer stack](../resources/diagrams/agent-engineering-5layer.en.png)
 
-See [Stage 2](02-prompt-engineering.en.md) for the full comparison.
+See [Stage 7 five-layer engineering split](07-multi-agent-production.en.md#the-five-layer-engineering-split-prompt--context--harness--loop--graph), the canonical source for the layering model.
 
 ### This stage covers 2 of the 4 sub-problems (Lance Martin 2025 framing)
 

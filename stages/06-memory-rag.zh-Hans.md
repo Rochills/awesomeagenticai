@@ -16,7 +16,7 @@
 - **Memory 解决的是**：agent 应该跨对话、跨 session、跨任务记住什么？
 - **Context Engineering 是更上层的问题**：每次 LLM call 前，该把哪些信息组进 prompt，才能让模型在有限 context window 里做出正确决策？
 
-→ 这会直接接到 Stage 7 的三层工程分工：**Prompt = 单次怎么问 / Context = 这次该给哪些信息 / Harness = 整个 agent system 怎么跑起来**。本 stage 是中间那层。
+→ 接着 Stage 7 五层工程分工：**Prompt = 单次怎么问 / Context = 这次该给哪些信息 / Harness = 整个 agent system 怎么跑起来 / Loop = 让它自己跑完 / Graph = 把流程摊开**。本 stage 是第 2 层。
 
 ### Agent 需要的两种 context 能力
 
@@ -44,11 +44,11 @@
 
 📺 **视觉学习**：[李宏毅 2025 第 2 讲 — Context Engineering：AI Agent 背后的关键技术](https://www.youtube.com/watch?v=lVdajtNpaGI)（NTU 生成式人工智能与机器学习导论 2025）
 
-### 在三层 stack 里的位置
+### 在五层 stack 里的位置
 
-![Prompt → Context → Harness 三层工程 stack](../resources/diagrams/prompt-context-harness-stack.zh-Hans.png)
+![Agent 工程五层 Stack](../resources/diagrams/agent-engineering-5layer.zh-Hans.png)
 
-完整对照见 [Stage 2](02-prompt-engineering.zh-Hans.md)。
+详细对照表见 [Stage 7 五层工程分工](07-multi-agent-production.zh-Hans.md#五层工程分工prompt--context--harness--loop--graph)（分层的 canonical 出处）。
 
 ### 本 stage 处理 4 个 sub-problem 中的 2 个（Lance Martin 2025 框架）
 

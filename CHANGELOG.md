@@ -6,7 +6,20 @@ Format: `YYYY-MM-DD · category · 1-line summary (commit-sha)`.
 
 ---
 
-## 2026-08-11(第四批)
+## 2026-08-12
+
+- **content** · **分層模型從三層改成五層,而且改的重點不是數字**。以前六個地方各自重述一次這個模型,結果講出**三種版本**:`stages/02` ×2 說「三層」、`stages/06` 掛一張三層的圖、`stages/07` 標題說三層但下面註解又補「Loop 是第四層」、glossary 的 Loop 條目自稱第四層、Graph 條目存在卻沒接進階梯、`stages/07.5` 還特別警告「這跟 Stage 7 的三層不一樣」。**只把 3 改成 5 半年後會再漂一次**,所以改成 **1 個 canonical + 5 個指標**:`stages/07` 是唯一出處,其他五處只指回去、不重述。
+- **content** · **敘事改成目的先行**。原本是「層級 / 概念 / 關注單位」的名詞表,現在每一層寫「**目的(要解決什麼)**」加「**撞到什麼牆 → 所以有下一層**」——五層不是並列清單,是一層撞牆才生出下一層。白話用詞照 `stages/07:39` 既有的標準(「Prompt = 設計一個好的問法,讓模型這次回答準」),不用術語堆。
+- **content** · **新增〈迴圈跟圖差在哪〉整節**,三語。這兩個最容易混,而且網路上多數講法停在「迴圈一條路、圖可以多條」,那個講法**沒抓到重點**:迴圈也有步驟,只是那些步驟沒名字、指不到、測不了。真正的差別是**流程有沒有事先畫出來**。用的比喻:迴圈像洗碗(拿起來、洗、不乾淨再洗),圖像餐廳出菜(切、炒、擺盤,順序先寫好,兩個爐可同時開)。核心那句取自 Prefect 的講法:**格子裡面是 agent 自己繞圈,格子跟格子之間才是你安排的順序**——所以圖是把好幾個迴圈裝進格子再排順序,不是拿來取代迴圈的。**代價也寫進去**:圖逼你事先想清楚拆成哪幾格,任務如果就是「一直試到成功」、也沒人回頭查,先畫圖只是多做工。
+- **content** · **補上一件多數中文講法漏掉的事**:格子裡放的不一定是 agent,**也可以是一個工具、一段檢查、或「這裡要人按核准才能往下」**。人也是圖上的一格。
+- **fix** · **名稱來源獨立成一欄,而且照實標**。前三層(Prompt / Context / Harness)廠商文件自己在用;**後兩層沒有**——Loop / Graph Engineering 是社群名字,Anthropic 官方叫 *dynamic workflows*、Google ADK 與 Microsoft Agent Framework 叫 *graph-based workflow(s)*。查過:七篇談 graph engineering 的全是二手部落格,**零第一方來源**用這個詞當學科名;連 Anthropic 最新那篇 harness 長文都沒用 "harness engineering" 這個說法。表格旁邊直接寫「你去查官方文件查不到這個詞,不是你漏看」。
+- **diagram** · **新圖 `agent-engineering-5layer.{png,en.png,zh-Hans.png}`(1920×1080,三語)**,取代只有三層的 `prompt-context-harness-stack.*`。委派 Codex 生成、沿用 repo 既有的深底霓虹 house style;**前三層實線、後兩層虛線**,讓「官方採用 / 非官方名稱」不是只靠文字。文案是委派者逐字寫好放進 brief 的,Codex 只負責算圖。
+- **fix** · **改標題就會斷連結,這次自己踩到**。`stages/02` 的 `##` 標題從「prompt → context → harness 三層 engineering」改掉之後,`stages/06:51` 指向那個 anchor 的連結就死了。改成指向 Stage 7 的新 anchor;`check-anchors --strict` 綠。
+- **fix** · **「六個地方」這個清單本身是錯的,實際是十一個——而且是 review 用全 repo grep 抓出來的,不是我列的**。我那份清單是**憑印象回想「已知會出問題的地方」**列的,不是搜出來的,所以漏掉:**`README` 三語**(全 repo 最多人看的檔,寫著「3 個術語對應 3 個 phase、**不必另外找資源**」——明白宣稱完整)、**`stages/02` 的正文三語**、`stages/05` 兩處三語、`stages/06` 的小標題三語、glossary 的指標文字三語。
+- **fix** · **`stages/02` 那個是我自己弄糟的,值得單獨記**。我只把 `##` 標題裡的「三層」拿掉,**底下整段三層說明加一張三列表格原封不動**,而且那張表上面寫著「**完整**三層 lineage」。後果有兩層:① Stage 2 排在 Stage 7 **之前**,讀者先讀到它,會建立「總共就三層」的心智模型;② 標題不再有「三層」兩個字,**等於讓下一次 grep 再也找不到它**——我把問題藏得更深了。修法不是硬塞五層表格(Stage 2 的讀者不需要),是**拿掉「完整」這個宣稱**、改成「這裡先看跟寫 prompt 相鄰的三層,完整五層見 Stage 7」。
+- **fix** · **修的時候又犯了同一個錯的鏡像版**:README 我改好了正文那句、**忘了改標題**「🔭 三層概念進化」。自己重掃才抓到。標題與正文要一起看,這一批裡兩個方向的漏都發生過。
+- **chore** · **這次收尾改成「全 repo grep + 逐一 triage」而不是「跑 gate」**。12 個 gate 全綠但**一個都抓不到這類殘留**——它們檢查結構,看不出「這段話的內容已經過時」。triage 後確認留下的都是 false positive,刻意不動:`stages/08` 的三層 interface(computer / browser / sandbox)、`07.5` 解釋 stack 用的 frontend→backend→database、`07.5` 的痛點→原則→實作、`stages/05` 的「階梯式三層」(CLI / 調車 / SDK)、`resources/README` 的「三層深度」。委派 brief 裡也明列這些**不准動**。
+- **fix** · **委派回來之後抓到自己的漏改**。`stages/07` 第 9 行的「本章組成」還寫著「三層工程分工」,而且**三語都是**——因為 Codex 忠實鏡像了我沒改到的 canonical。同一支檔案第 123 行的 harness 定位段也還說「通常會碰到三層工程問題」;那一段講的是 harness 跟前後兩層的關係,**不是漏改而是範圍不同**,所以改成「五層裡的前三層(完整階梯見上面)」而不是硬改成五,保留它原本要講的正交性論證。
 
 - **content** · **Stage 1 的「西方開源」表加入 Meta 的 Muse(4 家 → 5 家)**,三語同步。`Muse Glimmer 30B`、**Apache 2.0**、131k context、多模態輸入、單張消費級 GPU 就跑得動,是 Meta 第一個**專為 agent 設計**的開放權重模型(tool use / 長任務 / 失敗回復)。查證走第一手:Meta 官方 developer 頁 + Meta 自己在 HF 上的 model card(`meta-models/Muse-Glimmer-30B`),不是引用新聞稿。
 - **content** · **`Muse Spark` 刻意只寫「還沒釋出」**。新聞普遍寫成「Meta 也會放 Spark 的權重」,但實際查 HF 是**空的**——那是宣告的意圖、不是已發生的事實。表格只收 Glimmer,註解寫明 Spark 未釋出。同理,Glimmer 是**多模態輸入**(image-text-to-text)而不是新聞常寫的純文字 agent 模型,這點依 model card 寫。
