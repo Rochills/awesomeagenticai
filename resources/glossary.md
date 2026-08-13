@@ -132,6 +132,8 @@ LLM 一次能「看」多少 token。**2026 frontier**：Claude Sonnet 5 / Opus 
 
 「LLM → tool → 結果 → LLM」這個重複的循環。Loop 結束條件可能是：LLM 說「I'm done」、跑超過 N 步、超出 budget。
 
+⚠️ **這是「一次執行裡面」的迴圈**，是 harness 的一個零件，跟五層階梯第 4 層的 **Loop Engineering（迴圈工程）**（本表下方另有一條，管的是跨 session 的長時間執行）同名但不同層次。兩者的分界見 [Stage 7](../stages/07-multi-agent-production.md)。
+
 ### Self-Refine（基本版反思 / 無記憶）
 
 agent 自我評估上一回合輸出、改下一回合的 pattern——「Actor 出答案 → Critic 找問題 → Actor 看 feedback 再答」的 single-session loop。**不需要持久記憶層**，純粹是 reasoning loop 機制、是 ReAct 的 sibling pattern。production agent（Cursor / Cline / Claude Code）每天在跑這個變種。
@@ -406,6 +408,8 @@ LLM 「自信地說錯」——把不存在的 API 編出來、把錯的數字�
 ### Loop Engineering（迴圈工程）
 
 五層工程分工的第 4 層（完整階梯與各層目的見 [Stage 7](../stages/07-multi-agent-production.md)，那裡是 canonical）：設計 / 調校 agent 的「迭代迴圈」本身——目標、工具、context 管理、終止條件、錯誤處理，讓長時間（數百步、跨 session）運行仍可靠、可控、不跑偏。相關：harness、Dynamic Workflows、ReAct。
+
+⚠️ **不要跟 harness 裡那個 [Agent Loop](#agent-loop) 搞混**。這一層管的是**跨越好幾次執行**的長時間問題；`Agent Loop` 是 harness 的一個零件，管的是**一次執行裡面**的機械迴圈。
 
 ### Graph Engineering（圖工程）
 

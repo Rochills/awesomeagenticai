@@ -132,6 +132,8 @@ Make the LLM output **JSON or another fixed schema** instead of free text. All m
 
 The "LLM → tool → result → LLM" repeated cycle. Termination: LLM says "done" / step budget exhausted / cost cap hit.
 
+⚠️ **This is the loop *inside a single run*** — one component of a harness. It shares a name with [Loop Engineering](#loop-engineering), Layer 4 of the five-layer ladder, which governs long-horizon execution *across* sessions. Different levels, same word. The boundary is drawn in [Stage 7](../stages/07-multi-agent-production.en.md).
+
 ### Self-Refine (Basic reflection / no memory)
 
 The agent evaluates the previous round's output and changes the next round's behavior — an "Actor answers → Critic finds issues → Actor reads feedback and answers again" single-session loop. **It does not need a persistent memory layer**; it is purely a reasoning-loop mechanism, a sibling pattern to ReAct. Production agents (Cursor / Cline / Claude Code) run variants of this every day.
@@ -406,6 +408,8 @@ Contrast:
 ### Loop Engineering
 
 Layer 4 in the five-layer engineering split (see [Stage 7](../stages/07-multi-agent-production.en.md), the canonical source for the full ladder and each layer's purpose): designing and tuning an agent's iteration loop itself (goal, tools, context management, termination logic, error handling) so long-running, multi-step, cross-session execution stays reliable and on-target. Related: harness, Dynamic Workflows, ReAct.
+
+⚠️ **Do not confuse this with the [Agent Loop](#agent-loop) inside a harness**. This layer governs the long-horizon problem *across many runs*; `Agent Loop` is a harness component governing the mechanical cycle *within one run*.
 
 ### Graph Engineering
 

@@ -30,16 +30,20 @@
 
 這五層**不是難度階梯**，是「**你在管多大範圍**」。而且它們不是並列的清單，是**一層撞牆、才生出下一層**（跟「call 一次 vs 多次」無關）：
 
-| 層級 | 概念 | 目的（要解決什麼） | 撞到什麼牆 → 所以有下一層 | 對應 stage | 名稱來源 |
+| 層級 | 概念 | 目的（要解決什麼） | 撞到什麼牆 → 所以有下一層 | 在哪一章講 | 名稱來源 |
 |---|---|---|---|---|---|
 | 1 | **Prompt Engineering** | 這一次問對 | 它不知道你手上的資料 | [Stage 2](02-prompt-engineering.md) | 官方採用 |
 | 2 | **Context Engineering** | 讓它讀到該讀的 | 知道了，也還動不了手 | [Stage 6](06-memory-rag.md) | 官方採用 |
 | **3** | **Harness Engineering**<br>（**本 stage**） | 讓它真的動手，出錯不炸掉 | 一次跑不完一件大事 | **本 stage** | 官方採用 |
-| 4 | **Loop Engineering** | 讓它自己做完，不用你盯 | 它自己跑，你就看不見它在幹嘛 | [Stage 5.6](05-claude-code-ecosystem.md) | ⚠️ 非官方名稱 |
+| 4 | **Loop Engineering**<br>（長時間執行） | 讓它自己做完，不用你盯 | 它自己跑，你就看不見它在幹嘛 | [Stage 5.6](05-claude-code-ecosystem.md) | ⚠️ 非官方名稱 |
 | 5 | **Graph Engineering** | 看得到、管得住、能重來 | —（目前最外一層） | [Stage 4](04-agent-frameworks.md) | ⚠️ 非官方名稱 |
 
 ![Agent 工程五層 Stack](../resources/diagrams/agent-engineering-5layer.png)
 
+> ⚠️ **「在哪一章講」不是閱讀順序**。第 4、5 層的主題剛好在比較前面的章節出現過（5.6 與 4），所以那一欄由上往下看會「倒退」。**照 Stage 0 → 8 的原順序讀就好**，這一欄只是告訴你想深入時翻哪裡。
+>
+> ⚠️ **第 4 層的 Loop 是「長時間」的意思**——跑數百步、跨 session 還能接下去、什麼時候該停。它跟後面 harness 元件表裡那個 `Agent loop`（單次執行內的機械迴圈）同名但不同層次，讀到那裡會再講一次。
+>
 > ⚠️ **「名稱來源」那一欄要看一下**。前三個詞廠商自己的文件在用（Anthropic 有 context engineering 專文、OpenAI 2026-02 用了 harness engineering）。**後兩個沒有**：Loop / Graph Engineering 是社群講出來的名字，概念真的成立，但 Anthropic 官方叫 *dynamic workflows*、Google ADK 與 Microsoft Agent Framework 叫 *graph-based workflow(s)*。你去查官方文件查不到「graph engineering」這個詞，不是你漏看。
 
 **白話差異**：
@@ -47,7 +51,7 @@
 - **Prompt** = 設計一個好的問法，讓模型這次回答準
 - **Context** = 動態決定要放入哪些背景、記憶、文件、工具結果，讓模型知道現在情境
 - **Harness** = 把 prompt、context、工具、狀態、流程控制、錯誤處理串成一套可以運作的系統
-- **Loop** = 交代一個目標，讓它自己重複做到夠好為止，並且決定「什麼時候該停」
+- **Loop** = 交代一個目標，讓它自己重複做到夠好為止，並且決定「什麼時候該停」、下次開新 session 還接得下去（**不是** harness 裡那個單次執行的機械迴圈）
 - **Graph** = 先把工作拆成幾個格子、畫出誰接誰，讓過程看得到、能從中間接著跑
 
 ### 迴圈跟圖差在哪（這兩個最容易混）
@@ -150,7 +154,7 @@
 
 | 元件 | 做什麼 | 對應本 stage 練習 |
 |---|---|---|
-| **Agent loop** | 「LLM → tool → result → LLM」迴圈、穩定處理多輪 | 練習 1 multi-agent 辯論 |
+| **Agent loop**<br>（單次執行內） | 「LLM → tool → result → LLM」迴圈、穩定處理多輪。**這是一次執行裡面的迴圈**，跟上面第 4 層 Loop Engineering 講的「跨 session 長時間執行」不同層次 | 練習 1 multi-agent 辯論 |
 | **Tool registry** | 動態 tool dispatch、permission gate、sandboxing | （在每個 framework / SDK 都有）|
 | **Context manager** | message history 管理、context window 控制、auto-compact | Stage 6 + 本 stage 練習 4 SDK |
 | **Safety layer** | permission prompts、sandboxed exec、destructive op 攔截 | （Claude Code 內建、SDK 可自訂）|

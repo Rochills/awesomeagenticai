@@ -30,16 +30,20 @@ This is the final stage. You are moving from "I can build an agent" to "I can ma
 
 These five layers are **not a difficulty ladder**. They describe **how much scope you are managing**. They are also not a flat list: **each next layer appears because the previous layer hits a wall** (unrelated to "one call vs. many calls"):
 
-| Layer | Concept | Purpose (what it solves) | Wall it hits → why the next layer exists | Corresponding stage | Name source |
+| Layer | Concept | Purpose (what it solves) | Wall it hits → why the next layer exists | Where it is taught | Name source |
 |---|---|---|---|---|---|
 | 1 | **Prompt Engineering** | Ask the right thing this time | It does not know the data you have | [Stage 2](02-prompt-engineering.en.md) | Officially used |
 | 2 | **Context Engineering** | Let it read the right information | It knows, but still cannot act | [Stage 6](06-memory-rag.en.md) | Officially used |
 | **3** | **Harness Engineering**<br>(**This stage**) | Let it actually act without blowing up on errors | One run cannot finish a large job | **This stage** | Officially used |
-| 4 | **Loop Engineering** | Let it finish by itself without you watching | It runs by itself, so you cannot see what it is doing | [Stage 5.6](05-claude-code-ecosystem.en.md) | ⚠️ Unofficial name |
+| 4 | **Loop Engineering**<br>(long-horizon) | Let it finish by itself without you watching | It runs by itself, so you cannot see what it is doing | [Stage 5.6](05-claude-code-ecosystem.en.md) | ⚠️ Unofficial name |
 | 5 | **Graph Engineering** | Make the process visible, controllable, and resumable | — (currently the outermost layer) | [Stage 4](04-agent-frameworks.en.md) | ⚠️ Unofficial name |
 
 ![Agent engineering five-layer stack](../resources/diagrams/agent-engineering-5layer.en.png)
 
+> ⚠️ **"Where it is taught" is not a reading order**. Layers 4 and 5 happen to be covered in earlier chapters (5.6 and 4), so that column appears to run backwards as you read down. **Just read Stage 0 → 8 in order**; this column only tells you where to go when you want the detail.
+>
+> ⚠️ **Layer 4's "Loop" means long-horizon**: hundreds of steps, picking up again in a new session, deciding when to stop. It shares a name with the `Agent loop` in the harness component table further down (the mechanical cycle inside a single run) but sits at a different level; that table says so again when you reach it.
+>
 > ⚠️ **Pay attention to the "Name source" column**. The first three terms are used by vendor documentation (Anthropic has context engineering material, and OpenAI used harness engineering in 2026-02). **The last two are not**: Loop / Graph Engineering are community names. The concepts are real, but Anthropic calls similar mechanisms *dynamic workflows*, while Google ADK and Microsoft Agent Framework use *graph-based workflow(s)*. If you cannot find "graph engineering" in official docs, you are not missing it.
 
 **Plain-language difference**:
@@ -47,7 +51,7 @@ These five layers are **not a difficulty ladder**. They describe **how much scop
 - **Prompt** = design a good way of asking so the model answers correctly this time
 - **Context** = dynamically decide which background, memory, documents, and tool results to include so the model understands the current situation
 - **Harness** = connect prompt, context, tools, state, flow control, and error handling into a system that can actually run
-- **Loop** = give it a goal, let it repeat until the result is good enough, and decide when it should stop
+- **Loop** = give it a goal, let it repeat until the result is good enough, decide when it should stop, and let a fresh session pick up where the last one left off (**not** the single-run mechanical loop inside the harness)
 - **Graph** = split the work into boxes first, draw which box connects to which, and make the process visible and resumable
 
 ### Loop vs. graph: what is the difference?
@@ -150,7 +154,7 @@ To turn an LLM into a usable agent, the first thing you meet is **the first thre
 
 | Component | What it Does | Corresponding Exercise in this Stage |
 |---|---|---|
-| **Agent loop** | The "LLM → tool → result → LLM" loop, stably handling multiple turns | Exercise 1 Multi-agent debate |
+| **Agent loop**<br>(within one run) | The "LLM → tool → result → LLM" loop, stably handling multiple turns. **This is the loop inside a single run**, a different level from Layer 4 Loop Engineering, which is about long-horizon execution across sessions | Exercise 1 Multi-agent debate |
 | **Tool registry** | Dynamic tool dispatch, permission gates, sandboxing | (Present in every framework / SDK) |
 | **Context manager** | Message history management, context window control, auto-compaction | Stage 6 + This stage's Exercise 4 SDK |
 | **Safety layer** | Permission prompts, sandboxed execution, interception of destructive ops | (Built into Claude Code, customizable in SDKs) |
