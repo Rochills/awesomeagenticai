@@ -367,7 +367,7 @@ Production agent 跑久了、**cost / latency 兩條線會吃掉你大半預算�
 - [ ] 在真實 workload 上量測 prompt caching 前後的成本差異
 - [ ] 把 agent deploy 到雲端（任何 provider）
 
-如果都可以 → 先進 [**Stage 7.5 — 進階 Agentic 概念地圖**](07.5-advanced-agentic-concepts.md)（1 週、不寫 code、建立 frontier 概念地圖、定位業界還在討論哪些進階概念），再進 [**Stage 8 — Agent Interfaces**](08-agent-interfaces.md)（**兩 track 共用 hub**）學 agent 怎麼跟非 API 世界互動（Computer Use / Browser Use / Sandbox）。或挑一個[特化分支](../README.md#️-學習地圖兩條學習路徑)、或回過頭來貢獻這份 repo。
+如果都可以 → 先進 [**Stage 7.5 — 進階 Agentic 概念地圖**](07.5-advanced-agentic-concepts.md)（1 週、不寫 code、建立 frontier 概念地圖、定位業界還在討論哪些進階概念），再進 [**Stage 8 — Agent Interfaces**](08-agent-interfaces.md)（**兩 track 共用 hub**）學 agent 怎麼跟非 API 世界互動（Computer Use / Browser Use / Sandbox）。或挑一個[特化分支](../README.md#-學習地圖兩條學習路徑)、或回過頭來貢獻這份 repo。
 
 ## 💡 接下來
 

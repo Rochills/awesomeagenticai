@@ -515,7 +515,7 @@ agent = Agent(
 - [ ] 講出 prompt injection through web content 為什麼是新攻擊面、4 個防護 pattern 各擋什麼
 - [ ] 講出 OSWorld v1 76.26% → 2.0 約 20% 的落差背後的 reward-hacking / 飽和紀律（為什麼不能 blindly 信 SOTA 數字）
 
-如果都可以 → 你已經跑完 curriculum 主幹。挑一個[特化分支](../README.md#️-學習地圖兩條學習路徑)、或往下看 下一個 frontier。
+如果都可以 → 你已經跑完 curriculum 主幹。挑一個[特化分支](../README.md#-學習地圖兩條學習路徑)、或往下看 下一個 frontier。
 
 ## 💡 下一個 frontier — Voice agents · VLA 機器人
 

@@ -116,8 +116,26 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - tables
+  # slugify: python-markdown's default strips non-ASCII, so every CJK heading
+  # ("### Loop Engineering（迴圈工程）") rendered as id="loop-engineering" while
+  # GitHub — and scripts/check-anchors.py, which validates against GitHub's
+  # github-slugger rules — produce "loop-engineering迴圈工程". The two disagreed
+  # on 151 distinct fragments: the gate stayed green while those jump-links were
+  # dead on the published site. Emoji-prefixed ASCII headings diverged too, since
+  # GitHub keeps the leading separator that python-markdown strips.
+  # pymdownx's slugify(case="lower") reproduces check-anchors.py's output exactly
+  # on every heading in this repo (4344 real headings), so the SITE and the GATE
+  # now share one rule. GitHub is aligned too except for one documented case:
+  # it preserves U+FE0F where both of these strip it, so a heading carrying a
+  # variation selector has no fragment that works in both. That is guarded
+  # separately — a linked-to heading may not contain one.
+  # All of this is pinned by scripts/test_anchor_slug_parity.py; do not change
+  # this block without running it.
   - toc:
       permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.tasklist:

@@ -132,7 +132,7 @@ LLM 一次能「看」多少 token。**2026 frontier**：Claude Sonnet 5 / Opus 
 
 「LLM → tool → 結果 → LLM」這個重複的循環。Loop 結束條件可能是：LLM 說「I'm done」、跑超過 N 步、超出 budget。
 
-⚠️ **這是「一次執行裡面」的迴圈**，是 harness 的一個零件，跟五層階梯第 4 層的 **Loop Engineering（迴圈工程）**（本表下方另有一條，管的是跨 session 的長時間執行）同名但不同層次。兩者的分界見 [Stage 7](../stages/07-multi-agent-production.md)。
+⚠️ **這是「一次執行裡面」的迴圈**，是 harness 的一個零件，跟五層階梯第 4 層的 [Loop Engineering（迴圈工程）](#loop-engineering迴圈工程)（管的是跨 session 的長時間執行）同名但不同層次。兩者的分界見 [Stage 7](../stages/07-multi-agent-production.md)。
 
 ### Self-Refine（基本版反思 / 無記憶）
 

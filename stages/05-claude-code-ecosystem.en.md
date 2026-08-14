@@ -55,7 +55,7 @@ After completing this stage, you will be able to extend Claude Code, write your 
 
 ---
 
-## 🗺️ 7-Layer Architecture Map (read this first, then 5.1-5.7)
+## 🗺 7-Layer Architecture Map (read this first, then 5.1-5.7)
 
 > 📋 **What this section is**: maps Claude Code's 7 primitives (MCP / Skills / Plugins / Subagents / Hooks / Slash commands / CLI) to **7 architecture layers + 3 engineering disciplines**. Read it once before 5.1-5.7 to know which layer each sub-chapter teaches; read it again afterward as synthesis. **The layering is a teaching choice, not an absolute truth**.
 

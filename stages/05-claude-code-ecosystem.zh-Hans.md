@@ -55,7 +55,7 @@
 
 ---
 
-## 🗺️ 7-Layer Architecture Map（先看这张图、再读 5.1-5.7）
+## 🗺 7-Layer Architecture Map（先看这张图、再读 5.1-5.7）
 
 > 📋 **这节是什么**：把 Claude Code 的 7 个 primitive（MCP / Skills / Plugins / Subagents / Hooks / Slash commands / CLI）对应到 **7 个架构层 + 3 个工程学 discipline**——进 5.1-5.7 之前先看一次，知道接下来在学什么层；学完回头看，就是 synthesis。**分层是教学选择，不是 absolute 真理**。
 

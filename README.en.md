@@ -49,7 +49,7 @@ After the main path, you go from "**LLM user**" to "**agent system builder**" �
   - [Read online](#read-online)
   - [Local clone](#local-clone)
   - [✨ What you get](#-what-you-get)
-- [🗺️ Learning Map (Two Tracks)](#️-learning-map-two-tracks)
+- [🗺️ Learning Map (Two Tracks)](#-learning-map-two-tracks)
 - [💡 How to Learn](#-how-to-learn)
 - [📚 Related Resources](#-related-resources)
 - [🤝 Contributing](#-contributing)
@@ -67,7 +67,7 @@ After the main path, you go from "**LLM user**" to "**agent system builder**" �
 Start here: **[`resources/setup-guide.en.md`](resources/setup-guide.en.md)** — 30-45 minutes from zero, walks you through getting an API key, installing Python, and running your first LLM hello-world.
 
 ### Read online
-- **[Learning Map (Two Tracks)](#️-learning-map-two-tracks)** — read this section to decide Track A or Track B
+- **[Learning Map (Two Tracks)](#-learning-map-two-tracks)** — read this section to decide Track A or Track B
 - **[Stage 0 Foundations](stages/00-foundations.en.md)** — already know Python / git / API? Skip straight to Stage 1
 
 ### Local clone
@@ -90,7 +90,7 @@ cd awesome-agentic-ai-zh
 
 ---
 
-## 🗺️ Learning Map (Two Tracks)
+## 🗺 Learning Map (Two Tracks)
 
 ![AI Agent Learning Map](resources/diagrams/learning-map.en.png)
 

@@ -19,7 +19,10 @@ on:
   #（47c9682 07:06 EDT 引入 → c0f2bbe 22:07 EDT 修掉），而且不是我們自己抓到的，
   # 是靠一個外部 PR 照出來的——因為 GitHub 的 PR 檢查跑的是「合併後」的結果，不是分支本身。
   # link-rot / star-drift 兩個 job 有 `if: schedule || workflow_dispatch` 的 guard，
-  # 不會被 push 觸發，所以 push 只跑 banned-words + freshness-tests（實測 17s + 9s）。
+  # 不會被 push 觸發，所以 push 跑的是 banned-words + freshness-tests
+  #（實測 17s + 9s）+ anchor-slug-parity。最後那個是這份檔案裡第一個要裝
+  # 非 stdlib 依賴的 job（`requirements-docs.txt`，因為它需要真正的 mkdocs
+  # config loader 才能問出網站實際會用哪個 slugify），所以會比另外兩個久一些。
   push:
     branches: [main]
   schedule:
@@ -356,3 +359,41 @@ jobs:
         # Pins the 2026-07 coverage fixes: mirror-locale scanning +
         # DeepSeek space-form regex (scripts/test_freshness.py).
         run: python scripts/test_freshness.py
+
+  anchor-slug-parity:
+    name: Anchor slug parity (site vs check-anchors)
+    runs-on: ubuntu-latest
+    # Its own job because it needs the real mkdocs config loader — it asks
+    # mkdocs.yml what slugify the SITE will use, rather than assuming. The
+    # other lint steps are stdlib-only and must not pay for that install.
+    #
+    # Guards issue #93: check-anchors.py validates GitHub's slug rules while
+    # the site used python-markdown's default, which strips non-ASCII. The
+    # gate read green while 151 fragments were dead on the published site.
+    # Runs on every PR — docs.yml would be too late, it only fires on push
+    # to main, i.e. after the merge.
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install docs dependencies
+        # The same requirement set the site build installs, so the slugify
+        # under test is the one that will actually render the site. Note
+        # pymdown-extensions is pinned explicitly in requirements-docs.txt
+        # precisely because toc.slugify resolves through it.
+        run: pip install -r requirements-docs.txt
+
+      - name: Stage content tree
+        # mkdocs.yml sets docs_dir: _build/docs, which is gitignored. The test
+        # reads the real config via mkdocs.config.load_config, and load_config
+        # VALIDATES docs_dir existence — so on a fresh checkout it aborts before
+        # the parity assertion ever runs. Locally this passed only because a
+        # previous build had left _build/docs behind.
+        run: python scripts/build-docs-tree.py
+
+      - name: Site and gate must agree on every heading slug
+        run: python scripts/test_anchor_slug_parity.py

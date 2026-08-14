@@ -95,7 +95,7 @@ LLM 知道你的私有 / 領域資料、有 3 種主要做法。**本 stage 教 
 你應該已經：
 
 - 完成 Stage 3（會寫 tool use、會呼叫 LLM API、看得懂 ReAct loop）—— **硬性技術前置**
-- 走過 Stage 4（agent frameworks）+ Stage 5（Claude Code 生態）—— curriculum 主線是 **3 → 4 → 5 → 6**（見 [README 學習地圖](../README.md#️-學習地圖兩條學習路徑)）；非硬性技術前置，但 RAG / memory 常跟 framework + Claude Code memory 機制搭配、照順序走過理解更完整，且 [Stage 7](07-multi-agent-production.md) 預期你已完成 4 + 5 + 6
+- 走過 Stage 4（agent frameworks）+ Stage 5（Claude Code 生態）—— curriculum 主線是 **3 → 4 → 5 → 6**（見 [README 學習地圖](../README.md#-學習地圖兩條學習路徑)）；非硬性技術前置，但 RAG / memory 常跟 framework + Claude Code memory 機制搭配、照順序走過理解更完整，且 [Stage 7](07-multi-agent-production.md) 預期你已完成 4 + 5 + 6
 - 能跑 Python `pip install` 安裝 SDK（後面練習會用到 `chromadb`、`sentence-transformers` 等）
 - 對 list / dict / generator 等基礎 Python 結構上手
 

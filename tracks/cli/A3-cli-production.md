@@ -216,7 +216,7 @@ Track A 的人**已經在用** [Stage 7.5 的進階概念](../../stages/07.5-adv
 - [ ] 把你的 CLAUDE.md / commands 打包過至少一次（即使只有自己用）
 - [ ] 知道什麼任務值得加 observability、什麼不值得
 
-如果都可以 → **Track A 完整通關**。建議接著走 [**Stage 8 — Agent Interfaces**](../../stages/08-agent-interfaces.md)（**兩 track 共用 hub**：Computer Use / Browser Use / Code Sandbox，Track A 視角約 1-2 週），或挑一個 [specialized branch](../../README.md#️-學習地圖兩條學習路徑) 繼續走（researcher / developer / teacher / knowledge-worker / everyday-users）。
+如果都可以 → **Track A 完整通關**。建議接著走 [**Stage 8 — Agent Interfaces**](../../stages/08-agent-interfaces.md)（**兩 track 共用 hub**：Computer Use / Browser Use / Code Sandbox，Track A 視角約 1-2 週），或挑一個 [specialized branch](../../README.md#-學習地圖兩條學習路徑) 繼續走（researcher / developer / teacher / knowledge-worker / everyday-users）。
 
 如果想再深入「**怎麼寫自己的 CLI agent**」（不是用現有的）→ 跳到 [Track B Stage 3](../../stages/03-tool-use-and-hello-agent.md) 開始。Track A 跟 Track B 互補。
 

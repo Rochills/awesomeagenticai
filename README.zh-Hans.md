@@ -49,7 +49,7 @@
   - [在线阅读](#在线阅读)
   - [本地下载](#本地下载)
   - [✨ 你会收获什么？](#-你会收获什么)
-- [🗺️ 学习地图（两条学习路径）](#️-学习地图两条学习路径)
+- [🗺️ 学习地图（两条学习路径）](#-学习地图两条学习路径)
 - [💡 如何学习](#-如何学习)
 - [📚 相关资源](#-相关资源)
 - [🤝 如何贡献](#-如何贡献)
@@ -67,7 +67,7 @@
 先看 **[`resources/setup-guide.zh-Hans.md`](resources/setup-guide.zh-Hans.md)** — 30-45 分钟从零带你申请 API key、装好 Python、跑出第一个 LLM hello-world。
 
 ### 在线阅读
-- **[学习地图（两条学习路径）](#️-学习地图两条学习路径)** — 看完这节决定走 Track A 还 Track B
+- **[学习地图（两条学习路径）](#-学习地图两条学习路径)** — 看完这节决定走 Track A 还 Track B
 - **[Stage 0 基础准备](stages/00-foundations.zh-Hans.md)** — 已经会 Python / git / API 的人可以直接跳 Stage 1
 
 ### 本地下载
@@ -90,7 +90,7 @@ cd awesome-agentic-ai-zh
 
 ---
 
-## 🗺️ 学习地图（两条学习路径）
+## 🗺 学习地图（两条学习路径）
 
 ![AI Agent 学习地图](resources/diagrams/learning-map.zh-Hans.png)
 
