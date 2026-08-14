@@ -6,6 +6,13 @@ Format: `YYYY-MM-DD · category · 1-line summary (commit-sha)`.
 
 ---
 
+## 2026-08-14(第四批)
+
+- **content** · **Stage 7 必修閱讀清單加入 [`deepseek-ai/deepseek-harness`](https://github.com/deepseek-ai/deepseek-harness)(三語,標為**選讀**)**。DeepSeek 2026-08-13 開源、MIT、TypeScript,主張「everything is a plugin」。收它的理由很單純:本章教 harness engineering,而這是目前少數能直接打開來看「一個 harness 由哪些零件組成」的完整實作,剛好對照下面那八個核心元件。
+- **content** · **寫法是「拿來讀,不是拿來依賴」**,而且但書直接引原文:官方 README 自己寫著「currently in *developer preview* and is iterating rapidly. **THERE WILL BE COMPATIBILITY-BREAKING CHANGES.**」,版本 `0.1.0-rc.5`、GitHub 上還沒有任何 release。標成**選讀**——1-5 是穩定的 canonical 材料,把一個上線一天的 rc 併排寫進「必修」名不副實。真要讀就指向 `docs/architecture.md`,而不是叫人一頭栽進整個 monorepo。星數用 ★ 形式寫,交給 `refresh-stars.py` 維護——一個上線一天的 repo,寫死數字幾天就過期。
+- **fix** · **我原本寫「支援哪些模型官方沒有寫」——那是錯的,而且方向錯得最糟:它警告讀者不要期待一個官方其實有詳細文件的能力**。我只查了 README 與 deepseek.com/harness 兩個表面就下了「沒有寫」的結論,但 README 連到的 Web UI guide 再連出去的 [模型設定指南](https://deepseek-harness.github.io/deepseek-harness/guide/providers) 明明白白列了 Anthropic / OpenAI / Bedrock / Vertex / Azure 與自訂 OpenAI-compatible endpoint,設定範例裡甚至直接有 `claude-sonnet-4-5`。**「某件事沒有被講」是最容易搞錯的一種主張**——查兩個地方就宣告不存在,不夠。已改成寫出真正的事實。
+- **fix** · **第二個錯在同一條:我寫「不是 terminal CLI」,那也不成立**。`apps/cli/README.md` 寫著 `dsh web` 只是 `--profile web` 的別名,另外還有 `dsh --profile headless "job"`——跑一次、印出結果、結束。所以「沒有任何地方提到 terminal 模式」是假的。**結論(不收進 [`resources/cli-agents-guide.md`](resources/cli-agents-guide.md))沒有變,但理由必須換成真的**:那張表收的是互動式 terminal agent,而 DeepSeek Harness 的互動介面是 Web UI,headless 是一次性的,`--profile tui` 指向的外掛 repo 目前 404、實際上沒有互動式 TUI 出貨。
+
 ## 2026-08-14(第三批)
 
 - **refactor** · **七支腳本各自寫了一套「哪幾行是程式碼」,現在全部共用一份([#97](https://github.com/WenyuChiou/awesome-agentic-ai-zh/issues/97))**。新增 `scripts/md_fences.py`,`check-anchors`、`check-hans-chars`、`check-image-locale`、`check-links`、`check-locale-links`、`check-mirror-parity`、`zh-hans-localize` 全部改成呼叫它。每一支轉完都**逐字比對輸出**才算數:五個 gate 的輸出與轉換前**完全相同**,`check-links` 抽出的 URL **零檔案差異、總數轉換前後相同**,`zh-hans-localize` 的 mask/unmask 在 68 個檔案上都是無損來回。
