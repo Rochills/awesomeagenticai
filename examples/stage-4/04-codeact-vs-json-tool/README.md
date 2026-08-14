@@ -56,7 +56,7 @@ python test_anthropic.py # Path B 可載入檢查
 
 LLM 不回 JSON、而是**回 Python code block**：
 
-```
+````
 （user）Find Taipei population, divide by NYC, give ratio.
 
 （LLM 回應）
@@ -68,7 +68,7 @@ print(ratio)
 ```
 
 （Smolagents 執行這段 code、把 print 結果接回去給 LLM 繼續）
-```
+````
 
 Framework 提供 sandboxed Python interpreter、agent 在裡面 import tool、寫 code、看 print 結果繼續。
 

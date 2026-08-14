@@ -293,6 +293,16 @@ jobs:
         # (scripts/test_pr_link_audit.py). stdlib-only, network-free.
         run: python3 scripts/test_pr_link_audit.py
 
+      - name: check-anchors.py fenced-code-block parser tests
+        # Pins issue #95: strip_code_blocks used to toggle on any ``` line,
+        # which disagrees with CommonMark and therefore with the renderer that
+        # publishes the site. Four headings were rendering as code in
+        # examples/stage-4/04-codeact-vs-json-tool/README.* while every gate
+        # read green. check-anchors.py itself CANNOT catch that — under the old
+        # parser it still exits 0 — so these unit tests are the only guard.
+        # stdlib-only, network-free.
+        run: python3 scripts/test_check_anchors.py
+
   link-rot:
     name: Link rot check (GitHub URLs)
     runs-on: ubuntu-latest

@@ -56,7 +56,7 @@ python test_anthropic.py   # Path B import check
 
 The LLM doesn't return JSON — it returns a **Python code block**:
 
-```
+````
 (user) Find Taipei population, divide by NYC, give ratio.
 
 (LLM response)
@@ -68,7 +68,7 @@ print(ratio)
 ```
 
 (Smolagents runs the code in a sandbox and feeds the print output back to the LLM)
-```
+````
 
 The framework provides a sandboxed Python interpreter; the agent imports tools, writes code, sees stdout, continues.
 
