@@ -35,11 +35,13 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from md_fences import strip_code_blocks  # noqa: E402
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 # ![alt](path) — relative paths only; skip external URLs and data: URIs.
 IMAGE_RE = re.compile(r"!\[[^\]]*\]\((?!https?:|data:)([^)\s]+)\)")
-FENCE_RE = re.compile(r"^\s*(```|~~~)")
 LOCALE_SUFFIXES = {".en.md": "en", ".zh-Hans.md": "zh-Hans"}
 IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"}
 # `.claude` and `.ai` are listed for parity with the other gates even though
@@ -77,13 +79,10 @@ def base_name(asset: str) -> str:
 
 def scan(page: Path):
     """Yield (lineno, asset) for each relative image reference outside code fences."""
-    in_fence = False
-    for i, line in enumerate(page.read_text(encoding="utf-8").split("\n"), 1):
-        if FENCE_RE.match(line):
-            in_fence = not in_fence
-            continue
-        if in_fence:
-            continue
+    # Fenced code blanked by the shared parser (md_fences), not a local
+    # toggle — see #95/#97. Blanking preserves line numbers.
+    text = strip_code_blocks(page.read_text(encoding="utf-8"), source=str(page))
+    for i, line in enumerate(text.split("\n"), 1):
         for m in IMAGE_RE.finditer(line):
             asset = m.group(1)
             if Path(asset).suffix.lower() in IMAGE_EXTS:

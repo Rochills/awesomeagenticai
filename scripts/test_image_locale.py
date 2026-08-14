@@ -39,6 +39,13 @@ def _run(files: dict, assets=(), args=()):
         (root / "scripts" / SCRIPT.name).write_text(
             SCRIPT.read_text(encoding="utf-8"), encoding="utf-8"
         )
+        # The gate imports the shared fence parser (md_fences, issue #97),
+        # so the temp repo needs it too or the subprocess dies on ImportError
+        # and every assertion below fails for the wrong reason.
+        _SHARED = SCRIPT.parent / "md_fences.py"
+        (root / "scripts" / _SHARED.name).write_text(
+            _SHARED.read_text(encoding="utf-8"), encoding="utf-8"
+        )
         for a in assets:
             p = root / a
             p.parent.mkdir(parents=True, exist_ok=True)

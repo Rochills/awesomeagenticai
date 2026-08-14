@@ -37,6 +37,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from md_fences import code_line_flags  # noqa: E402
+
 # Curated blanket-safe Taiwan→Mainland vocabulary (grep-verified, this repo)
 VOCAB = {
     "呼叫": "调用",      # programming call/invoke (mainland: 调用)
@@ -79,21 +82,47 @@ PROTECT = {
 }
 
 REPO = Path(__file__).resolve().parent.parent
-FENCE_RE = re.compile(r"```.*?```", re.DOTALL)
 INLINE_RE = re.compile(r"`[^`\n]*`")
 
 
 def _mask(text: str):
     """Replace fenced + inline code with placeholders so substitutions
-    never touch code. Returns (masked_text, restore_map)."""
+    never touch code. Returns (masked_text, restore_map).
+
+    Fenced blocks are located by the shared parser (md_fences) rather than by
+    the `​```.*?```` DOTALL regex this used to use. That regex pairs fences
+    greedily-left-to-right, so it mis-pairs a nested example — exactly the #95
+    shape — and here the consequence is worse than a bad report: this script
+    REWRITES files, so a mis-paired fence means vocabulary substitutions land
+    inside a code sample.
+
+    Inline code is still handled by the regex below; md_fences is line-based
+    and deliberately says nothing about spans within a line.
+    """
     store: list[str] = []
 
-    def stash(m: re.Match) -> str:
-        store.append(m.group(0))
+    def stash_text(chunk: str) -> str:
+        store.append(chunk)
         return f"\x00{len(store) - 1}\x00"
 
-    text = FENCE_RE.sub(stash, text)
-    text = INLINE_RE.sub(stash, text)
+    # Fenced blocks, by line, using the shared classification.
+    lines = text.split("\n")
+    flags = code_line_flags(text)
+    out: list[str] = []
+    run: list[str] = []
+    for line, in_code in zip(lines, flags):
+        if in_code:
+            run.append(line)
+            continue
+        if run:
+            out.append(stash_text("\n".join(run)))
+            run = []
+        out.append(line)
+    if run:
+        out.append(stash_text("\n".join(run)))
+    text = "\n".join(out)
+
+    text = INLINE_RE.sub(lambda m: stash_text(m.group(0)), text)
     return text, store
 
 

@@ -6,7 +6,14 @@ Format: `YYYY-MM-DD · category · 1-line summary (commit-sha)`.
 
 ---
 
-## 2026-08-14(第二批)
+## 2026-08-14(第三批)
+
+- **refactor** · **七支腳本各自寫了一套「哪幾行是程式碼」,現在全部共用一份([#97](https://github.com/WenyuChiou/awesome-agentic-ai-zh/issues/97))**。新增 `scripts/md_fences.py`,`check-anchors`、`check-hans-chars`、`check-image-locale`、`check-links`、`check-locale-links`、`check-mirror-parity`、`zh-hans-localize` 全部改成呼叫它。每一支轉完都**逐字比對輸出**才算數:五個 gate 的輸出與轉換前**完全相同**,`check-links` 抽出的 URL **零檔案差異、總數轉換前後相同**,`zh-hans-localize` 的 mask/unmask 在 68 個檔案上都是無損來回。
+- **fix** · **共用的那份必須在每個面向都不輸原本六份裡最好的那個,不是取平均**。原本只有 `zh-hans-localize` 的 DOTALL regex 認得 **blockquote 裡的 fence**(`> ```bash`),其他六份都不認——而 `check-anchors` 因此會去驗一個在網站上其實是純文字的連結。所以共用版補上了 blockquote 支援(記住開頭 fence 的引用層數,只在同層收尾)。拿全 repo **234 個版控內檔案**對**真正的 renderer** 比對標題數:零筆不一致。(刻意寫 234 不是 235——235 正是下面那條在修的 bug 產生的數字,把一個未追蹤的本地檔也算了進去。)
+- **fix** · **`collect_anchors()` 之前是在原始內容上跑的**——#95 只修了連結那一側,**目標那一側從來沒有排除程式碼**。所以一個只出現在程式碼範例裡的 `## 標題` 會被當成合法的錨點目標。全 repo **642 個**這種幽靈目標,現在不再被接受;沒有任何實際連結指到它們,所以修完 `--strict` 照樣全綠。
+- **fix** · **`_md_files()` 會把未追蹤的本地檔算進 gate 的輸入**,所以同一個 gate 在本機跟 CI 看到的檔案集不一樣——一個放在 repo 根目錄的暫存檔就足以讓標題總數對不上,目錄過濾也擋不掉。改成走 `git ls-files`,拿不到 git 時退回原本的 rglob(退化成比較寬,不會靜靜變成空集合)。
+- **test** · 新增 `test_no_script_reimplements_the_fence_rule`:**正面斷言七支 gate 都必須 `from md_fences import`**——黑名單擋得掉的形狀永遠有限(實測舊版黑名單只抓到七支裡的五支,漏掉 `check-mirror-parity` 的 `open_marker` 狀態機與 `check-anchors` 自己 #95 前那種寫法),而「沒有 import」是繞不過去的。黑名單保留當後備,掃原始碼裡的翻轉式判斷與 DOTALL ` ```…``` ` regex。這是照 `test_repo_scan_excludes.py` 擋「exclude-path」那個 bug 的同一種做法——那個 bug 復發了八次,**原始碼層級的守門才是讓一個修好的類別不再被下一個人重新引入的東西**。變異驗證過:把 toggler 塞回任一支就會紅。
+- **chore** · **這次 refactor 真的有代價,而且是我原本說錯的那個代價**。上一批我說「不共用是因為每支 gate 都彼此不 import」——那是錯的。真正的代價在別的地方:`test_mirror_parity` 與 `test_image_locale` 會把待測腳本複製到暫存目錄跑,而腳本現在多了一個相依,所以那四個 harness 全部 ImportError、31 條測試裡有 19 條為了錯誤的理由失敗。修法是 harness 一起複製 `md_fences.py`。**gate 本身全綠、只有單元測試紅**——如果我當時只看 gate 就以為沒事,這個問題會一路帶進 CI。
 
 - **fix** · **有一頁的四個標題在網站上是以「程式碼」的樣子呈現的,三個語系都一樣([#95](https://github.com/WenyuChiou/awesome-agentic-ai-zh/issues/95))**。`examples/stage-4/04-codeact-vs-json-tool` 想示範「LLM 回一段 Python」,所以在一個 code block 裡面又放了一個 ` ```python `。但 **CommonMark 規定收尾的 fence 不可以帶語言標籤**,所以那個 ` ```python ` 不會收尾、只是內容;真正收尾的是下一個裸 fence,而再下一個裸 fence 反而**又開了一個新的 block**——把後面〈CodeAct vs JSON tool 對照〉〈兩個 path 觀察重點〉〈常見坑〉〈想看更聰明的答案?〉整段吞進去。修法是把外層 fence 加長成四個反引號:**CommonMark 允許 block 內含較短的 fence**,這正是這種「示範用巢狀 fence」該有的寫法。三語都修,12 個標題全部回來。
 - **fix** · **`check-anchors.py` 的 `strip_code_blocks` 以前是「看到 ``` 就翻轉狀態」**,那既不是 CommonMark、也就跟真正在發布網站的 renderer 不一致。**gate 跟 renderer 對「哪幾行是程式碼」的認知不同,gate 就是在驗一份沒人發布的文件**。已改成照 CommonMark 判斷:記住開頭 fence 的字元與長度,收尾必須同字元、不短於開頭、而且不能帶語言標籤;另外支援 `~~~`、允許最多三格縮排、拒絕把 ` ```foo`bar ` 當成 fence(兩個 renderer 都不當)、以及**未收尾的 fence 會發警告**——那種情況 gate 會靜靜跳過檔案剩下的部分,然後照樣印「All internal anchors valid」。改完 repo 全域找到的 anchor link **零筆差異(689 → 689)**,因為 fence 已經先修好了,所以這次純粹是防未來。

@@ -40,6 +40,7 @@ from __future__ import annotations
 
 import importlib.util
 import re
+import subprocess
 import sys
 import unicodedata
 from pathlib import Path
@@ -68,13 +69,44 @@ ANCHOR_LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]*?)#([^)]+)\)")
 
 
 def _md_files() -> list[Path]:
+    """Tracked .md files only.
+
+    A plain rglob pulls in UNTRACKED local files, so this gate's input differed
+    between a laptop and CI — a stray `.mirror-sync-comment.md` was enough to
+    shift the repo's heading count by one and make a published figure
+    unreproducible (issue #97). Directory filters cannot fix that: the file sits
+    at the repo root.
+
+    Falls back to the rglob walk when git is unavailable, so the test still runs
+    outside a checkout; the fallback is the old, slightly-wider behaviour rather
+    than a silent empty set.
+    """
+    try:
+        listed = subprocess.run(
+            ["git", "-C", str(REPO), "ls-files", "-z", "*.md"],
+            capture_output=True,
+            check=True,
+            timeout=30,
+        ).stdout.decode("utf-8")
+        candidates = [REPO / n for n in listed.split("\0") if n]
+        if not candidates:
+            # `git -C <dir> ls-files` in a directory that is not itself a repo
+            # walks UP, finds the enclosing one, and exits 0 with empty stdout.
+            # That never raises, so without this the walk returns [] and two of
+            # the tests below pass vacuously while printing green — the exact
+            # "scans 0 files, reports success" class this repo keeps paying for.
+            raise FileNotFoundError("git ls-files returned no .md paths")
+    except (OSError, subprocess.SubprocessError):
+        candidates = sorted(REPO.rglob("*.md"))
+
     out = []
-    for p in sorted(REPO.rglob("*.md")):
+    for p in candidates:
         rel = p.relative_to(REPO)
         if any(part in _SKIP for part in rel.parts):
             continue
-        out.append(p)
-    return out
+        if p.exists():  # `git ls-files` lists deleted-but-staged paths too
+            out.append(p)
+    return sorted(out)
 
 
 def _site_slugify():

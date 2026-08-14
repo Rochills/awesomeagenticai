@@ -16,6 +16,9 @@ import re
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from md_fences import strip_code_blocks  # noqa: E402
 from typing import Iterable
 
 try:
@@ -55,16 +58,13 @@ def find_md_files(root: Path) -> list[Path]:
 def extract_urls(md_path: Path) -> list[tuple[int, str]]:
     """回傳 [(line_no, url), ...]，跳過程式碼區塊內的 URL。"""
     urls = []
-    text = md_path.read_text(encoding="utf-8")
-    in_fenced_code = False
+    # Fenced code blanked by the shared parser (md_fences), not a local toggle —
+    # see #95/#97. Without this the checker fetches every URL in every code
+    # sample, which is both slow and a source of phantom "dead link" reports.
+    text = strip_code_blocks(
+        md_path.read_text(encoding="utf-8"), source=str(md_path)
+    )
     for line_no, line in enumerate(text.splitlines(), start=1):
-        # Toggle fenced code block state on ``` or ~~~
-        stripped = line.lstrip()
-        if stripped.startswith("```") or stripped.startswith("~~~"):
-            in_fenced_code = not in_fenced_code
-            continue
-        if in_fenced_code:
-            continue
         # 也跳過 inline code（粗略：只在 ` ` 之間的 URL 不算）
         # Markdown 規範允許 inline code 內含 link 但通常不是真 link
         for match in LINK_RE.finditer(line):

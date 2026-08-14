@@ -46,7 +46,8 @@ HEADER_RE = re.compile(r'^(#{1,6})\s+(.+?)\s*$', re.MULTILINE)
 # NOTE: a `CODE_FENCE_RE = re.compile(r'^```')` used to live here. It was never
 # referenced — strip_code_blocks did its own `line.startswith` — and it encodes
 # the fence rule that issue #95 proved wrong (any ``` opens or closes). Removed
-# rather than left as a trap. The real fence matcher is _FENCE_RE below.
+# rather than left as a trap. The fence parser now lives in md_fences.py,
+# shared by every gate (issue #97).
 
 
 def slugify(text: str) -> str:
@@ -93,115 +94,28 @@ def slugify(text: str) -> str:
     return s
 
 
-_FENCE_RE = re.compile(r'^ {0,3}(`{3,}|~{3,})(.*)$')
-
-
-def strip_code_blocks(content: str, source: str | None = None) -> str:
-    """Blank out fenced code blocks, following CommonMark's fence rules.
-
-    A naive "toggle on any line starting with ```" is WRONG in two ways that
-    both shipped defects (issue #95):
-
-    1. **A closing fence may not carry an info string.** In
-
-           ```                <- opens
-           ```python          <- info string, so this is CONTENT
-           ...
-           ```                <- THIS closes the block opened on line 1
-           ```                <- and THIS opens a new one
-
-       the naive toggler pairs 1-2 and 3-4, while the renderer pairs 1-3 and
-       leaves 4 opening an unterminated block. In
-       examples/stage-4/04-codeact-vs-json-tool/README.* that swallowed four
-       `##` headings into a code block on the published site while every gate
-       read green, because the gate and the renderer disagreed about which
-       lines were code.
-
-    2. **A closing fence must be at least as long as its opener**, which is how
-       a block legitimately contains a shorter fence — the fix applied to those
-       three files. A toggler treats the inner fence as a terminator.
-
-    Also handles `~~~` fences and the up-to-3-space indent CommonMark allows.
-    Lines are blanked rather than dropped so line numbers stay correct for
-    diagnostics.
-
-    KNOWN DEVIATIONS — this follows CommonMark, which is what GitHub renders,
-    and GitHub is what check-anchors.py validates against. The site's renderer
-    (pymdownx.superfences) differs in a few corners. All four are theoretical
-    in this repo today (measured: zero occurrences of each), and each is listed
-    so nobody reads "follows CommonMark" as "matches the site exactly":
-
-      * 1-3 space indent at top level — CommonMark/GitHub accept it as a fence;
-        superfences only honours indentation matching the container's content
-        indent, so at top level it renders as a paragraph. Inside a list item
-        both agree it is code, and that IS exercised in this repo (CLAUDE.md).
-      * Unterminated fence at EOF — GitHub runs it to end of document, as here;
-        superfences does not make a block at all. Now warns, see below.
-      * 4-space indented code blocks — not handled at all. No fence markers in
-        this repo are indented that far.
-      * Backtick inside a backtick info string — handled, both renderers agree
-        it is not a fence.
-      * Fence inside a BLOCKQUOTE (`> ```bash`) — not recognised at all, since
-        _FENCE_RE cannot match a `>`-prefixed line. Both renderers treat it as
-        code, so the gate OVER-validates: it will check a link that renders as
-        literal text. That direction is a loud false positive rather than
-        silent under-validation. Latent here — 3 files, 6 fence lines, all one
-        trio in walkthroughs/build-first-agent-in-7-steps.*, with no anchor
-        links or headings inside them. Not a regression: the previous parser
-        missed blockquote fences too.
-    """
-    out = []
-    fence_char: str | None = None
-    fence_len = 0
-    for line in content.split('\n'):
-        m = _FENCE_RE.match(line)
-        if m:
-            marker, rest = m.group(1), m.group(2)
-            char = marker[0]
-            if fence_char is None:
-                # Opening fence. An info string is allowed — except that a
-                # backtick info string may not itself contain a backtick
-                # (CommonMark; pymdownx.superfences agrees, its language class
-                # is [\w#.+-]+). Treating ```foo`bar as an opener would hide
-                # the rest of the file from the gate while the renderer keeps
-                # rendering it — the same divergence shape as #93/#95.
-                if char == '`' and '`' in rest:
-                    out.append(line)
-                    continue
-                fence_char, fence_len = char, len(marker)
-                out.append('')
-                continue
-            # Inside a block: only a bare fence of the same char and at least
-            # the opener's length closes it. Anything else is content.
-            if char == fence_char and len(marker) >= fence_len and not rest.strip():
-                fence_char, fence_len = None, 0
-                out.append('')
-                continue
-            out.append('')
-            continue
-        out.append('' if fence_char is not None else line)
-
-    if fence_char is not None and source is not None:
-        # Everything from the unterminated fence to EOF was skipped. GitHub
-        # agrees (an unclosed fence runs to end of document) but the site's
-        # renderer does not, so the gate is now validating less than is
-        # published — and would still print "All internal anchors valid".
-        # Say so rather than under-validate in silence.
-        #
-        # Only warns when a source is named, so unit-test fixtures (which use
-        # unterminated fences deliberately) do not emit CI annotations.
-        # stdout, matching main()'s ::warning:: convention in this file.
-        print(
-            f'::warning::{source}: unterminated {fence_char * fence_len} fence — '
-            f'the anchor gate skipped everything after it'
-        )
-
-    return '\n'.join(out)
+# The fence parser lives in md_fences.py so every gate shares ONE implementation.
+# Six scripts used to carry their own copy; each was wrong in at least one way and
+# one of them shipped #95 (four headings rendering as code on the published site
+# while every gate read green). sys.path insert so this resolves whether the script
+# is run directly (scripts/ is already on the path) or exec'd via importlib by a test.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from md_fences import strip_code_blocks  # noqa: E402  — re-exported for callers
 
 
 def collect_anchors(content: str) -> set[str]:
-    """All anchor slugs available in this file (from H1-H6)."""
-    return {slugify(m.group(2)) for m in HEADER_RE.finditer(content)}
+    """All anchor slugs available in this file (from H1-H6).
+
+    Code blocks are stripped first. Without that, a `## Heading` shown INSIDE a
+    fenced example counts as a real anchor target, so a link pointing at a
+    heading that only exists in a code sample validates green while the browser
+    finds nothing to jump to. That was 642 phantom targets across this repo
+    (issue #97); no live link depended on one, which is why it stayed invisible.
+
+    The LINK side has been stripped since #95 — this is the TARGET side, and it
+    was the half nobody had connected.
+    """
+    return {slugify(m.group(2)) for m in HEADER_RE.finditer(strip_code_blocks(content))}
 
 
 def parse_anchor_links(content: str, file_path: Path) -> list[tuple[int, str, str]]:

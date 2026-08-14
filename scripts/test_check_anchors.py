@@ -31,8 +31,12 @@ Run:  python scripts/test_check_anchors.py     (plain asserts, no pytest needed)
 from __future__ import annotations
 
 import importlib.util
+import re
 import sys
 from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO / "scripts"))
 
 _SPEC = importlib.util.spec_from_file_location(
     "check_anchors", Path(__file__).with_name("check-anchors.py")
@@ -287,6 +291,103 @@ def test_the_real_file_renders_all_its_headings() -> None:
                 f"#95 regression in {name}: {h!r} is swallowed by a code block again. "
                 f"saw {sorted(got)}"
             )
+
+
+def test_marker_count_and_flags_cannot_fork() -> None:
+    """`fence_marker_count` and `code_line_flags` must stay one state machine.
+
+    They briefly were two hand-transcribed copies — the drift shape this whole
+    module exists to eliminate, reintroduced INSIDE the module meant to hold one
+    copy. Both wrap `_walk` now, and the source guard below cannot see
+    intra-module duplication, so this pins the relationship instead.
+    """
+    import md_fences
+
+    fixtures = [
+        "```\na\n```\n```\nb\n```\n",          # adjacent, no blank line
+        "````\nx\n```python\ny\n```\n````\n",  # #95 nesting
+        "```\nx\n",                            # unterminated
+        "> ```\n> x\nplain\n",                 # quoted fence, bailed
+        "~~~\nx\n```\ny\n~~~\n",               # tilde outer, backtick inside
+        "```foo`bar\n\n## Visible\n",          # not a fence at all
+    ]
+    fixtures += [p.read_text(encoding="utf-8") for p in sorted((REPO / "scripts").glob("*.py"))[:3]]
+
+    for text in fixtures:
+        flags = md_fences.code_line_flags(text)
+        markers = md_fences.fence_marker_count(text)
+        assert markers == 0 or any(flags), (
+            f"markers counted but no line is code — the two have forked. "
+            f"markers={markers} text={text[:60]!r}"
+        )
+        assert markers <= sum(flags), (
+            f"more fence markers ({markers}) than code lines ({sum(flags)}) — "
+            f"a marker line is always a code line, so the two have forked. "
+            f"text={text[:60]!r}"
+        )
+
+
+def test_no_script_reimplements_the_fence_rule() -> None:
+    """Every gate's fence rule must come from md_fences, not a local copy.
+
+    Six scripts each carried their own; all six were wrong in at least one way
+    and one shipped #95. This is the same shape as
+    `test_repo_scan_excludes.py::test_no_script_matches_excludes_on_absolute_path`,
+    which pins the exclude-path bug that recurred eight times — a source-level
+    guard is what stops a fixed class from being reintroduced by the next person
+    who needs to know "is this line code".
+
+    `test_check_anchors.py` is exempt: it keeps a deliberate naive copy inside
+    `test_gate_matches_the_renderer_on_the_broken_shape`, as the discriminator
+    proving that fixture still distinguishes the two parsers.
+    """
+    # POSITIVE assertion first. A blocklist of known-bad shapes can always be
+    # evaded by inventing a new one — and it was: the regex below misses
+    # check-mirror-parity's `open_marker` state machine and check-anchors' own
+    # pre-#95 `line.startswith('```')`, i.e. 2 of the 7 real historical shapes.
+    # Requiring the import cannot be evaded that way.
+    gates = {
+        "check-anchors.py",
+        "check-hans-chars.py",
+        "check-image-locale.py",
+        "check-links.py",
+        "check-locale-links.py",
+        "check-mirror-parity.py",
+        "zh-hans-localize.py",
+    }
+    missing = [
+        n for n in sorted(gates)
+        if "from md_fences import" not in (REPO / "scripts" / n).read_text(encoding="utf-8")
+    ]
+    assert not missing, (
+        "issues #95/#97: these gates no longer import the shared fence parser, so "
+        f"they have their own answer to 'which lines are code' again: {missing}"
+    )
+
+    # Blocklist second, as a backstop for scripts not in the set above.
+    toggler = re.compile(
+        r"in_fence\s*=\s*not\s+in_fence"
+        r"|in_code\s*=\s*not\s+in_code"
+        r"|in_fenced_code\s*=\s*not\s+in_fenced_code"
+        r"|open_marker\s*=\s*marker"
+        r"|re\.compile\(\s*r?[\"']```\.\*\?```"
+    )
+    offenders = []
+    for p in sorted((REPO / "scripts").glob("*.py")):
+        if p.name == Path(__file__).name:
+            # Exempt: this file keeps a deliberate naive copy inside
+            # test_gate_matches_the_renderer_on_the_broken_shape, as the
+            # discriminator proving that fixture still tells the parsers apart.
+            continue
+        if toggler.search(p.read_text(encoding="utf-8")):
+            offenders.append(p.name)
+
+    assert not offenders, (
+        "issues #95/#97: a fence closer may not carry an info string and must be "
+        "at least as long as its opener; a DOTALL ```...``` regex mis-pairs nested "
+        "fences. These scripts reimplement the rule instead of importing "
+        f"md_fences.strip_code_blocks / code_line_flags: {offenders}"
+    )
 
 
 def main() -> int:
