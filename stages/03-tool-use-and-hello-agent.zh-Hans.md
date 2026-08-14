@@ -60,7 +60,7 @@
 >
 > 这些都是 advanced pattern——Stage 3 教最小可行 agent、后面 stage 教怎么变强。
 
-### 📚 深度入门资源（中英文 / 影片优先）
+### 📚 深度入门资源（中英文 / 视频优先）
 
 **🀄 中文**：
 
@@ -71,7 +71,7 @@
 
 **🇺🇸 English**：
 
-1. [**Andrej Karpathy — "Intro to Large Language Models"**](https://www.youtube.com/watch?v=zjkBMFhNj_g) ⭐⭐⭐（1hr）— LLM 从零开始 visual intro（ex-OpenAI / ex-Tesla AI Director、英文圈最重视的 LLM 入门影片）
+1. [**Andrej Karpathy — "Intro to Large Language Models"**](https://www.youtube.com/watch?v=zjkBMFhNj_g) ⭐⭐⭐（1hr）— LLM 从零开始 visual intro（ex-OpenAI / ex-Tesla AI Director、英文圈最重视的 LLM 入门视频）
 2. [**Andrej Karpathy — "Let's build GPT from scratch"**](https://www.youtube.com/watch?v=kCc8FmEb1nY) ⭐⭐（2hr）— 想看 LLM 内部到代码级的人
 3. [**3Blue1Brown — "But what is a Transformer?"**](https://www.youtube.com/watch?v=wjZofJX0v4M) ⭐⭐⭐ — visual 解释 LLM，英文圈最被推荐的视觉化教材
 4. [**Lilian Weng — "LLM Powered Autonomous Agents"**](https://lilianweng.github.io/posts/2023-06-23-agent/) ⭐⭐⭐ — canonical 1-page agent anatomy（Planning / Memory / Tool use / Action）、英文圈被引用最多的 agent 解剖文
@@ -87,7 +87,7 @@
 
 > 📌 **资源清单上限规则**：本 section 是 router 不是 tutorial。主清单合计上限 **10 条**（中 4 + 英 6），要加新资源前**必须先移除一条**。选读区不计入主清单上限。
 
-> 💡 **推荐学习路径**：先看 1-2 个影片（中：李宏毅、英：Karpathy / 3Blue1Brown）建立 visual mental model → 再读 1-2 个 blog（Lilian Weng / Anthropic）拿到 working definition → 再回本 stage 动手练习。**不必全部看完**，这是 reference library 不是 reading list。
+> 💡 **推荐学习路径**：先看 1-2 个视频（中：李宏毅、英：Karpathy / 3Blue1Brown）建立 visual mental model → 再读 1-2 个 blog（Lilian Weng / Anthropic）拿到 working definition → 再回本 stage 动手练习。**不必全部看完**，这是 reference library 不是 reading list。
 
 ---
 

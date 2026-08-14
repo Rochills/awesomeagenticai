@@ -4,7 +4,7 @@
 
 > [← 回主路线 README](../README.zh-Hans.md)
 
-> 📌 **这份是 reference catalog，不是排名。** 本 repo 是动手做的学习路线，**不取代**结构化线上课程——下面这些课程可当作平行的影片／互动式入门对照。想动手做 → 回 [stages](../README.zh-Hans.md)；想先查用语 → [`resources/glossary.zh-Hans.md`](glossary.zh-Hans.md)。本页只收**会发证书**的课程。
+> 📌 **这份是 reference catalog，不是排名。** 本 repo 是动手做的学习路线，**不取代**结构化线上课程——下面这些课程可当作平行的视频／互动式入门对照。想动手做 → 回 [stages](../README.zh-Hans.md)；想先查用语 → [`resources/glossary.zh-Hans.md`](glossary.zh-Hans.md)。本页只收**会发证书**的课程。
 
 > ⚠️ **先读这段，再往下看。** 完成证书（Certificate of Completion）证明的是**你参与并完成了课程**，不是 mastery，也**不等于** accredited 学历或学分。雇主看的顺序通常是“内容跟职务相不相关 > 评量严不严 > 你做出什么作品 > 机构背书”，证书本身排在后面。把它当成**自主学习的证据 + 维持动机的结构**，不是“拿了证书就能找到工作”。下面“证书”栏只陈述事实，不做价值判断。
 
@@ -39,7 +39,7 @@
 | 课程（连结） | 成本 | 适合谁 | 教什么 | 证书 |
 |---|---|---|---|---|
 | [Hugging Face — AI Agents Course](https://huggingface.co/learn/agents-course) ⭐⭐⭐⭐⭐ | 🆓 | 想用免费、框架中立教材动手做的人 | smolagents / LangGraph / LlamaIndex 三家动手 + observability / eval；建并 benchmark 一个 agent | 免费，两级：Fundamentals（Unit 1 + quiz ≥80%）；Certificate of Completion（再加作业 + 最终挑战）。HF 直接签发 |
-| [DeepLearning.AI — Agentic AI](https://www.deeplearning.ai/courses/agentic-ai/) ⭐⭐⭐⭐⭐ | 🆓→💰 | 有中阶 Python + 基本 LLM/API 概念的开发者 | 四个核心设计模式：reflection、tool use、planning、multi-agent（31 影片 + 8 评量作业） | 旁听免费（无证书）；证书需付费 Pro（约 $25–30/月）并完成评量。讲师 Andrew Ng。中文对照：[`datawhalechina/agentic-ai`](https://github.com/datawhalechina/agentic-ai) |
+| [DeepLearning.AI — Agentic AI](https://www.deeplearning.ai/courses/agentic-ai/) ⭐⭐⭐⭐⭐ | 🆓→💰 | 有中阶 Python + 基本 LLM/API 概念的开发者 | 四个核心设计模式：reflection、tool use、planning、multi-agent（31 视频 + 8 评量作业） | 旁听免费（无证书）；证书需付费 Pro（约 $25–30/月）并完成评量。讲师 Andrew Ng。中文对照：[`datawhalechina/agentic-ai`](https://github.com/datawhalechina/agentic-ai) |
 | [Weights & Biases — AI Engineering: Agents](https://wandb.ai/site/courses/agents/) ⭐⭐⭐⭐ | 🆓 | 想学“会评估、可上线”agent 的开发者 | 与 OpenAI 团队合作；reasoning model 建 agent、tool/memory/planning、orchestrator-worker 多 agent、用 accuracy/latency/cost 做可复现 eval（约 2 小时） | 免费完成证书（W&B AI Academy 签发） |
 | [IBM — RAG and Agentic AI（Professional Certificate）](https://www.coursera.org/professional-certificates/ibm-rag-and-agentic-ai) ⭐⭐⭐⭐ | 💰 | 想要大厂 Professional Certificate 的人 | RAG + agentic AI 实作，多课程组成的 Professional Certificate | 付费（Coursera Plus；可申请助学金）。IBM 签发，认可度高于一般完成证书 |
 | [Vanderbilt 大学 — AI Agent Developer](https://www.coursera.org/specializations/ai-agents) ⭐⭐⭐⭐ | 💰 | 想要大学背书、系统性学 agent 开发的人 | 设计、打造、调校 agent 软件；Python agentic 应用 | 付费（Coursera Plus；可申请助学金）。Vanderbilt 大学 Specialization Certificate |

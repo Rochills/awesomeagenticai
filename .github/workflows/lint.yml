@@ -72,10 +72,22 @@ jobs:
       - name: Check zh-TW residue in zh-Hans files (warning only)
         run: |
           # 反向檢查：zh-Hans 檔混入 zh-TW 用詞代表翻譯沒翻完。
+          # `_build/` 是本機 mkdocs 產物（.gitignore 第 15 行），內容是 docs/ 的
+          # 副本。CI 全新 checkout 沒有它，所以這行對 CI 是 no-op；但本機跑同一段
+          # 指令時它會把每個命中重複計一次，而且那份副本可能是修正前的舊建置——
+          # 2026-08-14 實測，同一段指令在本機吐出的命中數約是 tracked 檔案的三倍多
+          # （確切數字無法重現：`_build/` 不進版控，所以那次測量沒有人能重跑）。
+          # 一個「本機與 CI 不同調」的檢查，會讓人不信任正確的那一邊。
           # **僅 warning 模式**——不擋 PR、不要求完美。zh-Hans 翻譯是漸進的，
           # 殘留是常態；這個 check 只是提示哪幾個詞還可以順手修。
           # 不掃：style-guide / glossary（會引用對照詞當例子）、.ai/、book/。
-          BANNED_TW=("使用者" "軟體" "硬體" "資訊" "品質" "資料" "專案" "腳本" "預設" "影片" "演算法" "應用程式" "網路" "連結" "服務" "範例" "範本" "設定" "註解" "終端機" "命令列" "編輯器" "瀏覽器" "客戶端" "伺服器" "倉儲" "必修閱讀" "飛書")
+          # 「影片」刻意不在這張表裡：它現在由 blocking gate
+          # (zh-hans-localize.py 的 GUARDED_VOCAB) 負責,而且那條規則帶守衛——
+          # 「投影片」是合法的、不該被改。這裡是 `grep -F`,沒有守衛的概念,
+          # 留著只會對唯一一個正確的「投影片」永遠開火。
+          # **一個永遠在叫的假警報,跟沒有警報一樣糟**,而且它剛好會削弱這次
+          # 修好的那條規則的可信度。
+          BANNED_TW=("使用者" "軟體" "硬體" "資訊" "品質" "資料" "專案" "腳本" "預設" "演算法" "應用程式" "網路" "連結" "服務" "範例" "範本" "設定" "註解" "終端機" "命令列" "編輯器" "瀏覽器" "客戶端" "伺服器" "倉儲" "必修閱讀" "飛書")
           FOUND=0
           for word in "${BANNED_TW[@]}"; do
             if grep -rn --include="*.zh-Hans.md" \
@@ -83,6 +95,7 @@ jobs:
                   | grep -v "^./resources/style-guide.zh-Hans.md" \
                   | grep -v "^./resources/glossary.zh-Hans.md" \
                   | grep -v "^./.ai/" \
+                  | grep -v "^./_build/" \
                   | grep -v "^./book/"; then
               echo "::warning::zh-TW word found in zh-Hans file: $word"
               FOUND=$((FOUND+1))
@@ -309,6 +322,19 @@ jobs:
         # defects and requires every one to be caught. Network-free; restores
         # check-links.py in a finally block.
         run: python3 scripts/mutate_check_links.py
+
+      - name: zh-hans-localize.py substitution rule tests
+        # This gate REWRITES tracked files, and until 2026-08-14 nothing tested
+        # its substitution logic — the #102 shape. The cost was concrete:
+        # 影片→视频 was dropped from VOCAB because 影片 is a substring of 投影片
+        # (slides) and a blanket replace yields 投视频, so five genuine Taiwan
+        # residues sat in tracked files while the gate reported "clean". The
+        # rule is now guarded by a separator run that stops at a paragraph
+        # break (a bare lookbehind was tried first and is NOT enough — ordinary
+        # markdown like 投**影片** defeats literal adjacency). These tests pin
+        # BOTH halves: the term is localized AND the host word is not corrupted.
+        # stdlib-only, network-free.
+        run: python3 scripts/test_zh_hans_localize.py
 
       - name: check-anchors.py fenced-code-block parser tests
         # Pins issue #95: strip_code_blocks used to toggle on any ``` line,
