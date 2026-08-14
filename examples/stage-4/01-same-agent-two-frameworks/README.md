@@ -9,7 +9,7 @@
 
 > 📚 **想要 chapter-length 深入版？** 本 folder 的 starter 是 illustrative 版、聚焦核心 pattern + 兩條 SDK path，不是進階深度教材。深度教材推薦：
 > - [`datawhalechina/hello-agents`](https://github.com/datawhalechina/hello-agents) ⭐ 中文圈最完整、章節式 + 16 種 production 能力。**本練習對應 hello-agents 的 framework 對照 / orchestration 章節**
-> - [LangGraph official tutorial](https://langchain-ai.github.io/langgraph/tutorials/) + [CrewAI 官方 docs](https://docs.crewai.com/)
+> - [LangGraph Quickstart](https://docs.langchain.com/oss/python/langgraph/quickstart) + [CrewAI 官方 docs](https://docs.crewai.com/)
 > - 完整 references 見 [Stage 4 精選 Projects](../../../stages/04-agent-frameworks.md#-精選-projects)
 
 

@@ -94,7 +94,7 @@
 | **Mistral**（Mistral AI）| Small 4 / Ministral 3 / Large 3 | 開源權重（license 依版本、Large 3 為 Apache 2.0）| Small 4 統一 reasoning / vision / coding、EU 主權 | 商用 self-host / EU 主權 | [mistral.ai](https://mistral.ai/) · [HF Mistral](https://huggingface.co/mistralai) |
 | **Phi**（Microsoft）| Phi-4 14B + multimodal | MIT | **小但強** / reasoning / 適 edge | 4GB+ RAM / mobile / reasoning 入門 | [HF microsoft](https://huggingface.co/microsoft) |
 
-> **註**：Llama 4（Scout / Maverick）於 2025-04 釋出，但屬大型 MoE，單機自架的實用基準仍是 3.3 70B（表中為 3.3）、Behemoth 未釋出；Gemma 4 為 2026-04 釋出、LMArena 開源組第 3；Phi-4 另有 multimodal 版。**Muse Glimmer** 為 2026-08-10 釋出、Meta 第一個專為 agent 設計的開放權重模型,由閉源的 **Muse Spark** 蒸餾而來(Meta 自己說它「整體不如 Spark」);**Spark 的 weights 目前還沒釋出**——Meta 說會放,但 HF 上還查不到,所以這裡只收 Glimmer。注意 Meta 現在兩條線並行:Llama 走 Llama Community License,Muse 走 Apache 2.0。
+> **註**：Llama 4（Scout / Maverick）於 2025-04 釋出，但屬大型 MoE，單機自架的實用基準仍是 3.3 70B（表中為 3.3）、Behemoth 未釋出；Gemma 4 為 2026-04 釋出、LMArena 開源組第 3；Phi-4 另有 multimodal 版。**Muse Glimmer** 為 2026-08-10 釋出、Meta 第一個專為 agent 設計的開放權重模型，由閉源的 **Muse Spark** 蒸餾而來(Meta 自己說它「整體不如 Spark」);**Spark 的 weights 目前還沒釋出**——Meta 說會放，但 HF 上還查不到，所以這裡只收 Glimmer。注意 Meta 現在兩條線並行:Llama 走 Llama Community License,Muse 走 Apache 2.0。
 
 ### 🎯 我該選哪家？（按場景反查）
 
@@ -150,7 +150,7 @@
 **🎥 中文影片補充（強烈推薦）**：
 
 - [**李宏毅 — 生成式 AI 導論（2024 春台大課程）**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — 第 1-5 集講 LLM 是什麼、怎麼運作、token / context window / temperature 怎麼影響輸出。中文圈最高品質的 LLM 學術級導論、台大授課、官方頁含投影片 + YouTube。最新整合版見 [**GenAI-ML 2025 秋**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)
-- [**3Blue1Brown — Transformer 視覺化**](https://www.youtube.com/watch?v=wjZofJX0v4M)（中文配音版：[3Blue1Brown 中文](https://www.youtube.com/@3Blue1BrownCN)）— LLM 內部運作 visual intro
+- [**3Blue1Brown — Transformer 視覺化**](https://www.youtube.com/watch?v=wjZofJX0v4M)（中文配音版：[3Blue1Brown 中文](https://space.bilibili.com/88461692)）— LLM 內部運作 visual intro
 - [**Andrej Karpathy — Intro to LLMs**](https://www.youtube.com/watch?v=zjkBMFhNj_g) — 英文影片、1hr、英文圈最被推薦的 LLM 入門影片
 
 ## 🛠 動手練習（基礎 illustrative 練習）

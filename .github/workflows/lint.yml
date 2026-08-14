@@ -293,6 +293,14 @@ jobs:
         # (scripts/test_pr_link_audit.py). stdlib-only, network-free.
         run: python3 scripts/test_pr_link_audit.py
 
+      - name: check-links.py classification unit tests
+        # Pins issue #94: the checker reported 14 failures of which 5 were real.
+        # It identified itself in the UA (hosts refuse that), trusted HEAD (widely
+        # mis-implemented), and filed 401/403/429 refusals as dead links. A gate
+        # that is 64% wrong stops being read, and the real rot hides in the noise.
+        # Network-free — every request is faked.
+        run: python3 scripts/test_check_links.py
+
       - name: check-anchors.py fenced-code-block parser tests
         # Pins issue #95: strip_code_blocks used to toggle on any ``` line,
         # which disagrees with CommonMark and therefore with the renderer that
@@ -319,8 +327,17 @@ jobs:
       - name: Install requests
         run: pip install requests
 
-      - name: Run link-check (--fast = GitHub URLs only)
-        run: python scripts/check-links.py --fast --quiet
+      - name: Run link-check (full — every URL, not just GitHub)
+        # Was `--fast`, which filters to github.com. That meant NOTHING in CI ever
+        # executed the host-block probe, the 404/410 guard or the unverifiable
+        # bucket, because github.com's root answers 200 — all five dead links in
+        # issue #94 were only findable by running this by hand.
+        #
+        # This job is already `if: schedule || workflow_dispatch` (see above), so
+        # full mode costs zero PR latency; it only affects the monthly cron. And
+        # it is affordable now precisely because the report is triaged into
+        # Failed vs Unverifiable, so a refusal no longer turns the job red.
+        run: python scripts/check-links.py --quiet
 
   star-drift:
     name: Star drift detection

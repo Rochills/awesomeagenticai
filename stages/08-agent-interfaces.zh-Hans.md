@@ -210,7 +210,7 @@
 | **Gemini in Chrome** | Google（Gemini 3）| Chrome 全平台 + Android | ✅ **Auto Browse** + **Chrome Skills** | Enterprise Premium $6/用户/月 |
 | **Operator** | OpenAI | — | ❌ **2025-08 停运** | CAPTCHA / JS / session 处理不稳定。 |
 
-→ 完整比较：[Best AI Browsers 2026 Tested](https://kahana.co/blog/best-ai-browsers-2026-tested-real-workflows)、[AI Browser Comparison 2026](https://www.webfx.com/blog/ai/best-ai-browsers/)
+→ 完整比较：[AI Browser Comparison（2027 更新版）](https://www.webfx.com/blog/ai/best-ai-browsers/)
 
 ### 开源 Browser Use 框架
 

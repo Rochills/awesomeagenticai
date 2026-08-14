@@ -9,7 +9,7 @@ Pairs with [Stage 4 — Agent Frameworks](../../../stages/04-agent-frameworks.en
 
 > 📚 **Want the chapter-length version?** The starter in this folder is an illustrative build focused on the core pattern plus two SDK paths — it is not in-depth teaching material. Recommended for depth:
 > - [`datawhalechina/hello-agents`](https://github.com/datawhalechina/hello-agents) ⭐ the most complete Chinese-language course out there — chapter by chapter, plus 16 production capabilities. **This exercise maps to hello-agents' framework comparison / orchestration chapter**
-> - [LangGraph official tutorial](https://langchain-ai.github.io/langgraph/tutorials/) + [CrewAI official docs](https://docs.crewai.com/)
+> - [LangGraph Quickstart](https://docs.langchain.com/oss/python/langgraph/quickstart) + [CrewAI official docs](https://docs.crewai.com/)
 > - Full references in [Stage 4 Curated Projects](../../../stages/04-agent-frameworks.en.md#-curated-projects)
 
 

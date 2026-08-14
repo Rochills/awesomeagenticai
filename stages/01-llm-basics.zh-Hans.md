@@ -94,7 +94,7 @@
 | **Mistral**（Mistral AI）| Small 4 / Ministral 3 / Large 3 | 开源权重（license 依版本、Large 3 为 Apache 2.0）| Small 4 统一 reasoning / vision / coding、EU 主权 | 商用 self-host / EU 主权 | [mistral.ai](https://mistral.ai/) · [HF Mistral](https://huggingface.co/mistralai) |
 | **Phi**（Microsoft）| Phi-4 14B + multimodal | MIT | **小但强** / reasoning / 适合 edge | 4GB+ RAM / mobile / reasoning 入门 | [HF microsoft](https://huggingface.co/microsoft) |
 
-> **注**：Llama 4（Scout / Maverick）于 2025-04 发布，但属大型 MoE，单机自架的实用基准仍是 3.3 70B（表中为 3.3）、Behemoth 未发布；Gemma 4 为 2026-04 发布、LMArena 开源组第 3；Phi-4 另有 multimodal 版。**Muse Glimmer** 为 2026-08-10 发布、Meta 第一个专为 agent 设计的开放权重模型,由闭源的 **Muse Spark** 蒸馏而来（Meta 自己说它“整体不如 Spark”）；**Spark 的 weights 目前还没发布**——Meta 说会放,但 HF 上还查不到,所以这里只收 Glimmer。注意 Meta 现在两条线并行:Llama 走 Llama Community License,Muse 走 Apache 2.0。
+> **注**：Llama 4（Scout / Maverick）于 2025-04 发布，但属大型 MoE，单机自架的实用基准仍是 3.3 70B（表中为 3.3）、Behemoth 未发布；Gemma 4 为 2026-04 发布、LMArena 开源组第 3；Phi-4 另有 multimodal 版。**Muse Glimmer** 为 2026-08-10 发布、Meta 第一个专为 agent 设计的开放权重模型，由闭源的 **Muse Spark** 蒸馏而来（Meta 自己说它“整体不如 Spark”）；**Spark 的 weights 目前还没发布**——Meta 说会放，但 HF 上还查不到，所以这里只收 Glimmer。注意 Meta 现在两条线并行:Llama 走 Llama Community License,Muse 走 Apache 2.0。
 
 ### 🎯 我该选哪家？（按场景反查）
 
@@ -150,7 +150,7 @@
 **🎥 中文视频补充（强烈推荐）**：
 
 - [**李宏毅 — 生成式 AI 导论（2024 春台大课程）**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — 第 1-5 集讲 LLM 是什么、怎么运作、token / context window / temperature 怎么影响输出。中文圈最高质量的 LLM 学术级导论、台大授课、官方页含幻灯片 + YouTube。最新整合版见 [**GenAI-ML 2025 秋**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)
-- [**3Blue1Brown — Transformer 可视化**](https://www.youtube.com/watch?v=wjZofJX0v4M)（中文配音版：[3Blue1Brown 中文](https://www.youtube.com/@3Blue1BrownCN)）— LLM 内部运作的可视化入门
+- [**3Blue1Brown — Transformer 可视化**](https://www.youtube.com/watch?v=wjZofJX0v4M)（中文配音版：[3Blue1Brown 中文](https://space.bilibili.com/88461692)）— LLM 内部运作的可视化入门
 - [**Andrej Karpathy — Intro to LLMs**](https://www.youtube.com/watch?v=zjkBMFhNj_g) — 英文视频、1 小时、英文圈最被推荐的 LLM 入门视频
 
 ## 🛠 动手练习（基础 illustrative 练习）

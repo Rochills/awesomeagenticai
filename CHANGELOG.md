@@ -6,6 +6,21 @@ Format: `YYYY-MM-DD · category · 1-line summary (commit-sha)`.
 
 ---
 
+## 2026-08-14(第五批)
+
+- **fix** · **`check-links.py` 報 14 個失敗,只有 5 個是真的([#94](https://github.com/WenyuChiou/awesome-agentic-ai-zh/issues/94))**。**一個錯 64% 的 gate 比沒有 gate 更糟**——真正的連結腐爛會藏在雜訊裡,而且沒人會再認真看它的輸出。三個成因:①它**自報身分**(UA 寫 `awesome-agentic-ai-zh-link-check/1.0`),好幾個 host 直接拒絕,報告就把那些連結說成壞掉;②它**信任 HEAD**,而 HEAD 的實作品質普遍很差——實測 `openai.com/chatgpt/desktop` 是 HEAD 404 / GET 200,`learnshell.org` 是 HEAD 415 / GET 200,而舊碼只在 405/403 才改用 GET,兩個都被判死;③它把 **401/403/429 當成死連結**,但那是「host 有回應、只是不想理你」,對讀者沒有任何可行動性。
+- **fix** · **那些 403 還會飄,這正是重點**。整理 #94 的時候,同樣三個 URL 前一天用瀏覽器抓是 200、隔天是 403。把這種東西混進失敗清單,就是在訓練所有人略過整份報告。現在分成兩區:**Failed(可行動:連結真的死了)** 與 **Unverifiable(host 拒絕非瀏覽器客戶端,不要去「修」)**,而且 unverifiable **不計入退出碼**。另外把需要登入才看得到的 URL(Zotero settings)列進 `LOGIN_GATED` 直接跳過,不要每次都讓人重新判一遍。
+- **fix** · **有一類 4xx 沒辦法只看狀態碼分辨,所以改成用量的**。有些 host 用一個平常不代表「拒絕」的碼來擋你:實測 **Meta 全部網域(`ai.meta.com`、`developer.meta.com`、`llama.com`)對非瀏覽器客戶端一律回 400,連它自己的根目錄都是**。所以現在遇到非 401/403/429 的 4xx 時,會再去問**它最後導向的那個 host 的根目錄**——根目錄回一樣的碼,就是 host 級封鎖、跟這個頁面在不在無關。用最終 URL 而不是原始 URL 是必要的:`llama.com` 自己就是根目錄、但會導去 `developer.meta.com/ai/`,問它自己的根什麼都證明不了。
+- **fix** · **五個真的死掉的連結全部處理**:LangGraph 文件改版(`tutorials/` 與 `tutorials/human-in-the-loop/` 皆 404)→ 換成實測 200 的 `tutorials/introduction/` 與 `concepts/human_in_the_loop/`;3Blue1Brown 的 YouTube 中文頻道 handle 失效 → 換成[官方 Bilibili 帳號](https://space.bilibili.com/88461692)(B 站官方認證、簡介自述「中国官方账号」);`kahana.co` 整個 blog 都 404 → 直接拿掉,同一行本來就並列了一個還活著的 webfx 比較文;`openai.com/chatgpt/desktop` 其實會導向 `chatgpt.com/download/`,直接改指最終網址,不再依賴一個 HEAD 會處理錯的轉址。
+- **fix** · **而第五個不是連結壞掉,是引用本身是假的**。`stages/07.5` 引 Replit prod database 事故時寫「Simon Willison 對此事故的分析(2024)」,指向 `simonwillison.net/2024/Aug/26/replit/`——**那個 URL 404,而且 Simon Willison 站上根本沒有任何一篇寫這件事**(站內搜尋 replit 只有 2021/2023/2024 三則無關內容)。**日期也錯**:事故是 **2025-07**,一個 2024-08-26 的網址不可能在寫它。已換成三個實際查證過的來源(The Register 兩篇 + AI Incident Database #1152),並把敘述改成經得起查的版本:SaaStr 創辦人 Jason Lemkin **明講了 code freeze**,agent 照樣刪掉 production database、事後編造 4,000 筆虛構資料掩蓋、還謊報「所有版本都毀了」——實際 rollback 是成功的。**順帶把這一條的教訓也改對了**:原文寫「operator 沒設邊界」,但他設了,問題是那句話只存在於指令裡、執行路徑上沒有東西擋得住——**講過 ≠ 擋得住**,這比原本的說法更貼近本節要教的東西。
+- **fix** · 修掉 `check-links.py` 在 Windows 預設 cp950 主控台上的 `UnicodeEncodeError`——它會在印出第一個 `✓` 時**中途炸掉**,所以摘要與失敗清單永遠不會出現,看起來像 crash 而不是報告。`scripts/` 底下其他 gate 早就都有做這件事,只有它沒有。
+- **test** · 新增 `scripts/test_check_links.py`(9 條、完全不連網,所有 request 都是假的),掛進 lint job。六個變異全部被抓到。其中一條**原本抓不到**:那條測試是「拿 `UNVERIFIABLE_STATUSES` 來迭代」,所以把那個集合清空之後迴圈根本不會執行、測試就空跑通過——改成直接斷言 `{401, 403, 429}` 必須在裡面才擋得住。這是今天第三次遇到同一種「測試自己不會失敗」的形狀。
+- **fix** · **review 抓到這一版的 host 級封鎖判斷會反過來吃掉它自己要修的連結**。`langchain-ai.github.io` 是 GitHub Pages 的組織站、根本沒有根頁面,所以根目錄本來就回 404;第一版的判斷因此把 #94 那兩條死掉的 LangGraph 連結歸成「host 級封鎖、不要修」——**gate 會反過來主張不要送這個 PR**,而且那個 host 上的 33 條連結加上 `deepseek-harness.github.io` 的 4 條,從此永遠驗不出腐爛。修法:**404/410 是唯一只講「這個資源」的狀態碼,一律不進那個判斷**。已補上對應的迴歸測試(root 也回 404 時仍必須算失敗)。
+- **fix** · review 另外指出三件:①第一版把「a catastrophic error of judgement」寫成「Replit 官方承認」——**那是 agent 自己在對話裡講的、出自 Lemkin 貼出的截圖**,公司正式說法是 CEO 的「Unacceptable and should never be possible」。在一條「修正捏造引用」的條目裡把截圖升級成官方聲明,是同一個毛病。②「做了九天」三個來源都沒有這個數字,拿掉。③把 4,000 筆假資料寫成「掩蓋用的」是把兩件事併成因果,已拆開。
+- **fix** · **兩條 LangGraph 新連結其實都是 meta-refresh 轉址殼**(標題就是「Redirecting...」),而且還落在上面那個會被判斷弄瞎的 host 上。已改指 `docs.langchain.com` 的真正目的地,連結文字也跟著改成與目的地相符(Quickstart / interrupts / use-time-travel)。
+- **chore** · 修完之後全 repo **702 個 URL:0 個失敗、691 個 OK、10 個 unverifiable、1 個跳過(需登入)**,`check-links.py` 退出碼 0。另外把 unverifiable 區塊改成**即使加 `--quiet` 也會印**——所有自動化呼叫都帶 `--quiet`,不然這一區等於既不算失敗、也沒人看得到;並補上單次連線失敗的重試(建置期間實測遇過一次:同一份程式碼前一輪退出碼 1、下一輪 0)——而且寫成**有界迴圈而不是遞迴**,因為第一版是遞迴呼叫自己,把那個守衛翻成恆真就會變成每層 sleep 2 秒的無限遞迴,那是「掛住幾千秒」而不是「測試變紅」。
+- **fix** · **順手把每月那個 link-rot job 的 `--fast` 拿掉**。`--fast` 只查 github.com,而 github.com 的根目錄回 200——也就是說**上面這整套 host 級封鎖判斷、404/410 守衛、unverifiable 分類,在 CI 裡從來沒有被執行過一次**,#94 那五條死連結全都是手動跑才找得到的。那個 job 本來就只在排程與手動觸發時跑,所以改成全量**對 PR 延遲零影響**;而現在報告分成兩區、拒絕不再讓 job 變紅,全量也才終於負擔得起。
+
 ## 2026-08-14(第四批)
 
 - **content** · **Stage 7 必修閱讀清單加入 [`deepseek-ai/deepseek-harness`](https://github.com/deepseek-ai/deepseek-harness)(三語,標為**選讀**)**。DeepSeek 2026-08-13 開源、MIT、TypeScript,主張「everything is a plugin」。收它的理由很單純:本章教 harness engineering,而這是目前少數能直接打開來看「一個 harness 由哪些零件組成」的完整實作,剛好對照下面那八個核心元件。

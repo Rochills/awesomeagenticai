@@ -61,7 +61,7 @@ Search engine × LLM — every answer cites sources. Better than ChatGPT for "ne
 #### [Claude Desktop](https://claude.ai/download) ⭐⭐⭐⭐⭐
 Beyond the web version: drag files in, read local files, retain long conversation context. **Also the gateway to AI-tool integration (MCP)** — you can connect Slack / Gmail / Calendar and operate them directly inside Claude.
 
-#### [ChatGPT Desktop](https://openai.com/chatgpt/desktop) ⭐⭐⭐⭐
+#### [ChatGPT Desktop](https://chatgpt.com/download/) ⭐⭐⭐⭐
 Desktop version of ChatGPT. Ask questions about screenshots, voice conversation, integrate with other apps.
 
 ---

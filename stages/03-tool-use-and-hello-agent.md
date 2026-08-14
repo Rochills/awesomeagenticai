@@ -67,7 +67,7 @@
 1. [**李宏毅 — 生成式 AI 導論（2024 春台大課程）**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — 中文圈最高品質的 AI / LLM / agent 學術級導論。每集 30-60 分鐘、台大授課、官方頁含投影片 + YouTube 連結。LLM / agent 概念都涵蓋。最新整合版見 [**GenAI-ML 2025 秋**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)、YouTube 主頻道 [**@HungyiLeeNTU**](https://www.youtube.com/@HungyiLeeNTU)
 2. [**datawhalechina/hello-agents** Ch1「初識智能體」](https://github.com/datawhalechina/hello-agents) ⭐ — 文字版最完整中文 agent 導論
 3. [**datawhalechina/hello-agents** Ch2「智能體發展史」](https://github.com/datawhalechina/hello-agents) — BabyAGI → AutoGPT → Claude Code 演化脈絡
-4. [**3Blue1Brown 中文配音版**](https://www.youtube.com/@3Blue1BrownCN) — LLM / Transformer 視覺化解說（中文配音）
+4. [**3Blue1Brown 中文配音版**](https://space.bilibili.com/88461692) — LLM / Transformer 視覺化解說（中文配音）
 
 **🇺🇸 English**：
 

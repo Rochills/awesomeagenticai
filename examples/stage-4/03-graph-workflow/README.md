@@ -9,7 +9,7 @@
 
 > 📚 **想要 chapter-length 深入版？** 本 folder 的 starter 是 illustrative 版、聚焦核心 pattern + 兩條 SDK path，不是進階深度教材。深度教材推薦：
 > - [`datawhalechina/hello-agents`](https://github.com/datawhalechina/hello-agents) ⭐ 中文圈最完整、章節式 + 16 種 production 能力。**本練習對應 hello-agents 的 graph workflow + HITL 章節**
-> - [LangGraph HITL tutorial](https://langchain-ai.github.io/langgraph/tutorials/human-in-the-loop/) + [LangGraph time-travel docs](https://langchain-ai.github.io/langgraph/concepts/time-travel/)
+> - [LangGraph interrupts (human-in-the-loop)](https://docs.langchain.com/oss/python/langgraph/interrupts) + [LangGraph time-travel docs](https://docs.langchain.com/oss/python/langgraph/use-time-travel)
 > - 完整 references 見 [Stage 4 精選 Projects](../../../stages/04-agent-frameworks.md#-精選-projects)
 
 

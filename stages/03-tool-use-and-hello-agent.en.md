@@ -76,7 +76,7 @@ After learning the 3 minimum components, the next layer is "**how the LLM thinks
 1. [**Hung-yi Lee — Introduction to Generative AI (Spring 2024 NTU Course)**](https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php) ⭐⭐⭐ — The highest quality academic-level introduction to AI / LLM / agents in the Chinese-speaking world. Each episode is 30-60 minutes, taught at National Taiwan University, with official page including slides + YouTube links. Covers both LLM and agent concepts. The latest integrated version can be found at [**GenAI-ML 2025 Fall**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php), and the main YouTube channel is [**@HungyiLeeNTU**](https://www.youtube.com/@HungyiLeeNTU).
 2. [**datawhalechina/hello-agents** Ch1 "First Look at Agents"](https://github.com/datawhalechina/hello-agents) ⭐ — The most complete text-based introduction to agents in Chinese.
 3. [**datawhalechina/hello-agents** Ch2 "The History of Agent Development"](https://github.com/datawhalechina/hello-agents) — The evolutionary path from BabyAGI → AutoGPT → Claude Code.
-4. [**3Blue1Brown Chinese Dubbed Version**](https://www.youtube.com/@3Blue1BrownCN) — Visual explanations of LLM / Transformer (in Chinese).
+4. [**3Blue1Brown Chinese Dubbed Version**](https://space.bilibili.com/88461692) — Visual explanations of LLM / Transformer (in Chinese).
 
 **Optional / Advanced Reading**:
 

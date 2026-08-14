@@ -63,7 +63,7 @@ Google 出品。長 context（一次能讀很長文件、約一本厚書的量�
 #### [Claude Desktop](https://claude.ai/download) ⭐⭐⭐⭐⭐
 比網頁版多了：拖檔案進去、本機檔案讀取、保留長期對話脈絡。**也是進入 AI 工具整合生態（MCP）的入口**——可以接 Slack / Gmail / 行事曆，讓你在 Claude 裡直接操作這些服務。
 
-#### [ChatGPT Desktop](https://openai.com/chatgpt/desktop) ⭐⭐⭐⭐
+#### [ChatGPT Desktop](https://chatgpt.com/download/) ⭐⭐⭐⭐
 ChatGPT 桌面版。可以對螢幕截圖問問題、語音對話、跟其他 App 整合。
 
 ---
