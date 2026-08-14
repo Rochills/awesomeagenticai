@@ -301,6 +301,15 @@ jobs:
         # Network-free — every request is faked.
         run: python3 scripts/test_check_links.py
 
+      - name: check-links.py mutation test (can the suite go red?)
+        # Pins issue #102. The suite above was 10/10 green while
+        # `sys.exit(1 if failures else 0)` -> `sys.exit(0)` survived: the gate
+        # could have been made permanently green with no test noticing. Green is
+        # not evidence a test can fail, so this runs the suite against 22 known
+        # defects and requires every one to be caught. Network-free; restores
+        # check-links.py in a finally block.
+        run: python3 scripts/mutate_check_links.py
+
       - name: check-anchors.py fenced-code-block parser tests
         # Pins issue #95: strip_code_blocks used to toggle on any ``` line,
         # which disagrees with CommonMark and therefore with the renderer that

@@ -12,6 +12,7 @@ check-links.py — 掃描所有 markdown 檔案的 URL，回報 4xx / 5xx / time
 """
 
 import argparse
+import json
 import re
 import sys
 import threading
@@ -22,7 +23,7 @@ from urllib.parse import urlsplit
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from md_fences import strip_code_blocks  # noqa: E402
-from typing import Iterable
+from typing import Iterable, NamedTuple
 
 try:
     import requests
@@ -95,7 +96,10 @@ BROWSER_HEADERS = {
 # NOT counted as failures, because acting on them is impossible and their
 # flakiness is what trains people to ignore the whole report — the same three
 # URLs returned 200 to a browser one day and 403 the next while triaging #94.
-UNVERIFIABLE_STATUSES = {401, 403, 429}
+# 451 is a legal/geo block — a refusal like the rest. 429 differs from the
+# others in kind: it is TRANSIENT and says nothing about the link at all, only
+# about how fast we asked. Both belong here; neither is actionable.
+UNVERIFIABLE_STATUSES = {401, 403, 429, 451}
 
 # 404/410 are the ONLY codes that speak about THIS resource. Every other 4xx can
 # plausibly be about the host, which is what the root probe below is for — but a
@@ -116,6 +120,114 @@ NOT_FOUND_STATUSES = {404, 410}
 LOGIN_GATED = {
     "https://www.zotero.org/settings/keys",  # requires a Zotero account session
 }
+
+# Long-standing refusals, recorded so they stay quiet. Without this, "unverifiable
+# never fails the run" also means a link that JUST started refusing looks exactly
+# like the fourteen that have refused for months — and nobody would ever be
+# nudged about it. Same shape as scripts/mirror-parity-baseline.json.
+#
+# A baseline is a record of what a human already looked at, so it is only ever
+# written by an explicit `--update-baseline` run, never silently on a green run.
+UNVERIFIABLE_BASELINE = REPO_ROOT / "scripts" / "link-unverifiable-baseline.json"
+
+
+def load_unverifiable_baseline(path: Path | None = None) -> set[str]:
+    """Missing or unreadable file -> empty set: everything is NEW, which is noisy
+    but never hides anything. The opposite default would silence the whole check
+    the moment the file was deleted.
+
+    The SHAPE is validated, not just the syntax. `json.loads` happily returns a
+    list or a null for a hand-edited file, and `data.get` on those raises
+    AttributeError — which is neither of the two behaviours above, it just kills
+    the whole run. This file is meant to be human-editable, so a bad edit has to
+    degrade to noisy, never to a crash and never to silence.
+    """
+    path = path or UNVERIFIABLE_BASELINE
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        # ValueError, not json.JSONDecodeError. Invalid UTF-8 bytes in the file
+        # raise UnicodeDecodeError, which is a sibling ValueError subclass and
+        # was NOT caught by the narrower clause — so a file corrupted by encoding
+        # rather than by syntax still killed the whole run. Same defect as the
+        # shape check below, reached by a different corruption mode.
+        return set()
+    if not isinstance(data, dict):
+        return set()
+    urls = data.get("unverifiable")
+    if not isinstance(urls, list):
+        return set()
+    return {u for u in urls if isinstance(u, str)}
+
+
+def save_unverifiable_baseline(urls: Iterable[str], path: Path | None = None) -> None:
+    path = path or UNVERIFIABLE_BASELINE
+    payload = {
+        "_comment": (
+            "URLs whose host answers but refuses this checker (401/403/429/451, "
+            "or a host-level block). Not dead links. Regenerate with: "
+            "python scripts/check-links.py --update-baseline"
+        ),
+        "unverifiable": sorted(urls),
+    }
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
+                    encoding="utf-8")
+
+
+# --- Classification -------------------------------------------------------
+# The failed/unverifiable split and the exit code used to live inside main(),
+# untested, and four mutations survived because of it — including
+# `sys.exit(1 if failures else 0)` -> `sys.exit(0)`, which would have made the
+# gate permanently green without a single test noticing (issue #102).
+#
+# So the decision is a pure function over a structured result. main() only
+# counts and prints; it makes no judgements of its own.
+
+OK = "ok"
+FAILED = "failed"
+UNVERIFIABLE = "unverifiable"
+SKIPPED = "skipped"
+
+
+class Probe(NamedTuple):
+    """One URL's result. `host_blocked` and `skipped` are FLAGS, not messages to
+    re-parse.
+
+    main() used to route on `msg.startswith("host-level block")`. Renaming that
+    human-readable string would silently have re-filed every host block as a
+    dead link, and the only test that noticed asserted the string rather than
+    the behaviour.
+
+    `skipped` exists for the same reason. Both a skip and a connection error have
+    `status is None`, and the split used to be `detail.startswith("skipped")` —
+    so rewording "skipped (--fast)" would have turned every fast-mode skip into a
+    reported dead link. Leaving one string-sniff in place while removing the
+    other is not a design, it is a leftover.
+    """
+
+    url: str
+    status: int | None
+    detail: str = ""
+    host_blocked: bool = False
+    skipped: bool = False
+
+
+def classify(probe: Probe) -> str:
+    """OK / FAILED / UNVERIFIABLE / SKIPPED — the whole decision, in one place."""
+    if probe.skipped:
+        return SKIPPED
+    if probe.status is None:
+        return FAILED  # no status and not a skip == we never reached it
+    if probe.status in UNVERIFIABLE_STATUSES or probe.host_blocked:
+        return UNVERIFIABLE
+    if probe.status >= 400:
+        return FAILED
+    return OK
+
+
+def exit_code(kinds: Iterable[str]) -> int:
+    """1 iff something is ACTIONABLE. Refusals and skips never fail the run."""
+    return 1 if any(k == FAILED for k in kinds) else 0
 
 
 # Root probes are memoized per host: N dead links on one blocked host would
@@ -146,13 +258,13 @@ ATTEMPTS = 2
 RETRY_DELAY = 2
 
 
-def check_url(url: str, fast_mode: bool = False) -> tuple[str, int | None, str]:
-    """回傳 (url, final_status_code or None, message)。allow_redirects=True 表示
-    final_status 不會是 3xx（會被 follow 到 2xx 或 4xx/5xx）。"""
+def check_url(url: str, fast_mode: bool = False) -> Probe:
+    """回傳 Probe。allow_redirects=True 表示 final_status 不會是 3xx
+    （會被 follow 到 2xx 或 4xx/5xx）。"""
     if fast_mode and "github.com" not in url:
-        return url, None, "skipped (--fast)"
+        return Probe(url, None, "skipped (--fast)", skipped=True)
     if url in LOGIN_GATED:
-        return url, None, "skipped (login-gated)"
+        return Probe(url, None, "skipped (login-gated)", skipped=True)
 
     # A bounded LOOP, deliberately not recursion. The first version of this retry
     # called check_url again; flipping its guard to always-true turned it into an
@@ -189,9 +301,13 @@ def check_url(url: str, fast_mode: bool = False) -> tuple[str, int | None, str]:
                 if root.rstrip("/") != url.rstrip("/"):
                     root_status = _root_status(root)
                     if root_status == status:
-                        return url, status, f"host-level block ({parts.netloc} root returns the same)"
+                        return Probe(
+                            url, status,
+                            f"host-level block ({parts.netloc} root returns the same)",
+                            host_blocked=True,
+                        )
 
-            return url, status, ""
+            return Probe(url, status)
         except requests.exceptions.RequestException as e:
             # One retry before calling a link dead. A single connection blip on
             # one of 700 URLs would otherwise fail the whole run, which is the
@@ -201,10 +317,10 @@ def check_url(url: str, fast_mode: bool = False) -> tuple[str, int | None, str]:
             if attempt < ATTEMPTS:
                 time.sleep(RETRY_DELAY)
                 continue
-            return url, None, str(e)[:80]
+            return Probe(url, None, str(e)[:80])
 
 
-def main():
+def main() -> int:
     # This script prints ✓ / ❌ / ⚠ and CJK paths. A default Windows console is
     # cp950, where the first ✓ raises UnicodeEncodeError and kills the run
     # PART WAY THROUGH — so the summary and the failure list never appear and
@@ -220,6 +336,8 @@ def main():
     parser = argparse.ArgumentParser(description="Check markdown links for rot.")
     parser.add_argument("--fast", action="store_true", help="只查 GitHub URL")
     parser.add_argument("--quiet", action="store_true", help="只印失敗")
+    parser.add_argument("--update-baseline", action="store_true",
+                        help="把目前所有 unverifiable URL 寫進 baseline（人工看過之後才跑）")
     args = parser.parse_args()
 
     files = find_md_files(REPO_ROOT)
@@ -233,47 +351,59 @@ def main():
 
     print(f"Found {len(occurrences)} unique URLs.", file=sys.stderr)
 
-    failures = []       # actionable: the link is dead, fix or remove it
-    unverifiable = []    # the server answered, but refuses non-browser clients
-    ok_count = 0
-    skipped = 0
+    buckets: dict[str, list[tuple[str, str]]] = {FAILED: [], UNVERIFIABLE: [], OK: [], SKIPPED: []}
 
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
         futures = {ex.submit(check_url, url, args.fast): url for url in occurrences}
         for i, fut in enumerate(as_completed(futures), start=1):
-            url, status, msg = fut.result()
-            if status is None and msg.startswith("skipped"):
-                skipped += 1
-                continue
-            if status is None:
-                failures.append((url, f"ERROR: {msg}"))
-                if not args.quiet:
-                    print(f"[{i}/{len(occurrences)}] ❌ {url} — {msg}")
-            elif status in UNVERIFIABLE_STATUSES or msg.startswith("host-level block"):
-                # Not a failure. The page exists; the host just will not serve a
-                # script. Mixing these in with real 404s is what produced a 40%
-                # wrong-report rate and taught everyone to skip the output.
-                why = f"HTTP {status}" + (f" — {msg}" if msg else "")
-                unverifiable.append((url, why))
-                if not args.quiet:
-                    print(f"[{i}/{len(occurrences)}] ⚠ {url} — {why} (unverifiable)")
-            elif status >= 400:
-                failures.append((url, f"HTTP {status}"))
-                if not args.quiet:
-                    print(f"[{i}/{len(occurrences)}] ❌ {url} — HTTP {status}")
-            else:
-                # 200-299 (3xx 已被 allow_redirects 跟過去 → final 是 2xx 或 4xx/5xx)
-                ok_count += 1
-                if not args.quiet:
-                    print(f"[{i}/{len(occurrences)}] ✓ {url}")
+            probe = fut.result()
+            # main() makes NO judgement of its own — see classify().
+            kind = classify(probe)
+            label = (probe.detail if probe.status is None
+                     else f"HTTP {probe.status}" + (f" — {probe.detail}" if probe.detail else ""))
+            buckets[kind].append((probe.url, label))
+            if not args.quiet:
+                mark = {OK: "✓", FAILED: "❌", UNVERIFIABLE: "⚠", SKIPPED: "-"}[kind]
+                suffix = "" if kind == OK else f" — {label}"
+                print(f"[{i}/{len(occurrences)}] {mark} {probe.url}{suffix}")
+
+    failures = buckets[FAILED]
+    unverifiable = buckets[UNVERIFIABLE]
+    skipped = len(buckets[SKIPPED])
+
+    baseline = load_unverifiable_baseline()
+    seen_unverifiable = {u for u, _ in unverifiable}
+    new_unverifiable = sorted(seen_unverifiable - baseline)
+    recovered = sorted(baseline - seen_unverifiable)
+
+    if args.update_baseline:
+        save_unverifiable_baseline(seen_unverifiable)
+        print(f"Baseline updated: {len(seen_unverifiable)} unverifiable URL(s) recorded.")
+        # Deliberately NOT an early return. The first version returned 0 here,
+        # which meant `--update-baseline` skipped the failure report entirely and
+        # forced the run green even with a dead link in the same scan — the exact
+        # "gate goes green and nobody notices" defect this whole file exists to
+        # close, reintroduced in the one branch that had no test. Recording a
+        # refusal must not change what happens to an unrelated dead link.
+        #
+        # Nothing is "new" once it has just been recorded, so that section goes
+        # quiet; everything below still runs, and there is ONE exit path.
+        #
+        # `recovered` is deliberately KEPT. save_unverifiable_baseline overwrites
+        # rather than merges, so those URLs are being dropped from the baseline by
+        # this very run — and the run that drops them is the only one in a
+        # position to say so.
+        new_unverifiable = []
 
     # 報告
     print()
     print("=" * 60)
     print(f"Total checked:   {len(occurrences) - skipped}")
-    print(f"OK (2xx):        {ok_count}")
+    print(f"OK (2xx):        {len(buckets[OK])}")
     print(f"Failed:          {len(failures)}")
     print(f"Unverifiable:    {len(unverifiable)}  (host refuses non-browser clients, or blocks at host level)")
+    if new_unverifiable:
+        print(f"  └ NEW:          {len(new_unverifiable)}  (not in the baseline — worth a look)")
     if skipped:
         # Printed unconditionally. Under --fast this is the GitHub-only filter;
         # in a full run it is the LOGIN_GATED list, and without this line those
@@ -286,12 +416,35 @@ def main():
         for url, reason in failures:
             print(f"\n❌ {url}  [{reason}]")
             for fp, line_no in occurrences[url]:
-                rel = fp.relative_to(REPO_ROOT)
-                print(f"   {rel}:{line_no}")
+                print(f"   {fp.relative_to(REPO_ROOT)}:{line_no}")
 
-    # Printed even under --quiet. Every automated invocation passes --quiet,
-    # and --quiet is documented as "只印失敗" — but these are exactly what a
-    # human still has to eyeball, since nothing else will ever flag them.
+    # NEW unverifiable entries get their own section. Excluding refusals from the
+    # exit code is right, but it also means a permanently-403 link is something
+    # nobody would ever be nudged about again — the baseline keeps long-standing
+    # ones quiet while a newly-appearing one still surfaces.
+    if new_unverifiable:
+        print()
+        print("=== NEW unverifiable (not in the baseline) ===")
+        print("Not a failure, but it was verifiable before. Open one in a browser;")
+        print("if it is fine, re-run with --update-baseline to record it.")
+        for url in new_unverifiable:
+            reason = next(r for u, r in unverifiable if u == url)
+            print(f"\n⚠ {url}  [{reason}]")
+            for fp, line_no in occurrences[url]:
+                print(f"   {fp.relative_to(REPO_ROOT)}:{line_no}")
+
+    if recovered:
+        print()
+        if args.update_baseline:
+            # These just got dropped from the file by this run's overwrite.
+            print("=== Dropped from the baseline (they verify again) ===")
+        else:
+            print("=== Baselined URLs that now verify (consider --update-baseline) ===")
+        for url in recovered:
+            print(f"   {url}")
+
+    # Printed even under --quiet. Every automated invocation passes --quiet, and
+    # these are exactly what a human still has to eyeball.
     if unverifiable:
         print()
         print("=== Unverifiable (NOT failures — do not 'fix' these) ===")
@@ -301,11 +454,16 @@ def main():
         for url, reason in unverifiable:
             print(f"\n⚠ {url}  [{reason}]")
             for fp, line_no in occurrences[url]:
-                rel = fp.relative_to(REPO_ROOT)
-                print(f"   {rel}:{line_no}")
+                print(f"   {fp.relative_to(REPO_ROOT)}:{line_no}")
 
-    sys.exit(1 if failures else 0)
+    # Every classification made this run, not a re-derived summary — so a bucket
+    # accidentally left out of the report still counts toward the verdict.
+    return exit_code(kind for kind, entries in buckets.items() for _ in entries)
 
 
 if __name__ == "__main__":
-    main()
+    # main() RETURNS the code rather than calling sys.exit itself, so a test can
+    # assert on it directly. `sys.exit(1 if failures else 0)` -> `sys.exit(0)`
+    # survived mutation testing precisely because nothing could call main()
+    # without killing the interpreter (issue #102).
+    sys.exit(main())
