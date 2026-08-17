@@ -170,7 +170,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 5.9k+ |
+| Stars | ★ 6.5k+ |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐（agent-native 簡報框架） |
 
@@ -874,7 +874,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 34 |
+| Stars | ★ 49 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐ |
 
@@ -908,7 +908,7 @@ npx -y jacobian mcp
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 12 |
+| Stars | ★ 17 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐（窄但深） |
 

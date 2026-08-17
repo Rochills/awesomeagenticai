@@ -170,7 +170,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 5.9k+ |
+| Stars | ★ 6.5k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (agent-native slide framework) |
 
@@ -873,7 +873,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 34 |
+| Stars | ★ 49 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -907,7 +907,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 12 |
+| Stars | ★ 17 |
 | License | MIT |
 | Rating | ⭐⭐⭐ (narrow but deep) |
 
