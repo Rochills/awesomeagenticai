@@ -2,7 +2,7 @@
 
 > [繁體中文](./mcp-skills-catalog.md) | [简体中文](./mcp-skills-catalog.zh-Hans.md) | **English**
 
-> Connect Claude Code (or any other CLI agent) to the apps you already use, without window-hopping. This page is a curated index of 77+ MCP servers / Claude Skills / integrations grouped by use case (incl. research-workflow + multi-LLM-delegation dedicated sections).
+> Connect Claude Code (or any other CLI agent) to the apps you already use, without window-hopping. This page is a curated index of 79+ MCP servers / Claude Skills / integrations grouped by use case (incl. research-workflow + multi-LLM-delegation dedicated sections).
 
 ---
 
@@ -37,6 +37,7 @@
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills) (3)
 15. [Finance / Trading Agents](#15-finance--trading-agents) (2)
 16. [Web Search / Retrieval](#16-web-search--retrieval) (2)
+17. [Security / MCP Governance](#17-security--mcp-governance) (2)
 
 ---
 
@@ -1053,6 +1054,32 @@ Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is b
 **Notes**: free tier available; returns both a synthesized answer and the underlying sources.
 
 ---
+
+## 17. Security / MCP Governance
+
+### [trailofbits/skills](https://github.com/trailofbits/skills) ⭐⭐⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Stars | ★ 6.6k+ |
+| License | CC-BY-SA-4.0 |
+| Rating | ⭐⭐⭐⭐⭐ (**official Trail of Bits**) |
+
+**What it does**: the official Claude Code plugin marketplace from security firm Trail of Bits, carrying the skills they use themselves for security analysis, testing, and vulnerability research.
+**Audience**: people who want an agent to help with code audits, vulnerability analysis, and security testing; also anyone curious how a professional security team encodes its own methodology as skills.
+**Notes**: install with `/plugin marketplace add trailofbits/skills`; Codex supports the same marketplace directly. The license is **CC-BY-SA-4.0** (share-alike), so derivative work ships under the same terms; check that before commercial integration. Note this is a **different repo** from [`trailofbits/skills-curated`](https://github.com/trailofbits/skills-curated) in the Stage 5 table: that one is a curation marketplace of community-contributed plugins reviewed by Trail of Bits staff, this one is Trail of Bits' own security skills.
+
+### [stacklok/toolhive](https://github.com/stacklok/toolhive) ⭐⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Stars | ★ 2k+ |
+| License | Apache-2.0 |
+| Rating | ⭐⭐⭐⭐ |
+
+**What it does**: runs every MCP server in an isolated container, replaces local credentials with a minimal permission file, and adds audit logs plus configurable identity and access policy. Ships a Kubernetes operator as well.
+**Audience**: teams where everyone has installed their own pile of MCP servers and somebody now has to answer "who installed what, and which credentials can it reach".
+**Notes**: Go project, available as a desktop app and a CLI. Open-source ToolHive and Stacklok's enterprise product are separate, so check which features sit on which side.
 
 ## What's not here?
 

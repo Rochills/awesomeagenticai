@@ -2,7 +2,7 @@
 
 > [繁體中文](./mcp-skills-catalog.md) | **简体中文** | [English](./mcp-skills-catalog.en.md)
 
-> 把 Claude Code（或其他 CLI agent）接到你已经正在用的工具，不用反复切换视窗。本页是 77+ 个分类整理过的 MCP server / Claude Skill / 集成范例（含研究工作流 + multi-LLM delegation 两个专属区）。
+> 把 Claude Code（或其他 CLI agent）接到你已经正在用的工具，不用反复切换视窗。本页是 79+ 个分类整理过的 MCP server / Claude Skill / 集成范例（含研究工作流 + multi-LLM delegation 两个专属区）。
 
 ---
 
@@ -37,6 +37,7 @@
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills)（3）
 15. [金融 / 交易 Agents](#15-金融--交易-agents)（2）
 16. [网页搜索 / 检索（Web Search / Retrieval）](#16-网页搜索--检索web-search--retrieval)（2）
+17. [安全 / MCP 安全治理](#17-安全--mcp-安全治理)（2）
 
 ---
 
@@ -1053,6 +1054,32 @@ Claude 不擅长 token-heavy 机械式工作（成本高、context 容易爆）�
 **备注**：有易用的 free tier；要 Tavily API key。
 
 ---
+
+## 17. 安全 / MCP 安全治理
+
+### [trailofbits/skills](https://github.com/trailofbits/skills) ⭐⭐⭐⭐⭐
+
+| 栏位 | 内容 |
+|---|---|
+| Stars | ★ 6.6k+ |
+| License | CC-BY-SA-4.0 |
+| 推荐度 | ⭐⭐⭐⭐⭐（**Trail of Bits 官方**） |
+
+**教什么**：安全公司 Trail of Bits 官方的 Claude Code plugin marketplace，收的是他们自己在用的安全分析、测试与漏洞研究 skills。
+**适合谁**：想让 agent 帮忙做 code audit、漏洞分析、安全测试的人；也适合想看“专业安全团队怎么把方法论写成 skill”的人。
+**备注**：用 `/plugin marketplace add trailofbits/skills` 安装，Codex 也直接支持同一套 marketplace。授权是 **CC-BY-SA-4.0**（share-alike），改作后要用相同授权发布，商用集成前先确认。注意它跟 Stage 5 那张表里的 [`trailofbits/skills-curated`](https://github.com/trailofbits/skills-curated) 是**两个不同的 repo**：后者是由 Trail of Bits 审核、内容来自社区贡献的策展 marketplace，这一个是 Trail of Bits 自家的安全 skills。
+
+### [stacklok/toolhive](https://github.com/stacklok/toolhive) ⭐⭐⭐⭐
+
+| 栏位 | 内容 |
+|---|---|
+| Stars | ★ 2k+ |
+| License | Apache-2.0 |
+| 推荐度 | ⭐⭐⭐⭐ |
+
+**教什么**：把每一个 MCP server 跑在隔离容器里，用最小权限文件取代本机凭证，并提供 audit log 与可配置的身份／访问策略；另附 Kubernetes operator。
+**适合谁**：团队里已经有人各自装了一堆 MCP server，开始需要回答“谁装了什么、它能拿到哪些凭证”的人。
+**备注**：Go 项目，桌面版与 CLI 都有。开源的 ToolHive 与 Stacklok 的企业版是分开的，评估功能时注意分界在哪。
 
 ## 还有什么没收录？
 
