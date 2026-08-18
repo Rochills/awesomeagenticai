@@ -2,7 +2,7 @@
 
 > **繁體中文** | [简体中文](./mcp-skills-catalog.zh-Hans.md) | [English](./mcp-skills-catalog.en.md)
 
-> 把 Claude Code（或其他 CLI agent）接到你已經在用的工具，不用反覆切換視窗。本頁是 77+ 個分類整理過的 MCP server / Claude Skill / 整合範例（含研究工作流 + multi-LLM delegation 兩個專屬區）。
+> 把 Claude Code（或其他 CLI agent）接到你已經在用的工具，不用反覆切換視窗。本頁是 79+ 個分類整理過的 MCP server / Claude Skill / 整合範例（含研究工作流 + multi-LLM delegation 兩個專屬區）。
 
 ---
 
@@ -37,6 +37,7 @@
 14. [Multi-LLM Delegation Skills](#14-multi-llm-delegation-skills)（3）
 15. [金融 / 交易 Agents](#15-金融--交易-agents)（2）
 16. [網頁搜尋 / 檢索（Web Search / Retrieval）](#16-網頁搜尋--檢索web-search--retrieval)（2）
+17. [資安 / MCP 安全治理](#17-資安--mcp-安全治理)（2）
 
 ---
 
@@ -1054,6 +1055,32 @@ Claude 不擅長 token-heavy 機械式工作（成本高、context 容易爆）�
 **備註**：需要 Tavily API key（有好上手的 free tier）。
 
 ---
+
+## 17. 資安 / MCP 安全治理
+
+### [trailofbits/skills](https://github.com/trailofbits/skills) ⭐⭐⭐⭐⭐
+
+| 欄位 | 內容 |
+|---|---|
+| Stars | ★ 6.6k+ |
+| License | CC-BY-SA-4.0 |
+| 推薦度 | ⭐⭐⭐⭐⭐（**Trail of Bits 官方**） |
+
+**教什麼**：資安公司 Trail of Bits 官方的 Claude Code plugin marketplace，收的是他們自己在用的資安分析、測試與漏洞研究 skills。
+**適合誰**：想讓 agent 幫忙做 code audit、漏洞分析、安全測試的人；也適合想看「專業資安團隊怎麼把方法論寫成 skill」的人。
+**備註**：用 `/plugin marketplace add trailofbits/skills` 安裝，Codex 也直接支援同一套 marketplace。授權是 **CC-BY-SA-4.0**（share-alike），改作後要用相同授權釋出，商用整合前先確認。注意它跟 Stage 5 那張表裡的 [`trailofbits/skills-curated`](https://github.com/trailofbits/skills-curated) 是**兩個不同的 repo**：後者是由 Trail of Bits 審核、內容來自社群貢獻的策展 marketplace，這一個是 Trail of Bits 自家的資安 skills。
+
+### [stacklok/toolhive](https://github.com/stacklok/toolhive) ⭐⭐⭐⭐
+
+| 欄位 | 內容 |
+|---|---|
+| Stars | ★ 2k+ |
+| License | Apache-2.0 |
+| 推薦度 | ⭐⭐⭐⭐ |
+
+**教什麼**：把每一個 MCP server 跑在隔離容器裡，用最小權限檔取代本機憑證，並提供 audit log 與可設定的身分／存取政策；另附 Kubernetes operator。
+**適合誰**：團隊裡已經有人各自裝了一堆 MCP server，開始需要回答「誰裝了什麼、它拿得到哪些憑證」的人。
+**備註**：Go 專案，桌面版與 CLI 都有。開源的 ToolHive 與 Stacklok 的企業版是分開的，評估功能時注意分界在哪。
 
 ## 還有什麼沒收錄？
 

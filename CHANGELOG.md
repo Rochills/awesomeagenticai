@@ -6,6 +6,14 @@ Format: `YYYY-MM-DD · category · 1-line summary (commit-sha)`.
 
 ---
 
+## 2026-08-18
+
+- **content** · **Stage 7 必修閱讀補三個多 agent harness / UI**(三語):[stablyai/orca](https://github.com/stablyai/orca)(★48k+、MIT)、[yc-software/qm](https://github.com/yc-software/qm)(★13k+、MIT)、[cft0808/edict](https://github.com/cft0808/edict)(★16k+、MIT)。三者剛好是同一個問題的三種切法:orca 是「**一個人開很多 agent**」(每個 agent 各自一個 git worktree,跑完並排比較挑一個 merge);qm 是 **Y Combinator 自己開源的 quartermaster**,處理「**一整間公司共用 agent**」(每個員工一個隔離 workspace,各有獨立的 memory / 金鑰視野 / 權限 / 沙箱);edict 是中文專案,拿三省六部制把「誰有權決定、誰負責審、誰只能執行」寫成明確角色。放在一起讀比單看一個有用。
+- **content** · **catalog 新增第 17 類「資安 / MCP 安全治理」**(三語)。原本 16 類**一個資安項目都沒有**,而 MCP 正在把大量外部工具接進本機環境,這個缺口不小。收兩則:[trailofbits/skills](https://github.com/trailofbits/skills)(★6.6k+)是資安公司 Trail of Bits 官方自己在用的 audit / 漏洞研究 skills;[stacklok/toolhive](https://github.com/stacklok/toolhive)(★2k+、Apache-2.0)則是管 MCP server 本身的安全治理(隔離容器、最小權限、audit log、K8s operator)。catalog 條目 77 → 79,39 處數字宣稱同步更新。
+- **chore** · **收錄門檻這次改用 ★1000 當下限**。依這條線排除了 `cyproxio/mcp-for-security`(★630)、`mixpeek/amux`(★354,且 license 為 NOASSERTION),以及所有找到的 UI 專用 skills(最大★8)。UI 這塊維持現狀:第 8 類設計已有 `pbakaus/impeccable`(★60k)撐著,硬收小專案只會稀釋清單。**這條線跟今天稍早拒絕 UIZZE(★7)的判斷是一致的**。要講清楚先後:當時給的理由是專案才一個月、看不出維護紀錄、而且收的實質是商業產品的免費層,並沒有引用任何數字門檻;這條線是之後才定的,寫在這裡是為了讓往後的判斷有同一把尺,不是回頭替當時的決定找依據。
+- **fix** · 查證時差點寫錯一筆:`trailofbits/skills` 看起來「已收錄」,實際上 Stage 5 收的是 `trailofbits/skills-curated`,而前者只是後者的**字首**。用完整字串比對後確認 3 處全屬 `-curated`,本體確實是新的。兩者也不是同一種東西:`-curated` 是由 Trail of Bits 審核、內容來自社群貢獻的策展 marketplace,`skills` 是 Trail of Bits 自家的資安 skills,條目裡有寫清楚。
+- **fix** · edict 的 GitHub description 寫「9 specialized AI agents」,README 寫「12 个 AI Agent(11 业务 + 1 兼容)」,兩者不一致。條目裡不引用這個數字,只描述角色結構。
+
 ## 2026-08-14(第七批)
 
 - **fix** · **zh-Hans 裡最後一個「投影片」改成「幻灯片」**。`stages/03-tool-use-and-hello-agent.zh-Hans.md` 第 67 行是整棵 zh-Hans 樹上僅剩的一個,其他 5 處早就寫「幻灯片」了——其中 `stages/01-llm-basics.zh-Hans.md` 第 152 行是**同一門李宏毅課程的同一句介紹**,只差一個 stage。同一份鏡像對同一個東西有兩種叫法,那是殘留,不是用字選擇。**沒有任何 gate 抓得到這種東西**:`check-hans-chars` 是字元級的,而投、影、片三個字在簡體裡都是合法字,所以它永遠會是綠的;要看見這個,只能靠詞彙層的規則或人眼。(下面那條講 `GUARDED_VOCAB` 的說「第 67 行原封不動」,問的是另一件事——守衛防的是把「投影片」改成「投视频」,那個保護仍然需要。)
