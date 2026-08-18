@@ -2,7 +2,7 @@
 
 > [繁體中文](./mcp-skills-catalog.md) | [简体中文](./mcp-skills-catalog.zh-Hans.md) | **English**
 
-> Connect Claude Code (or any other CLI agent) to the apps you already use, without window-hopping. This page is a curated index of 77+ MCP servers / Claude Skills / integrations grouped by use case (incl. research-workflow + multi-LLM-delegation dedicated sections).
+> Connect Claude Code (or any other CLI agent) to the apps you already use, without window-hopping. This page is a curated index of 78+ MCP servers / Claude Skills / integrations grouped by use case (incl. research-workflow + multi-LLM-delegation dedicated sections).
 
 ---
 
@@ -28,7 +28,7 @@
 5. [Dev Collaboration (GitHub / Atlassian / Slack…)](#5-dev-collaboration-github--atlassian--slack) (9)
 6. [Databases](#6-databases) (8)
 7. [Browser Automation / Web Scraping](#7-browser-automation--web-scraping) (4)
-8. [Design (Figma / Excalidraw)](#8-design-figma--excalidraw) (4)
+8. [Design (Figma / Excalidraw)](#8-design-figma--excalidraw) (5)
 9. [Monitoring / Observability](#9-monitoring--observability) (3)
 10. [Media / Streaming (YouTube / Spotify)](#10-media--streaming-youtube--spotify) (3)
 11. [Chinese-language Ecosystem](#11-chinese-language-ecosystem) (11)
@@ -597,6 +597,23 @@
 **What it does**: "**The design language that makes your AI harness better at design.**" A vocabulary / pattern set that helps AI agents produce UI / visual output that escapes the generic "AI-generated" feel.
 **Audience**: developers using AI to generate UI / mockups / visual designs but getting generic results; front-end + AI workflows.
 **Notes**: not an MCP server or Skill bundle — it's a **design language** reference. Feed AI the higher-quality design vocabulary and it produces better output.
+
+### [uizze/uizze](https://github.com/uizze/uizze) ⭐⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Stars | ★ 7 |
+| License | MIT |
+| Rating | ⭐⭐⭐⭐ |
+
+**What it does**: a free `anti-ui-slop` Skill and UI quality gate for coding agents. Before a UI change is merged, it checks the design contract, required states, interaction semantics, and finish-gate criteria for generic UI, inert controls, missing states, and token drift. The full UIZZE workflow can use 800,000+ real web and iOS screens as reference evidence.
+**Audience**: people using Codex, Claude Code, Cursor, Copilot, or another coding agent to build web / iOS UI who want repeatable pre-merge quality checks.
+**Notes**: the Skill runs locally for free; the no-account preview exposes deterministic `check_ui_slop`. The full workflow adds live search, validation, audits, and rendered critique, with the free Skill and hosted MCP kept separate.
+
+**How to run**:
+```bash
+npx skills add https://uizze.com --skill anti-ui-slop
+```
 
 ---
 

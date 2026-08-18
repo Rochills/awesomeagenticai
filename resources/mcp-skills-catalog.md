@@ -2,7 +2,7 @@
 
 > **繁體中文** | [简体中文](./mcp-skills-catalog.zh-Hans.md) | [English](./mcp-skills-catalog.en.md)
 
-> 把 Claude Code（或其他 CLI agent）接到你已經在用的工具，不用反覆切換視窗。本頁是 77+ 個分類整理過的 MCP server / Claude Skill / 整合範例（含研究工作流 + multi-LLM delegation 兩個專屬區）。
+> 把 Claude Code（或其他 CLI agent）接到你已經在用的工具，不用反覆切換視窗。本頁是 78+ 個分類整理過的 MCP server / Claude Skill / 整合範例（含研究工作流 + multi-LLM delegation 兩個專屬區）。
 
 ---
 
@@ -28,7 +28,7 @@
 5. [開發協作（GitHub / Atlassian / Slack…）](#5-開發協作github--atlassian--slack)（9）
 6. [資料庫](#6-資料庫)（8）
 7. [瀏覽器自動化 / 網頁抓取](#7-瀏覽器自動化--網頁抓取)（4）
-8. [設計（Figma / Excalidraw）](#8-設計figma--excalidraw)（4）
+8. [設計（Figma / Excalidraw）](#8-設計figma--excalidraw)（5）
 9. [監控 / Observability](#9-監控--observability)（3）
 10. [媒體 / 串流（YouTube / Spotify）](#10-媒體--串流youtube--spotify)（3）
 11. [中文圈專用](#11-中文圈專用)（11）
@@ -597,6 +597,23 @@
 **教什麼**：「**讓你 AI harness 在 design 上更強的 design language**」——一套設計 vocabulary / pattern，幫 AI 在生成 UI / 視覺成品時跳出常見的「AI 感」生硬風格。
 **適合誰**：用 AI 生 UI / mockup / visual design 但結果都很 generic 的開發者；前端 + AI workflow。
 **備註**：不是 MCP server 也不是 Skill 包——是一份「**design language**」reference。讓 AI 看到比較高品質的設計詞彙才生得出比較好的東西。
+
+### [uizze/uizze](https://github.com/uizze/uizze) ⭐⭐⭐⭐
+
+| 欄位 | 內容 |
+|---|---|
+| Stars | ★ 7 |
+| License | MIT |
+| 推薦度 | ⭐⭐⭐⭐ |
+
+**教什麼**：免費 `anti-ui-slop` Skill 與 UI quality gate，讓 coding agent 在 UI merge 前用 design contract、required states、interaction checks 與 finish gate 抓出 generic UI、inert controls、missing states 與 token drift。完整 UIZZE workflow 可用 800,000+ 真實 web 與 iOS screens 作為參考。
+**適合誰**：使用 Codex、Claude Code、Cursor、Copilot 或其他 coding agent 產生 web / iOS UI、想在送出前做可重複品質檢查的人。
+**備註**：Skill 可在本地免費執行；no-account preview 是 deterministic `check_ui_slop`。完整 workflow 另提供 live search、validation、audits 與 rendered critique，免費 Skill 與 hosted MCP 的範圍清楚分開。
+
+**怎麼跑**：
+```bash
+npx skills add https://uizze.com --skill anti-ui-slop
+```
 
 ---
 
