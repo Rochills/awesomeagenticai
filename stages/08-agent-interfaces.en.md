@@ -524,7 +524,7 @@ This stage covered the three interface layers of **desktop, browser, and sandbox
 ### Voice agents
 
 - [**Vapi**](https://vapi.ai/) / [**Retell**](https://www.retellai.com/) — Commercial voice agent platforms
-- [**LiveKit Agents**](https://github.com/livekit/agents) — OSS, ★ 12k+
+- [**LiveKit Agents**](https://github.com/livekit/agents) — OSS, ★ 13k+
 - [**OpenAI Realtime API**](https://platform.openai.com/docs/guides/realtime) — For building speech-to-speech agents directly
 
 ### VLA (Vision-Language-Action) robots

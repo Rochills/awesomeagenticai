@@ -171,7 +171,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 6.5k+ |
+| Stars | ★ 7.3k+ |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ (agent-native slide framework) |
 
@@ -363,7 +363,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 101k+ |
+| Stars | ★ 112k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐⭐ |
 
@@ -591,7 +591,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 57k+ |
+| Stars | ★ 64k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐⭐ |
 
@@ -783,7 +783,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 8.3k+ |
+| Stars | ★ 9.4k+ |
 | License | Apache-2.0 |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -874,7 +874,7 @@
 
 | Field | Value |
 |---|---|
-| Stars | ★ 49 |
+| Stars | ★ 96 |
 | License | MIT |
 | Rating | ⭐⭐⭐ |
 
@@ -896,7 +896,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 201 |
+| Stars | ★ 232 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐⭐ (full research workflow) |
 
@@ -908,7 +908,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 17 |
+| Stars | ★ 22 |
 | License | MIT |
 | Rating | ⭐⭐⭐ (narrow but deep) |
 
@@ -920,7 +920,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 45 |
+| Stars | ★ 51 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -932,7 +932,7 @@ npx -y jacobian mcp
 
 | Field | Value |
 |---|---|
-| Stars | ★ 46 |
+| Stars | ★ 53 |
 | License | MIT |
 | Rating | ⭐⭐⭐⭐ |
 
@@ -987,7 +987,7 @@ Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is b
 
 | Field | Value |
 |---|---|
-| Stars | ★ 22 |
+| Stars | ★ 25 |
 | License | MIT |
 | Rating | ⭐⭐ (experimental — treat as reference) |
 

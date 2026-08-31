@@ -171,7 +171,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 6.5k+ |
+| Stars | ★ 7.3k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（agent-native 简报框架） |
 
@@ -363,7 +363,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 101k+ |
+| Stars | ★ 112k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐ |
 
@@ -591,7 +591,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 57k+ |
+| Stars | ★ 64k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐ |
 
@@ -783,7 +783,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 8.3k+ |
+| Stars | ★ 9.4k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -874,7 +874,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 49 |
+| Stars | ★ 96 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -896,7 +896,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 201 |
+| Stars | ★ 232 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（研究流程一整套） |
 
@@ -908,7 +908,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 17 |
+| Stars | ★ 22 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐（窄但深） |
 
@@ -920,7 +920,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 45 |
+| Stars | ★ 51 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -932,7 +932,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 46 |
+| Stars | ★ 53 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -987,7 +987,7 @@ Claude 不擅长 token-heavy 机械式工作（成本高、context 容易爆）�
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 22 |
+| Stars | ★ 25 |
 | License | MIT |
 | 推荐度 | ⭐⭐（experimental，当作 reference 看就好） |
 
