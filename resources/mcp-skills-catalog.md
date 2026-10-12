@@ -119,7 +119,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 430 |
+| Stars | ★ 514 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐ |
 
@@ -135,7 +135,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 162k+ |
+| Stars | ★ 180k+ |
 | License | 無 license 檔（上游未提供；使用前請先確認授權） |
 | 推薦度 | ⭐⭐⭐⭐⭐（**官方**，必裝） |
 
@@ -171,7 +171,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 6.5k+ |
+| Stars | ★ 9.2k+ |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐（agent-native 簡報框架） |
 
@@ -183,7 +183,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 880 |
+| Stars | ★ 1k+ |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐（PDF 高效解析） |
 
@@ -223,7 +223,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 2.9k+ |
+| Stars | ★ 3.3k+ |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐⭐（一個 server 包整套 Google） |
 
@@ -251,7 +251,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 908 |
+| Stars | ★ 1k+ |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐（M365 全套） |
 
@@ -315,7 +315,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 927 |
+| Stars | ★ 1.1k+ |
 | License | Apache-2.0 |
 | 推薦度 | ⭐⭐⭐⭐（**官方**） |
 
@@ -351,7 +351,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 443 |
+| Stars | ★ 539 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐ |
 
@@ -363,7 +363,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 101k+ |
+| Stars | ★ 125k+ |
 | License | Apache-2.0 |
 | 推薦度 | ⭐⭐⭐⭐⭐ |
 
@@ -387,7 +387,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 38k+ |
+| Stars | ★ 46k+ |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐⭐（code intelligence） |
 
@@ -415,7 +415,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 3.2k+ |
+| Stars | ★ 3.6k+ |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐⭐（社群多 DB MCP） |
 
@@ -475,7 +475,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 555 |
+| Stars | ★ 634 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐（**Redis 官方**） |
 
@@ -515,7 +515,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 47k+ |
+| Stars | ★ 53k+ |
 | License | Apache-2.0 |
 | 推薦度 | ⭐⭐⭐⭐⭐（**Chrome 官方**） |
 
@@ -567,7 +567,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 5k+ |
+| Stars | ★ 5.5k+ |
 | License | NOASSERTION |
 | 推薦度 | ⭐⭐⭐⭐⭐（**Excalidraw 官方**） |
 
@@ -579,7 +579,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 2.2k+ |
+| Stars | ★ 2.5k+ |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐（替代版 Excalidraw） |
 
@@ -591,7 +591,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 57k+ |
+| Stars | ★ 80k+ |
 | License | Apache-2.0 |
 | 推薦度 | ⭐⭐⭐⭐⭐ |
 
@@ -619,7 +619,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 782 |
+| Stars | ★ 928 |
 | License | NOASSERTION |
 | 推薦度 | ⭐⭐⭐⭐（**Sentry 官方**） |
 
@@ -783,7 +783,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 8.3k+ |
+| Stars | ★ 10k+ |
 | License | Apache-2.0 |
 | 推薦度 | ⭐⭐⭐⭐ |
 
@@ -837,7 +837,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 1.7k+ |
+| Stars | ★ 1.9k+ |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐（**Stripe 官方**） |
 
@@ -875,7 +875,7 @@
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 49 |
+| Stars | ★ 245 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐ |
 
@@ -897,7 +897,7 @@ npx -y jacobian mcp
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 201 |
+| Stars | ★ 312 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐⭐（研究流程一整套） |
 
@@ -909,7 +909,7 @@ npx -y jacobian mcp
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 17 |
+| Stars | ★ 95 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐（窄但深） |
 
@@ -921,7 +921,7 @@ npx -y jacobian mcp
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 45 |
+| Stars | ★ 57 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐ |
 
@@ -933,7 +933,7 @@ npx -y jacobian mcp
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 46 |
+| Stars | ★ 64 |
 | License | MIT |
 | 推薦度 | ⭐⭐⭐⭐ |
 
@@ -988,7 +988,7 @@ Claude 不擅長 token-heavy 機械式工作（成本高、context 容易爆）�
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 22 |
+| Stars | ★ 30 |
 | License | MIT |
 | 推薦度 | ⭐⭐（experimental，當 reference 看就好） |
 
@@ -1006,7 +1006,7 @@ Claude 不擅長 token-heavy 機械式工作（成本高、context 容易爆）�
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 97k+ |
+| Stars | ★ 110k+ |
 | License | Apache-2.0 |
 | 推薦度 | ⭐⭐⭐ |
 
@@ -1062,7 +1062,7 @@ Claude 不擅長 token-heavy 機械式工作（成本高、context 容易爆）�
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 6.6k+ |
+| Stars | ★ 7.5k+ |
 | License | CC-BY-SA-4.0 |
 | 推薦度 | ⭐⭐⭐⭐⭐（**Trail of Bits 官方**） |
 
@@ -1074,7 +1074,7 @@ Claude 不擅長 token-heavy 機械式工作（成本高、context 容易爆）�
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 2k+ |
+| Stars | ★ 2.3k+ |
 | License | Apache-2.0 |
 | 推薦度 | ⭐⭐⭐⭐ |
 

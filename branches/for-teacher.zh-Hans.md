@@ -83,7 +83,7 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 30k+ |
+| Stars | ★ 33k+ |
 | License | Apache-2.0 |
 
 **教什么**：Hugging Face 官方的 agent 课程——notebook、练习、结业认证。是一份**现成的“AI agent 教学”素材**。

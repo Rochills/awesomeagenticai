@@ -434,7 +434,7 @@ Agent 透過 **screenshot → vision → 算座標 → 模擬鍵鼠** 操作真�
 
 ### Browser Use（web 級 agent）
 
-Agent 操作網頁、主要用 **DOM-aware navigation**（直接 query CSS selector）+ 必要時 vision fallback。代表閉源：Comet / Dia / Gemini in Chrome（Atlas 2026-08 停運）。代表 OSS：[browser-use](https://github.com/browser-use/browser-use)（★ 105k+）。
+Agent 操作網頁、主要用 **DOM-aware navigation**（直接 query CSS selector）+ 必要時 vision fallback。代表閉源：Comet / Dia / Gemini in Chrome（Atlas 2026-08 停運）。代表 OSS：[browser-use](https://github.com/browser-use/browser-use)（★ 117k+）。
 
 📍 完整解說 + 5 強對比 + OSS 框架：[Stage 8 Browser Use](../stages/08-agent-interfaces.md#-browser-use--web-級-agent)
 

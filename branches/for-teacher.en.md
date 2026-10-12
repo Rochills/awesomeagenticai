@@ -83,7 +83,7 @@ General writing / brainstorming skills. Adaptable for lesson prep.
 
 | Field | Value |
 |---|---|
-| Stars | ★ 30k+ |
+| Stars | ★ 33k+ |
 | License | Apache-2.0 |
 
 **What it teaches**: Hugging Face's official agents curriculum — notebooks, exercises, certifications. A ready-made **AI agent teaching artifact**.

@@ -485,7 +485,7 @@ Engineering practice for LLM-powered systems is layered. This is not about "one 
 Further reading (optional, for when you want to dig deeper):
 
 - [`Meirtz/Awesome-Context-Engineering`](https://github.com/Meirtz/Awesome-Context-Engineering) (★ 3.3k+) — comprehensive survey from prompt engineering to production agents
-- [`Windy3f3f3f3f/how-claude-code-works`](https://github.com/Windy3f3f3f3f/how-claude-code-works) (★ 3.3k+) — Claude Code internals, includes a context-engineering chapter
+- [`Windy3f3f3f3f/how-claude-code-works`](https://github.com/Windy3f3f3f3f/how-claude-code-works) (★ 3.7k+) — Claude Code internals, includes a context-engineering chapter
 
 ## ✅ Self-Check Before Stage 3
 
