@@ -82,7 +82,7 @@
 
 - [**Simon Willison — "I think 'agent' may finally have a widely enough agreed upon definition"**](https://simonwillison.net/2025/Sep/18/agents/) — working definition：“agent runs tools in a loop to achieve a goal”、含对照 OpenAI 等不同定义的争议（**给已有基础的人**）
 - [**DeepLearning.AI Short Courses**](https://www.deeplearning.ai/short-courses/)：“AI Agents in LangGraph”/“Multi AI Agent Systems with crewAI”/“Functions, Tools and Agents with LangChain”（**API 多数是 2023-2024 旧版**、看概念为主、写 code 对照官方最新 docs）
-- [**microsoft/ai-agents-for-beginners**](https://github.com/microsoft/ai-agents-for-beginners) — 微软官方 12 课 build-agent 入门（MIT、★ 70k+）。结构化、英文、含 code；适合想要一条**平行入门课对照**的人，不是本 stage 动手练习的替代
+- [**microsoft/ai-agents-for-beginners**](https://github.com/microsoft/ai-agents-for-beginners) — 微软官方 12 课 build-agent 入门（MIT、★ 77k+）。结构化、英文、含 code；适合想要一条**平行入门课对照**的人，不是本 stage 动手练习的替代
 - [**liyupi/ai-guide**](https://github.com/liyupi/ai-guide) — 中文圈最大 AI 资源**聚合**型 repo（不是原创教材、适合广度延伸）
 
 > 📌 **资源清单上限规则**：本 section 是 router 不是 tutorial。主清单合计上限 **10 条**（中 4 + 英 6），要加新资源前**必须先移除一条**。选读区不计入主清单上限。
@@ -496,12 +496,12 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 | 分类 | Project | ⭐ | 适合谁 | 为什么推荐 / 备注 |
 |---|---|---|---|---|
 | **官方 cookbook**<br>（先看这个） | [Anthropic — Tool Use Cookbook](https://github.com/anthropics/claude-cookbooks/tree/main/tool_use) | ⭐⭐⭐⭐⭐ | 练习 1 / 练习 2 入手 | 单工具 → 多工具 → parallel → structured output 全部 notebook（重点看 `tool_use/customer_service_agent.ipynb`） |
-| | [Anthropic — Quickstarts](https://github.com/anthropics/claude-quickstarts) | ⭐⭐⭐⭐⭐ | 练习 1/2 跑完想看“真的应用长什么样” | 3 个 deploy-ready 范本（financial / customer-support / computer-use）、★ 17k+。比社群实现更 canonical |
+| | [Anthropic — Quickstarts](https://github.com/anthropics/claude-quickstarts) | ⭐⭐⭐⭐⭐ | 练习 1/2 跑完想看“真的应用长什么样” | 3 个 deploy-ready 范本（financial / customer-support / computer-use）、★ 18k+。比社群实现更 canonical |
 | | [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) | ⭐⭐⭐⭐⭐ | 练习 3 写完、进 Stage 4 之前**必读** | 部落格文章：何时用 agent vs workflow / 常见 pattern / 容易踩的坑——Anthropic 官方观念框架 |
 | **从零实现 ReAct**<br>（理解原理） | [pguso/ai-agents-from-scratch](https://github.com/pguso/ai-agents-from-scratch) | ⭐⭐⭐⭐⭐ | 练习 3（从零写 ReAct） | 用本机 Ollama 从零打造、zero framework、章节结构好。**最干净的“不靠 framework”参考实现** |
 | | [arunpshankar/react-from-scratch](https://github.com/arunpshankar/react-from-scratch) | ⭐⭐⭐⭐ | 练习 3 替代（偏好 Gemini）+ 想看反思变体 | ReAct + Reflection + Self-consistency、Gemini 最佳化（⚠️ 2025-05 后更新放缓、Apache-2.0） |
 | | [mattambrogi/agent-implementation](https://github.com/mattambrogi/agent-implementation) | ⭐⭐⭐ | 练习 3 卡住时逐行对照 | ~150 行最精简 ReAct（⚠️ 已停滞 2024-01、留作教学玩具参考） |
-| | [lsdefine/GenericAgent](https://github.com/lsdefine/GenericAgent) | ⭐⭐⭐⭐ | 练习 3/4，想看“精简但完整”framework | 自我演化 framework、~3K 行、★ 13k+、支持 Claude / Gemini / Kimi / MiniMax。介于玩具版与 LangGraph 之间 |
+| | [lsdefine/GenericAgent](https://github.com/lsdefine/GenericAgent) | ⭐⭐⭐⭐ | 练习 3/4，想看“精简但完整”framework | 自我演化 framework、~3K 行、★ 14k+、支持 Claude / Gemini / Kimi / MiniMax。介于玩具版与 LangGraph 之间 |
 | **CodeAct 路线**<br>（agent 写代码当 action） | [HuggingFace Smolagents](https://github.com/huggingface/smolagents) | ⭐⭐⭐⭐ | 练习 5 替代方案、本地 LLM 实验 | ≤1000 LOC、CodeAct pattern 代表、★ 28k+。HF 立场：agent 应该要小 |
 | | [QuantaLogic/quantalogic](https://github.com/quantalogic/quantalogic) | ⭐⭐⭐ | 练习 3 后想比较 CodeAct vs JSON-tool | 另一条 CodeAct 路线、agent 直接写 Python 代码当 action、Apache-2.0 |
 | **中文章节式深度教材**<br>（chapter-length） | [datawhalechina/hello-agents](https://github.com/datawhalechina/hello-agents) ⭐ **本 stage 推荐** | ⭐⭐⭐⭐⭐ | 中文读者想要结构化教学 + 完整覆盖 | **16 种能力**含 tool use / ReAct / context engineering / sub-agents / circuit breaker / observability。中文圈最完整章节式（CC BY-NC-SA、非商用） |

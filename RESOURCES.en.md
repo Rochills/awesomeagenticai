@@ -37,30 +37,30 @@ Connect Claude Code (or any other CLI agent) to the apps you already use, withou
 
 ### Office Documents (Word / Excel / PowerPoint / PDF)
 
-- [**anthropics/skills**](https://github.com/anthropics/skills) ★ 165k+ — Anthropic **official** Skills with built-in docx / xlsx / pptx / pdf processing
+- [**anthropics/skills**](https://github.com/anthropics/skills) ★ 182k+ — Anthropic **official** Skills with built-in docx / xlsx / pptx / pdf processing
 - [**tfriedel/claude-office-skills**](https://github.com/tfriedel/claude-office-skills) ★ 800 — Office skills with automation workflows on top of the official ones
 
 ### Google Workspace (Gmail / Docs / Drive / Calendar)
 
-- [**taylorwilsdon/google_workspace_mcp**](https://github.com/taylorwilsdon/google_workspace_mcp) ★ 2.9k+ — full Workspace stack (Gmail, Calendar, Docs, Sheets, Slides, Drive) in one server
+- [**taylorwilsdon/google_workspace_mcp**](https://github.com/taylorwilsdon/google_workspace_mcp) ★ 3.4k+ — full Workspace stack (Gmail, Calendar, Docs, Sheets, Slides, Drive) in one server
 
 ### Dev Collaboration
 
 - [**github/github-mcp-server**](https://github.com/github/github-mcp-server) ★ 31k+ — GitHub **official** MCP for issues / PRs / repos
-- [**atlassian/atlassian-mcp-server**](https://github.com/atlassian/atlassian-mcp-server) ★ 908 — Atlassian **official** Remote MCP (Jira, Confluence)
+- [**atlassian/atlassian-mcp-server**](https://github.com/atlassian/atlassian-mcp-server) ★ 1.1k+ — Atlassian **official** Remote MCP (Jira, Confluence)
 - [**jerhadf/linear-mcp-server**](https://github.com/jerhadf/linear-mcp-server) ★ 340+ — Linear MCP
-- [**korotovsky/slack-mcp-server**](https://github.com/korotovsky/slack-mcp-server) ★ 1.7k+ — Slack MCP, works without admin permissions
+- [**korotovsky/slack-mcp-server**](https://github.com/korotovsky/slack-mcp-server) ★ 1.9k+ — Slack MCP, works without admin permissions
 
 ### Research Workflow (by the repo maintainer)
 
-- [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 201 — 14 research-workflow skills as a 5-plugin marketplace
-- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 46 — Zotero + Obsidian + NotebookLM integration workspace
-- [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 45 — Zotero CLI skill
+- [**WenyuChiou/ai-research-skills**](https://github.com/WenyuChiou/ai-research-skills) ★ 389 — 14 research-workflow skills as a 5-plugin marketplace
+- [**WenyuChiou/research-hub**](https://github.com/WenyuChiou/research-hub) ★ 64 — Zotero + Obsidian + NotebookLM integration workspace
+- [**WenyuChiou/zotero-skills**](https://github.com/WenyuChiou/zotero-skills) ★ 58 — Zotero CLI skill
 - [**WenyuChiou/codex-delegate**](https://github.com/WenyuChiou/codex-delegate) ★ 62 [**gemini-delegate-skill**](https://github.com/WenyuChiou/gemini-delegate-skill) ★ 34 (⚠️ archived) — multi-LLM delegation pair (for the Gemini lane, use Gemini CLI directly)
 
 ### Chinese-language Ecosystem
 
-- [**leemysw/feishu-docx**](https://github.com/leemysw/feishu-docx) ★ 235 — Feishu (Lark) docs / sheet / bitable ↔ Markdown with Claude Skills support
+- [**leemysw/feishu-docx**](https://github.com/leemysw/feishu-docx) ★ 267 — Feishu (Lark) docs / sheet / bitable ↔ Markdown with Claude Skills support
 
 > The above is just the highlights. **Full 79+ entry catalog by category** (incl. databases, browser automation, Figma, Excalidraw, Cloudflare, Stripe, academic-writing / multi-LLM delegation, etc.) lives in [`resources/mcp-skills-catalog.en.md`](resources/mcp-skills-catalog.en.md).
 

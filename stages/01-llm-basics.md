@@ -530,11 +530,11 @@ print(f"💡 跑這次完全沒花錢（除了你的電力）")
 | **中文教材**<br>（章節式） | [datawhalechina/happy-llm](https://github.com/datawhalechina/happy-llm) | ⭐⭐⭐⭐⭐ | 中文讀者想徹底搞懂 LLM 原理 | 對應 Karpathy「Zero to Hero」中文版，★ 32k+。等同 HF LLM Course 中文版 |
 | | [datawhalechina/llm-universe](https://github.com/datawhalechina/llm-universe) | ⭐⭐⭐⭐⭐ | 中文新手想用 LLM 做東西 | API 基礎 / 知識庫 / RAG / 進階技巧，★ 13k+ |
 | | [datawhalechina/llm-cookbook](https://github.com/datawhalechina/llm-cookbook) | ⭐⭐⭐⭐ | 想要完整中文 LLM 學習路線 | Andrew Ng 課程中文翻譯改編（⚠️ 2025-06 後更新放緩、CC BY-NC-SA）|
-| | [jingyaogong/minimind](https://github.com/jingyaogong/minimind) | ⭐⭐⭐⭐ | 看完 Karpathy 影片想實際跑訓練 | 2hr 從零訓 64M LLM、Pretrain + SFT + LoRA + DPO + RLHF 全包，★ 53k+、Apache-2.0 |
+| | [jingyaogong/minimind](https://github.com/jingyaogong/minimind) | ⭐⭐⭐⭐ | 看完 Karpathy 影片想實際跑訓練 | 2hr 從零訓 64M LLM、Pretrain + SFT + LoRA + DPO + RLHF 全包，★ 63k+、Apache-2.0 |
 | **英文 course**<br>（系統式） | [HuggingFace — LLM Course](https://huggingface.co/learn/llm-course) | ⭐⭐⭐⭐⭐ | 想搞懂 transformer 內部 + HF 生態 | 含 transformer 原理 + 應用、Apache 2.0 |
 | | [LangChain Academy](https://academy.langchain.com/) | ⭐⭐⭐⭐ | 喜歡影片教學的視覺型學習者 | LangChain 官方免費課、含 RAG / agent。**忽略 LangChain 行銷段落** |
 | **本地端執行**<br>（不付 API 費）| [ollama/ollama](https://github.com/ollama/ollama) | ⭐⭐⭐⭐⭐ | 第一次跑本地 LLM | 本 repo Path A 預設、OpenAI-compat API、★ 170k+ |
-| | [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | ⭐⭐⭐⭐⭐ | 想搞懂 quantization / 為什麼 7B 能塞 8GB RAM | Ollama 底層 inference engine，★ 119k+、MIT |
+| | [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | ⭐⭐⭐⭐⭐ | 想搞懂 quantization / 為什麼 7B 能塞 8GB RAM | Ollama 底層 inference engine，★ 131k+、MIT |
 | | [mudler/LocalAI](https://github.com/mudler/LocalAI) | ⭐⭐⭐⭐ | 團隊合規、要 self-host 全套 OpenAI 替代 | drop-in OpenAI API 替代品（chat / embedding / image / TTS / STT），★ 48k+ |
 | | [ml-explore/mlx](https://github.com/ml-explore/mlx) | ⭐⭐⭐⭐ | Mac 開發、想榨乾 Apple Silicon | Apple 為 M1+ 量身打造的 ML framework，★ 27k+。搭 `mlx-lm` 用最方便 |
 | **從零打造**<br>（理解原理）| [karpathy — Let's build GPT from scratch](https://www.youtube.com/watch?v=kCc8FmEb1nY) | ⭐⭐⭐⭐⭐ | 想搞懂 LLM 內部、不只會呼叫 | 2hr 高密度影片、用 PyTorch 從零打造 GPT。**暫停跟著寫 code 不要被動看** |

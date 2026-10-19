@@ -39,7 +39,7 @@
 ★ 47k+ · Apache-2.0 — git-aware 的 CLI pair-programmer。直接編輯你 repo 中的檔案，commit 都自動寫好。**「git-native AI 編輯流程」的開源範本**。模型不限。
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
-★ 138k+ — Anthropic 官方的 agentic coding 助理。有 Skills + plugin 生態系。
+★ 152k+ — Anthropic 官方的 agentic coding 助理。有 Skills + plugin 生態系。
 
 #### [cline/cline](https://github.com/cline/cline) ⭐⭐⭐⭐⭐
 ★ 65k+ · Apache-2.0 — VS Code extension，autonomous in-IDE agent：tool use、browser、step-by-step approval。**VS Code 使用者要 IDE-native agentic dev 的好選項**。
@@ -48,7 +48,7 @@
 ★ 35k+ · Apache-2.0 — source-controlled AI checks，可以在 CI 強制執行。代表「**團隊 / governance**」這條角度的 coding agent。
 
 #### [OpenHands (前身為 OpenDevin)](https://github.com/All-Hands-AI/OpenHands) ⭐⭐⭐⭐
-★ 81k+ · MIT — open source 的自主軟體開發 agent。設計上比 Aider / Claude Code 更激進——agent 自己跑 sandbox、自己 commit，適合「整個 issue 丟給它解」場景。
+★ 91k+ · MIT — open source 的自主軟體開發 agent。設計上比 Aider / Claude Code 更激進——agent 自己跑 sandbox、自己 commit，適合「整個 issue 丟給它解」場景。
 
 #### [block/goose](https://github.com/block/goose) ⭐⭐⭐⭐
 ★ 51k+ · Apache-2.0 — 開源、可擴充的 AI agent，超出純 code suggestion——能 install / execute / edit / test，搭配任何 LLM。同時支援多家 LLM provider 跟 MCP，提供 desktop app、CLI、API 三種介面。（repo 現指向 `aaif-goose/goose`。）
