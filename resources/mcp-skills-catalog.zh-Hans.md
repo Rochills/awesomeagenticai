@@ -59,7 +59,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 4.1k+ |
+| Stars | ★ 4.5k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（社群、最热门） |
 
@@ -83,7 +83,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 18k+ |
+| Stars | ★ 20k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -95,7 +95,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 312 |
+| Stars | ★ 350 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -119,7 +119,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 430 |
+| Stars | ★ 542 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -135,7 +135,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 162k+ |
+| Stars | ★ 186k+ |
 | License | 无 license 文件（上游未提供；使用前请先确认授权） |
 | 推荐度 | ⭐⭐⭐⭐⭐（**官方**，必装） |
 
@@ -171,7 +171,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 6.5k+ |
+| Stars | ★ 9.6k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（agent-native 简报框架） |
 
@@ -183,7 +183,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 880 |
+| Stars | ★ 1.1k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（PDF 高效解析） |
 
@@ -223,7 +223,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 2.9k+ |
+| Stars | ★ 3.5k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（一个 server 包整套 Google） |
 
@@ -251,7 +251,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 908 |
+| Stars | ★ 1.1k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（M365 全套） |
 
@@ -263,7 +263,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 407 |
+| Stars | ★ 449 |
 | License | NOASSERTION |
 | 推荐度 | ⭐⭐⭐（只 Outlook） |
 
@@ -275,7 +275,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 278 |
+| Stars | ★ 310 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -291,7 +291,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 31k+ |
+| Stars | ★ 34k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（**官方**） |
 
@@ -315,7 +315,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 927 |
+| Stars | ★ 1.1k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐（**官方**） |
 
@@ -351,7 +351,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 443 |
+| Stars | ★ 582 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -363,7 +363,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 101k+ |
+| Stars | ★ 140k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐ |
 
@@ -387,7 +387,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 38k+ |
+| Stars | ★ 47k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（code intelligence） |
 
@@ -415,7 +415,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 3.2k+ |
+| Stars | ★ 3.8k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（社群多 DB MCP） |
 
@@ -475,7 +475,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 555 |
+| Stars | ★ 641 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（**Redis 官方**） |
 
@@ -503,7 +503,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 35k+ |
+| Stars | ★ 38k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Microsoft 官方**） |
 
@@ -515,7 +515,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 47k+ |
+| Stars | ★ 54k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Chrome 官方**） |
 
@@ -527,7 +527,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 7k+ |
+| Stars | ★ 7.8k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Firecrawl 官方**） |
 
@@ -567,7 +567,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 5k+ |
+| Stars | ★ 5.6k+ |
 | License | NOASSERTION |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Excalidraw 官方**） |
 
@@ -579,7 +579,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 2.2k+ |
+| Stars | ★ 2.6k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（替代版 Excalidraw） |
 
@@ -591,7 +591,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 57k+ |
+| Stars | ★ 99k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐ |
 
@@ -607,7 +607,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 3.3k+ |
+| Stars | ★ 3.6k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Grafana 官方**） |
 
@@ -619,7 +619,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 782 |
+| Stars | ★ 952 |
 | License | NOASSERTION |
 | 推荐度 | ⭐⭐⭐⭐（**Sentry 官方**） |
 
@@ -687,7 +687,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 243 |
+| Stars | ★ 272 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -783,7 +783,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 8.3k+ |
+| Stars | ★ 11k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -825,7 +825,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 4k+ |
+| Stars | ★ 4.4k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Cloudflare 官方**） |
 
@@ -837,7 +837,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 1.7k+ |
+| Stars | ★ 2k+ |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐（**Stripe 官方**） |
 
@@ -874,7 +874,7 @@
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 49 |
+| Stars | ★ 351 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -896,7 +896,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 201 |
+| Stars | ★ 543 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐⭐（研究流程一整套） |
 
@@ -908,7 +908,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 17 |
+| Stars | ★ 338 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐（窄但深） |
 
@@ -920,7 +920,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 45 |
+| Stars | ★ 77 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -932,7 +932,7 @@ npx -y jacobian mcp
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 46 |
+| Stars | ★ 67 |
 | License | MIT |
 | 推荐度 | ⭐⭐⭐⭐ |
 
@@ -987,7 +987,7 @@ Claude 不擅长 token-heavy 机械式工作（成本高、context 容易爆）�
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 22 |
+| Stars | ★ 32 |
 | License | MIT |
 | 推荐度 | ⭐⭐（experimental，当作 reference 看就好） |
 
@@ -1005,7 +1005,7 @@ Claude 不擅长 token-heavy 机械式工作（成本高、context 容易爆）�
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 97k+ |
+| Stars | ★ 119k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐ |
 
@@ -1061,7 +1061,7 @@ Claude 不擅长 token-heavy 机械式工作（成本高、context 容易爆）�
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 6.6k+ |
+| Stars | ★ 7.9k+ |
 | License | CC-BY-SA-4.0 |
 | 推荐度 | ⭐⭐⭐⭐⭐（**Trail of Bits 官方**） |
 
@@ -1073,7 +1073,7 @@ Claude 不擅长 token-heavy 机械式工作（成本高、context 容易爆）�
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 2k+ |
+| Stars | ★ 2.3k+ |
 | License | Apache-2.0 |
 | 推荐度 | ⭐⭐⭐⭐ |
 

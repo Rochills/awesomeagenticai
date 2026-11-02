@@ -752,12 +752,12 @@ OpenAI 的 **o1**（2024-09）开启了这一趋势，随后是开源的 DeepSee
 | **Vector DB**<br>（Hybrid） | [Weaviate](https://github.com/weaviate/weaviate) | ⭐⭐⭐⭐ | Production 部署 + schema 约束 | 内置模块（text2vec / generative / classification），schema 驱动，原生支持 BM25 + vector hybrid 搜索。★ 16k+ |
 | **Vector DB**<br>（已有 Postgres 环境） | [pgvector](https://github.com/pgvector/pgvector) | ⭐⭐⭐⭐ | 原本就在使用 Postgres 的团队 | Postgres 扩展，SQL + vector 在同一个数据库中，运维最简。★ 22k+ |
 | **Vector DB**<br>（跑在 app 内） | [lancedb/lancedb](https://github.com/lancedb/lancedb) | ⭐⭐⭐⭐ | 想要 vector DB 直接内建、不想另跑 server | 直接跑在你 app 里的 vector DB（不用另开 server）、能处理文字 + 图片、关键字 + 向量一起搜。★ 11k+，Apache-2.0 |
-| **Memory Framework**<br>（自动事实提取） | [mem0ai/mem0](https://github.com/mem0ai/mem0) | ⭐⭐⭐⭐⭐ | 个人助手 / Chatbot 需要 user-level 记忆 | 自我精炼的 memory 层，支持跨 session 存储事实。★ 62k+ |
+| **Memory Framework**<br>（自动事实提取） | [mem0ai/mem0](https://github.com/mem0ai/mem0) | ⭐⭐⭐⭐⭐ | 个人助手 / Chatbot 需要 user-level 记忆 | 自我精炼的 memory 层，支持跨 session 存储事实。★ 68k+ |
 | **Memory Framework**<br>（OS-Paging） | [Letta（原 MemGPT）](https://github.com/letta-ai/letta) | ⭐⭐⭐⭐ | Agent 需要运行很长时间（以月为单位） | 阶层式 memory（working / archival），借鉴 OS Paging 概念。★ 24k+ |
 | **Memory（框架内）** | [LangChain — Memory](https://python.langchain.com/docs/concepts/memory/) | ⭐⭐⭐ | 已在使用 LangChain | 4 种 memory 抽象（buffer / summary / vectorstore-backed / entity）。 |
 | **进阶 RAG 技巧** | [Anthropic — Contextual Retrieval Cookbook](https://platform.claude.com/cookbook/capabilities-contextual-embeddings-guide) | ⭐⭐⭐⭐⭐ | 跑完基础 RAG 后，想升级 | Claude 结合 prompt caching 的 contextual chunking，包含完整的端到端示例。 |
 | **中文 RAG 范例** | [chatchat-space/Langchain-Chatchat](https://github.com/chatchat-space/Langchain-Chatchat) | ⭐⭐⭐⭐ | 中文知识库 / RAG 应用 | 中文社区最广泛使用，支持本地 LLM 部署（ChatGLM / Qwen / Llama / Ollama），中文默认配置好。★ 38k+，Apache-2.0 许可。⚠️ 最后更新 2025-11（边缘情况）。 |
-| **教程合集** | [ai-engineering-hub](https://github.com/patchy631/ai-engineering-hub) | ⭐⭐⭐⭐ | 想看“同一概念在不同场景下如何实现” | 主题式 LLM / RAG / agent 教程合集，Jupyter notebook 形式，跨多个 stage 都有用。★ 36k+，MIT 许可。 |
+| **教程合集** | [ai-engineering-hub](https://github.com/patchy631/ai-engineering-hub) | ⭐⭐⭐⭐ | 想看“同一概念在不同场景下如何实现” | 主题式 LLM / RAG / agent 教程合集，Jupyter notebook 形式，跨多个 stage 都有用。★ 40k+，MIT 许可。 |
 | **Production AI Assistant**<br>（学习部署 RAG 的参考）| [onyx](https://github.com/onyx-dot-app/onyx)（原 Danswer）| ⭐⭐⭐⭐⭐ | 想学习“如何将 RAG 驱动的 AI Assistant 部署到 production” | 开源的企业级 AI Assistant，支持跨 LLM，包含完整的 ingest / retrieval / chat / admin 功能。★ 31k+，积极维护。 |
 | **RAG Cookbook**<br>（30+ 技巧范例）| [NirDiamant/RAG_Techniques](https://github.com/NirDiamant/RAG_Techniques) | ⭐⭐⭐⭐⭐ | 跑完基础 RAG 后，想探索各种变体 | 大型 RAG 技巧 Cookbook，包含 Self-RAG / HyDE / Multi-Query / Adaptive 等 30+ 个 Jupyter notebook 示例。 |
 | **DSPy**<br>（编程而非 Prompt）| [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy) | ⭐⭐⭐⭐⭐ | 使用 LLM 一段时间后，想自动优化 prompt + chain | Stanford NLP group 开发，★ 36k+ MIT，Path 3 范式（详见 DSPy）。 |
