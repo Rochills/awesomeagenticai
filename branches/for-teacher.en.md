@@ -75,7 +75,7 @@ These use cases may not happen directly inside a lesson, but they shape teacher 
 General writing / brainstorming skills. Adaptable for lesson prep.
 
 #### Advanced automation: [Claude Code](https://github.com/anthropics/claude-code) (with custom CLAUDE.md) ⭐⭐⭐⭐⭐
-★ 138k+ — **The basic teacher stack is Claude.ai (web) + NotebookLM + Google Classroom / LMS integrations**; start there. **Upgrade to Claude Code only when you already have repeatable batch workflows** (such as generating 50 parent letters every week or analyzing student feedback every semester), and expect to learn some CLI.
+★ 155k+ — **The basic teacher stack is Claude.ai (web) + NotebookLM + Google Classroom / LMS integrations**; start there. **Upgrade to Claude Code only when you already have repeatable batch workflows** (such as generating 50 parent letters every week or analyzing student feedback every semester), and expect to learn some CLI.
 
 ### Teaching Course Materials (for teachers preparing classes)
 
@@ -83,7 +83,7 @@ General writing / brainstorming skills. Adaptable for lesson prep.
 
 | Field | Value |
 |---|---|
-| Stars | ★ 30k+ |
+| Stars | ★ 35k+ |
 | License | Apache-2.0 |
 
 **What it teaches**: Hugging Face's official agents curriculum — notebooks, exercises, certifications. A ready-made **AI agent teaching artifact**.
@@ -99,7 +99,7 @@ General writing / brainstorming skills. Adaptable for lesson prep.
 | Field | Value |
 |---|---|
 | Language | Chinese (zh-Hans) |
-| Stars | ★ 13k+ |
+| Stars | ★ 14k+ |
 | License | NOASSERTION |
 
 **What it teaches**: Datawhale's Chinese-language LLM application development course — RAG, agents, chapter exercises. A ready-made template for Chinese-speaking teachers preparing class material.
@@ -116,7 +116,7 @@ General writing / brainstorming skills. Adaptable for lesson prep.
 
 | Field | Value |
 |---|---|
-| Stars | ★ 161k+ |
+| Stars | ★ 177k+ |
 | License | NOASSERTION (CC0 / public-domain-style, but no SPDX) |
 
 **What it teaches**: Community-maintained prompt megacatalog — "act as X" templates covering hundreds of roles (teacher, interviewer, stand-up comedian, debater, ...). Teachers can use it as "prompt writing examples" to show students, or borrow specific prompts for in-class demos.

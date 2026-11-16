@@ -77,13 +77,13 @@ Desktop version of ChatGPT. Ask questions about screenshots, voice conversation,
 > Want to wire your CLI agent to Notion / Obsidian / Excel / Google docs / etc.? See [`resources/mcp-skills-catalog.en.md`](../resources/mcp-skills-catalog.en.md) — 79+ MCP servers / Skills grouped by use case.
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
-★ 138k+ — Anthropic's official CLI agent. Reads/writes files, runs commands, handles multi-step tasks. **The most beginner-friendly CLI tool for everyday users.**
+★ 155k+ — Anthropic's official CLI agent. Reads/writes files, runs commands, handles multi-step tasks. **The most beginner-friendly CLI tool for everyday users.**
 
 #### [openai/codex](https://github.com/openai/codex) ⭐⭐⭐⭐⭐
 
 | Field | Value |
 |---|---|
-| Stars | ★ 105k+ |
+| Stars | ★ 135k+ |
 | License | Apache-2.0 |
 
 **What it teaches**: OpenAI's terminal agent — it can help organize files, batch-process text, and run multi-step tasks from the command line; coding is only one use case. Same category as Claude Code, but uses OpenAI models.
@@ -94,7 +94,7 @@ Desktop version of ChatGPT. Ask questions about screenshots, voice conversation,
 
 | Field | Value |
 |---|---|
-| Stars | ★ 196k+ |
+| Stars | ★ 227k+ |
 | License | MIT |
 
 **What it teaches**: Open-source coding agent **not tied to any specific LLM provider** — use Claude, GPT, Gemini, or local Ollama, your choice. Community-maintained, fast iteration.
@@ -117,7 +117,7 @@ Desktop version of ChatGPT. Ask questions about screenshots, voice conversation,
 ### Tier 3 — Local LLM (privacy / offline / cost)
 
 #### [Ollama](https://github.com/ollama/ollama) ⭐⭐⭐⭐⭐
-★ 170k+ — One command to run a local LLM. Use this when privacy-sensitive data (medical records, contracts, family conversations) shouldn't leave your machine. See [Stage 1 — Local LLM](../stages/01-llm-basics.en.md).
+★ 187k+ — One command to run a local LLM. Use this when privacy-sensitive data (medical records, contracts, family conversations) shouldn't leave your machine. See [Stage 1 — Local LLM](../stages/01-llm-basics.en.md).
 
 #### [LM Studio](https://lmstudio.ai/)
 Closed-source but the most beginner-friendly option — drag-and-drop UI, no command line. Mac / Windows / Linux.
@@ -127,7 +127,7 @@ Closed-source but the most beginner-friendly option — drag-and-drop UI, no com
 ### Prompt Library
 
 #### [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) ⭐⭐⭐⭐
-★ 161k+ — Community-maintained prompt megacatalog. "Act as a translator / résumé consultant / chef..." in hundreds of roles. **When stuck on how to start, browse here.**
+★ 177k+ — Community-maintained prompt megacatalog. "Act as a translator / résumé consultant / chef..." in hundreds of roles. **When stuck on how to start, browse here.**
 
 ---
 

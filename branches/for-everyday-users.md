@@ -79,13 +79,13 @@ ChatGPT 桌面版。可以對螢幕截圖問問題、語音對話、跟其他 Ap
 > 想把 CLI agent 接到你的 Notion / Obsidian / Excel / Google 文件等日常工具？見 [`resources/mcp-skills-catalog.md`](../resources/mcp-skills-catalog.md)（按分類整理 79+ 個 MCP server / Skill）。
 
 #### [anthropics/claude-code](https://github.com/anthropics/claude-code) ⭐⭐⭐⭐⭐
-★ 138k+ — Anthropic 官方的 CLI agent。能讀寫檔案、執行指令、做多步驟任務。**日常使用者最容易上手的 CLI 工具**。
+★ 155k+ — Anthropic 官方的 CLI agent。能讀寫檔案、執行指令、做多步驟任務。**日常使用者最容易上手的 CLI 工具**。
 
 #### [openai/codex](https://github.com/openai/codex) ⭐⭐⭐⭐⭐
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 105k+ |
+| Stars | ★ 135k+ |
 | License | Apache-2.0 |
 
 **教什麼**：OpenAI 出品的終端機 agent——可以在命令列幫你整理檔案、批次處理文字、執行多步驟任務；寫程式只是其中一種用途。跟 Claude Code 同類、但用的是 OpenAI 的模型。
@@ -96,7 +96,7 @@ ChatGPT 桌面版。可以對螢幕截圖問問題、語音對話、跟其他 Ap
 
 | 欄位 | 內容 |
 |---|---|
-| Stars | ★ 196k+ |
+| Stars | ★ 227k+ |
 | License | MIT |
 
 **教什麼**：開源版的 coding agent，**不綁特定 LLM provider**——可以用 Claude、GPT、Gemini、本地 Ollama 任何一個。社群維護、迭代速度快。
@@ -119,7 +119,7 @@ ChatGPT 桌面版。可以對螢幕截圖問問題、語音對話、跟其他 Ap
 ### Tier 3 — 本地 LLM（隱私 / 離線 / 省錢）
 
 #### [Ollama](https://github.com/ollama/ollama) ⭐⭐⭐⭐⭐
-★ 170k+ — 一行指令跑本地 LLM。隱私敏感資料（病歷、合約、家人對話）不適合送去雲端時用這個。詳見 [Stage 1 — Local LLM 執行](../stages/01-llm-basics.md)。
+★ 187k+ — 一行指令跑本地 LLM。隱私敏感資料（病歷、合約、家人對話）不適合送去雲端時用這個。詳見 [Stage 1 — Local LLM 執行](../stages/01-llm-basics.md)。
 
 #### [LM Studio](https://lmstudio.ai/)
 非開源但對非開發者最友善——拖拉介面、不用 command line。Mac / Windows / Linux 都有。
@@ -129,7 +129,7 @@ ChatGPT 桌面版。可以對螢幕截圖問問題、語音對話、跟其他 Ap
 ### Prompt 素材庫
 
 #### [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) ⭐⭐⭐⭐
-★ 161k+ — 社群維護的 prompt 大全。「act as 翻譯家 / 履歷顧問 / 廚師...」幾百種角色。**不知道怎麼開頭時從這裡找靈感**。
+★ 177k+ — 社群維護的 prompt 大全。「act as 翻譯家 / 履歷顧問 / 廚師...」幾百種角色。**不知道怎麼開頭時從這裡找靈感**。
 
 ---
 

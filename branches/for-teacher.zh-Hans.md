@@ -75,7 +75,7 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
 通用的写作 / 头脑风暴 skill。可改用在备课上。
 
 #### 进阶自动化：[Claude Code](https://github.com/anthropics/claude-code)（搭配自定义 CLAUDE.md）⭐⭐⭐⭐⭐
-★ 138k+ — **教师的基础工具是 Claude.ai（网页版）+ NotebookLM + Google Classroom / LMS 集成**，先从这里开始。**只有当你已有会重复跑的批量流程**（如每周生成 50 份家长信、每学期跑学生反馈分析）才升级到 Claude Code，需要学一点 CLI。
+★ 155k+ — **教师的基础工具是 Claude.ai（网页版）+ NotebookLM + Google Classroom / LMS 集成**，先从这里开始。**只有当你已有会重复跑的批量流程**（如每周生成 50 份家长信、每学期跑学生反馈分析）才升级到 Claude Code，需要学一点 CLI。
 
 ### 教学课程素材（给教师备课用）
 
@@ -83,7 +83,7 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 30k+ |
+| Stars | ★ 35k+ |
 | License | Apache-2.0 |
 
 **教什么**：Hugging Face 官方的 agent 课程——notebook、练习、结业认证。是一份**现成的“AI agent 教学”素材**。
@@ -99,7 +99,7 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
 | 栏位 | 内容 |
 |---|---|
 | 语言 | 中文（zh-Hans） |
-| Stars | ★ 13k+ |
+| Stars | ★ 14k+ |
 | License | NOASSERTION |
 
 **教什么**：Datawhale 出品的中文 LLM 应用开发课程——含 RAG、agent、章节练习。中文教师备课的现成模板。
@@ -116,7 +116,7 @@ AI 可以帮忙准备和辅助，但不应该直接取代教师判断。近期 A
 
 | 栏位 | 内容 |
 |---|---|
-| Stars | ★ 161k+ |
+| Stars | ★ 177k+ |
 | License | NOASSERTION（CC0 / public domain 风格，但未提供 SPDX） |
 
 **教什么**：社群维护的 prompt 大全——“act as X”型模板涵盖几百种角色（老师、面试官、stand-up comedian、辩论者⋯）。教师可以拿来当“prompt engineering 写法示例”教给学生，或直接借用其中合适的当作课堂示范。

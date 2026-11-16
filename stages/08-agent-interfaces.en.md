@@ -188,7 +188,7 @@ Agent receives a task
 
 **Conclusion — The production browser agent pattern**: **DOM-first with a screenshot fallback**. First try the DOM, and if that fails, use vision. `browser-use`, Atlas, and Comet all use this pattern.
 
-> 🌐 **A third browser modality: the accessibility tree**: beyond DOM-aware and screen-pixel (screenshot + click coordinates), the 2026 production mainstream reads the **accessibility tree**: more stable than pixels, far fewer tokens than raw DOM. To wire one up, [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) (★ 35k+, Apache-2.0, accessibility-tree-based) is the browser MCP a Track A user can attach to Claude Code today.
+> 🌐 **A third browser modality: the accessibility tree**: beyond DOM-aware and screen-pixel (screenshot + click coordinates), the 2026 production mainstream reads the **accessibility tree**: more stable than pixels, far fewer tokens than raw DOM. To wire one up, [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) (★ 39k+, Apache-2.0, accessibility-tree-based) is the browser MCP a Track A user can attach to Claude Code today.
 
 ### Mini-Glossary (In-Place Explanations)
 
@@ -524,7 +524,7 @@ This stage covered the three interface layers of **desktop, browser, and sandbox
 ### Voice agents
 
 - [**Vapi**](https://vapi.ai/) / [**Retell**](https://www.retellai.com/) — Commercial voice agent platforms
-- [**LiveKit Agents**](https://github.com/livekit/agents) — OSS, ★ 12k+
+- [**LiveKit Agents**](https://github.com/livekit/agents) — OSS, ★ 15k+
 - [**OpenAI Realtime API**](https://platform.openai.com/docs/guides/realtime) — For building speech-to-speech agents directly
 
 ### VLA (Vision-Language-Action) robots
